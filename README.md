@@ -22,7 +22,12 @@
 * (99,136,114) RUSSIAN GREEN
 * (128,185,177) PEWTER BLUE
 * (148,199,180) CAMBRIDGE BLUE
-
+### Color scheme 2:
+* B3BAC1 CLOUDY SKIES
+* 4A6781 THUNDER BLUE
+* DFE5EB MISTY
+* F2C94C RAINCOAT
+* 26374D PUDDLE
 ## Unfinished Tasks
 ### Minimum Required Features
 #### Students should be able to:
