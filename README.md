@@ -17,6 +17,7 @@
 * Define assessment categories and their weightings for each course. 
 ## Info about project
 ### Color scheme:
+* #
 
 
 ## Unfinished Tasks
