@@ -36,7 +36,7 @@
 * Enter earned marks and total marks for assessments.
 
 
-#### Instructors/Admin should be able to:
+#### Instructors//Admin should be able to:
 * View anonymized usage statistics. (e.g., percentage of students who have completed assessments, which could be useful for monitoring progress and considering deadline extensions.)
 * Enable or disable courses. 
 
