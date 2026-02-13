@@ -1,0 +1,144 @@
+:root{
+    --sage: rgb(228, 10, 232);
+    --dark-purple: rgb(64, 34, 66);
+    --russian-green: rgb(99, 136, 114);
+    --pewter-blue: rgb(128, 185, 177);
+    --cambdridge-blue: rgb(148, 199, 180);
+
+    --bg: rgba(195, 200, 0, 140);
+    --card-bg: rgba(255, 255, 255, 0.75);
+    --border: rgba(64, 34, 66, 0.12);
+    --shadow: 0 12px 30px rgba(64, 34, 66, 0.10);
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    margin: 0;
+    padding: 50px;
+    background: var(--bg);
+    color: var(--dark-purple);
+}
+
+/*--------------Title----------------*/
+h1 {
+    font-size: 42px;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.subtitle {
+    color:  rgba(64, 34, 66, 0.65);
+    margin-bottom: 30px; 
+}
+
+/*------------Summary Cards-------------*/
+.summary{
+    display: flex;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.card{
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 20px;
+    width: 200px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(8px);
+}
+
+.card h2{
+    margin: 0;
+    font-size: 26px;
+}
+
+.card p{
+    margin-top: 8px;
+    color: rgba(64, 34, 66, 0.7);
+}
+
+/*--------------Filter-------------*/
+.filters{
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 18px;
+    box-shadow: var(--shadow);
+    margin-bottom: 25px;
+}
+.filters button{
+    padding: 8px 14px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: white;
+    cursor: pointer;
+    margin: 5px;
+    font-weight: 600;
+}
+
+.filters button:hover{
+    background: var(--pewter-blue);
+    color: white;
+    border: none;
+}
+
+/*-------------Assessments---------------*/
+
+.assessments{
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.assessment-card{
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(8px);
+}
+
+.assessment-card:hover{
+    transform: translateY(-2px);
+}
+
+.status{
+    width: 18px;
+    height: 18px;
+    accent-color: var(--russian-green);
+}
+
+.assessment-details h3{
+    margin: 0;
+    font-size: 18px;
+}
+
+.assessment-details p{
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: rgba(64, 34, 66, 0.6);
+}
+
+.delete-assessment{
+    margin-left: auto;
+    background: var(--dark-purple);
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.delete-assessment:hover{
+    background: var(--russian-green);
+}
