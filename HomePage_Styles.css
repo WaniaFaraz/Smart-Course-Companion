@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 /* The rest of your CSS styles go below this line */
@@ -376,4 +377,492 @@ a {
 
 .text-next-to-profile {
     margin-right : 0.5cm;
+=======
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+/* The rest of your CSS styles go below this line */
+
+* {
+    margin : 0;
+    padding : 0;
+    font-family : 'Raleway', 'Gill Sans MT',  Geneva, 'Inter',  'Lucida Sans Unicode', 'Segoe UI';
+}
+
+:root {
+    --z-dark-purple : #3d0066;
+    --z-mid-purple : #82383b;
+    --z-light-purple : #EFD9F7;
+    --z-yellow : #d7ac28;
+    --z-ochre : #c78d17;
+
+    --w-dark-purple1 : #470047;
+    --w-dark-purple2 : #310047;
+    --w-mid-purple : #6f0b5b;
+    --w-magenta : #a02b68;
+    --w-yellow : #ffb948;
+    --w-orange : #ff8f2f;
+    --w-dark-orange : #f97134;
+    --w-purple-grey : rgb(225, 222, 230);
+}
+
+body {
+    display : flex;
+    overflow : auto;
+    font-weight : 12pt;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration : none;
+    color : inherit;
+}
+
+
+/* elements on the left */
+.left {
+    color : whitesmoke;
+    width : 15%;
+    display : flex;
+    flex-direction : column;
+    background: #310047;
+    background: linear-gradient(132deg, rgba(49, 0, 71, 1) 0%, rgba(49, 0, 71, 1) 13%, rgba(49, 0, 71, 1) 25%, rgba(50, 0, 71, 1) 35%, rgba(71, 0, 71, 1) 80%);
+    box-shadow : 2cm 0 2cm 0 -6 rgb(20, 20, 20);
+
+}
+
+.left-title {
+    font-size : 16pt;
+    margin-top : 1cm;
+    margin-bottom : 2.5cm;
+    margin-left : 0.4cm;
+}
+
+.left-menu-option a {
+    width : 100%;
+}
+
+.left-menu-option:has(a:hover) {
+    background-color: var(--w-dark-purple1);
+    border-right : solid var(--w-magenta) 5px;
+}
+
+.left-menu-option:has(a:focus) {
+    background-color: var(--w-dark-purple1);
+    border-right : solid var(--w-magenta) 5px;
+}
+
+.left-menu-top {
+    display : flex;
+    flex-direction : column;
+    justify-content: flex-center;
+    flex-grow : 1;
+
+}
+
+.left-menu-top li {
+    color : whitesmoke;
+    display: flex;
+    align-items : center;
+}
+
+.left-menu-bottom li {
+    color : whitesmoke;
+    display : flex;
+    align-items : center;
+}
+
+.left-menu-bottom {
+    display : flex;
+    flex-direction : column;
+    justify-content : flex-end;
+}
+.left-menu-option {
+    padding-bottom : 0.25cm;
+    padding-top : 0.25cm;
+    font-size : 16pt;
+    color : grey;
+    padding-left : 0.4cm;
+}
+
+.left-menu-option img {
+    height: 30px;
+    width : 30px;
+    margin-right : 0.2cm;
+}
+
+/* elements in the center area */
+.center {
+    background-color: whitesmoke;
+    width : 60%;
+    flex-grow : 1;
+    display : block;
+    max-width : 60%;
+    height : auto;
+    overflow : auto;
+}
+
+.uppermost-center-line {
+    display : flex;
+    height : 1in;
+    padding-right : 1cm;
+    padding-left : 0.5cm;
+    align-items : center;
+}
+
+.center-title {
+    /*My courses*/
+    font-family : oswald;
+    flex-grow : 1;
+    font-size : 30pt;
+}
+
+.left-icons-in-uppermost-center-line {
+    display : flex;
+    width : 40%;
+    align-items : center;
+    gap : 4%;
+}
+
+.search-bar-container {
+    display : flex;
+    border : var(--w-purple-grey) solid 1px;
+    background-color: whitesmoke;
+    flex-grow : 1;
+    height : 0.8cm;
+    border-radius : 50px;
+    padding-right : 5%;
+    padding-left : 2.5%;
+    align-items : center;
+
+}
+
+.search-icon {
+    /*<a target="_blank" href="https://icons8.com/icon/59878/search">Search</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>*/
+    width : 20px;
+    height : 20px;
+
+}
+
+.search-bar-input:hover {
+    outline : none;
+}
+
+.search-bar-input:focus {
+    outline: none;
+}
+
+.search-bar-input {
+    border : 0px;
+    background-color: whitesmoke;
+    flex-grow : 1;
+    justify-content : flex-end;
+    font-size : 12pt;
+    font-style : inherit;
+    margin-left : 2%;
+}
+
+.notifications-icon {
+    /*credit: */
+    /*<a target="_blank" href="https://icons8.com/icon/4mJGn1D1b2Xr/notification">Notification</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>*/
+    width : 25px;
+    height : 25px;
+
+}
+
+.hamburger-menu-button {
+    width : 20px;
+    display : block;
+    align-self : flex-center;
+    padding : 2px 0;
+}
+
+.hamburger-bar {
+    width : 100%;
+    display : block;
+    height : 1.5pt;
+    border-radius : 2px;
+    background: #111;
+}
+
+.hamburger-bar + .hamburger-bar {
+    margin-top : 5px;
+}
+
+.filter-by-line {
+    display : flex;
+    padding-top : 1cm;
+    padding-right : 0.5cm;
+    padding-left : 0.5cm;
+    gap : 5%;
+    font-size : 14pt;
+    align-items : center;
+    margin-bottom : 1cm;
+}
+
+.disappear {
+    display : none;
+}
+
+
+.present-div, .future-div, .past-div {
+    display : flex;
+    align-items : center;
+    border-radius : 50px;
+    background-color : grey;
+    display : flex;
+    height : 0.9cm;
+    box-shadow : 5px 5px 10px 0px var(--w-purple-grey);
+}
+
+.filter-p {
+    align-self: center;
+}
+
+
+.filter-checkbox-label {
+    display : flex;
+    border-radius : 50px;
+    padding : 0.05cm 1cm;
+    height : 100%;
+    background-color: var(--w-yellow);
+    
+}
+
+.filter-checkbox-div {
+    background-color : white;
+    display : flex;
+    justify-content : center;
+}
+
+.filter-checkbox:checked ~ .filter-checkbox-label {
+    background-color : var(--w-orange);
+}
+
+.course-area {
+    border-radius : 15px;
+    background-color: rgb(225, 222, 230);
+    /* rgb(204, 201, 210) */
+    margin-left : 0.2cm;
+    margin-right : 0.2cm;
+    padding : 1.2cm 12%;
+    display : grid;
+    grid-template-columns : 1fr 1fr;
+    grid-template-rows : auto;
+    grid-auto-flow : row;
+    justify-items : center;
+    align-items : center;
+    row-gap : 1cm;
+    overflow : auto;
+
+}
+
+.course-info-text {
+    margin-top : 0.2cm;
+    margin-bottom : 4%;
+    margin-left: 0.2cm;
+    margin-right: 0.2cm;
+    border : 0px solid black;
+    color : grey;
+}
+
+.course-info-text:hover {
+    color : var(--w-orange);
+}
+
+.course-info-text:hover:hover > .course-name {
+    color : var(--w-orange);
+}
+.course {
+    display : flex;
+    flex-direction : column;
+    background-color: whitesmoke;
+    justify-content : flex-end;
+    border-radius : 15px;
+    height : 2in;
+    width : 2.5in;
+    padding : 0.2cm 0cm;
+    overflow : none;
+
+}
+
+.course-image {
+    border : black solid  0px;
+    display : flex;
+    min-height : 0;
+    flex-grow : 1;
+    margin-right : 0.2cm;
+    margin-left : 0.2cm;
+    border-top-left-radius : 15px;
+    border-top-right-radius : 15px;
+    background-size : cover;
+
+}
+
+.course-img-1 {
+    background-image: url('course-images/IMG-20260215-WA0005.jpg');
+}
+
+.course-img-2 {
+    background-image : url('course-images/IMG-20260215-WA0006.jpg');
+}
+
+.course-img-3 {
+    background-image: url('course-images/IMG-20260215-WA0007.jpg');
+}
+
+.course-img-4 {
+    background-image: url('course-images/IMG-20260215-WA0008.jpg');
+}
+
+.course-img-5 {
+    background-image: url('course-images/IMG-20260215-WA0009.jpg');
+}
+
+.course-img-6 {
+    background-image: url('course-images/IMG-20260215-WA0010.jpg');
+}
+
+.course-img-7 {
+    background-image: url('course-images/IMG-20260215-WA0011.jpg');
+}
+
+.course-img-8 {
+    background-image: url('course-images/IMG-20260215-WA0012.jpg');
+}
+
+.course-img-9 {
+    background-image: url('course-images/IMG-20260215-WA0013.jpg');
+}
+
+.course-img-10 {
+    background-image: url('course-images/IMG-20260215-WA0014.jpg');
+}
+
+.course-img-11 {
+    background-image: url('course-images/IMG-20260215-WA0015.jpg');
+}
+
+.course-img-12 {
+    background-image: url('course-images/IMG-20260215-WA0016.jpg');
+}
+
+.course-img-13 {
+    background-image: url('course-images/IMG-20260215-WA0017.jpg');
+}
+
+.course-img-14 {
+    background-image: url('course-images/IMG-20260215-WA0018.jpg');
+}
+
+.course-img-15 {
+    background-image: url('course-images/IMG-20260215-WA0019.jpg');
+}
+
+.course-img-16 {
+    background-image: url('course-images/IMG-20260215-WA0020.jpg');
+}
+
+.course-img-17 {
+    background-image: url('course-images/IMG-20260215-WA0021.jpg');
+}
+
+.course-img-18 {
+    background-image: url('course-images/IMG-20260215-WA0022.jpg');
+}
+
+.course-img-19 {
+    background-image: url('course-images/IMG-20260215-WA0023.jpg');
+}
+
+.course-img-20 {
+    background-image: url('course-images/IMG-20260215-WA0024.jpg');
+}
+
+.course-img-21 {
+    background-image: url('course-images/IMG-20260215-WA0025.jpg');
+}
+
+.course-name {
+    font-size : 18pt;
+    color : black;
+}
+.course-code {
+    font-size : 14pt;
+}
+
+.course-section {
+    font-size : 14pt;
+}
+
+.deadline-title {
+    font-size : 18pt;
+    margin-left : 0.5cm;
+    margin-bottom : 0.5cm;
+    margin-top : 0.5cm;
+    
+}
+
+.deadlines-container {
+    border-radius: 15px;
+    background-color : rgb(225, 222, 230);
+    margin : 0.2cm;
+    padding : 0.2cm 12%;
+}
+
+.deadlines-list {
+    display : flex;
+    gap : 5%;
+    margin-left : 0.5cm;
+}
+
+.deadline-item {
+    border-radius : 20px;
+    background-color: var(--w-yellow);
+    padding : 0.2cm 0.7cm;
+    margin-bottom : 0.5cm;
+}
+
+.deadline-item:has(.deadline-item-anchor:hover)  {
+    background-color: var(--w-orange);
+}
+
+.right {
+    width : 25%;
+    background: #310047;
+    background: linear-gradient(301deg, rgba(49, 0, 71, 1) 0%, rgba(49, 0, 71, 1) 13%, rgba(49, 0, 71, 1) 25%, rgba(50, 0, 71, 1) 35%, rgba(71, 0, 71, 1) 80%);
+    color : whitesmoke;
+}
+
+.top-right {
+    display : flex;
+    justify-content : flex-end;
+    align-items : center;
+    border : solid red 0px;
+    height : 2cm;
+    padding-right : 0.5cm;
+    padding-top : 0.5cm;
+    color : whitesmoke;
+}
+
+.username {
+    font-size : 16pt;
+    margin-bottom : 0.1cm;
+}
+
+.student-id {
+    font-size : 14pt;
+    text-align : right;
+}
+
+.profile-photo {
+    width : 1.5cm;
+    height : 1.5cm;
+}
+
+.text-next-to-profile {
+    margin-right : 0.5cm;
+>>>>>>> Stashed changes
 }
