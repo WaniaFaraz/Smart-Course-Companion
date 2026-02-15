@@ -1,0 +1,372 @@
+* { box-sizing: border-box;}
+body { margin: 0;
+       font-family: Arial, sans-serif; 
+       background: #f5f6fa;
+       color: #111 }
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: inherit
+}
+
+/* the website layout */
+.app {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 260px 1fr; /* sidebar + page */
+}
+
+/* sidebar */
+.sidebar {
+    background: #ffffff;
+    border-right: 1px solid #e6e6e6;
+    padding: 18px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-box {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background: #e9ecff;
+}
+
+.brand-title {
+    font-size: 18px;
+    margin: 0;
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 10px;
+    border-radius: 10px;
+    color: #222;
+}
+
+.nav-item:hover {
+    background: #f2f3f8;
+}
+
+.nav-item.active {
+    background: #e9ecff;
+    font-weight: 700;
+}
+
+.nav-icon {
+    width: 18px;
+    text-align: center;
+    opacity: 0.8;
+}
+
+.sidebar-bottom {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* page area */
+.page {
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+/* top bar */
+.topbar {
+    background: #ffffff;
+    border-bottom: 1px solid #e6e6e6;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+}
+
+.course-title h2 {
+    margin: 0;
+    font-size: 20px;
+}
+.course-title p {
+    margin: 4px 0 0;
+    color: #555;
+    font-size: 14px;
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.icon-btn {
+    border: 1px solid #e6e6e6;
+    background: #fff;
+    border-radius: 10px;
+    padding: 8px 10px;
+    cursor: pointer;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    gap: 10px'
+}
+
+.user-meta {
+    text-align: right;
+}
+.user-name {
+    margin: 0;
+    font-weight: 700;
+}
+.user-id {
+    margin: 2px 0 0;
+    font-size: 12px;
+    color: #666;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #e6e6e6
+}
+
+.content-grid {
+    padding: 18px;
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 18px;
+    align-items: start;
+}
+
+.card {
+    background: #ffffff;
+    border: 1px solid #e6e6e6;
+    border-radius: 14px;
+    padding: 14px;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.card-header h3 {
+    margin: 0;
+}
+
+.muted {
+    margin: 0;
+    color: #666;
+    font-size: 13px;
+}
+
+/* table */
+.table-wrap {
+    overflow-x: auto;
+}
+.assess-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 620px;
+}
+.assess-table th, .assess-table td {
+    border-bottom: 1px solid #eee;
+    padding: 10px 8px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.assess-table th {
+    color: #444;
+    font-weight: 700;
+}
+
+.primary-btn {
+    border: none;
+    background: #e9ecff;
+    padding: 9px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.status {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.status.not-started {
+    background: #ffecec;
+}
+.status.in-progress {
+    background: #fff6db;
+}
+.status.submitted {
+    background: #e7ffee;
+}
+
+
+.bars {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(90px, 1fr));
+    gap: 14px;
+    align-items: end;
+}
+
+.bar-card {
+    display: grid;
+    justify-items: center;
+    gap: 8px;
+    padding-top: 6px;
+}
+
+.bar {
+    width: 56px;
+    height: 170px;
+    border-radius: 12px;
+    border: 1px solid #e6e6e6;
+    background: #fafafa;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+}
+
+.bar-fill {
+    width: 100%;
+    background: #e9ecff;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.bar-label {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 700;
+}
+.bar-value {
+    margin: 0;
+    font-size: 13px;
+    color: #444;
+}
+
+.tasks {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+    display: grid;
+    gap: 10px;
+}
+
+.tasks li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.add-btn {
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 50%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+}
+.add-btn:hover {
+  background-color: #dfe4ff;
+}
+
+
+
+.calendar {
+    margin-top: 8px;
+}
+.cal-head, .cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+}
+.cal-head span {
+    font-size: 12px;
+    color: #666;
+    text-align: center;
+}
+
+.cal-day {
+    height: 34px;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    display: grid;
+    place-items: center;
+    font-size: 13px;
+    background: #fff;
+}
+
+.cal-day.dim {
+    background: transparent;
+    border-color: transparent;
+
+}
+.cal-day.highlight {
+    background: #e9ecff;
+    border-color: #dfe4ff;
+    font-weight: 700;
+}
+.cal-legend {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #e9ecff;
+    border: 1px solid #dfe4ff;
+}
+
+/* this to make the page responsive whenever the user open it on a smaller screen */
+@media (max-width: 1050px) {
+  .content-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 700px) {
+  .app { grid-template-columns: 1fr; }
+  .sidebar { display: none; } 
+}
