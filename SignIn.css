@@ -1,0 +1,226 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Caveat', cursive;
+    background-color: #5b2d8e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.page {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    height: 90vh;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 8px 8px 0px #470047;
+}
+
+.leftSide {
+    background-color: #5b2d8e;
+    width: 38%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 30px;
+    position: relative;
+    overflow: hidden;
+    border-right: 4px solid white;
+}
+
+.leftSide::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    left: -20px;
+    width: 120px;
+    height: 100px;
+    background: rgba(255,255,255,0.12);
+    border-radius: 60% 40% 70% 30% / 50% 60% 40% 60%;
+}
+
+.leftSide::after {
+    content: '';
+    position: absolute;
+    bottom: 30px;
+    right: -20px;
+    width: 100px;
+    height: 120px;
+    background: rgba(255,255,255,0.10);
+    border-radius: 40% 60% 30% 70% / 60% 40% 60% 40%;
+}
+
+.pattern1 {
+    position: absolute;
+    bottom: 80px;
+    left: 10px;
+    width: 70px;
+    height: 80px;
+    background: rgba(255,255,255,0.10);
+    border-radius: 50% 50% 40% 60% / 60% 40% 60% 40%;
+}
+
+.pattern2 {
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    width: 50px;
+    height: 65px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 40% 60% 60% 40% / 50% 50% 50% 50%;
+}
+
+.title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    z-index: 1;
+}
+
+.subtitle {
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.85);
+    text-align: center;
+    margin-top: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 1;
+}
+
+.rightSide {
+    background-color: #ffffff;
+    width: 62%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 50px;
+}
+
+.welcome {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #2c2c2c;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+    text-align: center;
+}
+
+.formTitle {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.label {
+    display: none;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.input-icon {
+    position: absolute;
+    left: 14px;
+    font-size: 1rem;
+    color: #555;
+    pointer-events: none;
+}
+
+.input {
+    width: 100%;
+    padding: 9px 18px 9px 38px;
+    font-family: 'Caveat', cursive;
+    font-size: 1rem;
+    border: 2px solid #333;
+    border-radius: 30px;
+    outline: none;
+    background: #fff;
+    color: #333;
+    letter-spacing: 1px;
+    transition: border-color 0.2s;
+}
+
+.input:focus {
+    border-color: #5b2d8e;
+}
+
+.button {
+    margin-top: 8px;
+    width: 60%;
+    padding: 9px;
+    font-family: 'Caveat', cursive;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    background-color: #8238B3;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.button:hover {
+    background-color: #5b2d8e;
+    transform: translateY(-1px);
+}
+
+.button:active {
+    transform: translateY(1px);
+}
+
+.bottomText {
+    margin-top: 18px;
+    font-size: 1.1rem;
+    color: #555;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+.bottomText a {
+    color: #2c2c2c;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.bottomText a:hover {
+    color: #5b2d8e;
+}

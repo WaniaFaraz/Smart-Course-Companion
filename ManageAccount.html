@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Organizer - Manage Account</title>
+    <link rel="stylesheet" href="ManageAccount.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <h1 class="navTitle">Course Companion</h1>
+        <div class="navAvatar">CY</div>
+    </nav>
+
+    <div class="container">
+        <div class="card">
+
+            <h2 class="pageTitle">Manage Account</h2>
+            <p class="pageSubtitle">Update your personal information and settings</p>
+
+            <hr class="divider">
+
+            <div class="section">
+                <h3 class="sectionTitle">Profile Picture</h3>
+                <div class="profileRow">
+                    <div class="avatar">CY</div>
+                    <button class="btnPhoto">Change Photo</button>
+                    <a class="removeLink">Remove</a>
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <div class="section">
+                <h3 class="sectionTitle">Personal Information</h3>
+                <div class="row2col">
+                    <div class="inputGroup">
+                        <label class="label">First Name</label>
+                        <input class="input" type="text" placeholder="Chaymae"/>
+                    </div>
+                    <div class="inputGroup">
+                        <label class="label">Last Name</label>
+                        <input class="input" type="text" placeholder="Yartaoui"/>
+                    </div>
+                </div>
+                <div class="inputGroup">
+                    <label class="label">Email Address</label>
+                    <input class="input full" type="email" placeholder="chaymae.yartaoui@email.com"/>
+                </div>
+                <button class="btnSave">Save Changes</button>
+            </div>
+
+            <hr class="divider">
+
+            <div class="section">
+                <h3 class="sectionTitle">Change Password</h3>
+                <div class="inputGroup">
+                    <label class="label">Current Password</label>
+                    <input class="input full" type="password" placeholder="Enter current password"/>
+                </div>
+                <div class="inputGroup">
+                    <label class="label">New Password</label>
+                    <input class="input full" type="password" placeholder="Enter new password"/>
+                </div>
+                <div class="inputGroup">
+                    <label class="label">Confirm New Password</label>
+                    <input class="input full" type="password" placeholder="Confirm new password"/>
+                </div>
+                <button class="btnSave">Update Password</button>
+            </div>
+
+            <hr class="divider">
+
+            <div class="section">
+                <h3 class="sectionTitle">Preferences</h3>
+                <div class="inputGroup">
+                    <label class="label">Language</label>
+                    <select class="input full">
+                        <option>English</option>
+                        <option>French</option>
+                    </select>
+                </div>
+                <div class="toggleRow">
+                    <span class="label">Email Notifications</span>
+                    <input type="checkbox" class="toggle" checked/>
+                </div>
+                <div class="toggleRow">
+                    <span class="label">Dark Mode</span>
+                    <input type="checkbox" class="toggle"/>
+                </div>
+                <button class="btnSave">Save Preferences</button>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
