@@ -5,6 +5,8 @@
 * Mark assessments as completed or pending.
 * Edit or delete their own courses and assessments.
 * View visual summaries such as progress bars or charts (e.g., per-course progress bars, current average per course, or a chart showing performance trends or assessment completion).
+* View anonymized usage statistics. (e.g., percentage of students who have completed assessments, which could be useful for monitoring progress and considering deadline extensions.)
+* Enable or disable courses. 
 ### Chaymae
 * Create and manage a personal account. 
 * Provide reusable course structures for students.
@@ -37,8 +39,7 @@
 
 
 #### Instructors//Admin should be able to:
-* View anonymized usage statistics. (e.g., percentage of students who have completed assessments, which could be useful for monitoring progress and considering deadline extensions.)
-* Enable or disable courses. 
+
 
 ### Bonus
 *

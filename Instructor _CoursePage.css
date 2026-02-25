@@ -1,0 +1,498 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin : 0;
+    padding : 0;
+    font-family : 'Raleway', 'Gill Sans MT',  Geneva, 'Inter',  'Lucida Sans Unicode', 'Segoe UI';
+}
+
+:root {
+    --z-dark-purple : #3d0066;
+    --z-mid-purple : #82383b;
+    --z-light-purple : #EFD9F7;
+    --z-yellow : #d7ac28;
+    --z-ochre : #c78d17;
+
+    --w-dark-purple1 : #470047;
+    --w-dark-purple2 : #310047;
+    --w-mid-purple : #6f0b5b;
+    --w-magenta : #a02b68;
+    --w-yellow : #ffb948;
+    --w-orange : #ff8f2f;
+    --w-dark-orange : #f97134;
+    --w-purple-grey : rgb(225, 222, 230);
+}
+
+body {
+    display : flex;
+    overflow : auto;
+    font-weight : 12pt;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration : none;
+    color : inherit;
+}
+
+
+/* elements on the left */
+.left {
+    color : whitesmoke;
+    width : 15%;
+    display : flex;
+    flex-direction : column;
+    background: #310047;
+    background: linear-gradient(132deg, rgba(49, 0, 71, 1) 0%, rgba(49, 0, 71, 1) 13%, rgba(49, 0, 71, 1) 25%, rgba(50, 0, 71, 1) 35%, rgba(71, 0, 71, 1) 80%);
+    box-shadow : 2cm 0 2cm 0 -6 rgb(20, 20, 20);
+
+}
+
+.left-title {
+    font-size : 16pt;
+    margin-top : 1cm;
+    margin-bottom : 2.5cm;
+    margin-left : 0.4cm;
+}
+
+.left-menu-option a {
+    width : 100%;
+}
+
+.left-menu-option:has(a:hover) {
+    background-color: var(--w-dark-purple1);
+    border-right : solid var(--w-magenta) 5px;
+}
+
+.left-menu-option:has(a:focus) {
+    background-color: var(--w-dark-purple1);
+    border-right : solid var(--w-magenta) 5px;
+}
+
+.left-menu-top {
+    display : flex;
+    flex-direction : column;
+    justify-content: flex-center;
+    flex-grow : 1;
+
+}
+
+.left-menu-top li {
+    color : whitesmoke;
+    display: flex;
+    align-items : center;
+}
+
+.left-menu-bottom li {
+    color : whitesmoke;
+    display : flex;
+    align-items : center;
+}
+
+.left-menu-bottom {
+    display : flex;
+    flex-direction : column;
+    justify-content : flex-end;
+}
+.left-menu-option {
+    padding-bottom : 0.25cm;
+    padding-top : 0.25cm;
+    font-size : 16pt;
+    color : grey;
+    padding-left : 0.4cm;
+}
+
+.left-menu-option img {
+    height: 30px;
+    width : 30px;
+    margin-right : 0.2cm;
+}
+
+/* elements in the center area */
+.center {
+    background-color: whitesmoke;
+    width : 60%;
+    flex-grow : 1;
+    display : block;
+    max-width : 60%;
+    height : auto;
+    overflow : auto;
+}
+
+.uppermost-center-line {
+    display : flex;
+    height : 1in;
+    padding-right : 1cm;
+    padding-left : 0.5cm;
+    align-items : center;
+}
+
+.center-title {
+    /*My courses*/
+    font-family : oswald;
+    
+    font-size : 20pt;
+}
+
+.instructor-welcome-message {
+    flex-grow : 1;
+}
+
+.left-icons-in-uppermost-center-line {
+    display : flex;
+    width : 40%;
+    align-items : center;
+    gap : 4%;
+}
+
+.search-bar-container {
+    display : flex;
+    border : var(--w-purple-grey) solid 1px;
+    background-color: whitesmoke;
+    flex-grow : 1;
+    height : 0.8cm;
+    border-radius : 50px;
+    padding-right : 5%;
+    padding-left : 2.5%;
+    align-items : center;
+
+}
+
+.search-icon {
+    /*<a target="_blank" href="https://icons8.com/icon/59878/search">Search</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>*/
+    width : 20px;
+    height : 20px;
+
+}
+
+.search-bar-input:hover {
+    outline : none;
+}
+
+.search-bar-input:focus {
+    outline: none;
+}
+
+.search-bar-input {
+    border : 0px;
+    background-color: whitesmoke;
+    flex-grow : 1;
+    justify-content : flex-end;
+    font-size : 12pt;
+    font-style : inherit;
+    margin-left : 2%;
+}
+
+.notifications-icon {
+    /*credit: */
+    /*<a target="_blank" href="https://icons8.com/icon/4mJGn1D1b2Xr/notification">Notification</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>*/
+    width : 25px;
+    height : 25px;
+
+}
+
+.hamburger-menu-button {
+    width : 20px;
+    display : block;
+    align-self : flex-center;
+    padding : 2px 0;
+}
+
+.hamburger-bar {
+    width : 100%;
+    display : block;
+    height : 1.5pt;
+    border-radius : 2px;
+    background: #111;
+}
+
+.hamburger-bar + .hamburger-bar {
+    margin-top : 5px;
+}
+
+
+
+.disappear {
+    display : none;
+}
+
+
+.right {
+    display : block;
+    width : 25%;
+    background: #310047;
+    background: linear-gradient(301deg, rgba(49, 0, 71, 1) 0%, rgba(49, 0, 71, 1) 13%, rgba(49, 0, 71, 1) 25%, rgba(50, 0, 71, 1) 35%, rgba(71, 0, 71, 1) 80%);
+    color : whitesmoke;
+}
+
+.container {
+    background-color: var(--w-purple-grey);
+    margin: 0.2cm;
+    padding: 0.5cm;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3cm;
+}
+
+.dashboard-row {
+    display: flex;
+    gap: 0.3cm;
+}
+
+.dashboard-card {
+    background-color: #f0f0f0;
+    border-radius: 12px;
+    padding: 0.4cm 0.5cm;
+    flex: 1;
+}
+
+.card-title {
+    font-weight: bold;
+    font-size: 11pt;
+    margin-bottom: 0.3cm;
+    letter-spacing: 0.5px;
+}
+
+/*-------------------- ASSESSMENTS----------------- */
+.assessments-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11pt;
+}
+
+.assessments-table th {
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+    padding: 5px 8px;
+    font-size: 10pt;
+    color: #666;
+}
+
+.assessments-table td {
+    padding: 7px 8px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+/* ---------------PROGRESS BAR------------*/
+.completion-item {
+    display: flex;
+    align-items: center;
+    gap: 0.3cm;
+    margin-bottom: 0.3cm;
+}
+
+.completion-label {
+    font-size: 10pt;
+    font-weight: bold;
+    width: 65px;
+}
+
+.progress-bar-bg {
+    flex: 1;
+    background-color: #d9d9d9;
+    border-radius: 6px;
+    height: 14px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background-color: var(--w-dark-purple2);
+    border-radius: 6px;
+}
+
+.completion-percent {
+    font-size: 10pt;
+    width: 35px;
+    text-align: right;
+}
+
+/*---------QUICK ACTION------------*/
+.quick-actions-list {
+    padding: 0;
+}
+
+.quick-actions-list li {
+    padding: 0.2cm 0;
+    border-bottom: 1px solid #e5e5e5;
+    font-size: 11pt;
+}
+
+.quick-actions-list li:last-child {
+    border-bottom: none;
+}
+
+.quick-actions-list a:hover {
+    color: var(--w-dark-purple2);
+    font-weight: bold;
+}
+
+/* -----------------TEMPLATE------------------- */
+.template-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.2cm;
+}
+
+.create-template-btn {
+    background-color: white;
+    border: 1px solid var(--w-dark-purple2);
+    color: var(--w-dark-purple2);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 9pt;
+    cursor: pointer;
+}
+
+.template-name {
+    font-weight: bold;
+    font-size: 11pt;
+    margin-bottom: 0.2cm;
+}
+
+.template-details {
+    font-size: 10pt;
+    padding-left: 0.4cm;
+    color: #444;
+    line-height: 1.8;
+    list-style: disc;
+}
+
+.template-actions {
+    display: flex;
+    gap: 0.2cm;
+    margin-top: 0.3cm;
+}
+
+.template-btn {
+    border: 1px solid #999;
+    background: white;
+    padding: 4px 14px;
+    border-radius: 6px;
+    font-size: 10pt;
+    cursor: pointer;
+}
+
+.template-btn:hover {
+    background-color: var(--w-dark-purple2);
+    color: white;
+    border-color: var(--w-dark-purple2);
+}
+
+.top-right {
+    display : flex;
+    justify-content : flex-end;
+    align-items : center;
+    border : solid red 0px;
+    height : 2cm;
+    padding-right : 0.5cm;
+    padding-top : 0.5cm;
+    color : whitesmoke;
+}
+
+.username {
+    font-size : 16pt;
+    margin-bottom : 0.1cm;
+}
+
+.student-id {
+    font-size : 14pt;
+    text-align : right;
+}
+
+.profile-photo {
+    width : 1.5cm;
+    height : 1.5cm;
+}
+
+.text-next-to-profile {
+    margin-right : 0.5cm;
+}
+/*calendar*/
+.calendar-home {
+    /*general container look*/
+    border-radius : 15px;
+    margin : 0.2cm 0.3cm;
+    margin-top : 2cm;
+    padding-left : 0.4cm;
+    padding-top : 0.4cm;
+    padding-bottom : 0.4cm;
+    background-color : var(--w-mid-purple);
+    color : whitesmoke;
+}
+
+
+.month {
+    grid-area : month;
+    justify-self : center;
+    margin-bottom : 0.2cm;
+    text-align: center;
+    border-bottom: whitesmoke 1px solid;
+    width: 75%;
+}
+
+.calendar-home {
+    /*grid stuff*/
+    display : grid;
+    grid-template-columns: [line-1]1fr [line-2]1fr [line-3]1fr [line-4]1fr [line-5]1fr [line-6]1fr [line-7]1fr [line-8];
+    grid-auto-rows: 1cm;
+    grid-template-areas :
+    "month month month month month month month";
+}
+
+/*Bar chart*/
+
+.class-performance-bar-chart-ul {
+    display : flex;
+    gap : 1.4cm;
+    border : solid 1px var(--w-purple-grey);
+    height : 5cm;
+    border-radius : 15px;
+    margin : 0.2cm 0.2cm;
+    align-items: flex-end;
+    padding-left : 0.5cm;
+    position : relative;
+}
+
+.class-performance-container p {
+    padding-left : 0.5cm;
+    margin-top : 1cm;
+}
+
+.li-bar {
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    width : 1cm;
+    background-color : var(--w-yellow);
+    display : flex;
+    justify-self : center;
+    
+}
+
+.bar-label {
+    gap : 0.2cm;
+    position : absolute;
+    bottom : -30px;
+    margin-right : 0.2cm;
+}
+.bar-1 {
+    height : 75%;
+}
+
+.bar-2 {
+    height : 60%;
+}
+
+.bar-3 {
+    height : 90%;
+}
+
+.bar-4 {
+    height : 55%;
+}
