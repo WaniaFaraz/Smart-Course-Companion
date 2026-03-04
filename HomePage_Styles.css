@@ -411,15 +411,15 @@ a {
 }
 
 .course-name {
-    font-size : 18pt;
-    color : black;
+    font-size : 12pt;
 }
 .course-code {
     font-size : 14pt;
+    color : black;
 }
 
 .course-section {
-    font-size : 14pt;
+    font-size : 12pt;
 }
 
 .deadline-title {

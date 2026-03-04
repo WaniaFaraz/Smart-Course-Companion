@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
+/* General styles that are repeated among more than one file */
 * {
     margin : 0;
     padding : 0;
@@ -95,3 +96,4 @@
     width : 30px;
     margin-right : 0.2cm;
 }
+/* end of left menu */
