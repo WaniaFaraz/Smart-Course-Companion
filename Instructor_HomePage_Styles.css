@@ -591,3 +591,56 @@ a {
 .bar-4 {
     height : 55%;
 }
+
+/* this is the css for the toggles to enable or disable courses */
+
+.course-toggle-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0.2cm 0.2cm 0.2cm;
+    font-size: 9pt;
+    color: grey;
+}
+
+.toggle-switch {
+    position: relative;
+    width: 36px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    inset: 0;
+    background: #ccc;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.toggle-slider::before {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    left: 3px;
+    top: 3px;
+    background: white;
+    border-radius: 999px;
+    transition: transform 0.2s;
+}
+
+.toggle-switch input:checked + .toggle-slider {
+    background: var(--w-dark-purple2);
+}
+
+.toggle-switch input:checked + .toggle-slider::before {
+    transform: translateX(16px);
+}
