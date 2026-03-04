@@ -514,13 +514,21 @@ a {
 .sub-main-right {
     display : block;
     width : 20%;
-    background: #310047;
-    background: linear-gradient(301deg, rgba(49, 0, 71, 1) 0%, rgba(49, 0, 71, 1) 13%, rgba(49, 0, 71, 1) 25%, rgba(50, 0, 71, 1) 35%, rgba(71, 0, 71, 1) 80%);
-    padding-top : 0.5cm;
+    
+    padding-top : 0;
     padding-left : 0.5cm;
     padding-right : 0.5cm;
     border-radius : 15px;
     margin-right : 0.2cm;
+}
+
+/*Calendar*/
+.cal-card{
+  background: var(--w-purple-grey);
+  border-radius: var(--radius);
+  padding: 0.5cm 0.6cm;
+  margin: 0 0.2cm;
+  border: 0;
 }
 
 /*Averages*/
@@ -536,7 +544,6 @@ a {
     border-radius: 15px;
     padding: 30px;
     width: 350px;
-    box-shadow: 4px 4px 0px #1a1a1a;
 
 }
 

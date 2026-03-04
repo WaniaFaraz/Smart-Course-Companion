@@ -42,20 +42,31 @@ a {
 
 
 /* elements in the center area */
-.center {
+.main {
     background-color: whitesmoke;
-    width : 60%;
     flex-grow : 1;
     display : block;
-    max-width : 60%;
     height : auto;
     overflow : auto;
+}
+
+.sub-main {
+    display : flex;
+    flex-grow : 1;
+}
+
+.sub-main-left {
+    flex-grow: 1;
+}
+.center-top {
+    display: flex;
+    flex-grow : 1;
 }
 
 .uppermost-center-line {
     display : flex;
     height : 1in;
-    padding-right : 1cm;
+    flex-grow: 1;
     padding-left : 0.5cm;
     align-items : center;
 }
@@ -63,7 +74,7 @@ a {
 .center-title {
     /*My courses*/
     font-family : oswald;
-    
+    flex-grow: 1;
     font-size : 20pt;
 }
 
@@ -143,15 +154,45 @@ a {
     margin-top : 5px;
 }
 
+.top-right {
+    display : flex;
+    justify-content : flex-end;
+    align-items : center;
+    border : solid red 0px;
+    height : 2cm;
+    padding-right : 0.5cm;
+    padding-top : 0.5cm;
+    color : #111;
+    width: 20%;
+}
 
+.username {
+    font-size : 16pt;
+    margin-bottom : 0.1cm;
+}
+
+.student-id {
+    font-size : 14pt;
+    text-align : right;
+}
+
+.profile-photo {
+    width : 1.5cm;
+    height : 1.5cm;
+}
+
+.text-next-to-profile {
+    margin-right : 0.5cm;
+}
 
 .disappear {
     display : none;
 }
 
+
 .instructor-stats {
     padding : 0.5cm 1cm;
-    margin : 0.2cm 0.2cm;
+    margin : 0cm 0.2cm 0.2cm 0.2cm;
     background-color : var(--w-purple-grey);
     border-radius : 15px;
 }
@@ -400,73 +441,13 @@ a {
     background-color: var(--w-orange);
 }
 
-.right {
+.sub-main-right {
     display : block;
-    width : 25%;
+    width : 20%;
     background: #310047;
     background: linear-gradient(301deg, rgba(49, 0, 71, 1) 0%, rgba(49, 0, 71, 1) 13%, rgba(49, 0, 71, 1) 25%, rgba(50, 0, 71, 1) 35%, rgba(71, 0, 71, 1) 80%);
-    color : whitesmoke;
-}
-
-.top-right {
-    display : flex;
-    justify-content : flex-end;
-    align-items : center;
-    border : solid red 0px;
-    height : 2cm;
-    padding-right : 0.5cm;
-    padding-top : 0.5cm;
-    color : whitesmoke;
-}
-
-.username {
-    font-size : 16pt;
-    margin-bottom : 0.1cm;
-}
-
-.student-id {
-    font-size : 14pt;
-    text-align : right;
-}
-
-.profile-photo {
-    width : 1.5cm;
-    height : 1.5cm;
-}
-
-.text-next-to-profile {
-    margin-right : 0.5cm;
-}
-/*calendar*/
-.calendar-home {
-    /*general container look*/
-    border-radius : 15px;
-    margin : 0.2cm 0.3cm;
-    margin-top : 2cm;
-    padding-left : 0.4cm;
-    padding-top : 0.4cm;
-    padding-bottom : 0.4cm;
-    background-color : var(--w-mid-purple);
-    color : whitesmoke;
-}
-
-
-.month {
-    grid-area : month;
-    justify-self : center;
-    margin-bottom : 0.2cm;
-    text-align: center;
-    border-bottom: whitesmoke 1px solid;
-    width: 75%;
-}
-
-.calendar-home {
-    /*grid stuff*/
-    display : grid;
-    grid-template-columns: [line-1]1fr [line-2]1fr [line-3]1fr [line-4]1fr [line-5]1fr [line-6]1fr [line-7]1fr [line-8];
-    grid-auto-rows: 1cm;
-    grid-template-areas :
-    "month month month month month month month";
+    color : #111;
+    border-radius: 15px;
 }
 
 /*Bar chart*/
