@@ -95,3 +95,41 @@
     width : 30px;
     margin-right : 0.2cm;
 }
+
+.calendar{ margin-top: 8px; }
+
+.cal-head, .cal-grid{
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.cal-head span{
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+  font-weight: 800;
+}
+
+.cal-day{
+  height: 34px;
+  border-radius: 10px;
+  border: 1px solid var(--w-purple-grey);
+  display: grid;
+  place-items: center;
+  font-size: 12pt;
+  background: #fff;
+}
+
+.cal-day.dim{
+  background: transparent;
+  border-color: transparent;
+  opacity: 0.4;
+}
+
+.cal-day.highlight{
+  background: rgba(255, 143, 47, 0.18);
+  border-color: rgba(255, 143, 47, 0.35);
+  font-weight: 900;
+}
+    
