@@ -24,7 +24,7 @@ body { margin: 0;
        font-family: 'Raleway', 'Gill Sans MT', Geneva, 'Inter', 'Segoe UI', sans-serif; 
        background: var(--bg);
        color: var(--text);
-       overtflow: auto;
+       overflow: auto;
      }
 
 a {
