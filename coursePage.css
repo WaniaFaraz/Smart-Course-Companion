@@ -24,7 +24,7 @@ body { margin: 0;
        font-family: 'Raleway', 'Gill Sans MT', Geneva, 'Inter', 'Segoe UI', sans-serif; 
        background: var(--bg);
        color: var(--text);
-       overtflow: auto;
+       overflow: auto;
      }
 
 a {
@@ -427,6 +427,25 @@ button {
   color: #111;
 }
 
+/* this is the css added for the enter grades section */
+.mark-input {
+    width: 68px;
+    padding: 6px 8px;
+    border: 1.5px solid var(--w-purple-grey);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 12px;
+    text-align: center;
+    background: #fff;
+    outline: none;
+}
+.mark-input:focus {
+    border-color: var(--w-orange);
+}
+.percent-cell {
+    font-weight: 800;
+    color: var(--w-magenta);
+}
 
 
 /* this to make the page responsive whenever the user open it on a smaller screen */
