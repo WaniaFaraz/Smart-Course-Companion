@@ -98,6 +98,38 @@
 }
 /* end of left menu */
 
+/* start of calendar section */
+.card{
+  background: var(--w-purple-grey);
+  border-radius: var(--radius);
+  padding: 0.5cm 0.6cm;
+  margin: 0 0.2cm;
+  border: 0;
+}
+
+.card-header{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 0.35cm;
+}
+
+.card-header h3{
+  margin: 0;
+  font-family: 'Oswald', sans-serif;
+  font-size: 18pt;
+  font-weight: 600;
+}
+
+.muted{
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 12pt;
+}
+
+
+    
 .calendar{ margin-top: 8px; }
 
 .cal-head, .cal-grid{
