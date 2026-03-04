@@ -120,14 +120,65 @@ a {
 }
 
 /* elements in the center area */
-.center {
+.main {
     background-color: whitesmoke;
-    width : 60%;
     flex-grow : 1;
     display : block;
     height : auto;
     overflow : auto;
+
 }
+
+.sub-main {
+    background-color: whitesmoke;
+    display : flex;
+    height : auto;
+    overflow : auto;
+}
+
+.sub-main-left {
+    display : block;
+    width : 60%;
+    flex-grow : 1;
+}
+
+.center-top {
+    display : flex;
+    flex-grow : 1;
+    height : 1.2in;
+}
+
+
+.top-right {
+    display : flex;
+    width : 20%;
+    justify-content : flex-end;
+    align-items : center;
+    height : 2cm;
+    padding-right : 0.5cm;
+    padding-top : 0.5cm;
+    color : #111;
+}
+
+.username {
+    font-size : 16pt;
+    margin-bottom : 0.1cm;
+}
+
+.student-id {
+    font-size : 14pt;
+    text-align : right;
+}
+
+.profile-photo {
+    width : 1.5cm;
+    height : 1.5cm;
+}
+
+.text-next-to-profile {
+    margin-right : 0.5cm;
+}
+
 
 .uppermost-center-line {
     display : flex;
@@ -135,6 +186,7 @@ a {
     padding-right : 1cm;
     padding-left : 0.5cm;
     align-items : center;
+    flex-grow : 1;
 }
 
 .center-title {
@@ -216,6 +268,15 @@ a {
     margin-top : 5px;
 }
 
+.course-area {
+    border-radius : 15px;
+    background-color: rgb(225, 222, 230);
+    /* rgb(204, 201, 210) */
+    margin-left : 0.2cm;
+    margin-right : 0.2cm;
+    padding : 1.2cm 12%;
+}
+
 .filter-by-line {
     display : flex;
     padding-top : 1cm;
@@ -266,13 +327,9 @@ a {
     background-color : var(--w-orange);
 }
 
-.course-area {
+.sub-course-area {
     border-radius : 15px;
     background-color: rgb(225, 222, 230);
-    /* rgb(204, 201, 210) */
-    margin-left : 0.2cm;
-    margin-right : 0.2cm;
-    padding : 1.2cm 12%;
     display : grid;
     grid-template-columns : 1fr 1fr;
     grid-template-rows : auto;
@@ -454,44 +511,17 @@ a {
     background-color: var(--w-orange);
 }
 
-.right {
+.sub-main-right {
     display : block;
-    width : 17.5%;
+    width : 20%;
     background: #310047;
     background: linear-gradient(301deg, rgba(49, 0, 71, 1) 0%, rgba(49, 0, 71, 1) 13%, rgba(49, 0, 71, 1) 25%, rgba(50, 0, 71, 1) 35%, rgba(71, 0, 71, 1) 80%);
     color : whitesmoke;
+    padding-top : 0.5cm;
     padding-left : 0.5cm;
     padding-right : 0.5cm;
-}
-
-.top-right {
-    display : flex;
-    justify-content : flex-end;
-    align-items : center;
-    border : solid red 0px;
-    height : 2cm;
-    padding-right : 0.5cm;
-    padding-top : 0.5cm;
-    color : whitesmoke;
-}
-
-.username {
-    font-size : 16pt;
-    margin-bottom : 0.1cm;
-}
-
-.student-id {
-    font-size : 14pt;
-    text-align : right;
-}
-
-.profile-photo {
-    width : 1.5cm;
-    height : 1.5cm;
-}
-
-.text-next-to-profile {
-    margin-right : 0.5cm;
+    border-radius : 15px;
+    margin-right : 0.2cm;
 }
 
 /*Averages*/
@@ -502,7 +532,7 @@ a {
     margin-top : 1cm;
    
 }
-.card {
+.average-card {
     background: var(--w-purple-grey);
     border-radius: 15px;
     padding: 30px;
