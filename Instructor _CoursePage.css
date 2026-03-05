@@ -144,8 +144,8 @@ a {
 .center-title {
     /*My courses*/
     font-family : oswald;
-    
-    font-size : 20pt;
+    flex-grow: 1;
+    font-size : 30pt;
 }
 
 .instructor-welcome-message {
@@ -232,7 +232,7 @@ a {
     padding-right : 0.5cm;
     padding-top : 0.5cm;
     color : #111;
-    width: 30%;
+    width: 23%;
 }
 
 

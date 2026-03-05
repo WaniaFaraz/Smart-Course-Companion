@@ -120,19 +120,20 @@ button {
     padding: 0 1cm 0 0.5cm;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 14px;
-}
 
+}
+.course-title {
+    flex-grow: 1;
+}
 .course-title h2 {
     margin: 0;
-    font-family: 'Oswald', sans-serif;
-    font-size: 30px;
-    line-height: 1;
+    font-family : oswald;
+    flex-grow : 1;
+    font-size : 30pt;
+    font-weight: 400;
 }
 .course-title p {
     margin: 6px 0 0;
-    color: var(--muted);
     font-size: 12pt;
 }
 
@@ -144,7 +145,7 @@ button {
     padding-right : 0.5cm;
     padding-top : 0.5cm;
     color : #111;
-    width: 30%;
+    width: 25%;
 }
 
 .username {
