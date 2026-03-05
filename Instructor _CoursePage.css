@@ -248,7 +248,7 @@ a {
 .sub-main-right {
     display : flex;
     flex-direction: column;
-    width : 25%;
+    width : 23%;
     color : #111;
     border-radius: 15px;
     margin-right : 0.4cm;

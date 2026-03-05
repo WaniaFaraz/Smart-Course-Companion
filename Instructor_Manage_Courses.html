@@ -62,7 +62,7 @@
                 <div class = "current-courses-area">
                     <div class = "current-courses-table">
                         <div class="table-title">CURRENT COURSES</div>
-                    <table>
+                    <table class = "current-course-tb">
                         <tr>
                             <th>Course Name</th>
                             <th>Course Code</th>
@@ -102,19 +102,28 @@
                     </div>
                 </div>
                 <div class="manage-courses-area">
-                    <form class=manage-courses-form>
-                        <div class="manage-courses-title">ADD COURSE</div>
-                        <div class="course-title">
+                    <form class="manage-courses-form">
+                       <div class="manage-courses-title">ADD COURSE</div>
+                        <div class = "form-row">
+                            <div class="course-code-div">
+                            <label for="course-code" class="text-input-label">Course code</label>
+                            <input type="text" class="course-code-input form-text-input" id="course-code" />
+                        </div>
+
+                         <div class="course-title-div">
                             <label for="course-title" class="text-input-label">Course title</label>
-                            <input type="text" class="course-title form-text-input" id="course-title"></input>
+                            <input type="text" class="course-title-input form-text-input" id="course-title"></input>
                         </div>
-                        <div class="course-section">
-                            <label for="course-section" class="text-input-label">Course section</label>
-                            <input type="text" class="course-section form-text-input" id="course-section" />
                         </div>
-                        <div class="class-capacity">
-                            <label for="course-capacity" class="text-input-label">Course capacity</label>
-                            <input type="text" class="course-title form-text-input" id="course-capacity" />
+
+                        <div class = "form-row">
+                            <div class="course-section-div">
+                            <label for="course-section" class="text-input-label">Section</label>
+                            <input type="text" class="course-section-input form-text-input" id="course-section" />
+                        </div>
+                        <div class="course-capacity-div">
+                            <label for="course-capacity" class="text-input-label">Capacity</label>
+                            <input type="text" class="course-capacity-input form-text-input" id="course-capacity" />
                         </div>
                         <div class="course-semester">
                             <label for="semester-dropdown" class="semester-dropdown-label">Semester</label>
@@ -126,6 +135,8 @@
                                 <option class="semester-option">Fall 2027</option>
                             </select>
                         </div>
+                        </div>                        
+                        
                         <div class="dates-form">
                             <div class="course-start-date course-date">
                                 <label class="course-start-date-label course-date-label" for="course-start-date">Start
@@ -231,8 +242,8 @@
                     const overall = Math.round(totalAvg / courses.length);
                     document.getElementById("overall-percent").textContent = overall + "%";
                 </script>
-                <section class="cal-card">
-                    <div class="card-header">
+                <section class="calend-card">
+                    <div class="cal-card-header">
                         <h3> Calendar </h3>
                         <p class="muted"> FEB 2026</p>
                     </div>

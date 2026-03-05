@@ -450,7 +450,6 @@ a {
     display : flex;
     flex-direction: column;
     width : 25%;
-    color : #111;
     border-radius: 15px;
     margin-right : 0.4cm;
 }
@@ -464,7 +463,6 @@ a {
 
 .class-performance-title {
     font-size: 14pt;
-    color: #111;
     letter-spacing: 2px;
     margin-bottom: 20px;
     text-align: center;
