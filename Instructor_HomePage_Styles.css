@@ -497,11 +497,6 @@ a {
     min-width: 5%;
 }
 
-.divider {
-    border: none;
-    border-top: 1px solid var(--w-dark-purple1);
-    margin-bottom: 0.2cm;
-}
 
 .overall {
     text-align: center;

@@ -75,7 +75,7 @@ a {
 
 .top-right {
     display : flex;
-    width : 20%;
+    width : 30%;
     justify-content : flex-end;
     align-items : center;
     height : 2cm;
@@ -436,7 +436,7 @@ a {
 .sub-main-right {
     display : flex;
     flex-direction: column;
-    width : 30%;
+    width : 25%;
     
     padding-top : 0;
     padding-left : 0.5cm;
@@ -517,11 +517,7 @@ a {
     min-width: 5%;
 }
 
-.divider {
-    border: none;
-    border-top: 1px solid var(--w-dark-purple1);
-    margin-bottom: 0.2cm;
-}
+
 
 .overall {
     text-align: center;
