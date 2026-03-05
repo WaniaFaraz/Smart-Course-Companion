@@ -224,3 +224,20 @@ body {
 .bottomText a:hover {
     color: #5b2d8e;
 }
+.bottomText2 {
+    margin-top: 8px;
+    font-size: 1.1rem;
+    color: #555;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+.bottomText2 a {
+    color: #2c2c2c;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.bottomText2 a:hover {
+    color: #5b2d8e;
+}

@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Raleway:wght@100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', 'Gill Sans MT', Geneva, 'Inter', 'Lucida Sans Unicode', 'Segoe UI';
+}
+
+:root {
+    --w-dark-purple1: #470047;
+    --w-dark-purple2: #310047;
+    --w-mid-purple: #6f0b5b;
+    --w-orange: #ff8f2f;
+    --w-purple-grey: rgb(225, 222, 230);
+}
+
+body {
+    background-color: whitesmoke;
+}
+
+.navbar {
+    background: linear-gradient(132deg, rgba(49,0,71,1) 0%, rgba(71,0,71,1) 80%);
+    padding: 0.4cm 0.5cm;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 1in;
+    color: whitesmoke;
+}
+
+.navTitle {
+    font-family: 'Oswald', sans-serif;
+    font-size: 16pt;
+    letter-spacing: 2px;
+}
+
+.navAvatar {
+    background-color: var(--w-mid-purple);
+    color: white;
+    width: 1.2cm;
+    height: 1.2cm;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10pt;
+    font-weight: bold;
+    border: 2px solid white;
+}
+
+.container {
+    background-color: var(--w-purple-grey);
+    margin: 0.2cm;
+    padding: 0.5cm;
+    border-radius: 15px;
+}
+
+.pageTitle {
+    font-family: 'Oswald', sans-serif;
+    font-size: 16pt;
+    color: var(--w-dark-purple2);
+    letter-spacing: 2px;
+    margin-bottom: 0.1cm;
+}
+
+.pageSubtitle {
+    font-size: 10pt;
+    color: #666;
+    margin-bottom: 0.3cm;
+}
+
+.card {
+    background-color: #f0f0f0;
+    border-radius: 12px;
+    padding: 0.5cm;
+}
+
+.courseName {
+    font-family: 'Oswald', sans-serif;
+    font-size: 18pt;
+    color: var(--w-dark-purple2);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.1cm;
+}
+
+.courseMeta {
+    font-size: 10pt;
+    color: #666;
+    margin-bottom: 0.15cm;
+}
+
+.courseDesc {
+    font-size: 10pt;
+    color: #444;
+    line-height: 1.5;
+}
+
+.sectionTitle {
+    font-weight: bold;
+    font-size: 11pt;
+    color:#310047;
+    text-transform: uppercase;
+    margin-top: 0.2cm;
+    margin-bottom: 0.15cm;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid grey;
+    margin-bottom: 0.2cm;
+}
+
+.topicsTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11pt;
+}
+
+.topicsTable tr {
+    border-bottom: 1px solid rgb(186, 182, 182);
+}
+
+.weekBadge {
+    font-family: 'Oswald', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    color: rgb(222, 212, 212);
+    background-color:#470047;
+    padding: 4px 10px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    width: 1.8cm;
+    text-align: center;
+}
+
+.topicsTable td {
+    padding: 6px 8px;
+    font-size: 11pt;
+    color: grey;
+}
+
+.evalTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10pt;
+}
+
+.evalTable th {
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+    padding: 5px 8px;
+    color: #666;
+    font-size: 9pt;
+    text-transform: uppercase;
+}
+
+.evalTable td {
+    padding: 7px 8px;
+    border-bottom: 1px solid #e5e5e5;
+    font-size: 11pt;
+    color: #333;
+}
+
+.resourceLabel {
+    font-size: 10pt;
+    font-weight: bold;
+    color: #444;
+    margin-top: 0.15cm;
+    margin-bottom: 2px;
+}
+
+.resourceText {
+    font-size: 10pt;
+    color: #666;
+    margin-bottom: 0.1cm;
+}
+
+.btnBack {
+    background-color: var(--w-dark-purple2);
+    color: white;
+    border: none;
+    padding: 7px 20px;
+    border-radius: 6px;
+    font-size: 10pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 0.2cm;
+}
+
+.btnBack:hover {
+    background-color: var(--w-dark-purple1);
+}
+
+a {
+    text-decoration: none;
+}

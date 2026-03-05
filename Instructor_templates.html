@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Course Structure - Instructor</title>
+    <link rel="stylesheet" href="Instructor_templates.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Raleway:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="navbar">
+    <p class="navTitle">COURSE COMPANION</p>
+    <p class="navBadge">Instructor</p>
+</div>
+
+<div class="container">
+
+    <p class="pageTitle">CREATE COURSE STRUCTURE</p>
+    <p class="pageSubtitle">Fill in the details below and publish for your students</p>
+
+    <div class="card">
+
+        <p class="sectionTitle">Course Information</p>
+        <hr>
+
+        <p class="label">Course Name</p>
+        <input class="input" type="text" placeholder="e.g. Introduction to Programming">
+
+        <p class="label">Course Code</p>
+        <input class="input" type="text" placeholder="e.g. COMP 248">
+
+        <p class="label">Section</p>
+        <input class="input" type="text" placeholder="e.g. CC">
+
+        <p class="label">Semester</p>
+        <select class="input">
+            <option>Winter 2026</option>
+            <option>Fall 2026</option>
+            <option>Summer 2026</option>
+        </select>
+
+        <p class="label">Description</p>
+        <textarea class="input" placeholder="Brief description of the course..."></textarea>
+
+        <br>
+        <p class="sectionTitle">Weekly Topics</p>
+        <hr>
+
+        <p class="label">Week 1-2</p>
+        <input class="input" type="text" placeholder="e.g. Introduction to Java">
+
+        <p class="label">Week 3-4</p>
+        <input class="input" type="text" placeholder="e.g. Variables and Data Types">
+
+        <p class="label">Week 5-6</p>
+        <input class="input" type="text" placeholder="e.g. Control Flow">
+
+        <p class="label">Week 7-8</p>
+        <input class="input" type="text" placeholder="e.g. Methods and Functions">
+
+        <p class="label">Week 9-10</p>
+        <input class="input" type="text" placeholder="e.g. Arrays">
+
+        <p class="label">Week 11-12</p>
+        <input class="input" type="text" placeholder="e.g. Object Oriented Programming">
+
+        <br>
+        <p class="sectionTitle">Evaluations</p>
+        <hr>
+
+        <table class="evalTable">
+            <tr>
+                <th>Type</th>
+                <th>Name</th>
+                <th>Weight</th>
+                <th>Due Date</th>
+            </tr>
+            <tr>
+                <td><select class="inputSmall"><option>Assignment</option><option>Quiz</option><option>Midterm</option><option>Final</option><option>Project</option></select></td>
+                <td><input class="inputSmall" type="text" placeholder="Assignment 1"></td>
+                <td><input class="inputSmall" type="text" placeholder="10%"></td>
+                <td><input class="inputSmall" type="date"></td>
+            </tr>
+            <tr>
+                <td><select class="inputSmall"><option>Assignment</option><option>Quiz</option><option>Midterm</option><option>Final</option><option>Project</option></select></td>
+                <td><input class="inputSmall" type="text" placeholder="Assignment 2"></td>
+                <td><input class="inputSmall" type="text" placeholder="10%"></td>
+                <td><input class="inputSmall" type="date"></td>
+            </tr>
+            <tr>
+                <td><select class="inputSmall"><option>Quiz</option><option>Assignment</option><option>Midterm</option><option>Final</option><option>Project</option></select></td>
+                <td><input class="inputSmall" type="text" placeholder="Quiz 1"></td>
+                <td><input class="inputSmall" type="text" placeholder="10%"></td>
+                <td><input class="inputSmall" type="date"></td>
+            </tr>
+            <tr>
+                <td><select class="inputSmall"><option>Midterm</option><option>Assignment</option><option>Quiz</option><option>Final</option><option>Project</option></select></td>
+                <td><input class="inputSmall" type="text" placeholder="Midterm Exam"></td>
+                <td><input class="inputSmall" type="text" placeholder="30%"></td>
+                <td><input class="inputSmall" type="date"></td>
+            </tr>
+            <tr>
+                <td><select class="inputSmall"><option>Final</option><option>Assignment</option><option>Quiz</option><option>Midterm</option><option>Project</option></select></td>
+                <td><input class="inputSmall" type="text" placeholder="Final Exam"></td>
+                <td><input class="inputSmall" type="text" placeholder="40%"></td>
+                <td><input class="inputSmall" type="date"></td>
+            </tr>
+        </table>
+
+        <br>
+        <p class="sectionTitle">Resources</p>
+        <hr>
+
+        <p class="label">Textbook</p>
+        <input class="input" type="text" placeholder="e.g. Introduction to Java Programming - Liang">
+
+        <p class="label">Additional Notes</p>
+        <textarea class="input" placeholder="Any extra info for students..."></textarea>
+
+        <br>
+        <a href="Instructor_CoursePage.html">
+            <button class="btnSave">Publish</button>
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>
