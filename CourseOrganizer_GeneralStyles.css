@@ -3,20 +3,20 @@
 
 /* General styles that are repeated among more than one file */
 * {
-    margin : 0;
-    padding : 0;
-    font-family : 'Raleway', 'Gill Sans MT',  Geneva, 'Inter',  'Lucida Sans Unicode', 'Segoe UI';
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', 'Gill Sans MT', Geneva, 'Inter', 'Lucida Sans Unicode', 'Segoe UI';
 }
 
 :root {
-    --w-dark-purple1 : #470047;
-    --w-dark-purple2 : #310047;
-    --w-mid-purple : #6f0b5b;
-    --w-magenta : #a02b68;
-    --w-yellow : #ffb948;
-    --w-orange : #ff8f2f;
-    --w-dark-orange : #f97134;
-    --w-purple-grey : rgb(225, 222, 230);
+    --w-dark-purple1: #470047;
+    --w-dark-purple2: #310047;
+    --w-mid-purple: #6f0b5b;
+    --w-magenta: #a02b68;
+    --w-yellow: #ffb948;
+    --w-orange: #ff8f2f;
+    --w-dark-orange: #f97134;
+    --w-purple-grey: rgb(225, 222, 230);
 
     --bg: whitesmoke;
     --text: #111;
@@ -25,21 +25,22 @@
 
     --radius: 15px;
     --shadow: 5px 5px 10px 0px va(--w-purple-grey);
-    --pill: 50px; 
+    --pill: 50px;
 }
 
 /* scrollbar */
 .sub-main {
-    scrollbar-color : var(--w-purple-grey) whitesmoke;
+    scrollbar-color: var(--w-purple-grey) whitesmoke;
 }
+
 /* left menu */
 .left {
-    color : whitesmoke;
-    width : 15%;
-    display : flex;
-    flex-direction : column;
+    color: whitesmoke;
+    width: 15%;
+    display: flex;
+    flex-direction: column;
     background: #310047;
-background: linear-gradient(161deg, rgba(49, 0, 71, 1) 55%, rgba(49, 0, 71, 1) 69%, rgba(160, 43, 104, 1) 100%);
+    background: linear-gradient(161deg, rgba(49, 0, 71, 1) 55%, rgba(49, 0, 71, 1) 69%, rgba(160, 43, 104, 1) 100%);
     /*
     background: #310047;
     background: linear-gradient(132deg, rgba(49, 0, 71, 1) 0%, rgba(49, 0, 71, 1) 13%, rgba(49, 0, 71, 1) 25%, rgba(50, 0, 71, 1) 35%, rgba(71, 0, 71, 1) 80%);
@@ -48,133 +49,163 @@ background: linear-gradient(161deg, rgba(49, 0, 71, 1) 55%, rgba(49, 0, 71, 1) 6
 }
 
 .left-title {
-    font-size : 16pt;
-    margin-top : 1cm;
-    margin-bottom : 2.5cm;
-    margin-left : 0.4cm;
+    font-size: 16pt;
+    margin-top: 1cm;
+    margin-bottom: 2.5cm;
+    margin-left: 0.4cm;
 }
 
 .left-menu-option a {
-    width : 100%;
+    width: 100%;
+    font-size: 14pt;
 }
 
 .left-menu-option:has(a:hover) {
     background-color: var(--w-dark-purple1);
-    border-right : solid var(--w-magenta) 5px;
+    border-right: solid var(--w-magenta) 5px;
 }
 
 .left-menu-option:has(a:focus) {
     background-color: var(--w-dark-purple1);
-    border-right : solid var(--w-magenta) 5px;
+    border-right: solid var(--w-magenta) 5px;
 }
 
 .left-menu-top {
-    display : flex;
-    flex-direction : column;
+    display: flex;
+    flex-direction: column;
     justify-content: flex-center;
-    flex-grow : 1;
+    flex-grow: 1;
 
 }
 
 .left-menu-top li {
-    color : whitesmoke;
+    color: whitesmoke;
     display: flex;
-    align-items : center;
+    align-items: center;
 }
 
 .left-menu-bottom li {
-    color : whitesmoke;
-    display : flex;
-    align-items : center;
+    color: whitesmoke;
+    display: flex;
+    align-items: center;
 }
 
 .left-menu-bottom {
-    display : flex;
-    flex-direction : column;
-    justify-content : flex-end;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
+
 .left-menu-option {
-    padding-bottom : 0.25cm;
-    padding-top : 0.25cm;
-    font-size : 16pt;
-    color : grey;
-    padding-left : 0.4cm;
+    padding-bottom: 0.25cm;
+    padding-top: 0.25cm;
+    font-size: 16pt;
+    color: grey;
+    padding-left: 0.4cm;
 }
 
 .left-menu-option img {
     height: 30px;
-    width : 30px;
-    margin-right : 0.2cm;
+    width: 30px;
+    margin-right: 0.2cm;
 }
+
 /* end of left menu */
 
 /* start of calendar section */
-.card{
-  background: var(--w-purple-grey);
-  border-radius: var(--radius);
-  padding: 0.5cm 0.6cm;
-  margin: 0 0.2cm;
-  border: 0;
+.cal-card {
+    background: linear-gradient(301deg, rgba(49, 0, 71, 1) 0%, rgba(49, 0, 71, 1) 25%, rgba(50, 0, 71, 1) 35%, rgba(71, 0, 71, 1) 80%);
+    border-radius: var(--radius);
+    padding: 0.5cm 0.6cm;
+    margin: 0 0;
+    border: 0;
 }
 
-.card-header{
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 0.35cm;
+.cal-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 0.35cm;
+
 }
 
-.card-header h3{
-  margin: 0;
-  font-family: 'Oswald', sans-serif;
-  font-size: 18pt;
-  font-weight: 600;
+.cal-card-header h3 {
+    margin: 0;
+    font-family: 'Oswald', sans-serif;
+    font-size: 18pt;
+    font-weight: 600;
+    color: whitesmoke;
+
 }
 
-.muted{
-  margin: 6px 0 0;
-  color: var(--muted);
-  font-size: 12pt;
+.muted {
+    margin: 6px 0 0;
+    /*color: var(--muted);*/
+    color: whitesmoke;
+
+    font-size: 12pt;
 }
 
 
-    
-.calendar{ margin-top: 8px; }
 
-.cal-head, .cal-grid{
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 6px;
+.calendar {
+    margin-top: 8px;
+
+
+
 }
 
-.cal-head span{
-  font-size: 12px;
-  color: var(--muted);
-  text-align: center;
-  font-weight: 800;
+.cal-head,
+.cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+
+
 }
 
-.cal-day{
-  height: 34px;
-  border-radius: 10px;
-  border: 1px solid var(--w-purple-grey);
-  display: grid;
-  place-items: center;
-  font-size: 12pt;
-  background: #fff;
+.cal-head {
+    margin-bottom: 0.2cm;
 }
 
-.cal-day.dim{
-  background: transparent;
-  border-color: transparent;
-  opacity: 0.4;
+.cal-grid {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius);
+    padding: 0.3cm;
 }
 
-.cal-day.highlight{
-  background: rgba(255, 143, 47, 0.18);
-  border-color: rgba(255, 143, 47, 0.35);
-  font-weight: 900;
+.cal-head span {
+    font-size: 12px;
+    /*
+    color: var(--muted);
+    */
+    color: whitesmoke;
+    text-align: center;
+    font-weight: 800;
+}
+
+.cal-day {
+    height: 34px;
+    border-radius: 10px;
+    border: 1px solid var(--w-purple-grey);
+    display: grid;
+    place-items: center;
+    font-size: 12pt;
+    background: #fff;
+    color: #111;
+}
+
+.cal-day.dim {
+    background: transparent;
+    border-color: transparent;
+    opacity: 0.4;
+}
+
+.cal-day.highlight {
+    background: rgba(255, 143, 47, 0.18);
+    border-color: rgba(255, 143, 47, 0.35);
+    font-weight: 900;
 }
 
 .cal-legend {
@@ -189,6 +220,47 @@ background: linear-gradient(161deg, rgba(49, 0, 71, 1) 55%, rgba(49, 0, 71, 1) 6
     height: 10px;
     border-radius: 999px;
     background: var(--w-orange);
-   
+
 }
-    
+
+/* averages and performance bar charts - certain styles */
+.averages-container,
+.class-performance-container {
+    display: flex;
+    justify-content: center;
+    height: 50%;
+
+}
+
+.averages-bars-container,
+.classes-performance-bars-container {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 15px;
+    padding: 0.3cm 0.4cm 0.1cm 0.4cm;
+
+}
+
+.average-card,
+.performance-card {
+    background: linear-gradient(301deg, rgba(49, 0, 71, 1) 0%, rgba(49, 0, 71, 1) 25%, rgba(50, 0, 71, 1) 35%, rgba(71, 0, 71, 1) 80%);
+    border-radius: 15px;
+    padding: 30px;
+    flex-grow: 1;
+
+}
+
+.averages-title,
+.class-performance-title,
+.courseLabel,
+.overall,
+.overallNumber {
+    color: whitesmoke;
+}
+
+.averages-title,
+.class-performance-title {
+    font-size: 14px;
+    color: whitesmoke;
+    text-align: center;
+    font-weight: 800;
+}

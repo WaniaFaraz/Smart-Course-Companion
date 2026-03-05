@@ -14,7 +14,7 @@
         <nav class="left-menu-top">
             <ul>
                 <li class="left-menu-option"><img src="white-icons/white-4-square-grid-96.png"><a
-                        href="New_HomePage.html">Dashboard</a></li>
+                        href="Instructor_HomePage .html">Dashboard</a></li>
                 <li class="left-menu-option"><img src="white-icons/white-class-96.png"><a
                         href="Instructor_HomePage .html">All Classes</a></li>
                 <li class="left-menu-option"><img src="white-icons/white-messages-288.png"><a href="">Messages</a></li>
@@ -87,33 +87,33 @@
                         <div class="course">
                             <div class="course-image course-img-1"></div>
                             <a class="course-info-text" href="Instructor_CoursePage.html">
-                                <p class = "course-code">COMP 249</p>
-                                <p class = "course-name">Object-Oriented Prog. II</p>
-                                <p class = "course-section">Section U</p>
+                                <p class="course-code">COMP 249</p>
+                                <p class="course-name">Object-Oriented Prog. II</p>
+                                <p class="course-section">Section U</p>
                             </a>
                         </div>
                         <div class="course">
                             <div class="course-image course-img-2"></div>
                             <a class="course-info-text" href="Instructor_CoursePage.html">
-                                <p class = "course-code">COMP 249</p>
-                                <p class = "course-name">Object-Oriented Prog. II</p>
-                                <p class = "course-section">Section Y</p>
+                                <p class="course-code">COMP 249</p>
+                                <p class="course-name">Object-Oriented Prog. II</p>
+                                <p class="course-section">Section Y</p>
                             </a>
                         </div>
                         <div class="course">
                             <div class="course-image course-img-5"></div>
                             <a class="course-info-text" href="Instructor_CoursePage.html">
-                                <p class = "course-code">COMP 248</p>
-                                <p class = "course-name">Object-Oriented Prog. I</p>
-                                <p class = "course-section">Section N</p>
+                                <p class="course-code">COMP 248</p>
+                                <p class="course-name">Object-Oriented Prog. I</p>
+                                <p class="course-section">Section N</p>
                             </a>
                         </div>
                         <div class="course">
                             <div class="course-image course-img-9"></div>
                             <a class="course-info-text" href="Instructor_CoursePage.html" 9>
-                                <p class = "course-code">COMP 348</p>
-                                <p class = "course-name">Principles of Prog. Languages</p>
-                                <p class = "course-section">Section W</p>
+                                <p class="course-code">COMP 348</p>
+                                <p class="course-name">Principles of Prog. Languages</p>
+                                <p class="course-section">Section W</p>
                             </a>
                         </div>
                     </div>
@@ -134,47 +134,50 @@
                 <div class="class-performance-container">
                     <div class="performance-card">
                         <div class="class-performance-title">Class Performance</div>
-                        <div class="courseRow">
-                            <div class="courseLabel">
-                                <span>COMP 249 - U</span>
-                                <span id="engr201-percent">0%</span>
+                        <div class="classes-performance-bars-container">
+                            <div class="courseRow">
+                                <div class="courseLabel">
+                                    <span>COMP 249 - U</span>
+                                    <span id="engr201-percent">0%</span>
+                                </div>
+                                <div class="barBackground">
+                                    <div class="barFill" id="engr201-bar"></div>
+                                </div>
                             </div>
-                            <div class="barBackground">
-                                <div class="barFill" id="engr201-bar"></div>
+                            <div class="courseRow">
+                                <div class="courseLabel">
+                                    <span>COMP 249 - Y</span>
+                                    <span id="comp232-percent">0%</span>
+                                </div>
+                                <div class="barBackground">
+                                    <div class="barFill" id="comp232-bar"></div>
+                                </div>
                             </div>
+                            <div class="courseRow">
+                                <div class="courseLabel">
+                                    <span>COMP 248 - N</span>
+                                    <span id="soen228-percent">0%</span>
+                                </div>
+                                <div class="barBackground">
+                                    <div class="barFill" id="soen228-bar"></div>
+                                </div>
+                            </div>
+                            <div class="courseRow">
+                                <div class="courseLabel">
+                                    <span>COMP 348 - W</span>
+                                    <span id="comp248-percent">0%</span>
+                                </div>
+                                <div class="barBackground">
+                                    <div class="barFill" id="comp248-bar"></div>
+                                </div>
+                            </div>
+
                         </div>
-                        <div class="courseRow">
-                            <div class="courseLabel">
-                                <span>COMP 249 - Y</span>
-                                <span id="comp232-percent">0%</span>
-                            </div>
-                            <div class="barBackground">
-                                <div class="barFill" id="comp232-bar"></div>
-                            </div>
-                        </div>
-                        <div class="courseRow">
-                            <div class="courseLabel">
-                                <span>COMP 248 - N</span>
-                                <span id="soen228-percent">0%</span>
-                            </div>
-                            <div class="barBackground">
-                                <div class="barFill" id="soen228-bar"></div>
-                            </div>
-                        </div>
-                        <div class="courseRow">
-                            <div class="courseLabel">
-                                <span>COMP 348 - W</span>
-                                <span id="comp248-percent">0%</span>
-                            </div>
-                            <div class="barBackground">
-                                <div class="barFill" id="comp248-bar"></div>
-                            </div>
-                        </div>
-                        <hr class="divider">
-                        <div class="overall">
-                            Overall Performance<br>
-                            <span class="overallNumber" id="overall-percent">0%</span>
-                        </div>
+                    <hr class="divider">
+                    <div class="overall">
+                        Overall Performance<br>
+                        <span class="overallNumber" id="overall-percent">0%</span>
+                    </div>
                     </div>
                 </div>
                 <script>
@@ -202,8 +205,8 @@
                     const overall = Math.round(totalAvg / courses.length);
                     document.getElementById("overall-percent").textContent = overall + "%";
                 </script>
-                <section class="cal-card">
-                    <div class="card-header">
+                <section class="calend-card">
+                    <div class="cal-card-header">
                         <h3> Calendar </h3>
                         <p class="muted"> FEB 2026</p>
                     </div>

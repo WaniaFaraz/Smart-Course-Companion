@@ -1,147 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>Course Page</title>
-        <link rel="stylesheet" href="coursePage.css">
-    </head>
 
-    <body>
-        <div class="app">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Course Page</title>
+    <link rel="stylesheet" href="coursePage.css">
+    <link rel="stylesheet" href="CourseOrganizer_GeneralStyles.css">
+</head>
 
-            <!-- this is the left side bar -->
-             <aside class="sidebar">
-                <div class="brand">
-                    <h1 class="brand-title">Course Companion</h1>
+<body>
+    <div class="app">
+
+        <!-- this is the left side bar -->
+
+        <div class="left">
+            <div class="left-title sub-title" id="left-title">COURSE COMPANION</div>
+            <nav class="left-menu-top">
+                <ul>
+                    <li class="left-menu-option"><img src="white-icons/white-4-square-grid-96.png"><a
+                            href="New_HomePage.html">Dashboard</a></li>
+                    <li class="left-menu-option"><img src="white-icons/white-class-96.png"><a
+                            href="New_HomePage.html">All
+                            Classes</a></li>
+                    <li class="left-menu-option"><img src="white-icons/white-messages-288.png"><a href="">Messages</a>
+                    </li>
+                    <li class="left-menu-option"><img src="white-icons/white-timetable-96.png"><a href="">Schedule</a>
+                    </li>
+                    <li class="left-menu-option"><img src="white-icons/white-assignments-96.png"><a
+                            href="">Assignments</a>
+                    </li>
+                </ul>
+            </nav>
+            <nav class="left-menu-bottom">
+                <ul>
+                    <li class="left-menu-option"><img src="white-icons/white-sign-out-96.png"><a href="">Log out</a></p>
+                    <li class="left-menu-option"><img src="white-icons/white-settings-288.png"><a
+                            href="ManageAccount.html">Settings</a></p>
+                    <li class="left-menu-option"><img src="white-icons/white-help-96.png"><a href="">Help</a></p>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- this is the main page area -->
+        <main class="page">
+
+            <!--- this is the top bar area -->
+            <header class="topbar">
+                <div class="course-title">
+                    <h2>SOEN 287</h2>
+                    <p>Web Programming - Instructor Name</p>
                 </div>
-                
-                <nav class="nav">
-                    <a class="nav-item"href="New_HomePage.html">
-                        <img src = "white-icons/white-4-square-grid-96.png">
-                        <span>Dashboard</span>
-                    </a>
-                    <a class="nav-item active" href="New_HomePage.html">
-                        <img src= "white-icons/white-class-96.png">
-                        <span>All Classes</span>
-                    </a>
-                    <a class="nav-item">
-                        <img src ="white-icons/white-messages-288.png">
-                        <span>Messages</span>
-                    </a>
-                    <a class="nav-item">
-                        <img src="white-icons/white-timetable-96.png">
-                        <span>Schedule</span>
-                    </a>
-                    <a class="nav-item"href="ManageAssessments_Page.html">
-                        <img src="white-icons/white-assignments-96.png">
-                        <span>Assignments</span>
-                    </a>
 
-                    
-                </nav>
+                <div class="left-icons-in-uppermost-center-line">
+                    <div class="search-bar-container">
+                        <div><img class="search-icon" src="black-icons/black-search-480.png"></div>
+                        <input type="text" class="search-bar-input" placeholder="Search"></input>
+                    </div>
+                    <div class="notifications"><img class="notifications-icon"
+                            src="black-icons/black_notification-96.png"></div>
 
-                <div class="sidebar-bottom">
-                    <a class="nav-item" href="#">
-                       <img src = "white-icons/white-sign-out-96.png">
-                       <span>Log Out</span>
-                    <a class="nav-item"href="ManageAccount.html">
-                        <img src = "white-icons/white-settings-288.png">
-                        <span>Settings</span>
-                    </a>
-                    <a class="nav-item"href="#">
-                        <img src = "white-icons/white-help-96.png">
-                        <span>Help</span>
-                    </a>
+                    <button class="icon-btn" aria-label="Menu">☰</button>
                 </div>
-             </aside>
-
-
-             <!-- this is the main page area -->
-              <main class="page">
-
-                <!--- this is the top bar area -->
-                <header class="topbar">
-                    <div class="course-title">
-                        <h2>SOEN 287</h2>
-                        <p>Web Programming - Instructor Name</p>
+                <div class="top-right">
+                    <div class="text-next-to-profile">
+                        <p class="username" id="username">Username</p>
+                        <p class="instructor-id">Instructor ID</p>
                     </div>
+                    <div><img class="profile-photo" src="black-icons/black-profile-96.png"></div>
+                </div>
+            </header>
 
-                    <div class = "left-icons-in-uppermost-center-line">
-                    <div class = "search-bar-container">
-                        <div ><img class = "search-icon" src = "black-icons/black-search-480.png"></div>
-                        <input type = "text" class = "search-bar-input" placeholder="Search"></input>
-                    </div>
-                    <div class = "notifications"><img class = "notifications-icon" src = "black-icons/black_notification-96.png"></div>  
-                    
-                    <div class="topbar-right">
-                        <button class="icon-btn" aria-label="Menu">☰</button>
-                        
-                        <div class="user">
-                            <div class="user-meta">
-                                <p class="user-name">User Name</p>
-                                <p class="user-id">ID: 150000</p>
-                            </div>
-                            <div><img class = "profile-photo" src = "black-icons/black-profile-96.png"></div>
+            <!--- this is the center and right panel -->
+            <section class="content-grid">
+
+                <!-- this is the center-->
+
+                <div class="center">
+
+                    <!-- this is the assessment table card-->
+                    <section class="card">
+                        <div class="card-header">
+                            <h3>Assessments</h3>
+                            <button class="primary-btn">+ Add Assessment</button>
                         </div>
-                    </div>
-                </header>
 
-                <!--- this is the center and right panel -->
-                <section class="content-grid">
+                        <div class="table-wrap">
+                            <table class="assess-table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Type</th>
+                                        <th>Due Date</th>
+                                        <th>Status</th>
+                                        <th>Grade</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Lab 4</td>
+                                        <td>Lab</td>
+                                        <td>Feb 19, 2026</td>
+                                        <td><span class="status in-progress">In progress</span></td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Quiz 3</td>
+                                        <td>Quiz</td>
+                                        <td>Feb 23, 2026</td>
+                                        <td><span class="status not-started">Not started</span></td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Assignment 1</td>
+                                        <td>Assignment</td>
+                                        <td>Mar 1, 2026</td>
+                                        <td><span class="status submitted">Submitted</span></td>
+                                        <td>85%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
 
-                    <!-- this is the center-->
+                    <!-- this is the enter grade section -->
 
-                    <div class="center">
-
-                        <!-- this is the assessment table card-->
-                         <section class="class">
-                            <div class="card-header">
-                                <h3>Assessments</h3>
-                                <button class="primary-btn">+ Add Assessment</button>
-                            </div>
-
-                            <div class="table-wrap">
-                                <table class="assess-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Type</th>
-                                            <th>Due Date</th>
-                                            <th>Status</th>
-                                            <th>Grade</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Lab 4</td>
-                                            <td>Lab</td>
-                                            <td>Feb 19, 2026</td>
-                                            <td><span class="status in-progress">In progress</span></td>
-                                            <td>-</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Quiz 3</td>
-                                            <td>Quiz</td>
-                                            <td>Feb 23, 2026</td>
-                                            <td><span class="status not-started">Not started</span></td>
-                                            <td>-</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Assignment 1</td>
-                                            <td>Assignment</td>
-                                            <td>Mar 1, 2026</td>
-                                            <td><span class="status submitted">Submitted</span></td>
-                                            <td>85%</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                         </section>
-
-                        <!-- this is the enter grade section -->
-
-                         <!-- this is the enter grade section -->
+                    <!-- this is the enter grade section -->
 
                     <section class="card">
                         <div class="card-header">
@@ -182,17 +166,17 @@
                         </div>
                     </section>
 
-                         <!-- this is the grade breakdown section -->
-                          <section class="card">
-                            <div class="card-header">
-                                <h3>Grade Breakdown</h3>
-                                <p class="muted">Average grade by type (completed only)</p>
-                            </div>
+                    <!-- this is the grade breakdown section -->
+                    <section class="card">
+                        <div class="card-header">
+                            <h3>Grade Breakdown</h3>
+                            <p class="muted">Average grade by type (completed only)</p>
+                        </div>
 
-                            <div class="bars">
-                                <div class="bar-card">
-                                    <div class="bar">
-                                        <div class="bar-fill"style="height:40%"></div>
+                        <div class="bars">
+                            <div class="bar-card">
+                                <div class="bar">
+                                    <div class="bar-fill" style="height:40%"></div>
                                 </div>
                                 <p class="bar-label">Quizzes</p>
                                 <p class="bar-value">40%</p>
@@ -200,7 +184,7 @@
 
                             <div class="bar-card">
                                 <div class="bar">
-                                    <div class="bar-fill"style="height:70%"></div>
+                                    <div class="bar-fill" style="height:70%"></div>
                                 </div>
                                 <p class="bar-label">Labs</p>
                                 <p class="bar-value">70%</p>
@@ -208,7 +192,7 @@
 
                             <div class="bar-card">
                                 <div class="bar">
-                                    <div class="bar-fill"style="height:50%"></div>
+                                    <div class="bar-fill" style="height:50%"></div>
                                 </div>
                                 <p class="bar-label">Assignments</p>
                                 <p class="bar-value">50%</p>
@@ -217,66 +201,76 @@
 
                             <div class="bar-card">
                                 <div class="bar">
-                                    <div class="bar-fill"style="height:60%"></div>
+                                    <div class="bar-fill" style="height:60%"></div>
                                 </div>
                                 <p class="bar-label">Exams</p>
                                 <p class="bar-value">60%</p>
                             </div>
-                            </div>
-                          </section>
-                    </div>
+                        </div>
+                    </section>
+                </div>
 
-                    <!-- this is the right side-->
-                     <aside class="rightpanel">
+                <!-- this is the right side-->
+                <aside class="rightpanel">
 
-                        <section class="card">
-                            <div class="task-header">
+                    <section class="card">
+                        <div class="task-header">
                             <h3>Tasks List</h3>
                             <button id="addTaskBtn" class="add-btn">+</button>
+                        </div>
+
+                        <ul class="tasks">
+                            <li><input type="checkbox" /> Finish Lab 4</li>
+                            <li><input type="checkbox" /> Study for Quiz 3</li>
+                            <li><input type="checkbox"> Start Assignment 1</li>
+                            <li><input type="checkbox"> Review Week 3 notes</li>
+                        </ul>
+                    </section>
+
+                    <section class="cal-card">
+                        <div class="cal-card-header">
+                            <h3> Calendar </h3>
+                            <p class="muted"> FEB 2026</p>
+                        </div>
+
+                        <div class="calendar">
+                            <div class="cal-head">
+                                <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+                            </div>
+                            <div class="cal-grid">
+
+                                <span class="cal-day dim"> </span>
+                                <span class="cal-day">1</span><span class="cal-day">2</span><span
+                                    class="cal-day">3</span><span class="cal-day">4</span><span
+                                    class="cal-day">5</span><span class="cal-day">6</span>
+                                <span class="cal-day">7</span><span class="cal-day">8</span><span
+                                    class="cal-day">9</span><span class="cal-day">10</span><span
+                                    class="cal-day">11</span><span class="cal-day">12</span>
+                                <span class="cal-day">13</span><span class="cal-day">14</span><span
+                                    class="cal-day">15</span><span class="cal-day">16</span><span
+                                    class="cal-day">17</span><span class="cal-day">18</span>
+                                <span class="cal-day">19</span><span class="cal-day">20</span><span
+                                    class="cal-day">21</span><span class="cal-day">22</span><span
+                                    class="cal-day">23</span><span class="cal-day">24</span>
+                                <span class="cal-day">25</span><span class="cal-day">26</span><span
+                                    class="cal-day">27</span><span class="cal-day">28</span>
                             </div>
 
-                            <ul class="tasks">
-                                <li><input type="checkbox"/> Finish Lab 4</li>
-                                <li><input type="checkbox"/> Study for Quiz 3</li>
-                                <li><input type="checkbox"> Start Assignment 1</li>
-                                <li><input type="checkbox"> Review Week 3 notes</li>
-                            </ul>
-                        </section>
-
-                        <section class="card">
-                            <div class="card-header">
-                                <h3> Calendar </h3>
-                                <p class="muted"> FEB 2026</p>
+                            <div class="cal-legend">
+                                <span class="dot"></span>
+                                <span class="muted">Highlighed = due dates</span>
                             </div>
+                        </div>
+                    </section>
 
-                            <div class="calendar">
-                                <div class="cal-head">
-                                    <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
-                                </div>
-                                <div class="cal-grid">
-
-                                    <span class="cal-day dim"> </span>
-                                    <span class="cal-day">1</span><span class="cal-day">2</span><span class="cal-day">3</span><span class="cal-day">4</span><span class="cal-day">5</span><span class="cal-day">6</span>
-                                    <span class="cal-day">7</span><span class="cal-day">8</span><span class="cal-day">9</span><span class="cal-day">10</span><span class="cal-day">11</span><span class="cal-day">12</span>
-                                    <span class="cal-day">13</span><span class="cal-day">14</span><span class="cal-day">15</span><span class="cal-day">16</span><span class="cal-day">17</span><span class="cal-day">18</span>
-                                    <span class="cal-day">19</span><span class="cal-day">20</span><span class="cal-day">21</span><span class="cal-day">22</span><span class="cal-day">23</span><span class="cal-day">24</span>
-                                    <span class="cal-day">25</span><span class="cal-day">26</span><span class="cal-day">27</span><span class="cal-day">28</span>
-                                </div>
-
-                                <div class="cal-legend">
-                                    <span class="dot"></span>
-                                    <span class="muted">Highlighed = due dates</span>
-                                </div>
-                            </div>
-                        </section>
-
-                     </aside>
-                </section>
+                </aside>
+            </section>
 
 
 
 
-              </main>
-        </div>
-    </body>
+        </main>
+    </div>
+</body>
+
 </html>

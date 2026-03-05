@@ -1,228 +1,259 @@
 <!DOCTYPE HTML5>
-<html lang = "en">
-    <head>
-        <title>Smart Course Companion</title>
-        <link rel = "stylesheet" href = "HomePage_Styles.css">
-        <link rel = "stylesheet" href = "CourseOrganizer_GeneralStyles.css">
-        <script type = "text/javascript" src = "jspractice.js" defer></script>
-    </head>
-    <body>
-        <div class = "left">
-            <div class = "left-title sub-title" id="left-title">COURSE COMPANION</div>
-            <nav class = "left-menu-top">
-                <ul>
-                    <li class = "left-menu-option"><img src = "white-icons/white-4-square-grid-96.png"><a href = "New_HomePage.html">Dashboard</a></li>
-                    <li class = "left-menu-option "><img class = "all-classes-icon" src = "white-icons/white-class-96.png"><a href = "New_HomePage.html">All Classes</a></li>
-                    <li class = "left-menu-option"><img src = "white-icons/white-messages-288.png"><a href = "">Messages</a></li>
-                    <li class = "left-menu-option"><img src = "white-icons/white-timetable-96.png"><a href = "">Schedule</a></li>
-                    <li class = "left-menu-option"><img src = "white-icons/white-assignments-96.png"><a href = "ManageAssessments_Page.html">Assignments</a></li>
-                </ul>
-            </nav>
-            <nav class = "left-menu-bottom">
-                <ul>
-                    <li class = "left-menu-option"><img src = "white-icons/white-sign-out-96.png"><a href = "">Log out</a></p>
-                    <li class = "left-menu-option"><img src = "white-icons/white-settings-288.png"><a href = "ManageAccount.html">Settings</a></p>
-                    <li class = "left-menu-option"><img src = "white-icons/white-help-96.png"><a href = "">Help</a></p>
-                </ul>
-            </nav>
+<html lang="en">
+
+<head>
+    <title>Smart Course Companion</title>
+    <link rel="stylesheet" href="HomePage_Styles.css">
+    <link rel="stylesheet" href="CourseOrganizer_GeneralStyles.css">
+    <script type="text/javascript" src="jspractice.js" defer></script>
+</head>
+
+<body>
+    <div class="left">
+        <div class="left-title sub-title" id="left-title">COURSE COMPANION</div>
+        <nav class="left-menu-top">
+            <ul>
+                <li class="left-menu-option"><img src="white-icons/white-4-square-grid-96.png"><a
+                        href="New_HomePage.html">Dashboard</a></li>
+                <li class="left-menu-option "><img class="all-classes-icon" src="white-icons/white-class-96.png"><a
+                        href="New_HomePage.html">All Classes</a></li>
+                <li class="left-menu-option"><img src="white-icons/white-messages-288.png"><a href="">Messages</a></li>
+                <li class="left-menu-option"><img src="white-icons/white-timetable-96.png"><a href="">Schedule</a></li>
+                <li class="left-menu-option"><img src="white-icons/white-assignments-96.png"><a
+                        href="ManageAssessments_Page.html">Assignments</a></li>
+            </ul>
+        </nav>
+        <nav class="left-menu-bottom">
+            <ul>
+                <li class="left-menu-option"><img src="white-icons/white-sign-out-96.png"><a href="">Log out</a></p>
+                <li class="left-menu-option"><img src="white-icons/white-settings-288.png"><a
+                        href="ManageAccount.html">Settings</a></p>
+                <li class="left-menu-option"><img src="white-icons/white-help-96.png"><a href="">Help</a></p>
+            </ul>
+        </nav>
+    </div>
+    <div class="main">
+        <div class="center-top">
+            <div class="uppermost-center-line">
+                <p class="center-title">MY COURSES</p>
+
+                <div class="left-icons-in-uppermost-center-line">
+                    <div class="search-bar-container">
+                        <div><img class="search-icon" src="black-icons/black-search-480.png"></div>
+                        <input type="text" class="search-bar-input" placeholder="Search"></input>
+                    </div>
+                    <div class="notifications"><img class="notifications-icon"
+                            src="black-icons/black_notification-96.png"></div>
+                    <div class="edit-courses-menu">
+                        <div class="hamburger-menu-button">
+                            <span class="hamburger-bar"></span>
+                            <span class="hamburger-bar"></span>
+                            <span class="hamburger-bar"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="top-right">
+                <div class="text-next-to-profile">
+                    <p class="username" id="username">Username</p>
+                    <p class="student-id">Student ID</p>
+                </div>
+                <div><img class="profile-photo" src="black-icons/black-profile-96.png"></div>
+            </div>
         </div>
-        <div class = "main">
-            <div class = "center-top">
-                <div class = "uppermost-center-line">
-                    <p class = "center-title">MY COURSES</p>
-
-                    <div class = "left-icons-in-uppermost-center-line">
-                        <div class = "search-bar-container">
-                            <div ><img class = "search-icon" src = "black-icons/black-search-480.png"></div>
-                            <input type = "text" class = "search-bar-input" placeholder="Search"></input>
+        <div class="sub-main">
+            <div class="sub-main-left">
+                <div class="course-area">
+                    <div class="filter-by-line">
+                        <p>Filter:</p>
+                        <div class="past-div filter-checkbox-div">
+                            <input type="checkbox" id="past" class="disappear filter-checkbox" />
+                            <label for="past" class="filter-checkbox-label past-label">
+                                <p class="filter-p">Past</p>
+                            </label>
                         </div>
-                        <div class = "notifications"><img class = "notifications-icon" src = "black-icons/black_notification-96.png"></div>
-                        <div class = "edit-courses-menu">
-                            <div class = "hamburger-menu-button">
-                                <span class = "hamburger-bar"></span>
-                                <span class = "hamburger-bar"></span>
-                                <span class = "hamburger-bar"></span>
-                            </div>    
+                        <div class="present-div filter-checkbox-div">
+                            <input type="checkbox" id="present" class="disappear filter-checkbox" />
+                            <label for="present" class="filter-checkbox-label present-label">
+                                <p class="filter-p">Present</p>
+                            </label>
+                        </div>
+                        <div class="future-div filter-checkbox-div">
+                            <input type="checkbox" id="future" class="disappear filter-checkbox" />
+                            <label for="future" class="filter-checkbox-label future-label">
+                                <p class="filter-p">Future</p>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="sub-course-area">
+                        <div class="course">
+                            <div class="course-image course-img-1"></div>
+                            <a class="course-info-text" href="coursePage.html">
+                                <p class="course-code">SOEN 287</p>
+                                <p class="course-name">Web Programming</p>
+                                <p class="course-section">Section Y</p>
+                            </a>
+                        </div>
+                        <div class="course">
+                            <div class="course-image course-img-2"></div>
+                            <a class="course-info-text" href="coursePage.html">
+                                <p class="course-code">COMP 249</p>
+                                <p class="course-name">Object-Oriented Prog. II</p>
+                                <p class="course-section">Section U</p>
+                            </a>
+                        </div>
+                        <div class="course">
+                            <div class="course-image course-img-9"></div>
+                            <a class="course-info-text" href="coursePage.html">
+                                <p class="course-code">ENGR 233</p>
+                                <p class="course-name">Applied Advanced Calculus</p>
+                                <p class="course-section">Section X</p>
+                            </a>
+                        </div>
+                        <div class="course">
+                            <div class="course-image course-img-5"></div>
+                            <a class="course-info-text" href="coursePage.html" 9>
+                                <p class="course-code">COMP 348</p>
+                                <p class="course-name">Principles of Prog. Languages</p>
+                                <p class="course-section">Section Y</p>
+                            </a>
                         </div>
                     </div>
                 </div>
-                 <div class = "top-right">
-                <div class = "text-next-to-profile">
-                    <p class = "username" id = "username">Username</p>
-                    <p class = "student-id">Student ID</p>
-                </div>
-                <div><img class = "profile-photo" src = "black-icons/black-profile-96.png"></div>
-            </div>
-            </div>
-            <div class = "sub-main">
-                <div class = "sub-main-left" >
-                <div class = "course-area">
-                    <div class = "filter-by-line">
-                    <p>Filter:</p>
-                    <div class = "past-div filter-checkbox-div">
-                        <input type = "checkbox" id = "past" class = "disappear filter-checkbox"/>
-                        <label for = "past" class = "filter-checkbox-label past-label"><p class = "filter-p">Past</p></label>
-                    </div>
-                    <div class = "present-div filter-checkbox-div">
-                        <input type = "checkbox" id = "present" class = "disappear filter-checkbox"/>
-                        <label for = "present" class = "filter-checkbox-label present-label"><p class = "filter-p">Present</p></label>
-                    </div>
-                    <div class = "future-div filter-checkbox-div">
-                        <input type = "checkbox" id = "future" class = "disappear filter-checkbox" />
-                        <label for = "future" class = "filter-checkbox-label future-label"><p class = "filter-p">Future</p></label>
-                    </div>        
-                </div>
-                <div class = "sub-course-area">
-                    <div class = "course">
-                        <div class = "course-image course-img-1"></div>
-                        <a class = "course-info-text" href = "coursePage.html">
-                            <p class = "course-code">SOEN 287</p>
-                            <p class = "course-name">Web Programming</p>
-                            <p class = "course-section">Section Y</p>
-                        </a> 
-                    </div>
-                    <div class = "course">
-                        <div class = "course-image course-img-2"></div>
-                        <a class = "course-info-text" href = "coursePage.html">
-                            <p class = "course-code">COMP 249</p>
-                            <p class = "course-name">Object-Oriented Prog. II</p>
-                            <p class = "course-section">Section U</p>
-                        </a> 
-                    </div>
-                    <div class = "course">
-                        <div class = "course-image course-img-9"></div>
-                        <a class = "course-info-text" href = "coursePage.html">
-                            <p class = "course-code">ENGR 233</p>
-                            <p class = "course-name">Applied Advanced Calculus</p>
-                            <p class = "course-section">Section X</p>
-                        </a> 
-                    </div>
-                    <div class = "course">
-                        <div class = "course-image course-img-5"></div>
-                        <a class = "course-info-text" href = "coursePage.html"9>
-                            <p class = "course-code">COMP 348</p>
-                            <p class = "course-name">Principles of Prog. Languages</p>
-                            <p class = "course-section">Section Y</p>
-                        </a> 
-                    </div>  
-                    </div>              
-                </div>
-                <div class = "deadlines-container">
-                    <p class = "deadline-title sub-title">Deadlines</p>
-                    <div class = "deadlines-list">
-                        <div class = "deadline-item"><a href = "ManageAssessments_Page.html" class = "deadline-item-anchor">Assignment 1</a></div>
-                        <div class = "deadline-item"><a href = "ManageAssessments_Page.html" class="deadline-item-anchor">Quiz 5</a></div>
-                        <div class = "deadline-item"><a href = "ManageAssessments_Page.html" class = "deadline-item-anchor">Project SOEN287</a></div>
-                        <div class = "deadline-item"><a href = "ManageAssessments_Page.html" class = "deadline-item-anchor">Assignment 2</a></div>
-                    </div>
-                </div>
-                </div>
-                <div class = "sub-main-right">
-           
-            <section class="cal-card">
-                <div class="card-header">
-                    <h3> Calendar </h3>
-                    <p class="muted"> FEB 2026</p>
-                </div>
-
-                <div class="calendar">
-                    <div class="cal-head">
-                        <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
-                    </div>
-                    <div class="cal-grid">
-
-                        <span class="cal-day dim"> </span>
-                        <span class="cal-day">1</span><span class="cal-day">2</span><span class="cal-day">3</span><span class="cal-day">4</span><span class="cal-day">5</span><span class="cal-day">6</span>
-                        <span class="cal-day">7</span><span class="cal-day">8</span><span class="cal-day">9</span><span class="cal-day">10</span><span class="cal-day">11</span><span class="cal-day">12</span>
-                        <span class="cal-day">13</span><span class="cal-day">14</span><span class="cal-day">15</span><span class="cal-day">16</span><span class="cal-day">17</span><span class="cal-day">18</span>
-                        <span class="cal-day">19</span><span class="cal-day">20</span><span class="cal-day">21</span><span class="cal-day">22</span><span class="cal-day">23</span><span class="cal-day">24</span>
-                        <span class="cal-day">25</span><span class="cal-day">26</span><span class="cal-day">27</span><span class="cal-day">28</span>
-                    </div>
-
-                    <div class="cal-legend">
-                        <span class="dot"></span>
-                        <span class="muted">Highlighed = due dates</span>
-                    </div>
-                </div>
-            </section>
-
-            <div class = "averages-container">
-                <div class="average-card">
-                    <div class="averages-title">Averages</div>
-                    <div class="courseRow">
-                        <div class="courseLabel">
-                            <span>SOEN 287</span>
-                            <span id="engr201-percent">0%</span>
-                        </div>
-                        <div class="barBackground">
-                            <div class="barFill" id="engr201-bar"></div>
-                        </div>
-                    </div>
-                    <div class="courseRow">
-                        <div class="courseLabel">
-                            <span>COMP 249</span>
-                            <span id="comp232-percent">0%</span>
-                        </div>
-                        <div class="barBackground">
-                            <div class="barFill" id="comp232-bar"></div>
-                        </div>
-                    </div>
-                    <div class="courseRow">
-                        <div class="courseLabel">
-                            <span>ENGR 233</span>
-                            <span id="soen228-percent">0%</span>
-                        </div>
-                    <div class="barBackground">
-                            <div class="barFill" id="soen228-bar"></div>
-                        </div>
-                    </div>
-                    <div class="courseRow">
-                        <div class="courseLabel">
-                            <span>COMP 348</span>
-                            <span id="comp248-percent">0%</span>
-                        </div>
-                        <div class="barBackground">
-                            <div class="barFill" id="comp248-bar"></div>
-                        </div>
-                    </div>
-                    <hr class="divider">
-                    <div class="overall">
-                        Overall Average<br>
-                    <span class="overallNumber" id="overall-percent">0%</span>
+                <div class="deadlines-container">
+                    <p class="deadline-title sub-title">Deadlines</p>
+                    <div class="deadlines-list">
+                        <div class="deadline-item"><a href="ManageAssessments_Page.html"
+                                class="deadline-item-anchor">Assignment 1</a></div>
+                        <div class="deadline-item"><a href="ManageAssessments_Page.html"
+                                class="deadline-item-anchor">Quiz 5</a></div>
+                        <div class="deadline-item"><a href="ManageAssessments_Page.html"
+                                class="deadline-item-anchor">Project SOEN287</a></div>
+                        <div class="deadline-item"><a href="ManageAssessments_Page.html"
+                                class="deadline-item-anchor">Assignment 2</a></div>
                     </div>
                 </div>
             </div>
-            <script>
-                const courses = [
-                    { id: "engr201", grades: [80, 75, 100] },
-                    { id: "comp232", grades: [50, 40, 45] },
-                    { id: "soen228", grades: [85, 90, 80] },
-                    { id: "comp248", grades: [60, 55, 70] }
-                ];
+            <div class="sub-main-right">
 
-                function calculateAverage(grades) {
-                    let total = 0;
-                    for (let i = 0; i < grades.length; i++) {
-                        total += grades[i];
+                <section class="calend-card">
+                    <div class="cal-card-header">
+                        <h3> Calendar </h3>
+                        <p class="muted"> FEB 2026</p>
+                    </div>
+
+                    <div class="calendar">
+                        <div class="cal-head">
+                            <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+                        </div>
+                        <div class="cal-grid">
+
+                            <span class="cal-day dim"> </span>
+                            <span class="cal-day">1</span><span class="cal-day">2</span><span
+                                class="cal-day">3</span><span class="cal-day">4</span><span
+                                class="cal-day">5</span><span class="cal-day">6</span>
+                            <span class="cal-day">7</span><span class="cal-day">8</span><span
+                                class="cal-day">9</span><span class="cal-day">10</span><span
+                                class="cal-day">11</span><span class="cal-day">12</span>
+                            <span class="cal-day">13</span><span class="cal-day">14</span><span
+                                class="cal-day">15</span><span class="cal-day">16</span><span
+                                class="cal-day">17</span><span class="cal-day">18</span>
+                            <span class="cal-day">19</span><span class="cal-day">20</span><span
+                                class="cal-day">21</span><span class="cal-day">22</span><span
+                                class="cal-day">23</span><span class="cal-day">24</span>
+                            <span class="cal-day">25</span><span class="cal-day">26</span><span
+                                class="cal-day">27</span><span class="cal-day">28</span>
+                        </div>
+
+                        <div class="cal-legend">
+                            <span class="dot"></span>
+                            <span class="muted">Highlighed = due dates</span>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="averages-container">
+                    <div class="average-card">
+                        <div class="averages-title">Averages</div>
+                        <div class="averages-bars-container">
+                            <div class="courseRow">
+                                <div class="courseLabel">
+                                    <span>SOEN 287</span>
+                                    <span id="engr201-percent">0%</span>
+                                </div>
+                                <div class="barBackground">
+                                    <div class="barFill" id="engr201-bar"></div>
+                                </div>
+                            </div>
+                            <div class="courseRow">
+                                <div class="courseLabel">
+                                    <span>COMP 249</span>
+                                    <span id="comp232-percent">0%</span>
+                                </div>
+                                <div class="barBackground">
+                                    <div class="barFill" id="comp232-bar"></div>
+                                </div>
+                            </div>
+                            <div class="courseRow">
+                                <div class="courseLabel">
+                                    <span>ENGR 233</span>
+                                    <span id="soen228-percent">0%</span>
+                                </div>
+                                <div class="barBackground">
+                                    <div class="barFill" id="soen228-bar"></div>
+                                </div>
+                            </div>
+                            <div class="courseRow">
+                                <div class="courseLabel">
+                                    <span>COMP 348</span>
+                                    <span id="comp248-percent">0%</span>
+                                </div>
+                                <div class="barBackground">
+                                    <div class="barFill" id="comp248-bar"></div>
+                                </div>
+                            </div>
+                            
+                            
+                        </div>
+                        <hr class="divider">
+                        <div class="overall">
+                                Overall Average<br>
+                                <span class="overallNumber" id="overall-percent">0%</span>
+                            </div>
+                    </div>
+                </div>
+                <script>
+                    const courses = [
+                        { id: "engr201", grades: [80, 75, 100] },
+                        { id: "comp232", grades: [50, 40, 45] },
+                        { id: "soen228", grades: [85, 90, 80] },
+                        { id: "comp248", grades: [60, 55, 70] }
+                    ];
+
+                    function calculateAverage(grades) {
+                        let total = 0;
+                        for (let i = 0; i < grades.length; i++) {
+                            total += grades[i];
+                        }
+                        return Math.round(total / grades.length);
                     }
-                    return Math.round(total / grades.length);
-                }
 
-                let totalAvg = 0;
+                    let totalAvg = 0;
 
-                courses.forEach(course => {
-                    const avg = calculateAverage(course.grades);
-                    totalAvg += avg;
-                    document.getElementById(course.id + "-percent").textContent = avg + "%";
-                    document.getElementById(course.id + "-bar").style.width = avg + "%";
-                });
+                    courses.forEach(course => {
+                        const avg = calculateAverage(course.grades);
+                        totalAvg += avg;
+                        document.getElementById(course.id + "-percent").textContent = avg + "%";
+                        document.getElementById(course.id + "-bar").style.width = avg + "%";
+                    });
 
-                const overall = Math.round(totalAvg / courses.length);
-                document.getElementById("overall-percent").textContent = overall + "%";
-            </script>
-        </div>
+                    const overall = Math.round(totalAvg / courses.length);
+                    document.getElementById("overall-percent").textContent = overall + "%";
+                </script>
             </div>
         </div>
-        
-    </body>
+    </div>
+
+</body>
+
 </html>

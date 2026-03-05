@@ -434,8 +434,9 @@ a {
 }
 
 .sub-main-right {
-    display : block;
-    width : 20%;
+    display : flex;
+    flex-direction: column;
+    width : 30%;
     
     padding-top : 0;
     padding-left : 0.5cm;
@@ -445,34 +446,45 @@ a {
 }
 
 /*Calendar*/
-.cal-card{
+.calend-card{
+    /*
   background: var(--w-purple-grey);
+  */
+   background: linear-gradient(301deg, rgba(49,0,71,1) 0%, rgba(49,0,71,1) 25%, rgba(50,0,71,1) 35%,rgba(71,0,71,1) 80%);
+
   border-radius: var(--radius);
   padding: 0.5cm 0.6cm;
   margin: 0;
   border: 0;
-  height : 3.5in;
+  flex-grow : 1;
 }
 
 /*Averages*/
 .averages-container {
     display: flex;
     justify-content: center;
-    align-items: center;
     margin-top : 0.4cm;
+    margin-bottom : 0;
+    height : 50%;
    
 }
+
+.averages-bars-container {
+     background: rgba(255,255,255,0.12);
+     border-radius: 15px;
+     padding : 0.3cm 0.4cm 0.1cm 0.4cm;
+
+}
 .average-card {
-    background: var(--w-purple-grey);
+    background: linear-gradient(301deg, rgba(49,0,71,1) 0%, rgba(49,0,71,1) 25%, rgba(50,0,71,1) 35%,rgba(71,0,71,1) 80%);
     border-radius: 15px;
     padding: 30px;
-    width: 350px;
+    flex-grow: 1;
 
 }
 
 .averages-title {
     font-size: 14pt;
-    color: #111;
     letter-spacing: 2px;
     margin-bottom: 20px;
     text-align: center;
@@ -486,7 +498,6 @@ a {
     display: flex;
     justify-content: space-between;
     font-size: 12pt;
-    color: #111;
     text-transform: uppercase;
     margin-bottom: 6px;
 }
@@ -509,17 +520,15 @@ a {
 .divider {
     border: none;
     border-top: 1px solid var(--w-dark-purple1);
-    margin: 20px 0;
+    margin-bottom: 0.2cm;
 }
 
 .overall {
     text-align: center;
     font-size: 14pt;
-    color: #111;
     letter-spacing: 1px;
 }
 
 .overallNumber {
     font-size: 14pt;
-    color: #111;
 }
