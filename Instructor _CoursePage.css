@@ -128,7 +128,7 @@ a {
 }
 
 .center-top {
-    
+    height : 15vh;
 }
 .top-right {
     width : 20%;
@@ -140,6 +140,7 @@ a {
 }
 .sub-main-left {
     flex-grow: 1;
+    height : 82vh;
     overflow-y : auto;
 }
 
@@ -150,6 +151,8 @@ a {
     color : #111;
     border-radius: 15px;
     margin-right : 0.4cm;
+    overflow-y: hidden;
+    
 }
 
 .container {
