@@ -16,43 +16,22 @@
 
 body {
     background-color: whitesmoke;
-}
-
-.navbar {
-    background: linear-gradient(132deg, rgba(49,0,71,1) 0%, rgba(71,0,71,1) 80%);
-    padding: 0.4cm 0.5cm;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 1in;
-    color: whitesmoke;
+    overflow: hidden;
 }
 
-.navTitle {
-    font-family: 'Oswald', sans-serif;
-    font-size: 16pt;
-    letter-spacing: 2px;
+.right {
+    flex-grow : 1;
 }
-
-.navAvatar {
-    background-color: var(--w-mid-purple);
-    color: white;
-    width: 1.2cm;
-    height: 1.2cm;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 10pt;
-    font-weight: bold;
-    border: 2px solid white;
-}
-
 .container {
     background-color: var(--w-purple-grey);
-    margin: 0.2cm;
+    margin: 0.4cm;
     padding: 0.5cm;
     border-radius: 15px;
+    flex-grow: 1;
+    height : 83vh;
+    overflow-y: auto;
+    scrollbar-color: var(--w-purple-grey) whitesmoke;
 }
 
 .pageTitle {

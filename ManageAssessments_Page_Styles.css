@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
-:root{
+:root {
     --deep-purple: #470047;
     --medium-purple: #6F0B5B;
     --berry: #A02B68;
@@ -13,17 +13,42 @@
     --card-bg: rgba(255, 255, 255, 0.95);
     --border: rgba(71, 0, 71, 0.12);
     --shadow: 0 12px 30px rgba(71, 0, 71, 0.10);
+    --w-purple-grey: rgb(225, 222, 230);
+}
 
-*{
+* {
     box-sizing: border-box;
 }
 
 body {
+    display: flex;
+    width: 100%;
     font-family: 'Raleway', 'Segoe UI', system-ui, sans-serif;
     margin: 0;
-    padding: 50px;
     background: var(--bg);
     color: var(--deep-purple);
+}
+
+.main {
+    flex-grow: 1;
+    height: 100vh;
+}
+
+.center-top {
+    border-bottom: 1px var(--w-purple-grey);
+}
+
+.sub-main {
+    padding: 0.4cm 0.4cm;
+    margin: 0.4cm 0.4cm;
+    background-color: var(--w-purple-grey);
+    border-radius: 15px;
+    height : 87vh;
+    overflow-y: auto;
+}
+
+.top-right {
+    width: 15%;
 }
 
 /*--------------Title----------------*/
@@ -41,13 +66,13 @@ h1 {
 }
 
 /*------------Summary Cards-------------*/
-.summary{
+.summary {
     display: flex;
     gap: 20px;
     margin-bottom: 25px;
 }
 
-.card{
+.card {
     background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: 18px;
@@ -58,19 +83,19 @@ h1 {
     backdrop-filter: blur(8px);
 }
 
-.card h2{
+.card h2 {
     font-family: 'Oswald', sans-serif;
     margin: 0;
     font-size: 26px;
 }
 
-.card p{
+.card p {
     margin-top: 8px;
     color: rgba(71, 0, 71, 0.65);
 }
 
 /*--------------Filter-------------*/
-.filters{
+.filters {
     background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: 18px;
@@ -78,7 +103,8 @@ h1 {
     box-shadow: var(--shadow);
     margin-bottom: 25px;
 }
-.filters button{
+
+.filters button {
     padding: 8px 18px;
     border-radius: 20px;
     border: none;
@@ -90,7 +116,7 @@ h1 {
     font-family: 'Raleway', sans-serif;
 }
 
-.filters button:hover{
+.filters button:hover {
     background: var(--burnt-orange);
     color: white;
     border: none;
@@ -98,13 +124,13 @@ h1 {
 
 /*-------------Assessments---------------*/
 
-.assessments{
+.assessments {
     display: flex;
     flex-direction: column;
     gap: 18px;
 }
 
-.assessment-card{
+.assessment-card {
     background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: 18px;
@@ -116,40 +142,49 @@ h1 {
     backdrop-filter: blur(8px);
 }
 
-.assessment-card:hover{
+.assessment-card:hover {
     transform: translateY(-2px);
 }
 
-.assessment-card > label{
+.assessment-card>label {
     display: none;
 }
 
-.card:nth-child(1) { border-top: 4px solid var(--deep-purple); }
-.card:nth-child(2) { border-top: 4px solid var(--yellow); }
-.card:nth-child(3) { border-top: 4px solid var(--burnt-orange);}
+.card:nth-child(1) {
+    border-top: 4px solid var(--deep-purple);
+}
 
-.status{
+.card:nth-child(2) {
+    border-top: 4px solid var(--yellow);
+}
+
+.card:nth-child(3) {
+    border-top: 4px solid var(--burnt-orange);
+}
+
+.status {
     width: 18px;
     height: 18px;
     accent-color: var(--deep-purple);
 }
 
-.assessment-details{
+.assessment-details {
     flex: 1;
 }
-.assessment-details h3{
+
+.assessment-details h3 {
     font-family: 'Oswald', sans-serif;
     margin: 0;
     font-size: 18px;
 }
 
-.assessment-details p{
+.assessment-details p {
     color: rgba(71, 0, 71, 0.60);
     font-size: 14px;
     margin: 5px 0 0;
 }
 
-.delete-assessment{
+.delete-assessment {
     margin-left: auto;
     background: var(--deep-purple);
     color: white;
@@ -160,6 +195,6 @@ h1 {
     font-weight: 600;
 }
 
-.delete-assessment:hover{
+.delete-assessment:hover {
     background: var(--berry);
 }

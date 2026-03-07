@@ -7,35 +7,6 @@
     <link rel="stylesheet" href="CourseOrganizer_GeneralStyles.css">
     <script type="text/javascript" src="jspractice.js" defer></script>
 </head>
-<html lang = "en">
-    <head>
-        <title>Smart Course Companion</title>
-        <link rel = "stylesheet" href = "HomePage_Styles.css">
-        <script type = "text/javascript" src = "jspractice.js" defer></script>
-    </head>
-    <body>
-        <div class = "left">
-            <div class = "left-title sub-title" id="left-title">COURSE COMPANION</div>
-            <nav class = "left-menu-top">
-                <ul>
-                    <li class = "left-menu-option"><img src = "white-icons/white-4-square-grid-96.png"><a href = "New_HomePage.html">Dashboard</a></li>
-                    <li class = "left-menu-option "><img class = "all-classes-icon" src = "white-icons/white-class-96.png"><a href = "New_HomePage.html">All Classes</a></li>
-                    <li class = "left-menu-option"><img src = "white-icons/white-messages-288.png"><a href = "">Messages</a></li>
-                    <li class = "left-menu-option"><img src = "white-icons/white-timetable-96.png"><a href = "">Schedule</a></li>
-                    <li class = "left-menu-option"><img src = "white-icons/white-assignments-96.png"><a href = "ManageAssessments_Page.html">Assignments</a></li>
-                </ul>
-            </nav>
-            <nav class = "left-menu-bottom">
-                <ul>
-                    <li class = "left-menu-option"><img src = "white-icons/white-sign-out-96.png"><a href = "LogOut.html">Log out</a></p>
-                    <li class = "left-menu-option"><img src = "white-icons/white-settings-288.png"><a href = "ManageAccount.html">Settings</a></p>
-                    <li class = "left-menu-option"><img src = "white-icons/white-help-96.png"><a href = "">Help</a></p>
-                </ul>
-            </nav>
-        </div>
-        <div class = "center">
-            <div class = "uppermost-center-line">
-                <p class = "center-title">MY COURSES</p>
 
 <body>
     <div class="left">
@@ -46,15 +17,13 @@
                         href="New_HomePage.html">Dashboard</a></li>
                 <li class="left-menu-option "><img class="all-classes-icon" src="white-icons/white-class-96.png"><a
                         href="New_HomePage.html">All Classes</a></li>
-                <li class="left-menu-option"><img src="white-icons/white-messages-288.png"><a href="">Messages</a></li>
-                <li class="left-menu-option"><img src="white-icons/white-timetable-96.png"><a href="">Schedule</a></li>
                 <li class="left-menu-option"><img src="white-icons/white-assignments-96.png"><a
                         href="ManageAssessments_Page.html">Assignments</a></li>
             </ul>
         </nav>
         <nav class="left-menu-bottom">
             <ul>
-                <li class="left-menu-option"><img src="white-icons/white-sign-out-96.png"><a href="">Log out</a></p>
+                <li class="left-menu-option"><img src="white-icons/white-sign-out-96.png"><a href="LogOut.html">Log out</a></p>
                 <li class="left-menu-option"><img src="white-icons/white-settings-288.png"><a
                         href="ManageAccount.html">Settings</a></p>
                 <li class="left-menu-option"><img src="white-icons/white-help-96.png"><a href="">Help</a></p>
@@ -66,27 +35,9 @@
             <div class="uppermost-center-line">
                 <p class="center-title">MY COURSES</p>
 
-        <!-- add course button -->
-        <input type="checkbox" id="add-course-toggle" class="modal-toggle">
-        <label for="add-course-toggle" class="add-course-btn">+ Add Course</label>
-                <div class="add-course-modal">
-                    <div class="modal-content">
-                    <h3>Add Course</h3>
 
-                    <input type="text" placeholder="Course Code (ex: SOEN 287)">
-                    <input type="text" placeholder="Course Name">
-                    <input type="text" placeholder="Instructor Name">
-                    <input type="text" placeholder="Term (ex: Winter 2026)">
 
-                      <div class="modal-actions">
-                       <button class="btn-primary">Add</button>
-                         <label for="add-course-toggle" class="btn-secondary">Cancel</label>
-                      </div>
 
-                     </div>
-                  </div>
-
-                
                 <div class="left-icons-in-uppermost-center-line">
                     <div class="search-bar-container">
                         <div><img class="search-icon" src="black-icons/black-search-480.png"></div>
@@ -114,6 +65,28 @@
         <div class="sub-main">
             <div class="sub-main-left">
                 <div class="course-area">
+                    <!-- add course button -->
+                    <div class="add-course-container">
+                    <input type="checkbox" id="add-course-toggle" class="modal-toggle">
+                    <label for="add-course-toggle" class="add-course-btn">+ Add Course</label>
+                    
+                    <div class="add-course-modal">
+                        <div class="modal-content">
+                            <h3>Add Course</h3>
+
+                            <input type="text" placeholder="Course Code (ex: SOEN 287)">
+                            <input type="text" placeholder="Course Name">
+                            <input type="text" placeholder="Instructor Name">
+                            <input type="text" placeholder="Term (ex: Winter 2026)">
+
+                            <div class="modal-actions">
+                                <button class="btn-primary">Add</button>
+                                <label for="add-course-toggle" class="btn-secondary">Cancel</label>
+                            </div>
+
+                        </div>
+                    </div>
+                    </div>
                     <div class="filter-by-line">
                         <p>Filter:</p>
                         <div class="past-div filter-checkbox-div">
@@ -262,14 +235,14 @@
                                     <div class="barFill" id="comp248-bar"></div>
                                 </div>
                             </div>
-                            
-                            
+
+
                         </div>
                         <hr class="divider">
                         <div class="overall">
-                                Overall Average<br>
-                                <span class="overallNumber" id="overall-percent">0%</span>
-                            </div>
+                            Overall Average<br>
+                            <span class="overallNumber" id="overall-percent">0%</span>
+                        </div>
                     </div>
                 </div>
                 <script>

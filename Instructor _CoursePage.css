@@ -126,115 +126,13 @@ a {
     overflow : clip;
 
 }
+
 .center-top {
-    display: flex;
-    flex-grow : 1;
-    height : 1.2in;
-    margin-top: 0.4cm;
+    height : 15vh;
 }
-.uppermost-center-line {
-    display : flex;
-    height : 1in;
-    padding-right : 1cm;
-    padding-left : 0.5cm;
-    align-items : center;
-    flex-grow : 1;
-}
-
-.center-title {
-    /*My courses*/
-    font-family : oswald;
-    flex-grow: 1;
-    font-size : 30pt;
-}
-
-.instructor-welcome-message {
-    flex-grow : 1;
-}
-
-.left-icons-in-uppermost-center-line {
-    display : flex;
-    width : 40%;
-    align-items : center;
-    gap : 4%;
-}
-
-.search-bar-container {
-    display : flex;
-    border : var(--w-purple-grey) solid 1px;
-    background-color: whitesmoke;
-    flex-grow : 1;
-    height : 0.8cm;
-    border-radius : 50px;
-    padding-right : 5%;
-    padding-left : 2.5%;
-    align-items : center;
-
-}
-
-.search-icon {
-    /*<a target="_blank" href="https://icons8.com/icon/59878/search">Search</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>*/
-    width : 20px;
-    height : 20px;
-
-}
-
-.search-bar-input:hover {
-    outline : none;
-}
-
-.search-bar-input:focus {
-    outline: none;
-}
-
-.search-bar-input {
-    border : 0px;
-    background-color: whitesmoke;
-    flex-grow : 1;
-    justify-content : flex-end;
-    font-size : 12pt;
-    font-style : inherit;
-    margin-left : 2%;
-}
-
-.notifications-icon {
-    /*credit: */
-    /*<a target="_blank" href="https://icons8.com/icon/4mJGn1D1b2Xr/notification">Notification</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>*/
-    width : 25px;
-    height : 25px;
-
-}
-
-.hamburger-menu-button {
-    width : 20px;
-    display : block;
-    align-self : flex-center;
-    padding : 2px 0;
-}
-
-.hamburger-bar {
-    width : 100%;
-    display : block;
-    height : 1.5pt;
-    border-radius : 2px;
-    background: #111;
-}
-
-.hamburger-bar + .hamburger-bar {
-    margin-top : 5px;
-}
-
 .top-right {
-    display : flex;
-    justify-content : flex-end;
-    align-items : center;
-    height : 2cm;
-    padding-right : 0.5cm;
-    padding-top : 0.5cm;
-    color : #111;
-    width: 23%;
+    width : 20%;
 }
-
 
 
 .disappear {
@@ -242,6 +140,7 @@ a {
 }
 .sub-main-left {
     flex-grow: 1;
+    height : 82vh;
     overflow-y : auto;
 }
 
@@ -252,28 +151,40 @@ a {
     color : #111;
     border-radius: 15px;
     margin-right : 0.4cm;
+    overflow-y: hidden;
+    
 }
 
 .container {
-    background-color: var(--w-purple-grey);
+    background-color: whitesmoke;
     margin: 0 0.4cm 0 0.4cm;
-    padding: 0.5cm;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
-    gap: 0.3cm;
+    gap: 0.5cm;
 }
 
 .dashboard-row {
     display: flex;
-    gap: 0.3cm;
+    gap: 0.5cm;
 }
 
+.dashboard-card-container {
+    border-radius: 15px;
+    margin-bottom: 0cm;
+    background-color: var(--w-purple-grey);
+    padding-bottom: 0.4cm;
+}
+
+.dashboard-card-container p {
+    margin : 0.6cm auto 0 0.6cm;
+}
 .dashboard-card {
     background-color: #f0f0f0;
     border-radius: 12px;
     padding: 0.4cm 0.5cm;
     flex: 1;
+    margin: 0.2cm 0.4cm 0.4cm 0.4cm;
 }
 
 .card-title {
@@ -338,8 +249,14 @@ a {
 }
 
 /*---------QUICK ACTION------------*/
+.quick-actions-card-container {
+    width : 5in;
+    display : flex;
+    flex-direction: column;
+}
 .quick-actions-list {
     padding: 0;
+    flex-grow: 1;
 }
 
 .quick-actions-list li {
@@ -358,6 +275,12 @@ a {
 }
 
 /* -----------------TEMPLATE------------------- */
+.template-card-container {
+    flex-grow : 1;
+}
+.template-card {
+    margin-left : 0.4cm;
+}
 .template-header {
     display: flex;
     justify-content: space-between;

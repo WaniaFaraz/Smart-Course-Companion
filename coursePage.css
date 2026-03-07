@@ -38,75 +38,15 @@ button {
 
 /* the website layout */
 .app {
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
+    overflow: hidden;
 }
 
-/* sidebar */
-.sidebar {
-    background: whitesmoke;
-    padding: 18px 14px;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-
-
-   background: linear-gradient(132deg, rgba(49,0,71,1) 0%, rgba(49,0,71,1) 25%, rgba(50,0,71,1) 35%, rgba(71,0,71,1)80%);
-   box-shadow: 2cm 0 2cm 0 -6 rgb(20, 20, 20);
+.left {
+    height: 100vh;
+    overflow-y: clip;
 }
-
-.brand {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 0.6cm;
-    margin-left: 0.2cm;
-}
-
-
-.brand-title {
-    font-size: 16pt;
-    margin: 0;
-    letter-spacing: 0.02em;
-}
-
-.nav {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    margin-top: 0.4cm;
-}
-
-.nav-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 0.25cm 0 0.25cm 0.4cm;
-    border-radius: 0;
-    color: grey;
-    font-size: 16pt;
-}
-
-.nav-item:hover, .na-item:focus, .nav-item.active {
-    background: var(--w-dark-purple1);
-    border-right: solid var(--w-magenta) 5px;
-    color: whitesmoke;
-    font-weight: 700;
-}
-
-.nav-icon {
-    width: 30px;
-    text-align: center;
-    opacity: 0.9;
-}
-
-.sidebar-bottom {
-    margin-top: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-}
-
 /* page area */
 .page {
     flex-grow : 1;
@@ -116,7 +56,7 @@ button {
 
 /* top bar */
 .topbar {
-    height: 1.2in;
+    height: 15vh;
     padding: 0 1cm 0 0.5cm;
     display: flex;
     align-items: center;
@@ -138,86 +78,8 @@ button {
 }
 
 .top-right {
-    display : flex;
-    justify-content : flex-end;
-    align-items : center;
-    height : 2cm;
-    padding-right : 0.5cm;
-    padding-top : 0.5cm;
-    color : #111;
-    width: 25%;
+    width:25%;
 }
-
-.username {
-    font-size : 16pt;
-    margin-bottom : 0.1cm;
-}
-
-.instructor-id {
-    font-size : 14pt;
-    text-align : right;
-}
-
-.profile-photo {
-    width : 1.5cm;
-    height : 1.5cm;
-}
-
-.text-next-to-profile {
-    margin-right : 0.5cm;
-}
-
-
-.left-icons-in-uppermost-center-line {
-    display : flex;
-    width : 40%;
-    align-items : center;
-    gap : 4%;
-}
-
-.search-bar-container {
-    display : flex;
-    border : var(--w-purple-grey) solid 1px;
-    background-color: whitesmoke;
-    flex-grow : 1;
-    height : 0.8cm;
-    border-radius : 50px;
-    padding-right : 5%;
-    padding-left : 2.5%;
-    align-items : center;
-
-}
-
-.search-icon {
-    width : 20px;
-    height : 20px;
-
-}
-
-.search-bar-input:hover {
-    outline : none;
-}
-
-.search-bar-input:focus {
-    outline: none;
-}
-
-.search-bar-input {
-    border : 0px;
-    background-color: whitesmoke;
-    flex-grow : 1;
-    justify-content : flex-end;
-    font-size : 12pt;
-    font-style : inherit;
-    margin-left : 2%;
-}
-
-.notifications-icon {
-    width : 25px;
-    height : 25px;
-
-}
-
 
 
 .icon-btn {
@@ -254,6 +116,13 @@ button {
     background: var(--w-purple-grey);
 }
 
+.center {
+    height: 85vh;
+    overflow-y: scroll;
+    scrollbar-color: var(--w-purple-grey) whitesmoke;
+
+}
+
 .content-grid {
     padding: 0 0.2cm 0.4cm;
     display: grid;
@@ -262,17 +131,16 @@ button {
     align-items: start;
 }
 
-.class, .card {
+.card {
     background: var(--w-purple-grey);
-    border: 0;
     border-radius: var(--radius);
-    padding: 0.5cm 0.6cm;
-    margin: 0 0.2cm 0.4cm 0.2cm;
+    padding: 0.5cm 1cm;
+    margin: 0 0.4cm 0.4cm 0.4cm;
 }
 
 .card-header {
     display: flex;
-    align-items: flex-start;
+    align-items: flex-end;
     justify-content: space-between;
     gap: 12px;
     margin-bottom: 0.35cm;
@@ -285,6 +153,9 @@ button {
     font-weight: 600;
 }
 
+.card-header p {
+    margin-bottom: 0cm;
+}
 .muted {
     margin: 6px 0 0;
     color: var(--muted);
@@ -398,8 +269,11 @@ button {
 .tasks {
     list-style: none;
     margin: 10px 0 0;
-    display: grid;
-    gap: 10px;
+    display: block;
+    height : 2.5in;
+    overflow-y: auto;
+        scrollbar-color: var(--w-purple-grey) whitesmoke;
+
 }
 
 .tasks li {
@@ -407,12 +281,23 @@ button {
     align-items: center;
     gap: 10px;
     color: #111;
+    margin-top: 0.3cm;
+
 }
 .task-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 0.35cm;
+    letter-spacing: 2px;
+}
+
+.task-header h3 {
+    margin-left: 0.2cm;
+    font-family: 'Oswald', sans-serif;
+    font-size: 18pt;
+    font-weight: 400;
+    color: whitesmoke;
 }
 .add-btn {
     width: 38px;

@@ -28,6 +28,144 @@
     --pill: 50px;
 }
 
+a {
+    text-decoration : none;
+    color : inherit;
+}
+
+/* header */
+
+
+.center-top {
+    display : flex;
+    flex-grow : 1;
+}
+.top-right {
+    display : flex;
+    justify-content : flex-end;
+    align-items : center;
+    height : 2cm;
+    padding-right : 1cm;
+    padding-top : 0.5cm;
+    color : #111;
+}
+
+.username {
+    font-size : 16pt;
+    margin-bottom : 0.1cm;
+}
+
+.student-id {
+    font-size : 14pt;
+    text-align : right;
+}
+
+.profile-photo {
+    width : 1.5cm;
+    height : 1.5cm;
+}
+
+.text-next-to-profile {
+    margin-right : 0.5cm;
+}
+
+
+.uppermost-center-line {
+    display : flex;
+    height : 1in;
+    padding-right : 1cm;
+    padding-left : 0.5cm;
+    align-items : center;
+    flex-grow : 1;
+}
+
+.center-title {
+    /*My courses*/
+    font-family : oswald;
+    flex-grow : 1;
+    font-size : 30pt;
+}
+
+.instructor-welcome-message {
+    flex-grow: 1;
+}
+
+.instructor-id {
+    font-size : 14pt;
+    text-align : right;
+}
+.left-icons-in-uppermost-center-line {
+    display : flex;
+    width : 40%;
+    align-items : center;
+    gap : 4%;
+}
+
+.search-bar-container {
+    display : flex;
+    border : var(--w-purple-grey) solid 1px;
+    background-color: whitesmoke;
+    flex-grow : 1;
+    height : 0.8cm;
+    border-radius : 50px;
+    padding-right : 5%;
+    padding-left : 2.5%;
+    align-items : center;
+
+}
+
+.search-icon {
+    /*<a target="_blank" href="https://icons8.com/icon/59878/search">Search</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>*/
+    width : 20px;
+    height : 20px;
+
+}
+
+.search-bar-input:hover {
+    outline : none;
+}
+
+.search-bar-input:focus {
+    outline: none;
+}
+
+.search-bar-input {
+    border : 0px;
+    background-color: whitesmoke;
+    flex-grow : 1;
+    justify-content : flex-end;
+    font-size : 12pt;
+    font-style : inherit;
+    margin-left : 2%;
+}
+
+.notifications-icon {
+    /*credit: */
+    /*<a target="_blank" href="https://icons8.com/icon/4mJGn1D1b2Xr/notification">Notification</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>*/
+    width : 25px;
+    height : 25px;
+
+}
+
+.hamburger-menu-button {
+    width : 20px;
+    display : block;
+    align-self : flex-center;
+    padding : 2px 0;
+}
+
+.hamburger-bar {
+    width : 100%;
+    display : block;
+    height : 1.5pt;
+    border-radius : 2px;
+    background: #111;
+}
+
+.hamburger-bar + .hamburger-bar {
+    margin-top : 5px;
+}
+
 /* scrollbar */
 .sub-main {
     scrollbar-color: var(--w-purple-grey) whitesmoke;
@@ -41,6 +179,8 @@
     flex-direction: column;
     background: #310047;
     background: linear-gradient(161deg, rgba(49, 0, 71, 1) 55%, rgba(49, 0, 71, 1) 69%, rgba(160, 43, 104, 1) 100%);
+    height : 100vh;
+    overflow-y: hidden;
     /*
     background: #310047;
     background: linear-gradient(132deg, rgba(49, 0, 71, 1) 0%, rgba(49, 0, 71, 1) 13%, rgba(49, 0, 71, 1) 25%, rgba(50, 0, 71, 1) 35%, rgba(71, 0, 71, 1) 80%);
@@ -134,7 +274,7 @@
     margin: 0;
     font-family: 'Oswald', sans-serif;
     font-size: 18pt;
-    font-weight: 600;
+    font-weight: 400;
     color: whitesmoke;
 
 }
@@ -173,22 +313,22 @@
     background: rgba(255, 255, 255, 0.12);
     border-radius: var(--radius);
     padding: 0.3cm;
+
 }
 
 .cal-head span {
-    font-size: 12px;
+    font-size: 14px;
     /*
     color: var(--muted);
     */
     color: whitesmoke;
     text-align: center;
-    font-weight: 800;
+    font-weight: 400;
 }
 
 .cal-day {
     height: 34px;
     border-radius: 10px;
-    border: 1px solid var(--w-purple-grey);
     display: grid;
     place-items: center;
     font-size: 12pt;
@@ -262,7 +402,7 @@
 
     font-family: 'Oswald', sans-serif;
     font-size: 18pt;
-    font-weight: 600;
+    font-weight: 400;
     color: whitesmoke;
 }
 
@@ -270,54 +410,4 @@
     border: none;
     border-top: 1px solid var(--w-dark-purple1);
     margin-bottom: 0.2cm;
-}
-
-<! -- css for add course button and form-- !>
-
-.modal-toggle{ display:none; }
-
-#add-course-toggle:checked ~ .add-course-modal{
-  display:flex !important;
-}
-
-.add-course-modal{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.55);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  backdrop-filter: blur(4px);
-  z-index:9999;
-}
-
-.modal-actions{
-  display: flex;
-  justify-content: space-between;
-  margin-top: 15px;
-}
-.add-course-btn {
-  background: #ffb948;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 8px;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.btn-primary{
-  background: #ffb948;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 8px;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-
-.btn-secondary{
-  background: #ddd;
-  padding: 10px 16px;
-  border-radius: 8px;
-  cursor: pointer;
 }

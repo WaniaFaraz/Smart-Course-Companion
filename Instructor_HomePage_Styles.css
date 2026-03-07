@@ -64,117 +64,8 @@ a {
 .center-top {
     display: flex;
     flex-grow : 1;
-    height : 1.5in;
+    height : 15vh;
     margin-top: 0.4cm;
-}
-
-.uppermost-center-line {
-    /* top bar excluding profile pic and username*/
-    display : flex;
-    height : 1in;
-    flex-grow: 1;
-    padding-left : 0.5cm;
-    align-items : center;
-    
-}
-
-.center-title {
-    /*Welcome Professor X*/
-    font-family : oswald;
-    flex-grow: 1;
-    font-size : 30pt;
-}
-
-.instructor-welcome-message {
-    flex-grow : 1;
-}
-
-.left-icons-in-uppermost-center-line {
-    display : flex;
-    width : 40%;
-    align-items : center;
-    gap : 4%;
-}
-
-.search-bar-container {
-    display : flex;
-    border : var(--w-purple-grey) solid 1px;
-    background-color: whitesmoke;
-    flex-grow : 1;
-    height : 0.8cm;
-    border-radius : 50px;
-    padding-right : 5%;
-    padding-left : 2.5%;
-    align-items : center;
-
-}
-
-.search-icon {
-    /*<a target="_blank" href="https://icons8.com/icon/59878/search">Search</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>*/
-    width : 20px;
-    height : 20px;
-
-}
-
-.search-bar-input:hover {
-    outline : none;
-}
-
-.search-bar-input:focus {
-    outline: none;
-}
-
-.search-bar-input {
-    border : 0px;
-    background-color: whitesmoke;
-    flex-grow : 1;
-    justify-content : flex-end;
-    font-size : 12pt;
-    font-style : inherit;
-    margin-left : 2%;
-}
-
-.notifications-icon {
-    /*credit: */
-    /*<a target="_blank" href="https://icons8.com/icon/4mJGn1D1b2Xr/notification">Notification</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>*/
-    width : 25px;
-    height : 25px;
-
-}
-
-.hamburger-menu-button {
-    width : 20px;
-    display : block;
-    align-self : flex-center;
-    padding : 2px 0;
-}
-
-.hamburger-bar {
-    width : 100%;
-    display : block;
-    height : 1.5pt;
-    border-radius : 2px;
-    background: #111;
-}
-
-.hamburger-bar + .hamburger-bar {
-    margin-top : 5px;
-}
-
-.top-right {
-    display : flex;
-    justify-content : flex-end;
-    align-items : center;
-    height : 2cm;
-    padding-right : 0.5cm;
-    padding-top : 0.5cm;
-    color : #111;
-    width: 25%;
-}
-
-.username {
-    font-size : 16pt;
-    margin-bottom : 0.1cm;
 }
 
 .instructor-id {
@@ -182,13 +73,8 @@ a {
     text-align : right;
 }
 
-.profile-photo {
-    width : 1.5cm;
-    height : 1.5cm;
-}
-
-.text-next-to-profile {
-    margin-right : 0.5cm;
+.top-right {
+    width : 25%;
 }
 
 .disappear {

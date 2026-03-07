@@ -16,39 +16,23 @@
 
 body {
     background-color: whitesmoke;
-}
-
-.navbar {
-    background: linear-gradient(132deg, rgba(49,0,71,1) 0%, rgba(71,0,71,1) 80%);
-    padding: 0.4cm 0.5cm;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 1in;
-    color: whitesmoke;
+    overflow: hidden;
 }
 
-.navTitle {
-    font-family: 'Oswald', sans-serif;
-    font-size: 16pt;
-    letter-spacing: 2px;
-}
-
-.navBadge {
-    background-color: var(--w-orange);
-    color: white;
-    padding: 4px 12px;
-    border-radius: 6px;
-    font-size: 10pt;
-    font-weight: bold;
-    text-transform: uppercase;
+.right {
+    flex-grow: 1;
 }
 
 .container {
     background-color: var(--w-purple-grey);
-    margin: 0.2cm;
+    margin: 0.4cm;
     padding: 0.5cm;
     border-radius: 15px;
+    flex-grow: 1;
+    height: 83vh;
+    overflow-y: auto;
+    scrollbar-color: var(--w-purple-grey) whitesmoke;
 }
 
 .pageTitle {

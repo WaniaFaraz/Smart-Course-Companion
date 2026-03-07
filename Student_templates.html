@@ -1,119 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Course Structure - Student</title>
     <link rel="stylesheet" href="Student_templates.css">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Raleway:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CourseOrganizer_GeneralStyles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Raleway:wght@100..900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
-
-<div class="navbar">
-    <p class="navTitle">COURSE COMPANION</p>
-    <p class="navAvatar">CY</p>
-</div>
-
-<div class="container">
-
-    <p class="pageTitle">COURSE STRUCTURE</p>
-    <p class="pageSubtitle">Published by your instructor</p>
-
-    <div class="card">
-
-        <p class="courseName">Introduction to Programming</p>
-        <p class="courseMeta">COMP 248 - Section CC - Winter 2026 - Prof. X</p>
-        <p class="courseDesc">Learn the basics of programming using Java. This course covers fundamental programming concepts including variables, control flow, methods, arrays, and object-oriented programming.</p>
-
-        <br>
-        <p class="sectionTitle">Weekly Topics</p>
-        <hr>
-
-        <table class="topicsTable">
-            <tr>
-                <td class="weekBadge">Week 1-2</td>
-                <td>Introduction to Java</td>
-            </tr>
-            <tr>
-                <td class="weekBadge">Week 3-4</td>
-                <td>Variables and Data Types</td>
-            </tr>
-            <tr>
-                <td class="weekBadge">Week 5-6</td>
-                <td>Control Flow</td>
-            </tr>
-            <tr>
-                <td class="weekBadge">Week 7-8</td>
-                <td>Methods and Functions</td>
-            </tr>
-            <tr>
-                <td class="weekBadge">Week 9-10</td>
-                <td>Arrays</td>
-            </tr>
-            <tr>
-                <td class="weekBadge">Week 11-12</td>
-                <td>Classes</td>
-            </tr>
-        </table>
-
-        <br>
-        <p class="sectionTitle">Evaluations</p>
-        <hr>
-
-        <table class="evalTable">
-            <tr>
-                <th>Type</th>
-                <th>Name</th>
-                <th>Weight</th>
-                <th>Due Date</th>
-            </tr>
-            <tr>
-                <td>Assignment</td>
-                <td>Assignment 1</td>
-                <td>10%</td>
-                <td>Feb 1, 2026</td>
-            </tr>
-            <tr>
-                <td>Assignment</td>
-                <td>Assignment 2</td>
-                <td>10%</td>
-                <td>Mar 1, 2026</td>
-            </tr>
-            <tr>
-                <td>Quiz</td>
-                <td>Quiz 1</td>
-                <td>10%</td>
-                <td>Feb 15, 2026</td>
-            </tr>
-            <tr>
-                <td>Midterm</td>
-                <td>Midterm Exam</td>
-                <td>30%</td>
-                <td>Mar 10, 2026</td>
-            </tr>
-            <tr>
-                <td>Final</td>
-                <td>Final Exam</td>
-                <td>40%</td>
-                <td>Apr 20, 2026</td>
-            </tr>
-        </table>
-
-        <br>
-        <p class="sectionTitle">Resources</p>
-        <hr>
-
-        <p class="resourceLabel">Textbook</p>
-        <p class="resourceText">Absolute Java</p>
-
-        <p class="resourceLabel">Notes</p>
-        <p class="resourceText">Lecture slides will be posted after each class</p>
-
-        <br>
-        
-
+    <div class="left">
+        <div class="left-title sub-title" id="left-title">COURSE COMPANION</div>
+        <nav class="left-menu-top">
+            <ul>
+                <li class="left-menu-option"><img src="white-icons/white-4-square-grid-96.png"><a
+                        href="New_HomePage.html">Dashboard</a></li>
+                <li class="left-menu-option "><img class="all-classes-icon" src="white-icons/white-class-96.png"><a
+                        href="New_HomePage.html">All Classes</a></li>
+                <li class="left-menu-option"><img src="white-icons/white-assignments-96.png"><a
+                        href="ManageAssessments_Page.html">Assignments</a></li>
+            </ul>
+        </nav>
+        <nav class="left-menu-bottom">
+            <ul>
+                <li class="left-menu-option"><img src="white-icons/white-sign-out-96.png"><a href="LogOut.html">Log out</a></p>
+                <li class="left-menu-option"><img src="white-icons/white-settings-288.png"><a
+                        href="ManageAccount.html">Settings</a></p>
+                <li class="left-menu-option"><img src="white-icons/white-help-96.png"><a href="">Help</a></p>
+            </ul>
+        </nav>
     </div>
+    <div class="right">
 
-</div>
+        <div class="center-top">
+            <div class="uppermost-center-line">
+                <p class="center-title">MY COURSES</p>
 
+
+
+
+                <div class="left-icons-in-uppermost-center-line">
+                    <div class="search-bar-container">
+                        <div><img class="search-icon" src="black-icons/black-search-480.png"></div>
+                        <input type="text" class="search-bar-input" placeholder="Search"></input>
+                    </div>
+                    <div class="notifications"><img class="notifications-icon"
+                            src="black-icons/black_notification-96.png"></div>
+                    <div class="edit-courses-menu">
+                        <div class="hamburger-menu-button">
+                            <span class="hamburger-bar"></span>
+                            <span class="hamburger-bar"></span>
+                            <span class="hamburger-bar"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="top-right">
+                <div class="text-next-to-profile">
+                    <p class="username" id="username">Username</p>
+                    <p class="student-id">Student ID</p>
+                </div>
+                <div><img class="profile-photo" src="black-icons/black-profile-96.png"></div>
+            </div>
+        </div>
+
+        <div class="container">
+
+            <p class="pageTitle">COURSE STRUCTURE</p>
+            <p class="pageSubtitle">Published by your instructor</p>
+
+            <div class="card">
+
+                <p class="courseName">Introduction to Programming</p>
+                <p class="courseMeta">COMP 248 - Section CC - Winter 2026 - Prof. X</p>
+                <p class="courseDesc">Learn the basics of programming using Java. This course covers fundamental
+                    programming concepts including variables, control flow, methods, arrays, and object-oriented
+                    programming.</p>
+
+                <br>
+                <p class="sectionTitle">Weekly Topics</p>
+                <hr>
+
+                <table class="topicsTable">
+                    <tr>
+                        <td class="weekBadge">Week 1-2</td>
+                        <td>Introduction to Java</td>
+                    </tr>
+                    <tr>
+                        <td class="weekBadge">Week 3-4</td>
+                        <td>Variables and Data Types</td>
+                    </tr>
+                    <tr>
+                        <td class="weekBadge">Week 5-6</td>
+                        <td>Control Flow</td>
+                    </tr>
+                    <tr>
+                        <td class="weekBadge">Week 7-8</td>
+                        <td>Methods and Functions</td>
+                    </tr>
+                    <tr>
+                        <td class="weekBadge">Week 9-10</td>
+                        <td>Arrays</td>
+                    </tr>
+                    <tr>
+                        <td class="weekBadge">Week 11-12</td>
+                        <td>Classes</td>
+                    </tr>
+                </table>
+
+                <br>
+                <p class="sectionTitle">Evaluations</p>
+                <hr>
+
+                <table class="evalTable">
+                    <tr>
+                        <th>Type</th>
+                        <th>Name</th>
+                        <th>Weight</th>
+                        <th>Due Date</th>
+                    </tr>
+                    <tr>
+                        <td>Assignment</td>
+                        <td>Assignment 1</td>
+                        <td>10%</td>
+                        <td>Feb 1, 2026</td>
+                    </tr>
+                    <tr>
+                        <td>Assignment</td>
+                        <td>Assignment 2</td>
+                        <td>10%</td>
+                        <td>Mar 1, 2026</td>
+                    </tr>
+                    <tr>
+                        <td>Quiz</td>
+                        <td>Quiz 1</td>
+                        <td>10%</td>
+                        <td>Feb 15, 2026</td>
+                    </tr>
+                    <tr>
+                        <td>Midterm</td>
+                        <td>Midterm Exam</td>
+                        <td>30%</td>
+                        <td>Mar 10, 2026</td>
+                    </tr>
+                    <tr>
+                        <td>Final</td>
+                        <td>Final Exam</td>
+                        <td>40%</td>
+                        <td>Apr 20, 2026</td>
+                    </tr>
+                </table>
+
+                <br>
+                <p class="sectionTitle">Resources</p>
+                <hr>
+
+                <p class="resourceLabel">Textbook</p>
+                <p class="resourceText">Absolute Java</p>
+
+                <p class="resourceLabel">Notes</p>
+                <p class="resourceText">Lecture slides will be posted after each class</p>
+
+                <br>
+
+
+            </div>
+
+        </div>
+    </div>
 </body>
+
 </html>

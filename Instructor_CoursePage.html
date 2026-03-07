@@ -14,18 +14,15 @@
         <nav class="left-menu-top">
             <ul>
                 <li class="left-menu-option"><img src="white-icons/white-4-square-grid-96.png"><a
-                        href="New_HomePage.html">Dashboard</a></li>
+                        href="Instructor_HomePage .html">Dashboard</a></li>
                 <li class="left-menu-option"><img src="white-icons/white-class-96.png"><a
                         href="Instructor_HomePage .html">All Classes</a></li>
-                <li class="left-menu-option"><img src="white-icons/white-messages-288.png"><a href="">Messages</a></li>
-                <li class="left-menu-option"><img src="white-icons/white-timetable-96.png"><a href="">Schedule</a></li>
-                <li class="left-menu-option"><img src="white-icons/white-assignments-96.png"><a href="">Assignments</a>
                 </li>
             </ul>
         </nav>
         <nav class="left-menu-bottom">
             <ul>
-                <li class="left-menu-option"><img src="white-icons/white-sign-out-96.png"><a href="">Log out</a></p>
+                <li class="left-menu-option"><img src="white-icons/white-sign-out-96.png"><a href="Instructor_LogOut.html">Log out</a></p>
                 <li class="left-menu-option"><img src="white-icons/white-settings-288.png"><a
                         href="ManageAccount.html">Settings</a></p>
                 <li class="left-menu-option"><img src="white-icons/white-help-96.png"><a href="">Help</a></p>
@@ -67,8 +64,10 @@
         <div class="sub-main">
             <div class="sub-main-left">
                 <div class="container">
+                    <div class = "dashboard-card-container">
+                                                <p class="card-title">ASSESSMENTS</p>
+
                     <div class="dashboard-card assessments-card">
-                        <p class="card-title">ASSESSMENTS</p>
                         <table class="assessments-table">
                             <thead>
                                 <tr>
@@ -94,8 +93,11 @@
                             </tbody>
                         </table>
                     </div>
+                    </div>
+                    <div class = "dashboard-card-container">
+                                                <p class="card-title">ASSESSMENT COMPLETION</p>
+
                     <div class="dashboard-card completion-card">
-                        <p class="card-title">ASSESSMENT COMPLETION</p>
                         <div class="completion-item">
                             <span class="completion-label">LAB 2</span>
                             <div class="progress-bar-bg">
@@ -118,60 +120,30 @@
                             <span class="completion-percent">15%</span>
                         </div>
                     </div>
-
-            <div class="dashboard-row">
-
-                <!-- Quick Actions -->
-                <div class="dashboard-card quick-actions-card">
-                    <p class="card-title">QUICK ACTIONS</p>
-                    <ul class="quick-actions-list">
-                        <li><a href="#">Edit Assessment</a></li>
-                        <li><a href="#">Edit Courses</a></li>
-                        <li><a href="#">Create Announcement</a></li>
-                    </ul>
-                </div>
-
-                <!-- Course Template -->
-                <div class="dashboard-card template-card">
-                    <div class="template-header">
-                    <p class="card-title">COURSE TEMPLATE</p>
-                    <a href="Instructor_templates.html">
-                       <button class="create-template-btn">+ Create Template</button>
-                    </a>
-                </div>
-                <p class="template-name">Web Programming Template</p>
-                <ul class="template-details">
-                  <li>Categories: Labs, Quizzes, Assignments, Exam</li>
-                  <li>Weightings: 20 / 15 / 25 / 40</li>
-                  <li>Include: 6 labs, 4 quizzes, 2 assignments, final exam</li>
-               </ul>
-               <div class="template-actions">
-                 <a href="Student_templates.html">
-                      <button class="template-btn">Preview</button>
-                 </a>
-                 <a href="Instructor_templates.html">
-                      <button class="template-btn">Apply</button>
-                  </a>
-              </div>
-            
-
+</div>
                     <div class="dashboard-row">
 
                         <!-- Quick Actions -->
+                         <div class = "dashboard-card-container quick-actions-card-container">
+                                                        <p class="card-title">QUICK ACTIONS</p>
+
                         <div class="dashboard-card quick-actions-card">
-                            <p class="card-title">QUICK ACTIONS</p>
                             <ul class="quick-actions-list">
                                 <li><a href="#">Edit Assessment</a></li>
                                 <li><a href="#">Edit Courses</a></li>
                                 <li><a href="#">Create Announcement</a></li>
                             </ul>
                         </div>
-
+</div>
                         <!-- Course Template -->
+                         <div class = "dashboard-card-container template-card-container">
+                                                            <p class="card-title">COURSE TEMPLATE</p>
+
                         <div class="dashboard-card template-card">
                             <div class="template-header">
-                                <p class="card-title">COURSE TEMPLATE</p>
-                                <button class="create-template-btn">+ Create Template</button>
+                                <a href="Instructor_templates.html">
+                                    <button class="create-template-btn">+ Create Template</button>
+                                </a>
                             </div>
                             <p class="template-name">Web Programming Template</p>
                             <ul class="template-details">
@@ -180,124 +152,127 @@
                                 <li>Include: 6 labs, 4 quizzes, 2 assignments, final exam</li>
                             </ul>
                             <div class="template-actions">
-                                <button class="template-btn">Preview</button>
-                                <button class="template-btn">Apply</button>
+                                <a href="Student_templates.html">
+                                    <button class="template-btn">Preview</button>
+                                </a>
+                                <a href="Instructor_templates.html">
+                                    <button class="template-btn">Apply</button>
+                                </a>
                             </div>
                         </div>
-
-                    </div>
-
-                </div>
-            </div>
-            <div class="sub-main-right">
-                <div class="class-performance-container">
-                    <div class="performance-card">
-                        <div class="class-performance-title">Class Performance</div>
-                        <div class="classes-performance-bars-container">
-                            <div class="courseRow">
-                                <div class="courseLabel">
-                                    <span>COMP 249 - U</span>
-                                    <span id="engr201-percent">0%</span>
-                                </div>
-                                <div class="barBackground">
-                                    <div class="barFill" id="engr201-bar"></div>
-                                </div>
-                            </div>
-                            <div class="courseRow">
-                                <div class="courseLabel">
-                                    <span>COMP 249 - Y</span>
-                                    <span id="comp232-percent">0%</span>
-                                </div>
-                                <div class="barBackground">
-                                    <div class="barFill" id="comp232-bar"></div>
-                                </div>
-                            </div>
-                            <div class="courseRow">
-                                <div class="courseLabel">
-                                    <span>COMP 248 - N</span>
-                                    <span id="soen228-percent">0%</span>
-                                </div>
-                                <div class="barBackground">
-                                    <div class="barFill" id="soen228-bar"></div>
-                                </div>
-                            </div>
-                            <div class="courseRow">
-                                <div class="courseLabel">
-                                    <span>COMP 348 - W</span>
-                                    <span id="comp248-percent">0%</span>
-                                </div>
-                                <div class="barBackground">
-                                    <div class="barFill" id="comp248-bar"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr class="divider">
-                        <div class="overall">
-                            Overall Performance<br>
-                            <span class="overallNumber" id="overall-percent">0%</span>
                         </div>
                     </div>
                 </div>
-                <script>
-                    const courses = [
-                        { id: "engr201", grades: [80, 75, 100] },
-                        { id: "comp232", grades: [50, 40, 45] },
-                        { id: "soen228", grades: [85, 90, 80] },
-                        { id: "comp248", grades: [60, 55, 70] }
-                    ];
+                </div>
+                    <div class="sub-main-right">
+                        <div class="class-performance-container">
+                            <div class="performance-card">
+                                <div class="class-performance-title">Class Performance</div>
+                                <div class="classes-performance-bars-container">
+                                    <div class="courseRow">
+                                        <div class="courseLabel">
+                                            <span>COMP 249 - U</span>
+                                            <span id="engr201-percent">0%</span>
+                                        </div>
+                                        <div class="barBackground">
+                                            <div class="barFill" id="engr201-bar"></div>
+                                        </div>
+                                    </div>
+                                    <div class="courseRow">
+                                        <div class="courseLabel">
+                                            <span>COMP 249 - Y</span>
+                                            <span id="comp232-percent">0%</span>
+                                        </div>
+                                        <div class="barBackground">
+                                            <div class="barFill" id="comp232-bar"></div>
+                                        </div>
+                                    </div>
+                                    <div class="courseRow">
+                                        <div class="courseLabel">
+                                            <span>COMP 248 - N</span>
+                                            <span id="soen228-percent">0%</span>
+                                        </div>
+                                        <div class="barBackground">
+                                            <div class="barFill" id="soen228-bar"></div>
+                                        </div>
+                                    </div>
+                                    <div class="courseRow">
+                                        <div class="courseLabel">
+                                            <span>COMP 348 - W</span>
+                                            <span id="comp248-percent">0%</span>
+                                        </div>
+                                        <div class="barBackground">
+                                            <div class="barFill" id="comp248-bar"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr class="divider">
+                                <div class="overall">
+                                    Overall Performance<br>
+                                    <span class="overallNumber" id="overall-percent">0%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <script>
+                            const courses = [
+                                { id: "engr201", grades: [80, 75, 100] },
+                                { id: "comp232", grades: [50, 40, 45] },
+                                { id: "soen228", grades: [85, 90, 80] },
+                                { id: "comp248", grades: [60, 55, 70] }
+                            ];
 
-                    function calculateAverage(grades) {
-                        let total = 0;
-                        for (let i = 0; i < grades.length; i++) {
-                            total += grades[i];
-                        }
-                        return Math.round(total / grades.length);
-                    }
-                    let totalAvg = 0;
-                    courses.forEach(course => {
-                        const avg = calculateAverage(course.grades);
-                        totalAvg += avg;
-                        document.getElementById(course.id + "-percent").textContent = avg + "%";
-                        document.getElementById(course.id + "-bar").style.width = avg + "%";
-                    });
-                    const overall = Math.round(totalAvg / courses.length);
-                    document.getElementById("overall-percent").textContent = overall + "%";
-                </script>
-                <section class="cal-card">
-                    <div class="cal-card-header">
-                        <h3> Calendar </h3>
-                        <p class="muted"> FEB 2026</p>
+                            function calculateAverage(grades) {
+                                let total = 0;
+                                for (let i = 0; i < grades.length; i++) {
+                                    total += grades[i];
+                                }
+                                return Math.round(total / grades.length);
+                            }
+                            let totalAvg = 0;
+                            courses.forEach(course => {
+                                const avg = calculateAverage(course.grades);
+                                totalAvg += avg;
+                                document.getElementById(course.id + "-percent").textContent = avg + "%";
+                                document.getElementById(course.id + "-bar").style.width = avg + "%";
+                            });
+                            const overall = Math.round(totalAvg / courses.length);
+                            document.getElementById("overall-percent").textContent = overall + "%";
+                        </script>
+                        <section class="cal-card">
+                            <div class="cal-card-header">
+                                <h3> Calendar </h3>
+                                <p class="muted"> FEB 2026</p>
+                            </div>
+                            <div class="calendar">
+                                <div class="cal-head">
+                                    <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+                                </div>
+                                <div class="cal-grid">
+                                    <span class="cal-day dim"> </span>
+                                    <span class="cal-day">1</span><span class="cal-day">2</span><span
+                                        class="cal-day">3</span><span class="cal-day">4</span><span
+                                        class="cal-day">5</span><span class="cal-day">6</span>
+                                    <span class="cal-day">7</span><span class="cal-day">8</span><span
+                                        class="cal-day">9</span><span class="cal-day">10</span><span
+                                        class="cal-day">11</span><span class="cal-day">12</span>
+                                    <span class="cal-day">13</span><span class="cal-day">14</span><span
+                                        class="cal-day">15</span><span class="cal-day">16</span><span
+                                        class="cal-day">17</span><span class="cal-day">18</span>
+                                    <span class="cal-day">19</span><span class="cal-day">20</span><span
+                                        class="cal-day">21</span><span class="cal-day">22</span><span
+                                        class="cal-day">23</span><span class="cal-day">24</span>
+                                    <span class="cal-day">25</span><span class="cal-day">26</span><span
+                                        class="cal-day">27</span><span class="cal-day">28</span>
+                                </div>
+                                <div class="cal-legend">
+                                    <span class="dot"></span>
+                                    <span class="muted">Highlighed = due dates</span>
+                                </div>
+                            </div>
+                        </section>
                     </div>
-                    <div class="calendar">
-                        <div class="cal-head">
-                            <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
-                        </div>
-                        <div class="cal-grid">
-                            <span class="cal-day dim"> </span>
-                            <span class="cal-day">1</span><span class="cal-day">2</span><span
-                                class="cal-day">3</span><span class="cal-day">4</span><span
-                                class="cal-day">5</span><span class="cal-day">6</span>
-                            <span class="cal-day">7</span><span class="cal-day">8</span><span
-                                class="cal-day">9</span><span class="cal-day">10</span><span
-                                class="cal-day">11</span><span class="cal-day">12</span>
-                            <span class="cal-day">13</span><span class="cal-day">14</span><span
-                                class="cal-day">15</span><span class="cal-day">16</span><span
-                                class="cal-day">17</span><span class="cal-day">18</span>
-                            <span class="cal-day">19</span><span class="cal-day">20</span><span
-                                class="cal-day">21</span><span class="cal-day">22</span><span
-                                class="cal-day">23</span><span class="cal-day">24</span>
-                            <span class="cal-day">25</span><span class="cal-day">26</span><span
-                                class="cal-day">27</span><span class="cal-day">28</span>
-                        </div>
-                        <div class="cal-legend">
-                            <span class="dot"></span>
-                            <span class="muted">Highlighed = due dates</span>
-                        </div>
-                    </div>
-                </section>
+                </div>
             </div>
-        </div>
-    </div>
 </body>
 
 </html>

@@ -1,45 +1,35 @@
-
-
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+html, body, input, button, select, textarea {
+    font-family: 'Raleway', 'Gill Sans MT', Geneva, sans-serif !important;
+}
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Raleway', 'Gill Sans MT', Geneva, 'Inter', 'Lucida Sans Unicode', 'Segoe UI';
+}
+:root {
+    --z-dark-purple : #3d0066;
+    --z-mid-purple : #82383b;
+    --z-light-purple : #EFD9F7;
+    --z-yellow : #d7ac28;
+    --z-ochre : #c78d17;
+
+    --w-dark-purple1 : #470047;
+    --w-dark-purple2 : #310047;
+    --w-mid-purple : #6f0b5b;
+    --w-magenta : #a02b68;
+    --w-yellow : #ffb948;
+    --w-orange : #ff8f2f;
+    --w-dark-orange : #f97134;
+    --w-purple-grey : rgb(225, 222, 230);
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-color: whitesmoke;
     min-height: 100vh;
-}
-
-.navbar {
-    background-color: #3D0066;
-    padding: 16px 32px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.navTitle {
-    color: white;
-    font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-.navAvatar {
-    background-color: #755497;
-    color: white;
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1rem;
-    font-weight: 700;
-    border: 2px solid white;
+    display: block;
 }
 
 .container {
@@ -49,20 +39,19 @@ body {
 }
 
 .card {
-    background-color: white;
-    border-radius: 20px;
+    background-color: rgb(225, 222, 230);
+    border-radius: 15px;
     padding: 40px;
     width: 100%;
     max-width: 800px;
-    box-shadow: 4px 4px 0px #470047;
+    box-shadow: none;
 }
-
 .pageTitle {
     font-size: 2rem;
     font-weight: 700;
-    color: #470047;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    color: #111;
+font-family: 'Oswald', sans-serif;
+font-weight: 400;
 }
 
 .pageSubtitle {
@@ -82,11 +71,12 @@ body {
 }
 
 .sectionTitle {
-    font-size: 1rem;
-    font-weight: 700;
-    color: #5b2d8e;
+   font-weight: bold;
+    font-size: 11pt;
+    margin-bottom: 0.3cm;
+    letter-spacing: 0.5px;
+    color: #111;
     text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
 .profileRow {
@@ -96,7 +86,7 @@ body {
 }
 
 .avatar {
-    background-color: #452554;
+    background-color: var(--w-dark-purple2);
     color: white;
     width: 50px;
     height: 50px;
@@ -109,21 +99,20 @@ body {
 }
 
 .btnPhoto {
-    background-color: #452554;
-    color: white;
-    border: none;
+    background-color: white;
+    color: var(--w-dark-purple2);
+    border: 1px solid var(--w-dark-purple2);
     padding: 5px 10px;
-    border-radius: 20px;
-    font-family: 'Caveat', cursive;
+    border-radius: 6px;
     font-size: 0.9rem;
-    font-weight: 500;
     cursor: pointer;
     letter-spacing: 1px;
     transition: background-color 0.2s;
 }
 
 .btnPhoto:hover {
-    background-color: #5b2d8e;
+    background-color: var(--w-dark-purple2);
+    color: white;
 }
 
 .removeLink {
@@ -151,15 +140,16 @@ body {
 .label {
     font-size: 1rem;
     font-weight: 700;
-    color: #470047;
+    color: #111;
     letter-spacing: 1px;
 }
 
 .input {
+   background-color: #f0f0f0;
     padding: 10px 16px;
-    font-family: 'Arial', cursive;
+    font-family: 'Raleway', 'Gill Sans MT', Geneva, sans-serif;
     font-size: 1rem;
-    border: 2px solid #3D0066;
+    border: 1px solid #ccc;
     border-radius: 12px;
     outline: none;
     color: #470047;
@@ -175,13 +165,13 @@ body {
 }
 
 .btnSave {
-    align-self: flex-start;
-    background-color: #C78D17;
-    color: white;
-    border: none;
+   align-self: flex-start;
+    background-color: white;
+    color: var(--w-dark-purple2);
+    border: 1px solid var(--w-dark-purple2);
     padding: 10px 28px;
-    border-radius: 30px;
-    font-family: 'Arial', cursive;
+    border-radius: 6px;
+    font-family: 'Raleway', sans-serif;
     font-size: 1rem;
     font-weight: 700;
     letter-spacing: 2px;
@@ -191,7 +181,8 @@ body {
 }
 
 .btnSave:hover {
-    background-color: #5b2d8e;
+    background-color: var(--w-dark-purple2);
+    color: white;
     transform: translateY(-1px);
 }
 
@@ -215,4 +206,10 @@ body {
 
 select.input {
     cursor: pointer;
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 16px 0;
 }
