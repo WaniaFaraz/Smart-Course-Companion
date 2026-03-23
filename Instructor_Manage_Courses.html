@@ -3,10 +3,10 @@
 
 <head>
     <title>Smart Course Companion</title>
-    <link rel="stylesheet" href="Instructor_Manage_Courses_styles.css">
-    <link rel="stylesheet" href="Instructor_HomePage_Styles.css">
-    <link rel="stylesheet" href="CourseOrganizer_GeneralStyles.css">
-    <script type="text/javascript" src="jspractice.js" defer></script>
+    <link rel="stylesheet" href="/css/Instructor_Manage_Courses_styles.css">
+    <link rel="stylesheet" href="/css/Instructor_HomePage_Styles.css">
+    <link rel="stylesheet" href="/css/CourseOrganizer_GeneralStyles.css">
+    <!-- <script type="text/javascript" src="jspractice.js" defer></script> -->
 </head>
 
 <body>
@@ -106,28 +106,28 @@
                     </div>
                 </div>
                 <div class="manage-courses-area">
-                    <form class="manage-courses-form">
+                    <form class="manage-courses-form" id="manage-courses-form">
                        <div class="manage-courses-title">ADD COURSE</div>
                         <div class = "form-row">
                             <div class="course-code-div">
                             <label for="course-code" class="text-input-label">Course code</label>
-                            <input type="text" class="course-code-input form-text-input" id="course-code" />
+                            <input type="text" class="course-code-input form-text-input" id="course-code" name="courseCode"/>
                         </div>
 
                          <div class="course-title-div">
                             <label for="course-title" class="text-input-label">Course title</label>
-                            <input type="text" class="course-title-input form-text-input" id="course-title"></input>
+                            <input type="text" class="course-title-input form-text-input" id="course-title" name="courseTitle"></input>
                         </div>
                         </div>
 
                         <div class = "form-row">
                             <div class="course-section-div">
                             <label for="course-section" class="text-input-label">Section</label>
-                            <input type="text" class="course-section-input form-text-input" id="course-section" />
+                            <input type="text" class="course-section-input form-text-input" id="course-section" name="courseSection" />
                         </div>
                         <div class="course-capacity-div">
                             <label for="course-capacity" class="text-input-label">Capacity</label>
-                            <input type="text" class="course-capacity-input form-text-input" id="course-capacity" />
+                            <input type="text" class="course-capacity-input form-text-input" id="course-capacity" name="courseCapacity" />
                         </div>
                         <div class="course-semester">
                             <label for="semester-dropdown" class="semester-dropdown-label">Semester</label>
@@ -281,7 +281,6 @@
             </div>
         </div>
     </div>
-
-</body>
+ </body>
 
 </html>
