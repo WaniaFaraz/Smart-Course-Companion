@@ -5,6 +5,18 @@ const dir = __dirname;
 
 const PORT = 8000;
 
+//==============================================================================================================
+//INSTRUCTIONS FOR SERVER AND WEBSITE ACCESS:
+//For visual studio code:
+//Open terminal and write: "node server.js" (without the quotes)
+//Open a browser (chrome, edge, etc...) and type one of the following urls:
+// localhost:8000/student/home      <---- leads to the student home page
+// localhost:8000/instructor/home   <---- leads to the instructor home page
+//to navigate between webpages, can change the url or click on whatever needs to be accessed
+//for possible url names, see student.routes.js or instructor.routes.js
+//==============================================================================================================
+
+
 //all routes -- leads to routes file
 app.use(express.static('public'));
 app.use("/student", require("./student.routes"));
