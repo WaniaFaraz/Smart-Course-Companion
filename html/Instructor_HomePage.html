@@ -1,0 +1,280 @@
+<!DOCTYPE HTML5>
+<html lang="en">
+
+<head>
+    <title>Smart Course Companion</title>
+    <link rel="stylesheet" href="/css/Instructor_HomePage_Styles.css">
+    <link rel="stylesheet" href="/css/CourseOrganizer_GeneralStyles.css">
+    <script type="text/javascript" src="jspractice.js" defer></script>
+</head>
+
+<body>
+    <div class="left">
+        <div class="left-title sub-title" id="left-title">COURSE COMPANION</div>
+        <nav class="left-menu-top">
+            <ul>
+                <li class="left-menu-option"><img src="/white-icons/white-4-square-grid-96.png"><a
+                        href="home">Dashboard</a></li>
+                <li class="left-menu-option"><img src="/white-icons/white-class-96.png"><a
+                        href="home">All Classes</a></li>
+                </li>
+            </ul>
+        </nav>
+        <nav class="left-menu-bottom">
+            <ul>
+
+                <li class="left-menu-option"><img src="/white-icons/white-sign-out-96.png"><a
+                        href="log-out">Log out</a></p>
+                <li class="left-menu-option"><img src="/white-icons/white-settings-288.png"><a
+                        href="account-settings">Settings</a></p>
+                <li class="left-menu-option"><img src="/white-icons/white-help-96.png"><a href="">Help</a>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="main">
+        <div class="center-top">
+            <div class="uppermost-center-line">
+                <div class="instructor-welcome-message">
+                    <p class="center-title">WELCOME PROFESSOR X</p>
+                    <p class="current-course-count">YOU'RE CURRENTLY MANAGING 4 COURSES</p>
+                </div>
+                <div class="left-icons-in-uppermost-center-line">
+                    <div class="search-bar-container">
+                        <div><img class="search-icon" src="/black-icons/black-search-480.png"></div>
+                        <input type="text" class="search-bar-input" placeholder="Search"></input>
+                    </div>
+                    <div class="notifications"><img class="notifications-icon"
+                            src="/black-icons/black_notification-96.png"></div>
+                    <div class="edit-courses-menu">
+                        <div class="hamburger-menu-button">
+                            <span class="hamburger-bar"></span>
+                            <span class="hamburger-bar"></span>
+                            <span class="hamburger-bar"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="top-right">
+                <div class="text-next-to-profile">
+                    <p class="username" id="username">Username</p>
+                    <p class="instructor-id">Instructor ID</p>
+                </div>
+                <div><img class="profile-photo" src="/black-icons/black-profile-96.png"></div>
+            </div>
+        </div>
+
+        <div class="sub-main">
+            <div class="sub-main-left">
+                <div class="instructor-stats">
+                    <table class="instructor-stats-table">
+                        <tr>
+                            <th>ACTIVE COURSES</th>
+                            <th>TOTAL STUDENTS</th>
+                            <th>PENDING ASSIGNMENTS</th>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>350</td>
+                            <td>13</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="course-area-container">
+                    <div class="course-area-title">
+                        <p>Your courses</p><button><img src="/black-icons/black-plus-24.png"><a
+                                href="manage-courses">Add New Course</a></button>
+                    </div>
+                    <div class="course-area">
+                        <div class="course">
+                            <div class="course-image course-img-1"></div>
+                            <a class="course-info-text" href="course-page">
+                                <p class="course-code">COMP 249</p>
+                                <p class="course-name">Object-Oriented Prog. II</p>
+                                <p class="course-section">Section U</p>
+                            </a>
+                            <div class="course-toggle-row">
+                                <span>Course visible to students</span>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked />
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="course">
+                            <div class="course-image course-img-2"></div>
+                            <a class="course-info-text" href="course-page">
+                                <p class="course-code">COMP 249</p>
+
+                                <p class="course-name">Object-Oriented Prog. II</p>
+
+                                <p class="course-section">Section Y</p>
+                            </a>
+                            <div class="course-toggle-row">
+                                <span>Course visible to students</span>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked />
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="course">
+                            <div class="course-image course-img-5"></div>
+                            <a class="course-info-text" href="course-page">
+                                <p class="course-code">COMP 248</p>
+
+                                <p class="course-name">Object-Oriented Prog. I</p>
+                                <p class="course-section">Section N</p>
+                            </a>
+                            <div class="course-toggle-row">
+                                <span>Course visible to students</span>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked />
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="course">
+                            <div class="course-image course-img-9"></div>
+                            <a class="course-info-text" href="course-page" 9>
+                                <p class="course-code">COMP 348</p>
+
+                                <p class="course-name">Principles of Prog. Languages</p>
+                                <p class="course-section">Section W</p>
+                            </a>
+                            <div class="course-toggle-row">
+                                <span>Course visible to students</span>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked />
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="recent-activity-container">
+                    <p class="recent-activity-title sub-title">Recent Activity</p>
+                    <div class="recent-activity-list">
+                        <div class="recent-activity-item"><a class="recent-activity-item-anchor">SOEN 287 - 12 Students
+                                submitted Lab 2</a></div>
+                        <div class="recent-activity-item"><a class="recent-activity-item-anchor">COMP 348 - Quiz 4
+                                deadline posted </a></div>
+                        <div class="recent-activity-item"><a class="recent-activity-item-anchor">COMP 249 - 5 students
+                                requested extensions</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="sub-main-right">
+                <div class="class-performance-container">
+                    <div class="performance-card">
+                        <div class="class-performance-title">Class Performance</div>
+                        <div class="classes-performance-bars-container">
+                            <div class="courseRow">
+                                <div class="courseLabel">
+                                    <span>COMP 249 - U</span>
+                                    <span id="engr201-percent">0%</span>
+                                </div>
+                                <div class="barBackground">
+                                    <div class="barFill" id="engr201-bar"></div>
+                                </div>
+                            </div>
+                            <div class="courseRow">
+                                <div class="courseLabel">
+                                    <span>COMP 249 - Y</span>
+                                    <span id="comp232-percent">0%</span>
+                                </div>
+                                <div class="barBackground">
+                                    <div class="barFill" id="comp232-bar"></div>
+                                </div>
+                            </div>
+                            <div class="courseRow">
+                                <div class="courseLabel">
+                                    <span>COMP 248 - N</span>
+                                    <span id="soen228-percent">0%</span>
+                                </div>
+                                <div class="barBackground">
+                                    <div class="barFill" id="soen228-bar"></div>
+                                </div>
+                            </div>
+                            <div class="courseRow">
+                                <div class="courseLabel">
+                                    <span>COMP 348 - W</span>
+                                    <span id="comp248-percent">0%</span>
+                                </div>
+                                <div class="barBackground">
+                                    <div class="barFill" id="comp248-bar"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <hr class="divider">
+                        <div class="overall">
+                            Overall Performance<br>
+                            <span class="overallNumber" id="overall-percent">0%</span>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    const courses = [
+                        { id: "engr201", grades: [80, 75, 100] },
+                        { id: "comp232", grades: [50, 40, 45] },
+                        { id: "soen228", grades: [85, 90, 80] },
+                        { id: "comp248", grades: [60, 55, 70] }
+                    ];
+
+                    function calculateAverage(grades) {
+                        let total = 0;
+                        for (let i = 0; i < grades.length; i++) {
+                            total += grades[i];
+                        }
+                        return Math.round(total / grades.length);
+                    }
+                    let totalAvg = 0;
+                    courses.forEach(course => {
+                        const avg = calculateAverage(course.grades);
+                        totalAvg += avg;
+                        document.getElementById(course.id + "-percent").textContent = avg + "%";
+                        document.getElementById(course.id + "-bar").style.width = avg + "%";
+                    });
+                    const overall = Math.round(totalAvg / courses.length);
+                    document.getElementById("overall-percent").textContent = overall + "%";
+                </script>
+                <section class="calend-card">
+                    <div class="cal-card-header">
+                        <h3> Calendar </h3>
+                        <p class="muted"> FEB 2026</p>
+                    </div>
+                    <div class="calendar">
+                        <div class="cal-head">
+                            <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+                        </div>
+                        <div class="cal-grid">
+                            <span class="cal-day dim"> </span>
+                            <span class="cal-day">1</span><span class="cal-day">2</span><span
+                                class="cal-day">3</span><span class="cal-day">4</span><span
+                                class="cal-day">5</span><span class="cal-day">6</span>
+                            <span class="cal-day">7</span><span class="cal-day">8</span><span
+                                class="cal-day">9</span><span class="cal-day">10</span><span
+                                class="cal-day">11</span><span class="cal-day">12</span>
+                            <span class="cal-day">13</span><span class="cal-day">14</span><span
+                                class="cal-day">15</span><span class="cal-day">16</span><span
+                                class="cal-day">17</span><span class="cal-day">18</span>
+                            <span class="cal-day">19</span><span class="cal-day">20</span><span
+                                class="cal-day">21</span><span class="cal-day">22</span><span
+                                class="cal-day">23</span><span class="cal-day">24</span>
+                            <span class="cal-day">25</span><span class="cal-day">26</span><span
+                                class="cal-day">27</span><span class="cal-day">28</span>
+                        </div>
+                        <div class="cal-legend">
+                            <span class="dot"></span>
+                            <span class="muted">Highlighed = due dates</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

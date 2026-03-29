@@ -183,31 +183,22 @@ td {
     height : 100%;
     border-radius : 15px;
     border : none;
+    display : flex;
+    min-height : 0;
+    flex-grow : 1;
+    margin-right : 0.2cm;
+    margin-left : 0.2cm;
+    border-top-left-radius : 15px;
+    border-top-right-radius : 15px;
+    background-size : cover;
+
 }
+
 
 .course-background-container {
     height : 2in;
     width : 2.5in;
     border-radius : 15px;
-}
-.course-bg-1 {
-    background-image: url('course-images/IMG-20260215-WA0005.jpg');
-    background-size: contain;
-}
-
-.course-bg-2 {
-    background-image: url('course-images/IMG-20260215-WA0006.jpg');
-    background-size: contain;
-}
-
-.course-bg-3 {
-    background-image: url('course-images/IMG-20260215-WA0007.jpg');
-    background-size: contain;
-}
-
-.course-bg-4 {
-    background-image: url('course-images/IMG-20260215-WA0008.jpg');
-    background-size: contain;
 }
 
 .add-course-submit-container {
