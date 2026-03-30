@@ -7,15 +7,16 @@
 //      the rest of the url depends on what info is needed
 //          ex: to get all students,  use fetch("/api/student/get-students") - see comments and functions below
 //          to use that data, and the functions, see example in home_page_scripts.js
-
+// Note: in order to use a querying function here, you need to import it here - see below
 const express = require("express");
 const router = express.Router();
 
-//DATABASE QUERY FUNCTIONS
+//IMPORT DATABASE QUERY FUNCTIONS
 const {
     getStudents,
     getStudentById,
-    getCoursesOfStudent
+    getCoursesOfStudent,
+    getCourseFromCode,
 } = require("../database"); //import querying functions from the database file
 
 //GET ALL STUDENTS - RETURNS AN ARRAY OF STUDENT JSON OBJECTS
@@ -40,4 +41,12 @@ router.get('/get-courses/:studentid', async (request, response) => {
     const courses = await getCoursesOfStudent(studentid);
     response.json(courses);
 })
+
+//GET COURSE NAME FROM COURSE CODE
+router.get('/get-course-from-code/:coursecode', async (request, response) => {
+    const coursecode = request.params.coursecode;
+    const course = await getCourseFromCode(coursecode);
+    response.json(course);
+})
+
 module.exports = router;

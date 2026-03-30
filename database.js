@@ -76,6 +76,18 @@ async function getCoursesOfStudent(studentid) {
     const [rows] = await pool.query(queryString, [studentid]);
     return rows;
 }
+//Get course name from the course code
+async function getCourseFromCode(courseCode) {
+    const queryString = "SELECT * FROM `courses` WHERE `Code` = ?";
+    const fixedCode = courseCode.slice(0,4) + " " + courseCode.slice(4); //add back the whitespace that was removed in the scripts file
+    const [rows] = await pool.query(queryString, [fixedCode]);
+    if(rows && rows.length > 0) {
+        return rows[0];
+    }
+    else {
+        console.log("Course not found");
+    }
+}
 
 module.exports = { 
     getStudents,
@@ -84,6 +96,7 @@ module.exports = {
     addInstructor,
     getInstructors,
     getInstructorById,
-    getCoursesOfStudent
+    getCoursesOfStudent,
+    getCourseFromCode
 };
 
