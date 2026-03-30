@@ -6,7 +6,7 @@
 //  The database used is a mySQL database
 //  (From slides on databases) Install xampp - this has mySQL, apache,...
 //  Open the xampp control panel and start apache and mySQL
-//  Go to the browser and type: "localhost" - this should lead to the xampp control center
+//  Go to the browser and type: "localhost" - this should lead to the xampp dashboard
 //  Click on phpmyadmin
 //  **INSTRUCTIONS TO GET DATABASE COMING SOON**
 
