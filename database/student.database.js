@@ -39,6 +39,9 @@ async function getStudentById(id) {
     return rows;
     //rows: array of json objects containing studentId, firstName, lastName, emailAddress, password
 }
+async function getStudentByEmail(email) {
+    const [rows] = await pool.query('SELECT * FROM `students` WHERE `emailAddress` = ?', [email]);
+    return rows;
 
 //add a student
 async function addStudent(studentID, firstName, lastName, emailAddress) {
@@ -57,5 +60,6 @@ module.exports = {
     getStudents,
     getStudentById,
     addStudent,
+    getStudentByEmail,
     
 };
