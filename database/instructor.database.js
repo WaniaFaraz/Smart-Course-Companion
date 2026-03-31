@@ -43,12 +43,14 @@ const {
 async function getInstructors() {
     [instructors] = await pool.query('SELECT * FROM `professors`');
     return instructors;
+    //rows: array of JSON objects containing instructorId, firstName, lastName, emailAddress, password
 }
 
 //Get instructors from id
 async function getInstructorById(id) {
     [rows] = await pool.query('SELECT * FROM `professors` WHERE `professorID` = ?', [id]);
     return rows;
+    //rows: array of JSON objects containing instructorId, firstName, lastName, emailAddress, password
 }
 
 //add an instructor
@@ -63,7 +65,6 @@ async function getStudentsOfInstructor(instructorId) {
     //get courseIds of the courses taught by this instructor
     queryString = "SELECT * FROM `instructor_courses` WHERE `instructorId` = ?";
     [rows] = await pool.query(queryString, [instructorId]);
-    console.log("rows: ", rows);
     //rows: array of json objects that contains the instructorId and the courseId
     //call function that gets the students of a course for each of the courseIds in the rows array
     const studentPromises = await rows.map( async (value, index, rows) => {
@@ -72,14 +73,15 @@ async function getStudentsOfInstructor(instructorId) {
         
     })
     const students = await Promise.all(studentPromises);
-    console.log(students.flat());
     return students.flat(); //1D array of students in json object format
+    //students: array of JSON objects containing studentId, firstName, lastName, emailAddress, password
 }
 
 //Export all functions
 module.exports = { 
     getInstructors,
     getInstructorById,
-    addInstructor
+    addInstructor,
+    getStudentsOfInstructor
 };
 

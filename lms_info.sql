@@ -3,10 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 01, 2026 at 12:55 AM
+-- Generation Time: Apr 01, 2026 at 01:08 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
+SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -28,9 +29,6 @@ USE `lms_info`;
 --
 -- Table structure for table `assignments`
 --
--- Creation: Mar 31, 2026 at 04:54 PM
--- Last update: Mar 31, 2026 at 05:27 PM
---
 
 DROP TABLE IF EXISTS `assignments`;
 CREATE TABLE IF NOT EXISTS `assignments` (
@@ -46,14 +44,6 @@ CREATE TABLE IF NOT EXISTS `assignments` (
   KEY `professorID` (`instructorId`),
   KEY `courseId` (`courseId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='All assignments created by all professors';
-
---
--- RELATIONSHIPS FOR TABLE `assignments`:
---   `courseId`
---       `courses` -> `courseId`
---   `instructorId`
---       `instructors` -> `instructorId`
---
 
 --
 -- Dumping data for table `assignments`
@@ -121,9 +111,6 @@ DELIMITER ;
 --
 -- Table structure for table `courses`
 --
--- Creation: Mar 31, 2026 at 04:42 PM
--- Last update: Mar 31, 2026 at 06:49 PM
---
 
 DROP TABLE IF EXISTS `courses`;
 CREATE TABLE IF NOT EXISTS `courses` (
@@ -135,10 +122,6 @@ CREATE TABLE IF NOT EXISTS `courses` (
   PRIMARY KEY (`courseId`),
   UNIQUE KEY `Code` (`code`,`section`)
 ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='List of all course codes available at the institution.';
-
---
--- RELATIONSHIPS FOR TABLE `courses`:
---
 
 --
 -- Dumping data for table `courses`
@@ -167,9 +150,6 @@ INSERT INTO `courses` (`courseId`, `title`, `code`, `section`, `visibility`) VAL
 --
 -- Table structure for table `instructors`
 --
--- Creation: Mar 31, 2026 at 04:42 PM
--- Last update: Mar 31, 2026 at 04:37 PM
---
 
 DROP TABLE IF EXISTS `instructors`;
 CREATE TABLE IF NOT EXISTS `instructors` (
@@ -180,10 +160,6 @@ CREATE TABLE IF NOT EXISTS `instructors` (
   `password` varchar(20) NOT NULL,
   PRIMARY KEY (`instructorId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='List of all professors at the institution';
-
---
--- RELATIONSHIPS FOR TABLE `instructors`:
---
 
 --
 -- Dumping data for table `instructors`
@@ -201,9 +177,6 @@ INSERT INTO `instructors` (`instructorId`, `firstName`, `lastName`, `emailAddres
 --
 -- Table structure for table `instructor_courses`
 --
--- Creation: Mar 31, 2026 at 04:43 PM
--- Last update: Mar 31, 2026 at 04:50 PM
---
 
 DROP TABLE IF EXISTS `instructor_courses`;
 CREATE TABLE IF NOT EXISTS `instructor_courses` (
@@ -212,14 +185,6 @@ CREATE TABLE IF NOT EXISTS `instructor_courses` (
   UNIQUE KEY `course_id` (`courseId`),
   KEY `instructor_id` (`instructorId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='Maps instructors to ids. (1 course -> 1 prof)';
-
---
--- RELATIONSHIPS FOR TABLE `instructor_courses`:
---   `courseId`
---       `courses` -> `courseId`
---   `instructorId`
---       `instructors` -> `instructorId`
---
 
 --
 -- Dumping data for table `instructor_courses`
@@ -239,9 +204,6 @@ INSERT INTO `instructor_courses` (`instructorId`, `courseId`) VALUES
 --
 -- Table structure for table `students`
 --
--- Creation: Mar 31, 2026 at 04:43 PM
--- Last update: Mar 31, 2026 at 04:30 PM
---
 
 DROP TABLE IF EXISTS `students`;
 CREATE TABLE IF NOT EXISTS `students` (
@@ -252,10 +214,6 @@ CREATE TABLE IF NOT EXISTS `students` (
   `password` varchar(20) NOT NULL,
   PRIMARY KEY (`studentId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='Basic student info - ID, names, email, account password';
-
---
--- RELATIONSHIPS FOR TABLE `students`:
---
 
 --
 -- Dumping data for table `students`
@@ -275,8 +233,6 @@ INSERT INTO `students` (`studentId`, `firstName`, `lastName`, `emailAddress`, `p
 --
 -- Table structure for table `student_assignments`
 --
--- Creation: Mar 31, 2026 at 10:40 PM
---
 
 DROP TABLE IF EXISTS `student_assignments`;
 CREATE TABLE IF NOT EXISTS `student_assignments` (
@@ -288,16 +244,6 @@ CREATE TABLE IF NOT EXISTS `student_assignments` (
   KEY `studentId` (`studentId`,`assignmentId`,`courseId`),
   KEY `courseId` (`courseId`,`assignmentId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- RELATIONSHIPS FOR TABLE `student_assignments`:
---   `courseId`
---       `assignments` -> `courseId`
---   `assignmentId`
---       `assignments` -> `assignmentId`
---   `studentId`
---       `students` -> `studentId`
---
 
 --
 -- Triggers `student_assignments`
@@ -368,9 +314,6 @@ DELIMITER ;
 --
 -- Table structure for table `student_courses`
 --
--- Creation: Mar 31, 2026 at 07:57 PM
--- Last update: Mar 31, 2026 at 08:12 PM
---
 
 DROP TABLE IF EXISTS `student_courses`;
 CREATE TABLE IF NOT EXISTS `student_courses` (
@@ -382,16 +325,6 @@ CREATE TABLE IF NOT EXISTS `student_courses` (
   KEY `course` (`courseCode`,`courseSection`),
   KEY `courseId` (`courseId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='Maps students to courses - makes sure that one student cannot be in more than one section of the same course';
-
---
--- RELATIONSHIPS FOR TABLE `student_courses`:
---   `courseCode`
---       `courses` -> `code`
---   `courseSection`
---       `courses` -> `section`
---   `studentId`
---       `students` -> `studentId`
---
 
 --
 -- Dumping data for table `student_courses`
@@ -478,51 +411,7 @@ ALTER TABLE `student_assignments`
 ALTER TABLE `student_courses`
   ADD CONSTRAINT `course` FOREIGN KEY (`courseCode`,`courseSection`) REFERENCES `courses` (`code`, `section`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `student_of_course` FOREIGN KEY (`studentId`) REFERENCES `students` (`studentId`) ON DELETE CASCADE ON UPDATE CASCADE;
-
-
---
--- Metadata
---
-USE `phpmyadmin`;
-
---
--- Metadata for table assignments
---
-
---
--- Metadata for table courses
---
-
---
--- Dumping data for table `pma__table_uiprefs`
---
-
-INSERT INTO `pma__table_uiprefs` (`username`, `db_name`, `table_name`, `prefs`, `last_update`) VALUES
-('root', 'lms_info', 'courses', '{\"CREATE_TIME\":\"2026-03-30 11:32:30\"}', '2026-03-31 16:40:12');
-
---
--- Metadata for table instructors
---
-
---
--- Metadata for table instructor_courses
---
-
---
--- Metadata for table students
---
-
---
--- Metadata for table student_assignments
---
-
---
--- Metadata for table student_courses
---
-
---
--- Metadata for database lms_info
---
+SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
