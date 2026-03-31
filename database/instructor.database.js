@@ -34,6 +34,11 @@ let queryString;
 let rows;
 let instructors;
 
+//import functions that are used within these functions
+const {
+    getStudentsOfCourse
+} = require("./courses.database");
+
 //Get all instructors
 async function getInstructors() {
     [instructors] = await pool.query('SELECT * FROM `professors`');
@@ -58,9 +63,17 @@ async function getStudentsOfInstructor(instructorId) {
     //get courseIds of the courses taught by this instructor
     queryString = "SELECT * FROM `instructor_courses` WHERE `instructorId` = ?";
     [rows] = await pool.query(queryString, [instructorId]);
+    console.log("rows: ", rows);
     //rows: array of json objects that contains the instructorId and the courseId
     //call function that gets the students of a course for each of the courseIds in the rows array
-    //??????????????????????????????????????????????????????????????
+    const studentPromises = await rows.map( async (value, index, rows) => {
+        const student = await getStudentsOfCourse(value.courseId);
+        return student;
+        
+    })
+    const students = await Promise.all(studentPromises);
+    console.log(students.flat());
+    return students.flat(); //1D array of students in json object format
 }
 
 //Export all functions

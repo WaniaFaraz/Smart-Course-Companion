@@ -55,7 +55,10 @@ async function getCourseFromCode(courseCode) {
 
 //Get all students of a course
 async function getStudentsOfCourse(courseId) {
-    queryString = ""
+    queryString = "SELECT * FROM `student_courses` WHERE `courseId` = ?";
+    [rows] = await pool.query(queryString, [courseId]);
+    return rows;
+    //rows: array of json objects containing studentId, courseId, courseCode, courseSection
 }
 
 //Export all functions
@@ -63,5 +66,6 @@ module.exports = {
     getAllCourses,
     getCoursesOfInstructor,
     getCoursesOfStudent,
-    getCourseFromCode
+    getCourseFromCode,
+    getStudentsOfCourse
 };
