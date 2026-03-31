@@ -45,7 +45,7 @@ async function getStudentById(id) {
 
 //add a student
 async function addStudent(studentID, firstName, lastName, emailAddress) {
-    const queryString = "INSERT INTO `students` (`studentID`, `firstName`, `lastName`, `emailAddress`, `password`) VALUES (? ? ? ?)";
+    const queryString = "INSERT INTO `students` (`studentID`, `firstName`, `lastName`, `emailAddress`, `password`) VALUES (?, ?, ?, ?)";
     await pool.query(queryString, [studentID, firstName, lastName, emailAddress]);
     console.log("Student added with ID: ", studentID);
 }
@@ -64,7 +64,7 @@ async function getInstructorById(id) {
 }
 
 async function addInstructor(instructorId, firstName, lastName, emailAddress) {
-    const queryString = "INSERT INTO `professors` (`professorID`, `firstName`, `lastName`, `emailAddress`, `password`) VALUES (? ? ? ?)";
+    const queryString = "INSERT INTO `professors` (`professorID`, `firstName`, `lastName`, `emailAddress`, `password`) VALUES (?, ?, ?, ?)";
     await pool.query(queryString, [instructorId, firstName, lastName, emailAddress]);
     console.log("Instructor added with ID: ", professorID);
 }
