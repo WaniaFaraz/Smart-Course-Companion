@@ -3,7 +3,7 @@ const { createServer } = require("node:http");
 const app = express();
 const dir = __dirname;
 
-const PORT = 8000;
+const PORT = 8080;
 
 //==============================================================================================================
 //INSTRUCTIONS FOR SERVER AND WEBSITE ACCESS:

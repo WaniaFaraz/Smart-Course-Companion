@@ -4,7 +4,7 @@
 
 const express = require("express");
 const router = express.Router();
-const dir = __dirname;
+const dir = __dirname.slice(0,-7);
 
 //INSTRUCTOR ROUTES : all urls starting with "/instructor"
 //INSTRUCTOR SIGN-IN

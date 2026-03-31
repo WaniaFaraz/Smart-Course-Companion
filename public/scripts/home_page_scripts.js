@@ -1,10 +1,18 @@
+const PORT = 8080;
 console.log('scripts loaded');
 document.addEventListener('DOMContentLoaded', loadHomePage); //do loadHomePage when the document loads
 
 async function loadHomePage() {
+    loadCourses(); //retrieve and display all courses from the stur=dents ID
+    //ADD AVERAGES CALCULATION
+
+}
+
+async function loadCourses() {
     //GET ALL COURSES FOR STUDENT AND ADD THEM TO THE MAIN COURSE PAGE
     //TO BE FIXED: ADD COURSE BACKGROUND AND ADD COURSE TITLE - FIX DATABASE
-    const response = await fetch('/api/student/get-courses/1000');
+    //TO BE FIXED:  RETRIEVE STUDENT ID AND THEN GENERATE1000
+    const response = await fetch(`http://localhost:${PORT}/api/student/get-courses/1000`);
     const coursesOfStudent = await response.json(); //array of student courses
     
     //iterate over each course
@@ -14,7 +22,7 @@ async function loadHomePage() {
         const courseSection = value.course_section;
         //find title of each course
         const codeWithoutSpaces = courseCode.slice(0,4) + courseCode.slice(5); //remove spaces from course code
-        const url = '/api/student/get-course-from-code/' + codeWithoutSpaces; //fix url
+        const url = `http://localhost:${PORT}/api/student/get-course-from-code/` + codeWithoutSpaces; //fix url
         const response = await fetch(url);
         const course = await response.json(); //course from courses table
         const title = course.title;
@@ -29,6 +37,5 @@ async function loadHomePage() {
                                     </a>
                                 </div>`;
     })
-
 }
     

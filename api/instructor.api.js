@@ -11,7 +11,11 @@ const express = require("express");
 const router = express.Router();
 
 //GET ALL INSTRUCTORS
-const {getInstructors, getInstructorById} = require("../database");
+const {
+    getInstructors,
+    getInstructorById,
+    getCoursesOfInstructor
+    } = require("../database");
 router.get('/get-instructors', async (request, response) => {
     const instructors = await getInstructors();
     response.json(instructors);
@@ -26,5 +30,12 @@ router.get('/get-instructors/:id', async (request, response) => {
 //add code here for adding instructors after collecting the account info
 //note: there is an addInstructor(id, firstName, lastName, emailAddress) function
 //      in the database file that will add the student to the database that can be used
+
+//GET COURSES OF A SPECIFIC INSTRUCTOR
+router.get('/get-courses/:instructorid', async (request, response) => {
+    const instructorid = request.params.instructorid;
+    const courses = await getCoursesOfInstructor(instructorid);
+    response.json(courses);
+})
 
 module.exports = router;

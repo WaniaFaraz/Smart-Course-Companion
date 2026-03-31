@@ -69,6 +69,11 @@ async function addInstructor(instructorId, firstName, lastName, emailAddress) {
     console.log("Instructor added with ID: ", professorID);
 }
 
+//Get courses of a specific instructor
+async function getCoursesOfInstructor(instructorId) {
+    const queryString = "SELECT * FROM `courses` WHERE `Code` = ?"; //TO BE EDITED
+}
+
 
 //Get courses of a specific student
 async function getCoursesOfStudent(studentid) {
