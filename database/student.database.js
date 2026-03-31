@@ -51,6 +51,21 @@ async function addStudent(studentID, firstName, lastName, emailAddress) {
     //adds a student into the student database RETURNS????????????
 }
 
+//update student information
+async function updateStudentInfo(studentId, firstName, lastName, emailAddress) {
+    await pool.query(
+        "UPDATE `students` SET `firstName` = ?, `lastName` = ?, `emailAddress` = ? WHERE `studentId` = ?",
+        [firstName, lastName, emailAddress, studentId]
+    );
+}
+//update student password
+async function updateStudentPassword(studentId, newPassword) {
+    await pool.query(
+        "UPDATE `students` SET `password` = ? WHERE `studentId` = ?",
+        [newPassword, studentId]
+    );
+}
+
 
 //get all students for an instructor - see instructor.database.js
 //get all grades for a student - see assignments.database.js
@@ -61,5 +76,8 @@ module.exports = {
     getStudentById,
     addStudent,
     getStudentByEmail,
+    addStudent,
+    updateStudentInfo,
+    updateStudentPassword,
     
 };
