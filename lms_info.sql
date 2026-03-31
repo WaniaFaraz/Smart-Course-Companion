@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 31, 2026 at 10:14 PM
+-- Generation Time: Apr 01, 2026 at 12:55 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -32,16 +32,20 @@ USE `lms_info`;
 -- Last update: Mar 31, 2026 at 05:27 PM
 --
 
-CREATE TABLE `assignments` (
-  `assignmentId` int(11) NOT NULL COMMENT 'unique assignment id',
+DROP TABLE IF EXISTS `assignments`;
+CREATE TABLE IF NOT EXISTS `assignments` (
+  `assignmentId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'unique assignment id',
   `instructorId` int(11) NOT NULL COMMENT 'professor who created the assignment',
   `courseId` int(11) NOT NULL,
   `title` varchar(30) NOT NULL COMMENT 'title of assignment',
   `description` text NOT NULL,
   `weight` int(11) NOT NULL,
   `dateCreated` timestamp NOT NULL DEFAULT current_timestamp() COMMENT 'by default - date the date and time the data was entered in the table',
-  `dueDate` datetime NOT NULL COMMENT 'due date of assignment'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='All assignments created by all professors';
+  `dueDate` datetime NOT NULL COMMENT 'due date of assignment',
+  PRIMARY KEY (`assignmentId`),
+  KEY `professorID` (`instructorId`),
+  KEY `courseId` (`courseId`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='All assignments created by all professors';
 
 --
 -- RELATIONSHIPS FOR TABLE `assignments`:
@@ -61,6 +65,7 @@ INSERT INTO `assignments` (`assignmentId`, `instructorId`, `courseId`, `title`, 
 --
 -- Triggers `assignments`
 --
+DROP TRIGGER IF EXISTS `beforeUpdateCourseExistsForInstructor`;
 DELIMITER $$
 CREATE TRIGGER `beforeUpdateCourseExistsForInstructor` BEFORE UPDATE ON `assignments` FOR EACH ROW BEGIN
     IF NOT EXISTS (
@@ -75,6 +80,7 @@ CREATE TRIGGER `beforeUpdateCourseExistsForInstructor` BEFORE UPDATE ON `assignm
 END
 $$
 DELIMITER ;
+DROP TRIGGER IF EXISTS `courseExistsForInstructor`;
 DELIMITER $$
 CREATE TRIGGER `courseExistsForInstructor` BEFORE INSERT ON `assignments` FOR EACH ROW BEGIN
     IF NOT EXISTS (
@@ -89,6 +95,7 @@ CREATE TRIGGER `courseExistsForInstructor` BEFORE INSERT ON `assignments` FOR EA
 END
 $$
 DELIMITER ;
+DROP TRIGGER IF EXISTS `insertAssignmentWeightLimitations`;
 DELIMITER $$
 CREATE TRIGGER `insertAssignmentWeightLimitations` BEFORE INSERT ON `assignments` FOR EACH ROW BEGIN
     IF NEW.weight <= 0 OR NEW.weight > 100 THEN
@@ -98,6 +105,7 @@ CREATE TRIGGER `insertAssignmentWeightLimitations` BEFORE INSERT ON `assignments
 END
 $$
 DELIMITER ;
+DROP TRIGGER IF EXISTS `updateAssignmentWeightLimitations`;
 DELIMITER $$
 CREATE TRIGGER `updateAssignmentWeightLimitations` BEFORE INSERT ON `assignments` FOR EACH ROW BEGIN
     IF NEW.weight <= 0 OR NEW.weight > 100 THEN
@@ -117,13 +125,16 @@ DELIMITER ;
 -- Last update: Mar 31, 2026 at 06:49 PM
 --
 
-CREATE TABLE `courses` (
-  `courseId` int(11) NOT NULL,
+DROP TABLE IF EXISTS `courses`;
+CREATE TABLE IF NOT EXISTS `courses` (
+  `courseId` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(70) NOT NULL,
   `code` varchar(8) NOT NULL,
   `section` varchar(1) NOT NULL,
-  `visibility` int(11) NOT NULL DEFAULT 1 COMMENT '1 : course visible, 0: not visible'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='List of all course codes available at the institution.';
+  `visibility` int(11) NOT NULL DEFAULT 1 COMMENT '1 : course visible, 0: not visible',
+  PRIMARY KEY (`courseId`),
+  UNIQUE KEY `Code` (`code`,`section`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='List of all course codes available at the institution.';
 
 --
 -- RELATIONSHIPS FOR TABLE `courses`:
@@ -160,12 +171,14 @@ INSERT INTO `courses` (`courseId`, `title`, `code`, `section`, `visibility`) VAL
 -- Last update: Mar 31, 2026 at 04:37 PM
 --
 
-CREATE TABLE `instructors` (
+DROP TABLE IF EXISTS `instructors`;
+CREATE TABLE IF NOT EXISTS `instructors` (
   `instructorId` int(11) NOT NULL,
   `firstName` varchar(30) NOT NULL,
   `lastName` varchar(30) NOT NULL,
   `emailAddress` varchar(30) NOT NULL,
-  `password` varchar(20) NOT NULL
+  `password` varchar(20) NOT NULL,
+  PRIMARY KEY (`instructorId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='List of all professors at the institution';
 
 --
@@ -192,9 +205,12 @@ INSERT INTO `instructors` (`instructorId`, `firstName`, `lastName`, `emailAddres
 -- Last update: Mar 31, 2026 at 04:50 PM
 --
 
-CREATE TABLE `instructor_courses` (
+DROP TABLE IF EXISTS `instructor_courses`;
+CREATE TABLE IF NOT EXISTS `instructor_courses` (
   `instructorId` int(11) NOT NULL,
-  `courseId` int(11) NOT NULL
+  `courseId` int(11) NOT NULL,
+  UNIQUE KEY `course_id` (`courseId`),
+  KEY `instructor_id` (`instructorId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='Maps instructors to ids. (1 course -> 1 prof)';
 
 --
@@ -227,12 +243,14 @@ INSERT INTO `instructor_courses` (`instructorId`, `courseId`) VALUES
 -- Last update: Mar 31, 2026 at 04:30 PM
 --
 
-CREATE TABLE `students` (
+DROP TABLE IF EXISTS `students`;
+CREATE TABLE IF NOT EXISTS `students` (
   `studentId` int(11) NOT NULL COMMENT 'Primary key - added by student at account creation',
   `firstName` varchar(30) NOT NULL,
   `lastName` varchar(30) NOT NULL,
   `emailAddress` varchar(30) NOT NULL,
-  `password` varchar(20) NOT NULL
+  `password` varchar(20) NOT NULL,
+  PRIMARY KEY (`studentId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='Basic student info - ID, names, email, account password';
 
 --
@@ -255,17 +273,114 @@ INSERT INTO `students` (`studentId`, `firstName`, `lastName`, `emailAddress`, `p
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `student_assignments`
+--
+-- Creation: Mar 31, 2026 at 10:40 PM
+--
+
+DROP TABLE IF EXISTS `student_assignments`;
+CREATE TABLE IF NOT EXISTS `student_assignments` (
+  `studentId` int(11) NOT NULL,
+  `assignmentId` int(11) NOT NULL,
+  `courseId` int(11) NOT NULL,
+  `grade` double NOT NULL,
+  `completed` tinyint(1) NOT NULL,
+  KEY `studentId` (`studentId`,`assignmentId`,`courseId`),
+  KEY `courseId` (`courseId`,`assignmentId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- RELATIONSHIPS FOR TABLE `student_assignments`:
+--   `courseId`
+--       `assignments` -> `courseId`
+--   `assignmentId`
+--       `assignments` -> `assignmentId`
+--   `studentId`
+--       `students` -> `studentId`
+--
+
+--
+-- Triggers `student_assignments`
+--
+DROP TRIGGER IF EXISTS `insertAssignmentIdAndCourseIdCombo`;
+DELIMITER $$
+CREATE TRIGGER `insertAssignmentIdAndCourseIdCombo` BEFORE INSERT ON `student_assignments` FOR EACH ROW BEGIN
+    IF NOT EXISTS (
+        SELECT 1 
+        FROM assignments
+        WHERE assignmentId = NEW.assignmentId 
+          AND courseId = NEW.courseId
+    ) THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Error: assignmentId and courseId combination does not exist in the reference table.';
+    END IF;
+END
+$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS `insertCourseIdAndStudentIdCombo`;
+DELIMITER $$
+CREATE TRIGGER `insertCourseIdAndStudentIdCombo` BEFORE INSERT ON `student_assignments` FOR EACH ROW BEGIN
+    IF NOT EXISTS (
+        SELECT 1 
+        FROM student_courses 
+        WHERE student_courses.studentId = NEW.studentId 
+          AND student_courses.courseId = NEW.courseId
+    ) THEN
+        SIGNAL SQLSTATE '45000' 
+        SET MESSAGE_TEXT = 'Error: Student is not registered for this course offering.';
+    END IF;
+END
+$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS `updateAssignmentIdAndCourseIdCombo`;
+DELIMITER $$
+CREATE TRIGGER `updateAssignmentIdAndCourseIdCombo` BEFORE UPDATE ON `student_assignments` FOR EACH ROW BEGIN
+    IF NOT EXISTS (
+        SELECT 1 
+        FROM assignments
+        WHERE assignmentId = NEW.assignmentId 
+          AND courseId = NEW.courseId
+    ) THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Error: assignmentId and courseId combination does not exist in the reference table.';
+    END IF;
+END
+$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS `updateCourseIdAndStudentIdCombo`;
+DELIMITER $$
+CREATE TRIGGER `updateCourseIdAndStudentIdCombo` BEFORE UPDATE ON `student_assignments` FOR EACH ROW BEGIN
+    IF NOT EXISTS (
+        SELECT 1 
+        FROM student_courses 
+        WHERE student_courses.studentId = NEW.studentId 
+          AND student_courses.courseId = NEW.courseId
+    ) THEN
+        SIGNAL SQLSTATE '45000' 
+        SET MESSAGE_TEXT = 'Error: Student is not registered for this course offering.';
+    END IF;
+END
+$$
+DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `student_courses`
 --
 -- Creation: Mar 31, 2026 at 07:57 PM
 -- Last update: Mar 31, 2026 at 08:12 PM
 --
 
-CREATE TABLE `student_courses` (
+DROP TABLE IF EXISTS `student_courses`;
+CREATE TABLE IF NOT EXISTS `student_courses` (
   `studentId` int(11) NOT NULL,
   `courseId` int(11) NOT NULL,
   `courseCode` varchar(8) NOT NULL,
-  `courseSection` varchar(1) NOT NULL
+  `courseSection` varchar(1) NOT NULL,
+  UNIQUE KEY `studentID` (`studentId`,`courseCode`),
+  KEY `course` (`courseCode`,`courseSection`),
+  KEY `courseId` (`courseId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='Maps students to courses - makes sure that one student cannot be in more than one section of the same course';
 
 --
@@ -295,6 +410,7 @@ INSERT INTO `student_courses` (`studentId`, `courseId`, `courseCode`, `courseSec
 --
 -- Triggers `student_courses`
 --
+DROP TRIGGER IF EXISTS `insertCourseIdFromCourseCodeAndSection`;
 DELIMITER $$
 CREATE TRIGGER `insertCourseIdFromCourseCodeAndSection` BEFORE INSERT ON `student_courses` FOR EACH ROW BEGIN
     
@@ -312,6 +428,7 @@ CREATE TRIGGER `insertCourseIdFromCourseCodeAndSection` BEFORE INSERT ON `studen
 END
 $$
 DELIMITER ;
+DROP TRIGGER IF EXISTS `updateCourseIdFromCourseCodeAndSection`;
 DELIMITER $$
 CREATE TRIGGER `updateCourseIdFromCourseCodeAndSection` BEFORE UPDATE ON `student_courses` FOR EACH ROW BEGIN
     
@@ -331,68 +448,6 @@ $$
 DELIMITER ;
 
 --
--- Indexes for dumped tables
---
-
---
--- Indexes for table `assignments`
---
-ALTER TABLE `assignments`
-  ADD PRIMARY KEY (`assignmentId`),
-  ADD KEY `professorID` (`instructorId`),
-  ADD KEY `courseId` (`courseId`);
-
---
--- Indexes for table `courses`
---
-ALTER TABLE `courses`
-  ADD PRIMARY KEY (`courseId`),
-  ADD UNIQUE KEY `Code` (`code`,`section`);
-
---
--- Indexes for table `instructors`
---
-ALTER TABLE `instructors`
-  ADD PRIMARY KEY (`instructorId`);
-
---
--- Indexes for table `instructor_courses`
---
-ALTER TABLE `instructor_courses`
-  ADD UNIQUE KEY `course_id` (`courseId`),
-  ADD KEY `instructor_id` (`instructorId`);
-
---
--- Indexes for table `students`
---
-ALTER TABLE `students`
-  ADD PRIMARY KEY (`studentId`);
-
---
--- Indexes for table `student_courses`
---
-ALTER TABLE `student_courses`
-  ADD UNIQUE KEY `studentID` (`studentId`,`courseCode`),
-  ADD KEY `course` (`courseCode`,`courseSection`),
-  ADD KEY `courseId` (`courseId`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `assignments`
---
-ALTER TABLE `assignments`
-  MODIFY `assignmentId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'unique assignment id', AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `courses`
---
-ALTER TABLE `courses`
-  MODIFY `courseId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
-
---
 -- Constraints for dumped tables
 --
 
@@ -409,6 +464,13 @@ ALTER TABLE `assignments`
 ALTER TABLE `instructor_courses`
   ADD CONSTRAINT `instructor_courses_ibfk_1` FOREIGN KEY (`courseId`) REFERENCES `courses` (`courseId`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `instructor_courses_ibfk_2` FOREIGN KEY (`instructorId`) REFERENCES `instructors` (`instructorId`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `student_assignments`
+--
+ALTER TABLE `student_assignments`
+  ADD CONSTRAINT `student_assignments_ibfk_1` FOREIGN KEY (`courseId`,`assignmentId`) REFERENCES `assignments` (`courseId`, `assignmentId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `student_assignments_ibfk_2` FOREIGN KEY (`studentId`) REFERENCES `students` (`studentId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `student_courses`
@@ -448,6 +510,10 @@ INSERT INTO `pma__table_uiprefs` (`username`, `db_name`, `table_name`, `prefs`, 
 
 --
 -- Metadata for table students
+--
+
+--
+-- Metadata for table student_assignments
 --
 
 --
