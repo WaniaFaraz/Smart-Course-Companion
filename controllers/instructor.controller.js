@@ -15,7 +15,6 @@ const router = express.Router();
 const {
     getInstructors,
     getInstructorById,
-    getCoursesOfInstructor
 } = require("../database/instructor.database");
 //CERTAIN COURSE DATA QUERY FUNCTIONS
 const {
