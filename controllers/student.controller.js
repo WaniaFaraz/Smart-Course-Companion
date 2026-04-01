@@ -22,7 +22,7 @@ const {
     updateStudentPassword
     
 } = require("../database/student.database"); 
-//CERTAIN COURSE QUERY FUNCTIONS,
+//CERTAIN COURSE QUERY FUNCTIONS
 const {
     getCoursesOfStudent,
     getCourseFromCode,
