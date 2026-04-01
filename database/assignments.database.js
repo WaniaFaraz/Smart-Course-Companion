@@ -59,5 +59,6 @@ async function getStudentAssignmentsDueBefore(studentId, date) {
 module.exports = {
     getAllAssignments,
     getAllAssignmentsOfStudent,
-    getAllAssignmentsFromCourseId
+    getAllAssignmentsFromCourseId,
+    getStudentAssignmentsDueBefore
 };
