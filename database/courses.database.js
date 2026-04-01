@@ -53,7 +53,7 @@ async function getCourseFromCode(courseCode) {
     }
 }
 
-//Get all students of a course
+//Get all students of a course (based on courseId)
 async function getStudentsOfCourse(courseId) {
     queryString = "SELECT * FROM `student_courses` WHERE `courseId` = ?";
     [rows] = await pool.query(queryString, [courseId]);

@@ -24,10 +24,40 @@ async function getAllAssignments() {
 
 //Get all assignments of a student
 async function getAllAssignmentsOfStudent(studentId) {
-    queryString = ""
+    queryString = "SELECT * FROM `student_assignments` WHERE `studentId` = ?";
+    [rows] = await pool.query(queryString, [studentId]);
+    return rows;
+    //rows: array of JSON objects containing studentId, assignmentId, courseId, grade, completed
 }
 
-//Get all assignments of a specific course and section
+//Get all assignments of a specific course and section - based on courseId
+async function getAllAssignmentsFromCourseId(courseId) {
+    queryString = "SELECT * FROM `assignments` WHERE `courseId` = ?";
+    [rows] = await pool.query(queryString, [courseId]);
+    return rows;
+    //rows: array of JSON objects containing assignmentId, instructorId, courseId, title, description, weight, dateCreated, dueDate
+}
 
 //Get all assignments of a specific student due before a certain date
+async function getStudentAssignmentsDueBefore(studentId, date) {
+    //get all the student assignments
+    const studentAssignments = await getAllAssignmentsOfStudent(studentId); //JSON objects
+    const assignmentIdsPromise = studentAssignments.map( async (value, index, array) => {
+        return await value.assignmentId;
+    });
+    assignmentIds = Promise.all(assignmentIdsPromise); //list of assignmentIds of student
+    const filteredAssignmentsPromise = assignmentIds.map( async (value, index, array) => {
+        queryString = "SELECT  * FROM `assignments` WHERE `assignmentId` = ? AND `date` < ?";
+        [rows] = await pool.query(queryString, [value.assignmentId]);
+        return rows;
+    });
+    const filteredAssignments = await Promise.all(filteredAssignmentsPromise);
+    return filteredAssignments.flat();
+    
+}
 
+module.exports = {
+    getAllAssignments,
+    getAllAssignmentsOfStudent,
+    getAllAssignmentsFromCourseId
+};
