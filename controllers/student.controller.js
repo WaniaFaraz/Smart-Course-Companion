@@ -10,15 +10,13 @@
 // Note: in order to use a querying function here, you need to import it here - see below
 const express = require("express");
 const router = express.Router();
-const { getAllAssignmentsOfStudent } = require("../database/assignments.database");
-const { updateCompleted } = require("../database/grades.database");
-const { updateCompleted, deleteStudentAssignment } = require("../database/grades.database");
 
 //IMPORT DATABASE QUERY FUNCTIONS
 //STUDENT QUERY FUNCTIONS
 const {
     getStudents,
     getStudentById,
+    getStudentByEmail
     
 } = require("../database/student.database"); 
 //CERTAIN COURSE QUERY FUNCTIONS
@@ -26,23 +24,19 @@ const {
     getCoursesOfStudent,
     getCourseFromCode,
 } = require("../database/courses.database"); 
-
+//GRADES QUERY FUNCTIONS
 const {
     getGradesOfStudent,
+    updateCompleted,
+    deleteStudentAssignment
     
 } = require("../database/grades.database"); 
-
+//ASSIGNMENT QUERY FUNCTIONS
 const {
      getAllAssignmentsOfStudent
 } = require("../database/assignments.database");
 
-const { 
-    updateCompleted 
-} = require("../database/grades.database");
 
-const { 
-    updateCompleted, deleteStudentAssignment 
-} = require("../database/grades.database");
 
 //ROUTES TO DEAL WITH DATA REQUESTS FROM SCRIPTS FILES - SEND AND RECEIVE DATA TO AND FROM HTML
 //GET ALL STUDENTS - RETURNS AN ARRAY OF STUDENT JSON OBJECTS
@@ -64,6 +58,7 @@ router.get('/add-student', async (request, response) => {
 //GET COURSES OF A SPECIFIC STUDENT
 router.get('/get-courses/:studentid', async (request, response) => {
     const studentid = request.params.studentid;
+    console.log("studentId:",studentid);
     const courses = await getCoursesOfStudent(studentid);
     response.json(courses);
 })
@@ -88,8 +83,22 @@ router.post('/login', async (req, res) => {
     req.session.userId = students[0].studentId;
     req.session.userType = "student";
     req.session.firstName = students[0].firstName;
-    res.json({ success: true, studentId: students[0].studentId, firstName: students[0].firstName });
+    req.session.loggedIn = true;
+    //res.json({ success: true, studentId: students[0].studentId, firstName: students[0].firstName });
+    res.redirect("/student/home/");
+    //TO GET DETAILS OF A SESSION:
+    //ID - session.userId
+    //USER TYPE - session.userType
+    //FIRST NAME - session.firstName
 });
+//get user data
+router.get("/user-data", async(request, response) => {
+    if (request.session.userId) {
+        response.json({ userId: request.session.userId });
+    } else {
+        response.status(401).json({ error: "Not logged in" });
+    }
+})
 //STUDENT SIGN UP
 router.post('/sign-up', async (req, res) => {
     const { studentID, firstName, lastName, emailAddress, password } = req.body;
