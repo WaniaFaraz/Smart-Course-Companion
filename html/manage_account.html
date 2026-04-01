@@ -6,111 +6,203 @@
     <title>Course Organizer - Manage Account</title>
     <link rel="stylesheet" href="/css/CourseOrganizer_GeneralStyles.css">
     <link rel="stylesheet" href="/css/ManageAccount.css">
-    
 </head>
 <body>
-    
+
 <div class="center-top">
-            <div class="uppermost-center-line">
-                <p class="center-title">COURSE ORGANIZER</p>
-            </div>
-            <div class="top-right">
-                <div class="text-next-to-profile">
-                    <p class="username" id="username">Username</p>
-                    <p class="student-id">User ID</p>
-                </div>
-                <div><img class="profile-photo" src="black-icons/black-profile-96.png"></div>
-            </div>
+    <div class="uppermost-center-line">
+        <p class="center-title">COURSE ORGANIZER</p>
+    </div>
+    <div class="top-right">
+        <div class="text-next-to-profile">
+            <p class="username" id="username">Loading...</p>
+            <p class="student-id" id="user-id">User ID</p>
         </div>
-    <div class="container">
-        <div class="card">
+        <div><img class="profile-photo" src="/black-icons/black-profile-96.png"></div>
+    </div>
+</div>
 
-            <h2 class="pageTitle">Manage Account</h2>
-            <p class="pageSubtitle">Update your personal information and settings</p>
+<div class="container">
+    <div class="card">
+        <h2 class="pageTitle">Manage Account</h2>
+        <p class="pageSubtitle">Update your personal information and settings</p>
+        <p id="save-message" style="display:none; color:green;"></p>
+        <p id="error-message" style="display:none; color:red;"></p>
 
-            <hr class="divider">
+        <hr class="divider">
 
-            <div class="section">
-                <h3 class="sectionTitle">Profile Picture</h3>
-                <div class="profileRow">
-                    <div class="avatar">CY</div>
-                    <button class="btnPhoto">Change Photo</button>
-                    <a class="removeLink">Remove</a>
+        <div class="section">
+            <h3 class="sectionTitle">Personal Information</h3>
+            <div class="row2col">
+                <div class="inputGroup">
+                    <label class="label">First Name</label>
+                    <input class="input" type="text" id="firstName" placeholder="First Name"/>
+                </div>
+                <div class="inputGroup">
+                    <label class="label">Last Name</label>
+                    <input class="input" type="text" id="lastName" placeholder="Last Name"/>
                 </div>
             </div>
-
-            <hr class="divider">
-
-            <div class="section">
-                <h3 class="sectionTitle">Personal Information</h3>
-                <div class="row2col">
-                    <div class="inputGroup">
-                        <label class="label">First Name</label>
-                        <input class="input" type="text" placeholder="Chaymae"/>
-                    </div>
-                    <div class="inputGroup">
-                        <label class="label">Last Name</label>
-                        <input class="input" type="text" placeholder="Yartaoui"/>
-                    </div>
-                </div>
-                <div class="inputGroup">
-                    <label class="label">Email Address</label>
-                    <input class="input full" type="email" placeholder="chaymae.yartaoui@email.com"/>
-                </div>
-                <form action="New_HomePage.html">
-                    <button class="btnSave">Save Changes</button>
-                </form>
-                
+            <div class="inputGroup">
+                <label class="label">Email Address</label>
+                <input class="input full" type="email" id="emailAddress" placeholder="Email"/>
             </div>
+            <button class="btnSave" id="save-info-btn">Save Changes</button>
+        </div>
 
-            <hr class="divider">
+        <hr class="divider">
 
-            <div class="section">
-                <h3 class="sectionTitle">Change Password</h3>
-                <div class="inputGroup">
-                    <label class="label">Current Password</label>
-                    <input class="input full" type="password" placeholder="Enter current password"/>
-                </div>
-                <div class="inputGroup">
-                    <label class="label">New Password</label>
-                    <input class="input full" type="password" placeholder="Enter new password"/>
-                </div>
-                <div class="inputGroup">
-                    <label class="label">Confirm New Password</label>
-                    <input class="input full" type="password" placeholder="Confirm new password"/>
-                </div>
-                <form action="New_HomePage.html">
-                <button class="btnSave">Update Password</button>
-                </form>
+        <div class="section">
+            <h3 class="sectionTitle">Change Password</h3>
+            <div class="inputGroup">
+                <label class="label">Current Password</label>
+                <input class="input full" type="password" id="currentPassword" placeholder="Enter current password"/>
             </div>
+            <div class="inputGroup">
+                <label class="label">New Password</label>
+                <input class="input full" type="password" id="newPassword" placeholder="Enter new password"/>
+            </div>
+            <div class="inputGroup">
+                <label class="label">Confirm New Password</label>
+                <input class="input full" type="password" id="confirmNewPassword" placeholder="Confirm new password"/>
+            </div>
+            <button class="btnSave" id="save-password-btn">Update Password</button>
+        </div>
 
-            <hr class="divider">
+        <hr class="divider">
 
-            <div class="section">
-                <h3 class="sectionTitle">Preferences</h3>
-                <div class="inputGroup">
-                    <label class="label">Language</label>
-                    <select class="input full">
-                        <option>English</option>
-                        <option>French</option>
-                    </select>
-                </div>
-                <div class="toggleRow">
-                    <span class="label">Email Notifications</span>
-                    <input type="checkbox" class="toggle" checked/>
-                </div>
-                <div class="toggleRow">
-                    <span class="label">Dark Mode</span>
-                    <input type="checkbox" class="toggle"/>
-                </div>
-
-                <form action="New_HomePage.html">
-                    <button class="btnSave" id=""btnSave">Save Preferences</button>
-                </form>
-                
-
+        <div class="section">
+            <h3 class="sectionTitle">Preferences</h3>
+            <div class="inputGroup">
+                <label class="label">Language</label>
+                <select class="input full">
+                    <option>English</option>
+                    <option>French</option>
+                </select>
+            </div>
+            <div class="toggleRow">
+                <span class="label">Email Notifications</span>
+                <input type="checkbox" class="toggle" checked/>
+            </div>
         </div>
     </div>
+</div>
 
+<script>
+    let currentUserId = null;
+    let userType = null;
+
+    document.addEventListener("DOMContentLoaded", async () => {
+        let sessionRes = await fetch("/api/student/session");
+        let session = await sessionRes.json();
+
+        if (!session.loggedIn) {
+            sessionRes = await fetch("/api/instructor/session");
+            session = await sessionRes.json();
+            if (!session.loggedIn) {
+                window.location.href = "/student/sign-in";
+                return;
+            }
+            userType = "instructor";
+        } else {
+            userType = "student";
+        }
+
+        currentUserId = session.userId;
+
+        const url = userType === "student"
+            ? `/api/student/get-student/${currentUserId}`
+            : `/api/instructor/get-instructor/${currentUserId}`;
+
+        const res = await fetch(url);
+        const users = await res.json();
+        if (users && users.length > 0) {
+            const user = users[0];
+            document.getElementById("firstName").value = user.firstName;
+            document.getElementById("lastName").value = user.lastName;
+            document.getElementById("emailAddress").value = user.emailAddress;
+            document.getElementById("username").textContent = user.firstName + " " + user.lastName;
+            document.getElementById("user-id").textContent = "ID: " + currentUserId;
+        }
+    });
+
+    document.getElementById("save-info-btn").addEventListener("click", async () => {
+        const firstName = document.getElementById("firstName").value.trim();
+        const lastName = document.getElementById("lastName").value.trim();
+        const emailAddress = document.getElementById("emailAddress").value.trim();
+        const saveMsg = document.getElementById("save-message");
+        const errorMsg = document.getElementById("error-message");
+
+        errorMsg.style.display = "none";
+        saveMsg.style.display = "none";
+
+        if (!firstName || !lastName || !emailAddress) {
+            errorMsg.textContent = "All fields are required.";
+            errorMsg.style.display = "block";
+            return;
+        }
+
+        const url = userType === "student"
+            ? `/api/student/update-info`
+            : `/api/instructor/update-info`;
+
+        const res = await fetch(url, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ userId: currentUserId, firstName, lastName, emailAddress })
+        });
+        const result = await res.json();
+        if (result.success) {
+            saveMsg.textContent = "Changes saved successfully!";
+            saveMsg.style.display = "block";
+        } else {
+            errorMsg.textContent = result.message || "Error saving changes.";
+            errorMsg.style.display = "block";
+        }
+    });
+
+    document.getElementById("save-password-btn").addEventListener("click", async () => {
+        const currentPassword = document.getElementById("currentPassword").value.trim();
+        const newPassword = document.getElementById("newPassword").value.trim();
+        const confirmNewPassword = document.getElementById("confirmNewPassword").value.trim();
+        const saveMsg = document.getElementById("save-message");
+        const errorMsg = document.getElementById("error-message");
+
+        errorMsg.style.display = "none";
+        saveMsg.style.display = "none";
+
+        if (!currentPassword || !newPassword || !confirmNewPassword) {
+            errorMsg.textContent = "All password fields are required.";
+            errorMsg.style.display = "block";
+            return;
+        }
+        if (newPassword !== confirmNewPassword) {
+            errorMsg.textContent = "New passwords do not match.";
+            errorMsg.style.display = "block";
+            return;
+        }
+
+        const url = userType === "student"
+            ? `/api/student/update-password`
+            : `/api/instructor/update-password`;
+
+        const res = await fetch(url, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ userId: currentUserId, currentPassword, newPassword })
+        });
+        const result = await res.json();
+        if (result.success) {
+            saveMsg.textContent = "Password updated successfully!";
+            saveMsg.style.display = "block";
+            document.getElementById("currentPassword").value = "";
+            document.getElementById("newPassword").value = "";
+            document.getElementById("confirmNewPassword").value = "";
+        } else {
+            errorMsg.textContent = result.message || "Error updating password.";
+            errorMsg.style.display = "block";
+        }
+    });
+</script>
 </body>
 </html>

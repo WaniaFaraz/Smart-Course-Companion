@@ -15,37 +15,43 @@
                 <h1 class="title">Course Companion</h1>
                 <p class="subtitle">Manage your courses<br>with ease!</p>
             </div>
-
             <div class="rightSide">
                 <h1 class="welcome">Create An Account</h1>
-                <form class="form" action="New_HomePage.html" method="post">
-
-                    <label class="label" for="name">Full Name</label>
+                <p id="error-message" style="color:red; display:none;"></p>
+                <p id="success-message" style="color:green; display:none;"></p>
+                <div class="form">
+                    <label class="label" for="studentID">Student ID</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">🪪</span>
+                        <input class="input" type="number" id="studentID" placeholder="Enter your student ID"/>
+                    </div>
+                    <label class="label" for="firstName">First Name</label>
                     <div class="input-wrapper">
                         <span class="input-icon">👤</span>
-                        <input class="input" type="text" id="name" name="name" placeholder="Enter your name"/>
+                        <input class="input" type="text" id="firstName" placeholder="Enter your first name"/>
                     </div>
-
+                    <label class="label" for="lastName">Last Name</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">👤</span>
+                        <input class="input" type="text" id="lastName" placeholder="Enter your last name"/>
+                    </div>
                     <label class="label" for="email">Email</label>
                     <div class="input-wrapper">
                         <span class="input-icon">@</span>
-                        <input class="input" type="email" id="email" name="email" placeholder="Enter your email"/>
+                        <input class="input" type="email" id="email" placeholder="Enter your email"/>
                     </div>
-
                     <label class="label" for="password">Password</label>
                     <div class="input-wrapper">
                         <span class="input-icon">🔒</span>
-                        <input class="input" type="password" id="password" name="password" placeholder="Create a password"/>
+                        <input class="input" type="password" id="password" placeholder="Create a password"/>
                     </div>
-
                     <label class="label" for="confirmPassword">Confirm Password</label>
                     <div class="input-wrapper">
                         <span class="input-icon">🔒</span>
-                        <input class="input" type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password"/>
+                        <input class="input" type="password" id="confirmPassword" placeholder="Confirm your password"/>
                     </div>
-
-                    <button class="button" type="submit">Create Account</button>
-                </form>
+                    <button class="button" id="signup-btn">Create Account</button>
+                </div>
                 <p class="bottomText">
                     Already have an account?
                     <a href="sign-in">Sign In</a>
@@ -53,5 +59,49 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.getElementById("signup-btn").addEventListener("click", async () => {
+            const studentID = document.getElementById("studentID").value.trim();
+            const firstName = document.getElementById("firstName").value.trim();
+            const lastName = document.getElementById("lastName").value.trim();
+            const emailAddress = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value.trim();
+            const confirmPassword = document.getElementById("confirmPassword").value.trim();
+            const errorMsg = document.getElementById("error-message");
+            const successMsg = document.getElementById("success-message");
+
+            errorMsg.style.display = "none";
+            successMsg.style.display = "none";
+
+            if (!studentID || !firstName || !lastName || !emailAddress || !password || !confirmPassword) {
+                errorMsg.textContent = "All fields are required.";
+                errorMsg.style.display = "block";
+                return;
+            }
+            if (password !== confirmPassword) {
+                errorMsg.textContent = "Passwords do not match.";
+                errorMsg.style.display = "block";
+                return;
+            }
+
+            const response = await fetch("/api/student/sign-up", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ studentID, firstName, lastName, emailAddress, password })
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                successMsg.textContent = "Account created! Redirecting to sign in...";
+                successMsg.style.display = "block";
+                setTimeout(() => { window.location.href = "/student/sign-in"; }, 2000);
+            } else {
+                errorMsg.textContent = result.message;
+                errorMsg.style.display = "block";
+            }
+        });
+    </script>
 </body>
 </html>

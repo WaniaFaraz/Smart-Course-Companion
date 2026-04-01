@@ -18,21 +18,20 @@
             <div class="rightSide">
                 <h1 class="welcome">Welcome Back!</h1>
                 <h2 class="formTitle">Sign In</h2>
-                <form class="form" action="/api/student/login" method="post"> <!-- to be modified...-->
+                <p id="error-message" style="color:red; display:none;"></p>
+                <div class="form">
                    <label class="label" for="email">Email</label>
                    <div class="input-wrapper">
                        <span class="input-icon">👤</span>
-                       <input class= "input" type="email" id="email" name="email" placeholder="Enter your email" autocomplete="email"/>
+                       <input class="input" type="email" id="email" name="email" placeholder="Enter your email" autocomplete="email"/>
                     </div>
-
                    <label class="label" for="password">Password</label>
                    <div class="input-wrapper">
                        <span class="input-icon">🔒</span>
                        <input class="input" type="password" id="password" name="password" placeholder="Enter your password" autocomplete="current-password"/>
                    </div>
-            
-                   <button class="button" type="submit">Sign In</button>
-               </form>
+                   <button class="button" id="signin-btn">Sign In</button>
+                </div>
                <p class="bottomText">
                  Don't have an account? 
                 <a href="create-account">Create Account</a>
@@ -41,10 +40,37 @@
                  You're an instructor? 
                 <a href="../instructor/sign-in">Sign In</a>
               </p>
-
            </div>
       </div>
    </div>
-</body>
 
+   <script>
+        document.getElementById("signin-btn").addEventListener("click", async () => {
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value.trim();
+            const errorMsg = document.getElementById("error-message");
+
+            if (!email || !password) {
+                errorMsg.textContent = "Please enter your email and password.";
+                errorMsg.style.display = "block";
+                return;
+            }
+
+            const response = await fetch("/api/student/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email, password })
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                window.location.href = "/student/home";
+            } else {
+                errorMsg.textContent = result.message;
+                errorMsg.style.display = "block";
+            }
+        });
+   </script>
+</body>
 </html>
