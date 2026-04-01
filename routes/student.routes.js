@@ -48,6 +48,7 @@ router.get("/account-settings", (request, response) => {
 })
 //STUDENT LOG OUT PAGE
 router.get("/log-out", (request, response) => {
+    request.session.destroy();
     response.sendFile(dir + "/html/sign_out.html");
 })
 

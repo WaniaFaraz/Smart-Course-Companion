@@ -40,5 +40,10 @@ router.get("/manage-courses", (request, response) => {
     response.sendFile(dir + "/html/instructor_manage_courses.html");
 })
 
+//INSTRUCTOR LOG OUT
+router.get("/log-out", (request, response) => {
+    request.session.destroy();
+    response.sendFile(dir + "/html/instructor_log_out.html");
+})
 //export routers
 module.exports = router;
