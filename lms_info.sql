@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 01, 2026 at 01:08 AM
+-- Generation Time: Apr 01, 2026 at 04:11 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -43,14 +43,22 @@ CREATE TABLE IF NOT EXISTS `assignments` (
   PRIMARY KEY (`assignmentId`),
   KEY `professorID` (`instructorId`),
   KEY `courseId` (`courseId`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='All assignments created by all professors';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='All assignments created by all professors';
+
+--
+-- RELATIONSHIPS FOR TABLE `assignments`:
+--   `courseId`
+--       `courses` -> `courseId`
+--   `instructorId`
+--       `instructors` -> `instructorId`
+--
 
 --
 -- Dumping data for table `assignments`
 --
 
 INSERT INTO `assignments` (`assignmentId`, `instructorId`, `courseId`, `title`, `description`, `weight`, `dateCreated`, `dueDate`) VALUES
-(1, 2001, 3, 'Assignment1', 'The assignment instructions have been emailed.', 20, '2026-03-31 17:27:47', '2026-03-31 19:26:06');
+(2, 2001, 3, 'Assignment1', 'The assignment instructions have been emailed.', 20, '2026-04-01 02:08:26', '2026-04-15 23:59:59');
 
 --
 -- Triggers `assignments`
@@ -95,6 +103,16 @@ CREATE TRIGGER `insertAssignmentWeightLimitations` BEFORE INSERT ON `assignments
 END
 $$
 DELIMITER ;
+DROP TRIGGER IF EXISTS `insertPopulateStudentAssignments`;
+DELIMITER $$
+CREATE TRIGGER `insertPopulateStudentAssignments` AFTER INSERT ON `assignments` FOR EACH ROW BEGIN
+INSERT INTO student_assignments (assignmentId, courseId, studentId)
+    SELECT NEW.assignmentId, NEW.courseId, sc.studentId
+    FROM student_courses sc
+    WHERE sc.courseId = NEW.courseId;
+END
+$$
+DELIMITER ;
 DROP TRIGGER IF EXISTS `updateAssignmentWeightLimitations`;
 DELIMITER $$
 CREATE TRIGGER `updateAssignmentWeightLimitations` BEFORE INSERT ON `assignments` FOR EACH ROW BEGIN
@@ -102,6 +120,18 @@ CREATE TRIGGER `updateAssignmentWeightLimitations` BEFORE INSERT ON `assignments
         SIGNAL SQLSTATE '45000'
         SET MESSAGE_TEXT = 'Error: Weight must be greater than 0 and less than or equal to 100';
     END IF;
+END
+$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS `updatePopulateStudentAssignments`;
+DELIMITER $$
+CREATE TRIGGER `updatePopulateStudentAssignments` AFTER UPDATE ON `assignments` FOR EACH ROW BEGIN
+    -- Update all existing records in student_assignments 
+    -- that match the OLD assignmentId
+    UPDATE student_assignments
+    SET assignmentId = NEW.assignmentId,
+        courseId = NEW.courseId
+    WHERE assignmentId = OLD.assignmentId;
 END
 $$
 DELIMITER ;
@@ -122,6 +152,10 @@ CREATE TABLE IF NOT EXISTS `courses` (
   PRIMARY KEY (`courseId`),
   UNIQUE KEY `Code` (`code`,`section`)
 ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='List of all course codes available at the institution.';
+
+--
+-- RELATIONSHIPS FOR TABLE `courses`:
+--
 
 --
 -- Dumping data for table `courses`
@@ -162,6 +196,10 @@ CREATE TABLE IF NOT EXISTS `instructors` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='List of all professors at the institution';
 
 --
+-- RELATIONSHIPS FOR TABLE `instructors`:
+--
+
+--
 -- Dumping data for table `instructors`
 --
 
@@ -185,6 +223,14 @@ CREATE TABLE IF NOT EXISTS `instructor_courses` (
   UNIQUE KEY `course_id` (`courseId`),
   KEY `instructor_id` (`instructorId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='Maps instructors to ids. (1 course -> 1 prof)';
+
+--
+-- RELATIONSHIPS FOR TABLE `instructor_courses`:
+--   `courseId`
+--       `courses` -> `courseId`
+--   `instructorId`
+--       `instructors` -> `instructorId`
+--
 
 --
 -- Dumping data for table `instructor_courses`
@@ -216,6 +262,10 @@ CREATE TABLE IF NOT EXISTS `students` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='Basic student info - ID, names, email, account password';
 
 --
+-- RELATIONSHIPS FOR TABLE `students`:
+--
+
+--
 -- Dumping data for table `students`
 --
 
@@ -239,11 +289,28 @@ CREATE TABLE IF NOT EXISTS `student_assignments` (
   `studentId` int(11) NOT NULL,
   `assignmentId` int(11) NOT NULL,
   `courseId` int(11) NOT NULL,
-  `grade` double NOT NULL,
-  `completed` tinyint(1) NOT NULL,
+  `grade` double DEFAULT NULL,
+  `completed` tinyint(1) NOT NULL DEFAULT 0,
   KEY `studentId` (`studentId`,`assignmentId`,`courseId`),
   KEY `courseId` (`courseId`,`assignmentId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- RELATIONSHIPS FOR TABLE `student_assignments`:
+--   `courseId`
+--       `assignments` -> `courseId`
+--   `assignmentId`
+--       `assignments` -> `assignmentId`
+--   `studentId`
+--       `students` -> `studentId`
+--
+
+--
+-- Dumping data for table `student_assignments`
+--
+
+INSERT INTO `student_assignments` (`studentId`, `assignmentId`, `courseId`, `grade`, `completed`) VALUES
+(1005, 2, 3, NULL, 0);
 
 --
 -- Triggers `student_assignments`
@@ -327,6 +394,16 @@ CREATE TABLE IF NOT EXISTS `student_courses` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='Maps students to courses - makes sure that one student cannot be in more than one section of the same course';
 
 --
+-- RELATIONSHIPS FOR TABLE `student_courses`:
+--   `courseCode`
+--       `courses` -> `code`
+--   `courseSection`
+--       `courses` -> `section`
+--   `studentId`
+--       `students` -> `studentId`
+--
+
+--
 -- Dumping data for table `student_courses`
 --
 
@@ -335,6 +412,7 @@ INSERT INTO `student_courses` (`studentId`, `courseId`, `courseCode`, `courseSec
 (1000, 4, 'COMP 248', 'Y'),
 (1000, 15, 'ENGR 213', 'Y'),
 (1001, 16, 'ENGR 201', 'S'),
+(1005, 3, 'COMP 248', 'W'),
 (1006, 4, 'COMP 248', 'Y'),
 (1006, 16, 'ENGR 201', 'S'),
 (1006, 10, 'SOEN 228', 'X'),
