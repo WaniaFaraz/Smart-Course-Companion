@@ -1,10 +1,3 @@
-const express = require("express");
-const { createServer } = require("node:http");
-const app = express();
-const dir = __dirname;
-
-const PORT = 8080;
-
 //==============================================================================================================
 //INSTRUCTIONS FOR SERVER AND WEBSITE ACCESS:
 //For visual studio code:
@@ -19,6 +12,20 @@ const PORT = 8080;
 //==============================================================================================================
 
 
+
+//imports and variables
+const express = require("express");
+const { createServer } = require("node:http");
+const app = express();
+const dir = __dirname;
+const session = require("express-session");
+
+const PORT = 8080;
+
+// middlewares
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 //all routes -- leads to routes file
 app.use(express.static('public'));
 app.use("/student", require("./routes/student.routes"));
@@ -31,17 +38,6 @@ app.listen(PORT, ()=>{
     console.log(`Server running on port ${PORT}`);
 })
 
-const express = require("express");
-const session = require("express-session");
-const app = express();
-const dir = __dirname;
-
-const PORT = 8080;
-
-// middlewares
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
 // session setup
 app.use(session({
     secret: "soen287_secret_key",
@@ -50,20 +46,6 @@ app.use(session({
     cookie: { maxAge: 1000 * 60 * 60 * 24 }
 }));
 
-// static files
-app.use(express.static('public'));
-
-// pages routes
-app.use("/student", require("./routes/student.routes"));
-app.use("/instructor", require("./routes/instructor.routes"));
-
-// api routes
-app.use("/api/student", require("./controllers/student.controller"));
-app.use("/api/instructor", require("./controllers/instructor.controller"));
-
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
 
 
 
