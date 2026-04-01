@@ -60,6 +60,6 @@ module.exports = {
     getStudents,
     getStudentById,
     addStudent,
-    getStudentByEmail,
+    getStudentByEmail
     
 };

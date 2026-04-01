@@ -23,6 +23,9 @@ async function getAllAssignments() {
 }
 
 //Get all assignments of a student
+async function getAllAssignmentsOfStudent(studentId) {
+    queryString = ""
+}
 
 //Get all assignments of a specific course and section
 

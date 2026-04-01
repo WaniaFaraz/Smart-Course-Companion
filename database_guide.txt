@@ -2,17 +2,17 @@ This file contains all the information on the database: lms_info
 
 =======================================================================================================
 INSTRUCTIONS TO USE DATABASE
-  The database used is a mySQL database
-  (From slides on databases) Install xampp - this has mySQL, apache,...
-  Open the xampp control panel and start apache and mySQL
-  Go to the browser and type: "localhost" - this should lead to the xampp dashboard
-  Click on phpmyadmin
+    The database used is a mySQL database
+    (From slides on databases) Install xampp - this has mySQL, apache,...
+    Open the xampp control panel and start apache and mySQL
+    Go to the browser and type: "localhost" - this should lead to the xampp dashboard
+    Click on phpmyadmin
 
 INSTRUCTIONS TO GET DATABASE:
-I will upload a .sql file to github
-once you open phpMyAdmin in xampp, create a database and import the .sql file
-Our databases will not be synced, we will each have a copy of the database and can adddelete data
-**Do not change the structure of any tables so that our querying functions work correctly**
+    I will upload a .sql file to github
+    once you open phpMyAdmin in xampp, create a database and import the .sql file
+    Our databases will not be synced, we will each have a copy of the database and can adddelete data
+    **Do not change the structure of any tables so that our querying functions work correctly**
 ========================================================================================================
 
 The database contains 6 tables:
