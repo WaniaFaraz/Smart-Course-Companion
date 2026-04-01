@@ -38,12 +38,19 @@ function displayAssignments(assignments) {
                 <h3>${assignment.assignmentId}</h3>
                 <p>Course ID: ${assignment.courseId}</p>
             </div>
+            <button class="delete-assessment">Delete</button>
         `;
 
         // Checkbox to mark as completed/pending when clicked/unclicked
         const checkbox = card.querySelector('.status');
         checkbox.addEventListener('change', () => {
             updateCompleted(assignment.assignmentId, checkbox.checked);
+        });
+
+        // Delete button to remove assignment from database
+        const deleteBtn = card.querySelector('.delete-assessment');
+        deleteBtn.addEventListener('click', () => {
+            deleteAssignment(assignment.assignmentId);
         });
 
         section.appendChild(card);
@@ -70,6 +77,16 @@ function updateCounters(assignments) {
     cards[0].textContent = total;
     cards[1].textContent = completed;
     cards[2].textContent = pending;
+}
+
+// Delete an assignment
+async function deleteAssignment(assignmentId) {
+    await fetch('/api/student/delete-assignment', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ studentId, assignmentId })
+    });
+    loadAssignments(); // reload page after delete
 }
 
 getSession();

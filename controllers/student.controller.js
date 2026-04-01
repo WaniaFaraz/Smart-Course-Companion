@@ -10,6 +10,9 @@
 // Note: in order to use a querying function here, you need to import it here - see below
 const express = require("express");
 const router = express.Router();
+const { getAllAssignmentsOfStudent } = require("../database/assignments.database");
+const { updateCompleted } = require("../database/grades.database");
+const { updateCompleted, deleteStudentAssignment } = require("../database/grades.database");
 
 //IMPORT DATABASE QUERY FUNCTIONS
 //STUDENT QUERY FUNCTIONS
@@ -28,6 +31,18 @@ const {
     getGradesOfStudent,
     
 } = require("../database/grades.database"); 
+
+const {
+     getAllAssignmentsOfStudent
+} = require("../database/assignments.database");
+
+const { 
+    updateCompleted 
+} = require("../database/grades.database");
+
+const { 
+    updateCompleted, deleteStudentAssignment 
+} = require("../database/grades.database");
 
 //ROUTES TO DEAL WITH DATA REQUESTS FROM SCRIPTS FILES - SEND AND RECEIVE DATA TO AND FROM HTML
 //GET ALL STUDENTS - RETURNS AN ARRAY OF STUDENT JSON OBJECTS
@@ -100,8 +115,7 @@ router.put('/update-info', async (req, res) => {
     await updateStudentInfo(userId, firstName, lastName, emailAddress);
     res.json({ success: true });
 });
-/
-/UPDATE PASSWORD
+//UPDATE PASSWORD
 router.put('/update-password', async (req, res) => {
     const { userId, currentPassword, newPassword } = req.body;
     const students = await getStudentById(userId);
@@ -126,9 +140,6 @@ router.get('/session', (req, res) => {
         res.json({ loggedIn: false });
 });
 
-const { getAllAssignmentsOfStudent } = require("../database/assignments.database");
-const { updateCompleted } = require("../database/grades.database");
-
 //GET ALL ASSIGNMENTS OF A STUDENT
 //Returns an array of objects containing studentId, assignmentId, courseId, grade, completed status
 router.get('/get-assignments/:studentId', async (req, res) => {
@@ -146,6 +157,17 @@ router.put('/update-completed', async (req, res) => {
     try {
         const { studentId, assignmentId, completed } = req.body;
         await updateCompleted(studentId, assignmentId, completed);
+        res.json({ success: true });
+    } catch (error) {
+        res.status(500).json({ error: "Server error" });
+    }
+});
+
+//DELETE A STUDENT ASSIGNMENT
+router.delete('/delete-assignment', async (req, res) => {
+    try {
+        const { studentId, assignmentId } = req.body;
+        await deleteStudentAssignment(studentId, assignmentId);
         res.json({ success: true });
     } catch (error) {
         res.status(500).json({ error: "Server error" });

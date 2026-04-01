@@ -46,10 +46,19 @@ async function updateCompleted(studentId, assignmentId, completed) {
     );
 }
 
+// Delete a student assignment
+async function deleteStudentAssignment(studentId, assignmentId) {
+    await pool.query(
+        "DELETE FROM `student_assignments` WHERE `studentId` = ? AND `assignmentId` = ?",
+        [studentId, assignmentId]
+    );
+}
+
 module.exports = {
     getGradesOfStudent,
     addGrade,
     updateGrade,
     getAveragesOfStudent,
-    updateCompleted
+    updateCompleted,
+    deleteStudentAssignment
 };
