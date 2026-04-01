@@ -23,7 +23,7 @@ const PORT = 8080;
 app.use((req, res, next) => {
     res.setHeader("Content-Security-Policy", "default-src 'self' 'unsafe-inline' 'unsafe-eval'"
         + "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; " +
-            "font-src 'self' https://fonts.gstatic.com;" //so that google fonts work
+            "font-src 'self' https://fonts.gstatic.com;" //so that google fonts works
     );
 
 

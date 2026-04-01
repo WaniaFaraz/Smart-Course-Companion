@@ -98,6 +98,11 @@ a {
     vertical-align: center;
 }
 
+.add-course-modal {
+    height : 6in;
+    width : 5in;
+}
+
 .course-area-container {
     background-color: var(--w-purple-grey);
     margin-left : 0.2cm;

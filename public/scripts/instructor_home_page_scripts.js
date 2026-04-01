@@ -5,6 +5,11 @@ const PORT = 8080;
 const URL = `http://localhost${PORT}`;
 let userId;
 
+//MODAL FOR ADDING COURSES:
+
+
+
+/**
 //WAITING FOR INSTRUCTOR SESSION AND SIGN IN IS DEFINED
 async function getSession() {
     const session = await fetch();
@@ -27,3 +32,4 @@ async function loadCourses() {
     })
     
 }
+    */
