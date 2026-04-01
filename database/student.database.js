@@ -45,11 +45,10 @@ async function getStudentByEmail(email) {
     return rows;
 }
 //add a student
-async function addStudent(studentID, firstName, lastName, emailAddress) {
-    const queryString = "INSERT INTO `students` (`studentID`, `firstName`, `lastName`, `emailAddress`, `password`) VALUES (?, ?, ?, ?)";
-    await pool.query(queryString, [studentID, firstName, lastName, emailAddress]);
+async function addStudent(studentID, firstName, lastName, emailAddress, password) {
+    const queryString = "INSERT INTO `students` (`studentId`, `firstName`, `lastName`, `emailAddress`, `password`) VALUES (?, ?, ?, ?, ?)";
+    await pool.query(queryString, [studentID, firstName, lastName, emailAddress, password]);
     console.log("Student added with ID: ", studentID);
-    //adds a student into the student database RETURNS????????????
 }
 
 //update student information
