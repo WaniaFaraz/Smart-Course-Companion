@@ -26,6 +26,7 @@ const {
 const {
     getCoursesOfStudent,
     getCourseFromCode,
+    getCourseFromId
 } = require("../database/courses.database"); 
 //GRADES QUERY FUNCTIONS
 const {
