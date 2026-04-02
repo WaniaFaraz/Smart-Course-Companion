@@ -33,9 +33,9 @@ function displayAssignments(assignments) {
         card.innerHTML = `
             <input type="checkbox" id="ass${assignment.assignmentId}" 
                 class="status" ${assignment.completed ? 'checked' : ''}>
-            <label for="ass${assignment.assignmentId}">${assignment.assignmentId}</label>
+            <label for="ass${assignment.assignmentId}">${assignment.title}</label>
             <div class="assessment-details">
-                <h3>${assignment.assignmentId}</h3>
+                <h3>${assignment.title}</h3>
                 <p>Course ID: ${assignment.courseId}</p>
             </div>
             <button class="delete-assessment">Delete</button>

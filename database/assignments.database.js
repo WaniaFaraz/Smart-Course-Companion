@@ -22,7 +22,13 @@ async function getAllAssignments() {
 
 //Get all assignments of a specific course and section
 async function getAllAssignmentsOfStudent(studentId) {
-    queryString = "SELECT * FROM `student_assignments` WHERE `studentId` = ?";
+    queryString = `
+        SELECT sa.studentId, sa.assignmentId, sa.courseId, sa.grade, sa.completed,
+               a.title, a.description, a.weight, a.dueDate
+        FROM student_assignments sa
+        JOIN assignments a ON sa.assignmentId = a.assignmentId
+        WHERE sa.studentId = ?
+    `;
     [rows] = await pool.query(queryString, [studentId]);
     return rows;
 }
