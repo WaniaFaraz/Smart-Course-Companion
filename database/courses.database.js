@@ -15,6 +15,11 @@ const pool = mysql.createPool({
 let queryString;
 let rows;
 
+//import certain functions
+const {
+    instructorAddCourse
+} = require("../database/instructor.database");
+
 //Get all courses
 async function getAllCourses() {
     queryString = "SELECT * FROM `courses`";
@@ -70,6 +75,40 @@ async function getStudentsOfCourse(courseId) {
     //rows: array of json objects containing studentId, courseId, courseCode, courseSection
 }
 
+//Get all possible sections for a course code
+async function getSectionsOfCourse(courseCode) {
+    //Note that the course code received will not have spaces
+    const fixedCourseCode = courseCode.slice(0,4) + " " + courseCode.slice(4); //re-add spaces
+    queryString = "SELECT * FROM `courses` WHERE `code` = ?";
+    [rows] = await pool.query(queryString, [fixedCourseCode]);
+    const sectionsPromise = await rows.map( async(value, index, array) => {
+        return value.section;
+    })
+    const sections = await Promise.all(sectionsPromise);
+    //returns an array of sections, ex: ['X', 'Y']
+    return sections;
+
+}
+
+async function createCourse(code, section, title, instructorId) {
+    queryString = "INSERT INTO `courses` (`courseId`, `title`, `code`, `section`, `visibility`) VALUES (0, ?, ?, ?, ?);"
+    await pool.query(queryString, [title, code, section, 1]);
+    
+    //ASSOCIATE TO PROFESSOR THAT CREATED THE COURSE!!!!!
+    const [addedCourse] = await getCourseFromCodeAndSection(code, section);
+    const courseId = addedCourse.courseId;
+    instructorAddCourse(instructorId, courseId);
+
+    
+}
+
+async function getCourseFromCodeAndSection(courseCode, courseSection) {
+    queryString = "SELECT * FROM `courses` WHERE `code` = ? AND `section` = ?";
+    [rows] = await pool.query(queryString, [courseCode, courseSection]);
+    return rows;
+
+}
+
 //Export all functions
 module.exports = { 
     getAllCourses,
@@ -77,5 +116,8 @@ module.exports = {
     getCoursesOfStudent,
     getCourseFromCode,
     getStudentsOfCourse,
-    getCourseFromId
+    getCourseFromId,
+    getSectionsOfCourse,
+    createCourse, 
+    getCourseFromCodeAndSection
 };
