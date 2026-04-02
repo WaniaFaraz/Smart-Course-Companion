@@ -21,18 +21,14 @@ async function loadCourses() {
     //TO BE FIXED: ADD COURSE BACKGROUND - FIX DATABASE
     const response = await fetch(`/api/student/get-courses/${userId}`);
     const coursesOfStudent = await response.json(); //array of student courses from `student_courses`
-    console.log("courses:",coursesOfStudent);
     //iterate over each course
     await coursesOfStudent.forEach( async (value, index, array) => {
         //FIX THIS - DATABASE HAS BEEN UPDATED - USE COURSE ID TO GET COURSES!!!!!!!!
         const courseId = value.courseId;
-        console.log(courseId);
         const url = `http://localhost:${PORT}/api/student/get-course-from-courseId/${courseId}`;
         const response = await fetch(url);
         const course = await response.json(); //course from courses table
-        console.log("course:",course);
         const code = course[0].code;
-        console.log("code:", code);
         const section = course[0].section;
         const title = course[0].title;
         //insert data into html elements
