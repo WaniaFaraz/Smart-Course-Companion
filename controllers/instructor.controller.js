@@ -25,7 +25,8 @@ const {
     getCoursesOfInstructor,
     getAllCourses,
     getSectionsOfCourse,
-    createCourse
+    createCourse,
+    getCourseFromId
 } = require("../database/courses.database");
 
 const {
@@ -91,10 +92,16 @@ router.get('/session', (req, res) => {
         res.json({ loggedIn: false });
 });
 
+//GET COURSE FROM COURSE ID
+router.get("/get-course-from-id/:courseId", async (request, response) => {
+    const courseId = request.params.courseId;
+    const course = await getCourseFromId(courseId);
+    response.json(course);
+})
+
 //INSTRUCTOR ADD COURSE ---UNFINISHED
 router.post('/add-course', async (request, response) => {
     //add course to instructor in database instructor_courses
-    console.log(request.body);
     //const instructorId = session.userId;
     const courseCode = request.body.code;
     const courseSection = request.body.section;
@@ -103,7 +110,6 @@ router.post('/add-course', async (request, response) => {
     const instructorId = request.session.userId;
     console.log("instructorid:",instructorId);
     await createCourse(courseCode, courseSection, courseTitle, instructorId);
-    console.log("courseCode", courseCode);
     response.redirect("/instructor/home");
 
 })
@@ -112,7 +118,6 @@ router.post('/add-course', async (request, response) => {
 router.get('/get-sections-from-course-code/:courseCode', async(request, response) => {
     const courseCode = request.params.courseCode;
     const sections = await getSectionsOfCourse(courseCode);
-    console.log("sections from controller file:", sections);
     response.json(sections);
 })
 
