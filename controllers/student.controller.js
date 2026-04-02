@@ -132,9 +132,14 @@ router.post('/update-password', async (req, res) => {
 
 //GET ALL GRADES OF A STUDENT (for averages)
 router.get('/get-grades/:studentid', async (req, res) => {
-    res.json(await getGradesOfStudent(req.params.studentid));
+    try {
+        const grades = await getGradesOfStudent(req.params.studentid);
+        res.json(grades);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Server error" });
+    }
 });
-
 //GET SESSION INFO
 router.get('/session', (req, res) => {
     if (req.session.userId && req.session.userType === "student")

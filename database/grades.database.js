@@ -8,30 +8,29 @@ const pool = mysql.createPool({
 
 async function getGradesOfStudent(studentId) {
     const [rows] = await pool.query(
-        "SELECT * FROM `grades` WHERE `studentId` = ?", [studentId]
+        "SELECT * FROM `student_assignments` WHERE `studentId` = ?", [studentId]
     );
     return rows;
 }
 
-async function addGrade(studentId, assignmentId, courseId, earnedMarks, totalMarks) {
+async function addGrade(studentId, assignmentId, courseId, grade) {
     await pool.query(
-        "INSERT INTO `grades` (`studentId`, `assignmentId`, `courseId`, `earnedMarks`, `totalMarks`) VALUES (?, ?, ?, ?, ?)",
-        [studentId, assignmentId, courseId, earnedMarks, totalMarks]
+        "INSERT INTO `student_assignments` (`studentId`, `assignmentId`, `courseId`, `grade`) VALUES (?, ?, ?, ?)",
+        [studentId, assignmentId, courseId, grade]
     );
 }
 
-async function updateGrade(gradeId, earnedMarks, totalMarks) {
+async function updateGrade(studentId, assignmentId, grade) {
     await pool.query(
-        "UPDATE `grades` SET `earnedMarks` = ?, `totalMarks` = ? WHERE `gradeId` = ?",
-        [earnedMarks, totalMarks, gradeId]
+        "UPDATE `student_assignments` SET `grade` = ? WHERE `studentId` = ? AND `assignmentId` = ?",
+        [grade, studentId, assignmentId]
     );
 }
 
 async function getAveragesOfStudent(studentId) {
     const [rows] = await pool.query(
-        `SELECT courseId, 
-                ROUND(SUM(earnedMarks) / SUM(totalMarks) * 100, 2) AS average
-         FROM grades 
+        `SELECT courseId, ROUND(AVG(grade), 2) AS average
+         FROM student_assignments
          WHERE studentId = ? 
          GROUP BY courseId`,
         [studentId]
