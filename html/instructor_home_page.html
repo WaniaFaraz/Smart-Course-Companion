@@ -5,7 +5,7 @@
     <title>Smart Course Companion</title>
     <link rel="stylesheet" href="/css/Instructor_HomePage_Styles.css">
     <link rel="stylesheet" href="/css/CourseOrganizer_GeneralStyles.css">
-    <script type="text/javascript" src="jspractice.js" defer></script>
+    <script type="text/javascript" src="/scripts/instructor_home_page_scripts.js" defer></script>
 </head>
 
 <body>
@@ -15,16 +15,16 @@
             <ul>
                 <li class="left-menu-option"><img src="/white-icons/white-4-square-grid-96.png"><a
                         href="home">Dashboard</a></li>
-                <li class="left-menu-option"><img src="/white-icons/white-class-96.png"><a
-                        href="home">All Classes</a></li>
+                <li class="left-menu-option"><img src="/white-icons/white-class-96.png"><a href="home">All Classes</a>
+                </li>
                 </li>
             </ul>
         </nav>
         <nav class="left-menu-bottom">
             <ul>
 
-                <li class="left-menu-option"><img src="/white-icons/white-sign-out-96.png"><a
-                        href="log-out">Log out</a></p>
+                <li class="left-menu-option"><img src="/white-icons/white-sign-out-96.png"><a href="log-out">Log out</a>
+                    </p>
                 <li class="left-menu-option"><img src="/white-icons/white-settings-288.png"><a
                         href="account-settings">Settings</a></p>
                 <li class="left-menu-option"><img src="/white-icons/white-help-96.png"><a href="">Help</a>
@@ -83,12 +83,48 @@
 
                 <div class="course-area-container">
                     <div class="course-area-title">
-                        <p>Your courses</p><button><img src="/black-icons/black-plus-24.png">Add New Course</button>
+                        <p>Your courses</p><button id="add-courses-modal-button" type="button">
+                            <img src="/black-icons/black-plus-24.png">Add New Course</button>
                     </div>
                     <!-- Modal for adding courses -->
-                     <dialog class = "add-course-modal">
+                    <dialog class="add-course-modal" id="add-course-modal">
+                        <div class = "modal-top-line">
+                        <p class = "modal-title">ADD COURSE</p><button class="modal-close-button" id="close-modal"><img src="/black-icons/icons8-close-24.png"></button>
+                        </div>
+                        <div class="modal-row">
+                            <div class="ask-title">
+                                <label class="modal-form-label" for="ask-title">Title</label><input type="text"
+                                    id="ask-title" class = "modal-input" placeholder = "ex: Applied Advanced Calculus"/>
+                            </div>
+                        </div>
+                        <div class="modal-row modal-row-2">
+                            <div class="ask-code">
+                                <label class="modal-form-label" for="ask-code">Course Code</label><input type="text"
+                                    id="ask-code" class = "modal-input" placeholder = "ex: ENGR 233"/>
+                            </div>
 
-                     </dialog>
+                            <div class="ask-section">
+                                <label class="modal-form-label" for="ask-section">Section</label>
+                                <select id = "course-select-section" class = "modal-input">
+                                    <option >Section</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="modal-select-background">
+                            <input type = "radio" name="radio-course-bg" value="course-img-9" class="modal-radio" id="radio-1"></input><label for="radio-1"><img class="bg-img-option" src="/course-images/IMG-20260215-WA0009.jpg"></label>
+                            <input type = "radio" name="radio-course-bg" value="course-img-5" class="modal-radio" id="radio-2"></input><label for="radio-2"><img class="bg-img-option" src="/course-images/IMG-20260215-WA0005.jpg"></label>
+                            <input type = "radio" name="radio-course-bg" value="course-img-20" class="modal-radio" id="radio-3"></input><label for="radio-3"><img class="bg-img-option" src="/course-images/IMG-20260215-WA0020.jpg"></label>
+                            <input type = "radio" name="radio-course-bg" value="course-img-6" class="modal-radio" id="radio-4"></input><label for="radio-4"><img class="bg-img-option" src="/course-images/IMG-20260215-WA0006.jpg"></label>
+                            <input type = "radio" name="radio-course-bg" value="course-img-11" class="modal-radio" id="radio-5"></input><label for="radio-5"><img class="bg-img-option" src="/course-images/IMG-20260215-WA0011.jpg"></label>
+                            <input type = "radio" name="radio-course-bg" value="course-img-13"class="modal-radio" id="radio-6"></input><label for="radio-6"><img class="bg-img-option" src="/course-images/IMG-20260215-WA0013.jpg"></label>
+                            
+                        </div>
+                        <div>
+                            <button type="button" class = "modal-add-button">ADD</button>
+                        </div>
+
+                    </dialog>
 
                     <div class="course-area">
                         <div class="course">
