@@ -22,6 +22,7 @@ The database contains 6 tables:
     * student_courses
     * instructor_courses
     * assignments
+    * student_assignments
 
 SOME IMPORTANT NOTES:
     * constraints - a condition that has been added to the database. Not respecting them will cause the 
