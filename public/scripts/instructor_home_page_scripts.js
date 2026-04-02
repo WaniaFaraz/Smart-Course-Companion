@@ -1,11 +1,25 @@
 console.log('scripts loaded');
-document.addEventListener('DOMContentLoaded', getSession); //do getSession when the document loads
+//document.addEventListener('DOMContentLoaded', getSession); //do getSession when the document loads
+console.log("reached scripts");
 
 const PORT = 8080;
 const URL = `http://localhost${PORT}`;
 let userId;
 
 //MODAL FOR ADDING COURSES:
+const addCoursesModalButton = document.getElementById("add-courses-modal-button");
+
+addCoursesModalButton.addEventListener('click', function() {
+    const modal = document.getElementById('add-course-modal');
+    modal.showModal();
+})
+
+//CLOSE THE MODAL
+const closeModalButton = document.getElementById("close-modal");
+closeModalButton.addEventListener('click', function() {
+    const modal = document.getElementById('add-course-modal');
+    modal.close();
+})
 
 
 
