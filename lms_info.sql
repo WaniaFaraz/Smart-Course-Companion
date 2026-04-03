@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 01, 2026 at 04:11 AM
+-- Generation Time: Apr 03, 2026 at 03:37 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -44,14 +44,6 @@ CREATE TABLE IF NOT EXISTS `assignments` (
   KEY `professorID` (`instructorId`),
   KEY `courseId` (`courseId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='All assignments created by all professors';
-
---
--- RELATIONSHIPS FOR TABLE `assignments`:
---   `courseId`
---       `courses` -> `courseId`
---   `instructorId`
---       `instructors` -> `instructorId`
---
 
 --
 -- Dumping data for table `assignments`
@@ -149,35 +141,59 @@ CREATE TABLE IF NOT EXISTS `courses` (
   `code` varchar(8) NOT NULL,
   `section` varchar(1) NOT NULL,
   `visibility` int(11) NOT NULL DEFAULT 1 COMMENT '1 : course visible, 0: not visible',
+  `background` int(11) NOT NULL,
   PRIMARY KEY (`courseId`),
   UNIQUE KEY `Code` (`code`,`section`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='List of all course codes available at the institution.';
-
---
--- RELATIONSHIPS FOR TABLE `courses`:
---
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='List of all course codes available at the institution.';
 
 --
 -- Dumping data for table `courses`
 --
 
-INSERT INTO `courses` (`courseId`, `title`, `code`, `section`, `visibility`) VALUES
-(1, 'Mathematics for Computer Science', 'COMP 232', 'S', 1),
-(2, 'Mathematics for Computer Science', 'COMP 232', 'Y', 1),
-(3, 'Object Oriented Prog. I', 'COMP 248', 'W', 1),
-(4, 'Object Oriented Prog. I', 'COMP 248', 'Y', 1),
-(5, 'Object Oriented Prog. II', 'COMP 249', 'W', 1),
-(6, 'Object Oriented Prog. II', 'COMP 249', 'Y', 1),
-(7, 'Applied Advanced Calculus', 'ENGR 233', 'X', 1),
-(8, 'Applied Advanced Calculus', 'ENGR 233', 'Y', 1),
-(9, 'System Hardware', 'SOEN 228', 'T', 1),
-(10, 'System Hardware', 'SOEN 228', 'X', 1),
-(11, 'Intro to Web Programming', 'SOEN 287', 'S', 1),
-(12, 'Intro to Web Programming', 'SOEN 287', 'W', 1),
-(14, 'Mathematics for Computer Science', 'COMP 232', 'N', 1),
-(15, 'Applied Ordinary Differential Equations', 'ENGR 213', 'Y', 1),
-(16, 'Professional Practice and Responsibility', 'ENGR 201', 'S', 1),
-(17, 'Applied Ordinary Differential Equations', 'ENGR 213', 'W', 1);
+INSERT INTO `courses` (`courseId`, `title`, `code`, `section`, `visibility`, `background`) VALUES
+(1, 'Mathematics for Computer Science', 'COMP 232', 'S', 1, 0),
+(2, 'Mathematics for Computer Science', 'COMP 232', 'Y', 1, 0),
+(3, 'Object Oriented Prog. I', 'COMP 248', 'W', 1, 0),
+(4, 'Object Oriented Prog. I', 'COMP 248', 'Y', 1, 0),
+(5, 'Object Oriented Prog. II', 'COMP 249', 'W', 1, 0),
+(6, 'Object Oriented Prog. II', 'COMP 249', 'Y', 1, 0),
+(7, 'Applied Advanced Calculus', 'ENGR 233', 'X', 1, 0),
+(8, 'Applied Advanced Calculus', 'ENGR 233', 'Y', 1, 0),
+(9, 'System Hardware', 'SOEN 228', 'T', 1, 0),
+(10, 'System Hardware', 'SOEN 228', 'X', 1, 0),
+(11, 'Intro to Web Programming', 'SOEN 287', 'S', 1, 0),
+(12, 'Intro to Web Programming', 'SOEN 287', 'W', 1, 0),
+(14, 'Mathematics for Computer Science', 'COMP 232', 'N', 1, 0),
+(15, 'Applied Ordinary Differential Equations', 'ENGR 213', 'Y', 1, 0),
+(16, 'Professional Practice and Responsibility', 'ENGR 201', 'S', 1, 0),
+(17, 'Applied Ordinary Differential Equations', 'ENGR 213', 'W', 1, 0),
+(19, 'Materials Science', 'MIAE 221', 'X', 1, 0),
+(23, 'Professional Practice and Responsibility', 'ENGR 201', 'T', 1, 0),
+(33, 'Temporary Course', 'COUR 111', 'A', 1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `course_templates`
+--
+
+DROP TABLE IF EXISTS `course_templates`;
+CREATE TABLE IF NOT EXISTS `course_templates` (
+  `templateId` int(11) NOT NULL AUTO_INCREMENT,
+  `courseId` int(11) NOT NULL,
+  `instructorId` int(11) NOT NULL,
+  `description` text NOT NULL,
+  `textbook` varchar(50) NOT NULL,
+  `week1_2` text NOT NULL,
+  `week3_4` text NOT NULL,
+  `week5_6` text NOT NULL,
+  `week7_8` text NOT NULL,
+  `week9_10` text NOT NULL,
+  `week11_12` text NOT NULL,
+  PRIMARY KEY (`templateId`),
+  UNIQUE KEY `courseId` (`courseId`,`instructorId`),
+  KEY `instructor_courses_tenplates` (`instructorId`,`courseId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -194,10 +210,6 @@ CREATE TABLE IF NOT EXISTS `instructors` (
   `password` varchar(20) NOT NULL,
   PRIMARY KEY (`instructorId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='List of all professors at the institution';
-
---
--- RELATIONSHIPS FOR TABLE `instructors`:
---
 
 --
 -- Dumping data for table `instructors`
@@ -225,20 +237,13 @@ CREATE TABLE IF NOT EXISTS `instructor_courses` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='Maps instructors to ids. (1 course -> 1 prof)';
 
 --
--- RELATIONSHIPS FOR TABLE `instructor_courses`:
---   `courseId`
---       `courses` -> `courseId`
---   `instructorId`
---       `instructors` -> `instructorId`
---
-
---
 -- Dumping data for table `instructor_courses`
 --
 
 INSERT INTO `instructor_courses` (`instructorId`, `courseId`) VALUES
 (2001, 3),
 (2001, 4),
+(2001, 33),
 (2002, 1),
 (2002, 2),
 (2003, 14),
@@ -260,10 +265,6 @@ CREATE TABLE IF NOT EXISTS `students` (
   `password` varchar(20) NOT NULL,
   PRIMARY KEY (`studentId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='Basic student info - ID, names, email, account password';
-
---
--- RELATIONSHIPS FOR TABLE `students`:
---
 
 --
 -- Dumping data for table `students`
@@ -294,16 +295,6 @@ CREATE TABLE IF NOT EXISTS `student_assignments` (
   KEY `studentId` (`studentId`,`assignmentId`,`courseId`),
   KEY `courseId` (`courseId`,`assignmentId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- RELATIONSHIPS FOR TABLE `student_assignments`:
---   `courseId`
---       `assignments` -> `courseId`
---   `assignmentId`
---       `assignments` -> `assignmentId`
---   `studentId`
---       `students` -> `studentId`
---
 
 --
 -- Dumping data for table `student_assignments`
@@ -394,16 +385,6 @@ CREATE TABLE IF NOT EXISTS `student_courses` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='Maps students to courses - makes sure that one student cannot be in more than one section of the same course';
 
 --
--- RELATIONSHIPS FOR TABLE `student_courses`:
---   `courseCode`
---       `courses` -> `code`
---   `courseSection`
---       `courses` -> `section`
---   `studentId`
---       `students` -> `studentId`
---
-
---
 -- Dumping data for table `student_courses`
 --
 
@@ -468,6 +449,12 @@ DELIMITER ;
 ALTER TABLE `assignments`
   ADD CONSTRAINT `courseId_of_assignment` FOREIGN KEY (`courseId`) REFERENCES `courses` (`courseId`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `professorID_that_assigned_assignment` FOREIGN KEY (`instructorId`) REFERENCES `instructors` (`instructorId`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `course_templates`
+--
+ALTER TABLE `course_templates`
+  ADD CONSTRAINT `instructor_courses_tenplates` FOREIGN KEY (`instructorId`,`courseId`) REFERENCES `instructor_courses` (`instructorId`, `courseId`);
 
 --
 -- Constraints for table `instructor_courses`
