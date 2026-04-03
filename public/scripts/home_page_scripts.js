@@ -3,6 +3,8 @@ console.log('scripts loaded');
 document.addEventListener('DOMContentLoaded', getSession); //do getSession when the document loads
 let userId;
 
+let studentFinalCoursesArray; //array of student courses
+
 
 async function getSession() {
     const response = await fetch('/api/student/session');
@@ -20,21 +22,23 @@ async function loadHomePage() {
 async function loadCourses() {
     //GET ALL COURSES FOR STUDENT AND ADD THEM TO THE MAIN COURSE PAGE
     //TO BE FIXED: ADD COURSE BACKGROUND - FIX DATABASE
+    studentFinalCoursesArray = [];
     const response = await fetch(`/api/student/get-courses/${userId}`);
     const coursesOfStudent = await response.json(); //array of student courses from `student_courses`
     //iterate over each course
-    await coursesOfStudent.forEach( async (value, index, array) => {
+    await Promise.all(coursesOfStudent.map( async (value, index, array) => {
         //FIX THIS - DATABASE HAS BEEN UPDATED - USE COURSE ID TO GET COURSES!!!!!!!!
         const courseId = value.courseId;
         const url = `/api/student/get-course-from-courseId/${courseId}`;
         const response = await fetch(url);
-        const course = await response.json(); //course from courses table
-        const code = course[0].code;
-        const section = course[0].section;
-        const title = course[0].title;
+        const [course] = await response.json(); //course from courses table
+        const code = course.code;
+        const section = course.section;
+        const title = course.title;
+        studentFinalCoursesArray.push(course);
         //insert data into html elements
         await createCourse(code, section, title, index);      
-    })
+    }))
 }
 
 

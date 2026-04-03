@@ -69,6 +69,56 @@ a {
     margin-top: 0.4cm;
 }
 
+.edit-or-delete-pop-up {
+    position : relative;
+    position: relative;
+    top: 2cm;
+    left: 26cm;
+    backdrop-filter: none;
+    border:0px;
+    border-radius: 5px;
+    padding : 0cm;
+    background-color: whitesmoke;
+      overflow: hidden;
+}
+
+.edit-or-delete-pop-up p {
+    padding-right:0.4cm;
+    padding-left: 0.2cm;
+    padding-top:0.4cm;
+    padding-bottom:0.4cm;
+    border-bottom: solid black 1px;
+}
+
+.edit-or-delete-pop-up li ul button{
+    background-color: whitesmoke;
+    padding-left: 0.3cm;
+    padding-right:0.3cm;
+    border: 0;
+    padding-top: 0.2cm;;
+    font-size: 12pt; 
+    width:100%;
+    margin:0;
+    padding-bottom:0.2cm;
+    text-align: left;
+}
+
+.edit-or-delete-pop-up li ul {
+    margin:0;
+}
+
+.edit-or-delete-pop-up li {
+    margin:0
+}
+
+.edit-or-delete-pop-up li ul button:focus {
+    outline:none;
+    
+}
+
+.edit-or-delete-pop-up li ul button:hover {
+    background-color: var(--w-yellow);
+}
 .instructor-id {
     font-size: 14pt;
     text-align: right;
@@ -81,6 +131,8 @@ a {
 .disappear {
     display: none;
 }
+
+
 
 
 .instructor-stats {
@@ -105,7 +157,7 @@ a {
     border-radius: 15px;
     height: 18cm;
     width: 14cm;
-    background-color: white;
+    background-color: whitesmoke;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -209,7 +261,6 @@ a {
 }
 
 .modal-radio:checked + label > .bg-img-option {
-    padding:0.1cm;
     border : solid 2px var(--z-dark-purple); 
 }
 
@@ -218,6 +269,8 @@ a {
     width : 3cm;
     margin-right: 0.3cm;
     margin-bottom: 0.3cm;
+    padding:0.1cm;
+    border : solid 2px whitesmoke; 
 }
 
 .modal-add-button {
@@ -269,6 +322,8 @@ a {
     margin-right: 5px;
 }
 
+
+
 .course-area {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -281,7 +336,7 @@ a {
 
 }
 
-.course-info-text {
+.course-info-text-area {
     margin-top: 0.2cm;
     margin-bottom: 4%;
     margin-left: 0.2cm;
@@ -290,13 +345,14 @@ a {
     color: grey;
 }
 
-.course-info-text:hover {
+.course-info-text-a:hover {
     color: var(--w-orange);
 }
 
-.course-info-text:hover:hover>.course-name {
+.course-info-text-a:hover:hover>.course-name {
     color: var(--w-orange);
 }
+
 
 .course {
     display: flex;
@@ -329,19 +385,18 @@ a {
     align-items: center;
 }
 
-.three-dots-container {
-    height: 0.7cm;
-    width: 0.5cm;
-}
-
-.edit-course-3-dots {
-    height: 100%;
-    width: 100%;
-    background-image: url('black-icons/black-icons-3-dots-menu-vertical-96.png');
+/*
+.course-code #edit-course-modal-button {
+     background-image: url('/black-icons/black-icons-3-dots-menu-vertical-96.png');
     background-size: cover;
     border: none;
     background-color: whitesmoke;
+    height:0.5cm;
+    width: 0.5cm;
+    position: relative;
+    right: -3cm;
 }
+    */
 
 .course-name {
     font-size: 12pt;
@@ -355,6 +410,30 @@ a {
 .course-section {
     font-size: 12pt;
 }
+/**
+.edit-course-modal{
+    height:1cm;
+    width:2cm;
+    background:rgb(236, 234, 241);
+    //rgb(225, 222, 230) 
+    border:0px;
+    border-radius: 5px;
+    position: absolute;
+    top: 0cm;
+    left: 0.3cm;
+    padding-top: 0.2cm;
+}
+
+
+.edit-course-modal li button{
+    position: relative;
+    background-color: none;
+    border:0px;
+    padding-right: 0.2cm;
+
+}
+
+*/
 
 .recent-activity-title {
     font-size: 18pt;
