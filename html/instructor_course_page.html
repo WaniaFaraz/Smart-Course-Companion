@@ -117,7 +117,7 @@
 
                         <div class="dashboard-card quick-actions-card">
                             <ul class="quick-actions-list">
-                                <li><a href="#">Edit Assessment</a></li>
+                                <li><a href="#" id="open-edit-modal">Edit Assessment</a></li>
                                 <li><a href="#">Edit Courses</a></li>
                                 <li><a href="#">Create Announcement</a></li>
                             </ul>
@@ -261,6 +261,23 @@
                     </div>
                 </div>
             </div>
+            <!-- EDIT ASSESSMENT MODAL -->
+<dialog id="edit-assessment-modal">
+    <div class="modal-content">
+        <h3>Edit Assessment</h3>
+        <select id="edit-select-assignment">
+            <option value="">Select an assignment...</option>
+        </select>
+        <input type="text" id="edit-title" placeholder="Title">
+        <input type="text" id="edit-description" placeholder="Description">
+        <input type="number" id="edit-weight" placeholder="Weight (%)">
+        <input type="date" id="edit-duedate">
+        <div class="modal-actions">
+            <button id="save-edit-btn">Save</button>
+            <button id="close-edit-modal-btn">Cancel</button>
+        </div>
+    </div>
+</dialog>
 </body>
 
 </html>

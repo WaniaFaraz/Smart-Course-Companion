@@ -20,6 +20,7 @@ const {
     getStudentsOfInstructor,
     instructorAddCourse
 } = require("../database/instructor.database");
+
 //CERTAIN COURSE DATA QUERY FUNCTIONS
 const {
     getCoursesOfInstructor,
@@ -35,6 +36,7 @@ const {
     addAssignment,
     deleteAssignment,
     updateAssignment,
+    getCompletionStatsByCourse
 } = require("../database/assignments.database");
 
 
@@ -126,6 +128,29 @@ router.get('/get-assignments/:courseId', async (req, res) => {
     try {
         const assignments = await getAssignmentsOfCourse(req.params.courseId);
         res.json(assignments);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Server error" });
+    }
+});
+
+//GET COMPLETION STATS FOR EACH ASSIGNMENT IN A COURSE 
+router.get('/get-completion-stats/:courseId', async (req, res) => {
+    try {
+        const stats = await getCompletionStatsByCourse(req.params.courseId);
+        res.json(stats);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Server error" });
+    }
+});
+
+// UPDATE AN ASSIGNMENT 
+router.put('/update-assignment/:assignmentId', async (req, res) => {
+    try {
+        const { title, description, weight, dueDate } = req.body;
+        await updateAssignment(req.params.assignmentId, title, description, weight, dueDate);
+        res.json({ success: true });
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: "Server error" });

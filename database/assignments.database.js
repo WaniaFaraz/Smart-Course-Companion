@@ -74,6 +74,22 @@ async function updateAssignment(assignmentId, title, description, weight, dueDat
     await pool.query(queryString, [title, description, weight, dueDate, assignmentId]);
 }
 
+// Get completion stats for each assignment in a course - Wiame
+async function getCompletionStatsByCourse(courseId) {
+    queryString = `
+        SELECT a.assignmentId, a.title,
+               COUNT(*) as total,
+               SUM(sa.completed) as completedCount,
+               ROUND(SUM(sa.completed) / COUNT(*) * 100, 0) as completionPercent
+        FROM assignments a
+        JOIN student_assignments sa ON a.assignmentId = sa.assignmentId
+        WHERE a.courseId = ?
+        GROUP BY a.assignmentId, a.title
+    `;
+    [rows] = await pool.query(queryString, [courseId]);
+    return rows;
+}
+
 module.exports = {
     getAllAssignments,
     getAllAssignmentsOfStudent,
@@ -82,5 +98,6 @@ module.exports = {
     getAssignmentsOfCourse,
     addAssignment,
     deleteAssignment,
-    updateAssignment
+    updateAssignment,
+    getCompletionStatsByCourse
 };

@@ -420,6 +420,20 @@ a {
     color: #111;
 }
 
+/* EDIT ASSESSMENT MODAL */
+#edit-assessment-modal {
+    border: none;
+    border-radius: 15px;
+    padding: 1cm;
+    width: 400px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
-
+#edit-assessment-modal::backdrop {
+    background: rgba(0,0,0,0.5);
+}
 
