@@ -98,7 +98,8 @@ async function generateSectionsDropDown(sections, element) {
     //sections is an array of sections
     //element is the html element where the dropdown needs to be inserted
     //Remove the sections that are already taken for this course code
-    let allowedSections;
+    let allowedSections = [];
+    element.innerHTML = "";
     if(sections.length == 0) { //invalid course, i.e. has no sections
         element.innerHTML += `<option >Invalid</option>`;
     }
@@ -117,6 +118,8 @@ async function generateSectionsDropDown(sections, element) {
 //EDIT COURSES MODAL
 const editCoursesAnchor = document.getElementById("edit-courses-icon-anchor");
 const EditOrDeletePopUp = document.getElementById("edit-or-delete-pop-up");
+const editCourseModal = document.getElementById("edit-course-modal");
+const editModalClose = document.getElementById("close-edit-modal");
 editCoursesAnchor.addEventListener("click", async ()=> {
     await createEditCourseList();
     EditOrDeletePopUp.show();
@@ -125,6 +128,9 @@ editCoursesAnchor.addEventListener("click", async ()=> {
 EditOrDeletePopUp.addEventListener("mouseenter", async () => {
     await createEditCourseList();
     EditOrDeletePopUp.show();
+})
+editModalClose.addEventListener("click", async () => {
+    editCourseModal.close();
 })
 
 
@@ -143,11 +149,18 @@ async function createEditCourseList() {
         }) )
 
         const arrayOfEditCourseButtons = document.getElementsByClassName("edit-specific-course-button");
+        
 
         Array.from(arrayOfEditCourseButtons).forEach( async (value, index, array) => {
             value.addEventListener("click", async (event)=> {
                 const courseIdToEdit = event.target.value;
                 console.log("courseIdtoEdit:",courseIdToEdit);
+                const courseCodeToEdit = event.target.innerHTML;
+                const editModalTitle = document.getElementById("edit-modal-title");
+                editModalTitle.innerHTML = `EDIT COURSE : ${courseCodeToEdit}`;
+                
+                editCourseModal.showModal();
+
             })
         });
    

@@ -69,6 +69,10 @@ a {
     margin-top: 0.4cm;
 }
 
+.edit-courses-icon-anchor:hover {
+    cursor:pointer;
+}
+
 .edit-or-delete-pop-up {
     position : absolute;
     left:100%;
@@ -161,7 +165,7 @@ a {
     vertical-align: center;
 }
 
-.add-course-modal {
+.add-course-modal, .edit-course-modal {
     border: 0px;
     border-radius: 15px;
     height: 18cm;
@@ -282,7 +286,7 @@ a {
     border : solid 2px whitesmoke; 
 }
 
-.modal-add-button {
+.modal-add-button, .modal-edit-button {
     height : 1cm;
     width : 2cm;
     font-size: 12pt;
@@ -291,7 +295,20 @@ a {
     border-radius: 5px;
     position: fixed;
     right:1.2cm;
-    bottom: 0.4cm;;
+    bottom: 1cm;;
+}
+
+.modal-delete-button {
+    color : red;
+    height : 1cm;
+    width : 2cm;
+    font-size: 12pt;
+    background-color: var(--w-purple-grey);
+    border: 0px;
+    border-radius: 5px;
+    position: fixed;
+    right:10.6cm;
+    bottom: 1cm;
 }
 
 .course-area-container {

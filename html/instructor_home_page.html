@@ -47,26 +47,83 @@
                     <div class="notifications"><img class="notifications-icon"
                             src="/black-icons/black_notification-96.png"></div>
 
-                            <div class = "edit-container">
-                    <a class = "edit-courses-icon-anchor" id="edit-courses-icon-anchor">
-                       
-                        <div class="edit-courses-menu">
-                            <div class="hamburger-menu-button">
-                                <span class="hamburger-bar"></span>
-                                <span class="hamburger-bar"></span>
-                                <span class="hamburger-bar"></span>
-                            </div>
-                        
+                    <div class="edit-container">
+                        <a class="edit-courses-icon-anchor" id="edit-courses-icon-anchor">
 
-                        </div>
-                    </a>
-                    <dialog class = "edit-or-delete-pop-up" id = "edit-or-delete-pop-up" closedby="any">
-                        <p>EDIT COURSES</p>
-                        <li id="list-of-courses-to-edit">
-                            
-                        </li>
-                    </dialog>
+                            <div class="edit-courses-menu">
+                                <div class="hamburger-menu-button">
+                                    <span class="hamburger-bar"></span>
+                                    <span class="hamburger-bar"></span>
+                                    <span class="hamburger-bar"></span>
+                                </div>
+
+
+                            </div>
+                        </a>
+                        <dialog class="edit-or-delete-pop-up" id="edit-or-delete-pop-up" closedby="any">
+                            <p>EDIT COURSES</p>
+                            <li id="list-of-courses-to-edit">
+
+                            </li>
+                        </dialog>
                     </div>
+                    <dialog class="edit-course-modal" id="edit-course-modal">
+                        <div class="modal-top-line">
+                            <p class="modal-title" id = "edit-modal-title">EDIT COURSE</p><button class="modal-close-button"
+                                id="close-edit-modal"><img src="/black-icons/icons8-close-24.png"></button>
+                        </div>
+                        <form id="edit-course-modal-form" method="post" action="/api/instructor/edit-course">
+                            <div class="modal-row">
+                                <div class="ask-title">
+                                    <label class="modal-form-label" for="ask-title">Title</label><input type="text"
+                                        id="ask-title" name="title" class="modal-input"
+                                        placeholder="ex: Applied Advanced Calculus" />
+                                </div>
+                            </div>
+                            <div class="modal-row modal-row-2">
+                                <div class="ask-code">
+                                    <label class="modal-form-label" for="ask-code">Course Code</label><input type="text"
+                                        id="ask-code" name="code" class="modal-input" placeholder="ex: ENGR 233" />
+                                </div>
+
+                                <div class="ask-section">
+                                    <label class="modal-form-label" for="ask-section">Section</label>
+                                    <select id="course-select-section" class="modal-input" name="section">
+                                        <option>Section</option>
+
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="modal-select-background">
+                                <input type="radio" name="radioCourseBg" value="course-img-9" class="modal-radio"
+                                    id="radio-1"></input><label for="radio-1"><img class="bg-img-option"
+                                        src="/course-images/IMG-20260215-WA0009.jpg"></label>
+                                <input type="radio" name="radioCourseBg" value="course-img-5" class="modal-radio"
+                                    id="radio-2"></input><label for="radio-2"><img class="bg-img-option"
+                                        src="/course-images/IMG-20260215-WA0005.jpg"></label>
+                                <input type="radio" name="radioCourseBg" value="course-img-20" class="modal-radio"
+                                    id="radio-3"></input><label for="radio-3"><img class="bg-img-option"
+                                        src="/course-images/IMG-20260215-WA0020.jpg"></label>
+                                <input type="radio" name="radioCourseBg" value="course-img-6" class="modal-radio"
+                                    id="radio-4"></input><label for="radio-4"><img class="bg-img-option"
+                                        src="/course-images/IMG-20260215-WA0006.jpg"></label>
+                                <input type="radio" name="radioCourseBg" value="course-img-11" class="modal-radio"
+                                    id="radio-5"></input><label for="radio-5"><img class="bg-img-option"
+                                        src="/course-images/IMG-20260215-WA0011.jpg"></label>
+                                <input type="radio" name="radioCourseBg" value="course-img-13" class="modal-radio"
+                                    id="radio-6"></input><label for="radio-6"><img class="bg-img-option"
+                                        src="/course-images/IMG-20260215-WA0013.jpg"></label>
+
+                            </div>
+                        </form>
+                        <div class = "edit-modal-button-row">
+                            <button type = "submit" class = "modal-delete-button" form = "edit-course-modal-form" name = "edit-course-delete">DELETE</button>
+                            <button type="submit" class="modal-edit-button" form="edit-course-modal-form" name = "edit-course-edit">EDIT</button>
+                        </div>
+
+                    </dialog>
+
                 </div>
             </div>
             <div class="top-right">
