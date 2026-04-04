@@ -41,6 +41,8 @@ const {
      getAssignmentsOfStudentByCourse
 } = require("../database/assignments.database");
 
+const { getTemplateByCourse } = require("../database/templates.database");
+
 
 //ROUTES TO DEAL WITH DATA REQUESTS FROM SCRIPTS FILES - SEND AND RECEIVE DATA TO AND FROM HTML
 //GET ALL STUDENTS - RETURNS AN ARRAY OF STUDENT JSON OBJECTS
@@ -204,6 +206,17 @@ router.put('/update-grade', async (req, res) => {
         const { assignmentId, grade } = req.body;
         await updateGrade(studentId, assignmentId, grade);
         res.json({ success: true });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Server error" });
+    }
+});
+
+// GET COURSE TEMPLATE FOR STUDENT 
+router.get('/get-template/:courseId', async (req, res) => {
+    try {
+        const template = await getTemplateByCourse(req.params.courseId);
+        res.json(template || {});
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: "Server error" });

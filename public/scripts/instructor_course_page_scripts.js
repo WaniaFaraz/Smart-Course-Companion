@@ -7,10 +7,10 @@ let instructorId;
 async function getSession() {
     const response = await fetch('/api/instructor/session');
     const session = await response.json();
-    
+
     const params = new URLSearchParams(window.location.search);
     courseId = params.get('courseId');
-    
+
     if (!courseId) {
         console.log('No courseId in URL');
         return;
@@ -25,6 +25,9 @@ async function getSession() {
     loadAssignments();
     loadCourseName();
     loadCompletionStats();
+    // Set preview link with courseId
+    document.querySelector('a[href="course-template-preview"]').href = `course-template-preview?courseId=${courseId}`;
+    document.querySelector('a[href="course-templates"]').href = `course-templates?courseId=${courseId}`;
 }
 
 // LOAD COURSE NAME
@@ -90,56 +93,84 @@ function displayCompletionStats(stats) {
     });
 
     // EDIT ASSESSMENT MODAL
-document.getElementById('open-edit-modal').addEventListener('click', (e) => {
-    e.preventDefault();
-    loadAssignmentsInDropdown();
-    document.getElementById('edit-assessment-modal').showModal();
-});
-
-document.getElementById('close-edit-modal-btn').addEventListener('click', () => {
-    document.getElementById('edit-assessment-modal').close();
-});
-
-// Load assignments in the dropdown
-async function loadAssignmentsInDropdown() {
-    const response = await fetch(`/api/instructor/get-assignments/${courseId}`);
-    const assignments = await response.json();
-    const select = document.getElementById('edit-select-assignment');
-    select.innerHTML = '<option value="">Select an assignment...</option>';
-    assignments.forEach(a => {
-        select.innerHTML += `<option value="${a.assignmentId}">${a.title}</option>`;
-    });
-}
-
-// When an assignment is selected, fill the form
-document.getElementById('edit-select-assignment').addEventListener('change', async (e) => {
-    const assignmentId = e.target.value;
-    if (!assignmentId) return;
-    const response = await fetch(`/api/instructor/get-assignments/${courseId}`);
-    const assignments = await response.json();
-    const assignment = assignments.find(a => a.assignmentId == assignmentId);
-    document.getElementById('edit-title').value = assignment.title;
-    document.getElementById('edit-description').value = assignment.description;
-    document.getElementById('edit-weight').value = assignment.weight;
-    document.getElementById('edit-duedate').value = assignment.dueDate.split('T')[0];
-});
-
-// Save the edited assignment
-document.getElementById('save-edit-btn').addEventListener('click', async () => {
-    const assignmentId = document.getElementById('edit-select-assignment').value;
-    const title = document.getElementById('edit-title').value;
-    const description = document.getElementById('edit-description').value;
-    const weight = document.getElementById('edit-weight').value;
-    const dueDate = document.getElementById('edit-duedate').value;
-
-    await fetch(`/api/instructor/update-assignment/${assignmentId}`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ title, description, weight, dueDate })
+    document.getElementById('open-edit-modal').addEventListener('click', (e) => {
+        e.preventDefault();
+        loadAssignmentsInDropdown();
+        document.getElementById('edit-assessment-modal').showModal();
     });
 
-    document.getElementById('edit-assessment-modal').close();
-    loadAssignments(); // reload table
-});
+    document.getElementById('close-edit-modal-btn').addEventListener('click', () => {
+        document.getElementById('edit-assessment-modal').close();
+    });
+
+    // Load assignments in the dropdown
+    async function loadAssignmentsInDropdown() {
+        const response = await fetch(`/api/instructor/get-assignments/${courseId}`);
+        const assignments = await response.json();
+        const select = document.getElementById('edit-select-assignment');
+        select.innerHTML = '<option value="">Select an assignment...</option>';
+        assignments.forEach(a => {
+            select.innerHTML += `<option value="${a.assignmentId}">${a.title}</option>`;
+        });
+    }
+
+    // When an assignment is selected, fill the form
+    document.getElementById('edit-select-assignment').addEventListener('change', async (e) => {
+        const assignmentId = e.target.value;
+        if (!assignmentId) return;
+        const response = await fetch(`/api/instructor/get-assignments/${courseId}`);
+        const assignments = await response.json();
+        const assignment = assignments.find(a => a.assignmentId == assignmentId);
+        document.getElementById('edit-title').value = assignment.title;
+        document.getElementById('edit-description').value = assignment.description;
+        document.getElementById('edit-weight').value = assignment.weight;
+        document.getElementById('edit-duedate').value = assignment.dueDate.split('T')[0];
+    });
+
+    // Save the edited assignment
+    document.getElementById('save-edit-btn').addEventListener('click', async () => {
+        const assignmentId = document.getElementById('edit-select-assignment').value;
+        const title = document.getElementById('edit-title').value;
+        const description = document.getElementById('edit-description').value;
+        const weight = document.getElementById('edit-weight').value;
+        const dueDate = document.getElementById('edit-duedate').value;
+
+        await fetch(`/api/instructor/update-assignment/${assignmentId}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ title, description, weight, dueDate })
+        });
+
+        document.getElementById('edit-assessment-modal').close();
+        loadAssignments(); // reload table
+    });
+
+    // CREATE ASSIGNMENT MODAL
+    document.getElementById('open-create-modal').addEventListener('click', (e) => {
+        e.preventDefault();
+        document.getElementById('create-assignment-modal').showModal();
+    });
+
+    document.getElementById('close-create-modal-btn').addEventListener('click', () => {
+        document.getElementById('create-assignment-modal').close();
+    });
+
+    // Save new assignment to database
+    document.getElementById('save-create-btn').addEventListener('click', async () => {
+        const title = document.getElementById('create-title').value;
+        const description = document.getElementById('create-description').value;
+        const weight = document.getElementById('create-weight').value;
+        const dueDate = document.getElementById('create-duedate').value;
+
+        await fetch('/api/instructor/create-assignment', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ instructorId, courseId, title, description, weight, dueDate })
+        });
+
+        document.getElementById('create-assignment-modal').close();
+        loadAssignments();
+        loadCompletionStats();
+    });
 }
 getSession();

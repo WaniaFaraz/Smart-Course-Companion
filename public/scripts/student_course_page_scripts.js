@@ -24,6 +24,9 @@ async function getSession() {
     studentId = session.userId;
     loadAssignments();
     loadCourseName();
+    // Set course structure link with courseId
+    const structureBtn = document.querySelector('a[href="course-templates"]');
+    if (structureBtn) structureBtn.href = `course-templates?courseId=${courseId}`;
 }
 
 // LOAD ASSIGNMENTS OF THE STUDENT FOR THIS COURSE
@@ -100,8 +103,8 @@ async function saveGrade(assignmentId, grade) {
 // LOAD GRADE BREAKDOWN 
 function loadGradeBreakdown(assignments) {
     const completed = assignments.filter(a => a.completed && a.grade !== null);
-    
-    const avg = completed.length > 0 
+
+    const avg = completed.length > 0
         ? Math.round(completed.reduce((sum, a) => sum + a.grade, 0) / completed.length)
         : 0;
 

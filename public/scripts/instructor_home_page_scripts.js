@@ -48,7 +48,7 @@ async function addCourseToHomePage(code, title, section, courseId) {
                                 <div class="course-image course-img-1"></div>
                                 <div class="course-info-text-area" >
                                     <p class="course-code">${code}<button type="button" class="edit-course-3-dots"></button></p>
-                                    <a class ="course-info-text-a" href="course-page">
+                                    <a class ="course-info-text-a" href="course-page?courseId=${courseId}">
                                     <p class="course-name">${title}</p>
                                     <p class="course-section">Section ${section}</p>
                                     </a>
@@ -163,7 +163,6 @@ async function createEditCourseList() {
 
             })
         });
-   
 }
 
 

@@ -39,6 +39,8 @@ const {
     getCompletionStatsByCourse
 } = require("../database/assignments.database");
 
+const { saveTemplate, getTemplateByCourse } = require("../database/templates.database");
+
 
 //Routes that process data requests from scripts files - send data to html and receive data from html
 //GET ALL INSTRUCTORS
@@ -151,6 +153,42 @@ router.put('/update-assignment/:assignmentId', async (req, res) => {
         const { title, description, weight, dueDate } = req.body;
         await updateAssignment(req.params.assignmentId, title, description, weight, dueDate);
         res.json({ success: true });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Server error" });
+    }
+});
+
+// CREATE AN ASSIGNMENT 
+router.post('/create-assignment', async (req, res) => {
+    try {
+        const { instructorId, courseId, title, description, weight, dueDate } = req.body;
+        await addAssignment(instructorId, courseId, title, description, weight, dueDate);
+        res.json({ success: true });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Server error" });
+    }
+});
+
+// SAVE COURSE TEMPLATE 
+router.post('/save-template', async (req, res) => {
+    try {
+        const instructorId = req.session.userId;
+        const { courseId, description, textbook, week1_2, week3_4, week5_6, week7_8, week9_10, week11_12 } = req.body;
+        await saveTemplate(courseId, instructorId, description, textbook, week1_2, week3_4, week5_6, week7_8, week9_10, week11_12);
+        res.json({ success: true });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Server error" });
+    }
+});
+
+// GET COURSE TEMPLATE 
+router.get('/get-template/:courseId', async (req, res) => {
+    try {
+        const template = await getTemplateByCourse(req.params.courseId);
+        res.json(template || {});
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: "Server error" });
