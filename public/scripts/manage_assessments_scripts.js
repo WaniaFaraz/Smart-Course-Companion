@@ -12,7 +12,11 @@ async function getSession() {
         return;
     }
     studentId = session.userId;
+    // Display student info
+    document.getElementById('username').textContent = session.firstName;
+    document.querySelector('.student-id').textContent = session.userId;
     loadAssignments();
+    
 }
 
 //Load all the concerned student's assignments from the database

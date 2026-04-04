@@ -22,8 +22,12 @@ async function getSession() {
     }
 
     studentId = session.userId;
+    // Display student info
+    document.getElementById('username').textContent = session.firstName;
+    document.querySelector('.student-id').textContent = session.userId;
     loadAssignments();
     loadCourseName();
+
     // Set course structure link with courseId
     const structureBtn = document.querySelector('a[href="course-templates"]');
     if (structureBtn) structureBtn.href = `course-templates?courseId=${courseId}`;
