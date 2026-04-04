@@ -52,10 +52,10 @@ router.get('/get-instructors', async (request, response) => {
 })
 //GET INSTRUCTOR BY ID
 router.get('/get-instructors/:id', async (request, response) => {
+    const id = request.params.id; // ← ajoute ça
     const instructor = await getInstructorById(id);
     response.json(instructor);
 })
-
 
 
 //GET COURSES OF A SPECIFIC INSTRUCTOR

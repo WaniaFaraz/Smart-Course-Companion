@@ -28,6 +28,14 @@ async function getSession() {
     // Set preview link with courseId
     document.querySelector('a[href="course-template-preview"]').href = `course-template-preview?courseId=${courseId}`;
     document.querySelector('a[href="course-templates"]').href = `course-templates?courseId=${courseId}`;
+    // Display instructor info
+    const response2 = await fetch(`/api/instructor/get-instructors/${instructorId}`);
+    const instructor = await response2.json();
+    if (instructor && instructor[0]) {
+        const initials = instructor[0].firstName[0] + '.' + instructor[0].lastName[0];
+        document.getElementById('username').textContent = initials;
+        document.querySelector('.instructor-id').textContent = instructorId;
+    }
 }
 
 // LOAD COURSE NAME
@@ -171,6 +179,12 @@ function displayCompletionStats(stats) {
         document.getElementById('create-assignment-modal').close();
         loadAssignments();
         loadCompletionStats();
+    });
+
+    // EDIT TEMPLATE - redirect to template page with courseId
+    document.getElementById('open-edit-template').addEventListener('click', (e) => {
+        e.preventDefault();
+        window.location.href = `course-templates?courseId=${courseId}`;
     });
 }
 getSession();

@@ -643,6 +643,6 @@ a {
     background: var(--w-dark-purple2);
 }
 
-.toggle-switch input:checked+.toggle-slider::before {
-    transform: translateX(16px);
+.center-title {
+    white-space: nowrap;
 }

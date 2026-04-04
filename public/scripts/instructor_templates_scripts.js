@@ -18,6 +18,21 @@ async function getSession() {
     courseId = params.get('courseId');
 
     if (courseId) loadExistingTemplate();
+
+    // Display instructor info
+    const response2 = await fetch(`/api/instructor/get-instructors/${instructorId}`);
+    const instructor = await response2.json();
+    if (instructor && instructor[0]) {
+        const firstName = instructor[0].firstName;
+        const lastName = instructor[0].lastName;
+        const initials = firstName[0] + '.' + lastName[0];
+        document.querySelector('.center-title').textContent = `WELCOME PROFESSOR ${lastName.toUpperCase()}`;
+        const courseResponse = await fetch(`/api/instructor/get-courses/${instructorId}`);
+        const courses = await courseResponse.json();
+        document.querySelector('.current-course-count').textContent = `YOU'RE CURRENTLY MANAGING ${courses.length} COURSES`;
+        document.getElementById('username').textContent = initials;
+        document.querySelector('.instructor-id').textContent = instructorId;
+    }
 }
 
 // LOAD EXISTING TEMPLATE IF ONE EXISTS
@@ -35,6 +50,26 @@ async function loadExistingTemplate() {
     document.getElementById('week7_8').value = template.week7_8 || '';
     document.getElementById('week9_10').value = template.week9_10 || '';
     document.getElementById('week11_12').value = template.week11_12 || '';
+
+    const courseResponse = await fetch(`/api/instructor/get-course-from-id/${courseId}`);
+    const courses = await courseResponse.json();
+    const course = courses[0];
+
+    document.getElementById('course-name').value = course.title || '';
+    document.getElementById('course-code').value = course.code || '';
+    document.getElementById('course-section').value = course.section || '';
+
+    const evalResponse = await fetch(`/api/instructor/get-assignments/${courseId}`);
+    const assignments = await evalResponse.json();
+    const rows = document.querySelectorAll('.evalTable tr');
+
+    assignments.forEach((assignment, i) => {
+        if (rows[i + 1]) {
+            rows[i + 1].cells[1].querySelector('input').value = assignment.title || '';
+            rows[i + 1].cells[2].querySelector('input').value = assignment.weight || '';
+            rows[i + 1].cells[3].querySelector('input').value = assignment.dueDate ? assignment.dueDate.split('T')[0] : '';
+        }
+    });
 }
 
 // PUBLISH TEMPLATE
