@@ -13,13 +13,15 @@ async function getSession() {
     // Display student info
     document.getElementById('username').textContent = session.firstName + " " + session.lastName;
     document.querySelector('.student-id').textContent = "ID: " + session.userId;
-    await loadHomePage();
+    loadHomePage();
+    loadCalendar();
+    loadDeadlines();
+
    
 }
 
 async function loadHomePage() {
-    await loadCourses(); //retrieve and display all courses from the stur=dents ID
-    //ADD AVERAGES CALCULATION
+    await loadCourses(); //retrieve and display all courses from the students ID
 
 }
 
@@ -43,6 +45,7 @@ async function loadCourses() {
         //insert data into html elements
         await createCourse(code, section, title, coursebg, courseId);
     }))
+
 }
 
 
@@ -58,4 +61,83 @@ async function createCourse(code, section, title, coursebg, courseId) {
                                 </a>
                             </div>`;
 }
+
+
+//LOAD THE CALENDAR ON THE RIGHT
+async function loadCalendar() {
+    let row;
+    const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUNE", "JULY", "AUG", "SEP", "OCT", "NOV", "DEC"];
+    const date = new Date();
+    const today = date.getDay();
+    const year = date.getFullYear();
+    const month = date.getMonth();
+    const calMonthYear = document.getElementById("cal-month-year");
+    calMonthYear.innerHTML = months[month] + " " + year;
+
+    const firstDayDate = new Date(date.getFullYear(), date.getMonth(), 1);
+    const firstDay = firstDayDate.getDay() - 1; //day of the week of the first day of the month
+
+
+    const daysInMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+    //populate the first week:
+    let dayNumber = 1;
+    for (let col = firstDay; col <= 7; col++) {
+        let calDay = document.getElementById(`1-${col}`);
+        calDay.innerHTML = dayNumber;
+        calDay.classList.add("show");
+        dayNumber++;
+    }
+    //find the remaining number of weeks
+    const numWeeks = Math.floor(daysInMonth / 7);
+    console.log("numWeeks:", numWeeks);
+    for (let count = 1; count < numWeeks; count++) {
+        for (let col = 1; col <= 7; col++) {
+            row = 1+count;
+            let calDay = document.getElementById(`${row}-${col}`);
+            calDay.innerHTML = dayNumber;
+            calDay.classList.add("show");
+            dayNumber++;
+        }
+
+    }
+    //find the remaining number of days
+    const remainingDays = daysInMonth - dayNumber +1;
+    row++;
+    console.log("remaining days:", remainingDays);
+    for(let col = 1; col <= remainingDays; col++ ) {
+            let calDay = document.getElementById(`${row}-${col}`);
+            calDay.innerHTML = dayNumber;
+            calDay.classList.add("show");
+            dayNumber++;
+
+    }
+
+
+}
+
+async function loadDeadlines() {
+    //all assignments
+    console.log("reached load deadlines");
+    const response = await fetch(`/api/student/get-incomplete-assignments/${userId}`);
+    incompleteAssignments = await response.json();
+    
+    const deadlinesList = document.getElementById("deadlines-list");
+    for(const assignment of incompleteAssignments) {
+        const assignmentId = assignment.assignmentId;
+        const response = await fetch(`/api/student/get-assignment-by-id/${assignmentId}`);
+        const [fullAssignment] = await response.json();
+        console.log("Keys:", Object.keys(fullAssignment));
+        const dueDate = fullAssignment.dueDate;
+        console.log("full assignment:", fullAssignment);
+        console.log(dueDate);
+        const formattedDueDate = (new Date(dueDate)).toLocaleDateString('en-GB', { month: 'long', day: 'numeric' });
+        const title = fullAssignment.title;
+        deadlinesList.innerHTML += `<div class="deadline-item"><a href="assignments"
+                                class="deadline-item-anchor">${formattedDueDate} - ${title}</a></div>`;
+
+    }
+                                
+
+}
+
 

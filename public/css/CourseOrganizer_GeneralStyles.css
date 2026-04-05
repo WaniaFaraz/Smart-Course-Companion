@@ -338,13 +338,17 @@ button {
     font-weight: 400;
 }
 
-.cal-day {
+.cal-grid .show {
+    background: #fff;
     height: 34px;
+}
+
+.cal-day {
+    height:0;
     border-radius: 10px;
     display: grid;
     place-items: center;
     font-size: 12pt;
-    background: #fff;
     color: #111;
 }
 
