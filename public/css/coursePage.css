@@ -2,30 +2,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-       --w-dark-purple1 : #470047;
-       --w-dark-purple2 : #310047;
-       --w-mid-purple   : #6f0b5b;
-       --w-magenta      : #a02b68;
-       --w-yellow       : #ffb948;
-       --w-orange       : #ff8f2f;
-       --w-purple-grey  : rgb(225, 222, 230);
+    --w-dark-purple1: #470047;
+    --w-dark-purple2: #310047;
+    --w-mid-purple: #6f0b5b;
+    --w-magenta: #a02b68;
+    --w-yellow: #ffb948;
+    --w-orange: #ff8f2f;
+    --w-dark-orange: #f97134;
+    --w-purple-grey: rgb(225, 222, 230);
 
-       --bg: whitesmoke;
-       --text: #111;
-       --muted: grey;
-       --card: whitesmoke;
+    --bg: whitesmoke;
+    --text: #111;
+    --muted: grey;
+    --card: whitesmoke;
 
-       --radius: 15px;
-       --shadow: 5px 5px 10px 0px va(--w-purple-grey);
-       --pill: 50px;      
+    --radius: 15px;
+    --shadow: 5px 5px 10px 0px va(--w-purple-grey);
+    --pill: 50px;
 }
 
-body { margin: 0;
-       font-family: 'Raleway', 'Gill Sans MT', Geneva, 'Inter', 'Segoe UI', sans-serif; 
-       background: var(--bg);
-       color: var(--text);
-       overflow: auto;
-     }
+body {
+    margin: 0;
+    font-family: 'Raleway', 'Gill Sans MT', Geneva, 'Inter', 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow: auto;
+}
 
 a {
     text-decoration: none;
@@ -47,9 +49,10 @@ button {
     height: 100vh;
     overflow-y: clip;
 }
+
 /* page area */
 .page {
-    flex-grow : 1;
+    flex-grow: 1;
     display: grid;
     grid-template-rows: auto 1fr;
 }
@@ -62,23 +65,26 @@ button {
     align-items: center;
 
 }
+
 .course-title {
     flex-grow: 1;
 }
+
 .course-title h2 {
     margin: 0;
-    font-family : oswald;
-    flex-grow : 1;
-    font-size : 30pt;
+    font-family: oswald;
+    flex-grow: 1;
+    font-size: 30pt;
     font-weight: 400;
 }
+
 .course-title p {
     margin: 6px 0 0;
     font-size: 12pt;
 }
 
 .top-right {
-    width:25%;
+    width: 25%;
 }
 
 
@@ -98,11 +104,13 @@ button {
 .user-meta {
     text-align: right;
 }
+
 .user-name {
     margin: 0;
     font-weight: 800;
     font-size: 16pt;
 }
+
 .user-id {
     margin: 2px 0 0;
     font-size: 12px;
@@ -126,7 +134,8 @@ button {
 .content-grid {
     padding: 0 0.2cm 0.4cm;
     display: grid;
-    grid-template-columns: 3fr 1fr; /* 75% 25% */
+    grid-template-columns: 3fr 1fr;
+    /* 75% 25% */
     gap: 0.4cm;
     align-items: start;
 }
@@ -156,6 +165,7 @@ button {
 .card-header p {
     margin-bottom: 0cm;
 }
+
 .muted {
     margin: 6px 0 0;
     color: var(--muted);
@@ -163,22 +173,27 @@ button {
 }
 
 /* table */
-.table-wrap, .bars, .tasks{
-       background: var(--card);
-       border-radius: var(--radius);
-       padding: 0.5cm;
-       box-shadow: var(--shadow);
+.table-wrap,
+.bars,
+.tasks {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 0.5cm;
+    box-shadow: var(--shadow);
 }
 
 .table-wrap {
     overflow-x: auto;
 }
+
 .assess-table {
     width: 100%;
     border-collapse: collapse;
     min-width: 620px;
 }
-.assess-table th, .assess-table td {
+
+.assess-table th,
+.assess-table td {
     border-bottom: 1px solid var(--w-purple-grey);
     padding: 12px 10px;
     text-align: left;
@@ -189,9 +204,10 @@ button {
     color: var(--muted);
     font-weight: 800;
 }
-.access-table tbody tr:hover{
-       background: rgba(255, 143, 47, 0.10);
-       
+
+.access-table tbody tr:hover {
+    background: rgba(255, 143, 47, 0.10);
+
 }
 
 .primary-btn {
@@ -214,9 +230,11 @@ button {
 .status.not-started {
     background: rgba(255, 222, 230, 0.8);
 }
+
 .status.in-progress {
     background: rgba(255, 185, 72, 0.35);
 }
+
 .status.submitted {
     background: rgba(255, 143, 47, 0.20);
 }
@@ -259,6 +277,7 @@ button {
     font-weight: 800;
     color: var(--muted);
 }
+
 .bar-value {
     margin: 0;
     font-size: 12pt;
@@ -270,9 +289,9 @@ button {
     list-style: none;
     margin: 10px 0 0;
     display: block;
-    height : 2.5in;
+    height: 2.5in;
     overflow-y: auto;
-        scrollbar-color: var(--w-purple-grey) whitesmoke;
+    scrollbar-color: var(--w-purple-grey) whitesmoke;
 
 }
 
@@ -284,6 +303,7 @@ button {
     margin-top: 0.3cm;
 
 }
+
 .task-header {
     display: flex;
     justify-content: space-between;
@@ -299,6 +319,13 @@ button {
     font-weight: 400;
     color: whitesmoke;
 }
+
+.add-btn img {
+    height: 20px;
+    width: 20px;
+    margin: auto;
+}
+
 .add-btn {
     width: 38px;
     height: 38px;
@@ -312,23 +339,44 @@ button {
     cursor: pointer;
 
 }
+
 .add-btn:hover {
-  background-color: var(--w-orange);
+    background-color: var(--w-orange);
+}
+
+#new-task-input {
+    border: 0px;
+    height: 0.7cm;
+    font-size: 12pt;
+    border-radius: 5px;
+    padding-left: 0.3cm;
+}
+
+#new-task-form button {
+    height: 0.7cm;
+    font-size: 12pt;
+    background-color: var(--w-yellow);
+    border:0px;
+    border-radius:5px;
+    width:1.7cm;
+}
+
+#new-task-form button:hover {
+    background-color: var(--w-dark-orange);
 }
 
 
-
-.rightpanel{
-  /* background: linear-gradient(301deg, rgba(49,0,71,1) 0%, rgba(49,0,71,1) 25%, rgba(50,0,71,1) 35%,rgba(71,0,71,1) 80%); */
-  color: whitesmoke;
-  border-radius: 15px;
+.rightpanel {
+    /* background: linear-gradient(301deg, rgba(49,0,71,1) 0%, rgba(49,0,71,1) 25%, rgba(50,0,71,1) 35%,rgba(71,0,71,1) 80%); */
+    color: whitesmoke;
+    border-radius: 15px;
 }
 
-.rightpanel .card{
-  background: rgba(255,255,255,0.12);
-  background: linear-gradient(301deg, rgba(49,0,71,1) 0%, rgba(49,0,71,1) 25%, rgba(50,0,71,1) 35%,rgba(71,0,71,1) 80%);
-  border: none;
-  margin : 0 0 0.4cm 0;
+.rightpanel .card {
+    background: rgba(255, 255, 255, 0.12);
+    background: linear-gradient(301deg, rgba(49, 0, 71, 1) 0%, rgba(49, 0, 71, 1) 25%, rgba(50, 0, 71, 1) 35%, rgba(71, 0, 71, 1) 80%);
+    border: none;
+    margin: 0 0 0.4cm 0;
 }
 
 
@@ -344,9 +392,11 @@ button {
     background: #fff;
     outline: none;
 }
+
 .mark-input:focus {
     border-color: var(--w-orange);
 }
+
 .percent-cell {
     font-weight: 800;
     color: var(--w-magenta);
@@ -364,9 +414,11 @@ button {
     background: #fff;
     outline: none;
 }
+
 .mark-input:focus {
     border-color: var(--w-orange);
 }
+
 .percent-cell {
     font-weight: 800;
     color: var(--w-magenta);
@@ -375,13 +427,23 @@ button {
 
 /* this to make the page responsive whenever the user open it on a smaller screen */
 @media (max-width: 1050px) {
-  .content-grid { grid-template-columns: 1fr; }
- .app{ grid-template-columns: 220px 1fr; }
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .app {
+        grid-template-columns: 220px 1fr;
+    }
 }
 
 @media (max-width: 700px) {
-  .app { grid-template-columns: 1fr; }
-  .sidebar { display: none; } 
+    .app {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        display: none;
+    }
 }
 
 .donut-container {
