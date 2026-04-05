@@ -56,6 +56,14 @@ async function getAssignmentsOfInstructor(instructorId) {
     return rows;
 }
 
+//Get pending assignment of an instructor (the due date has not yet been reached)
+async function getPendingInstructorAssignments(instructorId) {
+    const queryString = "SELECT * FROM `assignments` WHERE `instructorId` = ? AND `dueDate` >= ?";
+    const date = new Date();
+    const [rows] = await pool.query(queryString, [instructorId, date]);
+    return rows;
+}
+
 // Get assignments of a course 
 async function getAssignmentsOfCourse(courseId) {
     const queryString = "SELECT * FROM `assignments` WHERE `courseId` = ?";
@@ -131,5 +139,6 @@ module.exports = {
     updateAssignment,
     getCompletionStatsByCourse,
     getAssignmentsOfStudentByCourse,
-    getIncompleteAssignmentsOfStudent
+    getIncompleteAssignmentsOfStudent,
+    getPendingInstructorAssignments
 };

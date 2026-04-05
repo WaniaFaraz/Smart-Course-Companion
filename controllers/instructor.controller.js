@@ -38,7 +38,8 @@ const {
     addAssignment,
     deleteAssignment,
     updateAssignment,
-    getCompletionStatsByCourse
+    getCompletionStatsByCourse,
+    getPendingInstructorAssignments
 } = require("../database/assignments.database");
 
 const { saveTemplate, getTemplateByCourse } = require("../database/templates.database");
@@ -101,6 +102,14 @@ router.get('/session', (req, res) => {
         res.json({ loggedIn: false });
 });
 
+//GET ALL STUDENTS OF AN INSTRUCTOR
+router.get('/get-all-students/:instructorId', async (request, response) => {
+    const instructorId = request.params.instructorId;
+    const students = await getStudentsOfInstructor(instructorId);
+    console.log("students");
+    response.json(students);
+})
+
 //GET COURSE FROM COURSE ID
 router.get("/get-course-from-id/:courseId", async (request, response) => {
     const courseId = request.params.courseId;
@@ -117,7 +126,6 @@ router.post('/add-course', async (request, response) => {
     const courseTitle = request.body.title;
     const coursebg = request.body.radioCourseBg;
     const instructorId = request.session.userId;
-    console.log("instructorid:",instructorId);
     await createCourse(courseCode, courseSection, courseTitle, instructorId, coursebg);
     response.redirect("/instructor/home");
 
@@ -199,6 +207,13 @@ router.post('/create-assignment', async (req, res) => {
         res.status(500).json({ error: "Server error" });
     }
 });
+
+//GET PENDING INSTRUCTOR ASSIGNMENTS
+router.get('/get-pending-assignments/:instructorId', async (request, response) => {
+    const instructorId = request.params.instructorId;
+    const assignments = await getPendingInstructorAssignments(instructorId);
+    response.json(assignments);
+})
 
 // SAVE COURSE TEMPLATE 
 router.post('/save-template', async (req, res) => {

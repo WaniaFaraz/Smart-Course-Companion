@@ -36,6 +36,7 @@ async function getSession() {
     loadHomePage();
     loadCalendar();
     
+     
     
 }
 //load the home page with the courses of the instructor
@@ -59,8 +60,24 @@ async function loadHomePage() {
     })
     )
     loadAnnouncements();
+    loadStats();
 }
 
+//load stats
+async function loadStats() {
+    const activeCourses = document.getElementById("stats-active-courses");
+    activeCourses.innerHTML = instructorCoursesArray.length;
+    const response = await fetch(`/api/instructor/get-all-students/${userId}`);
+    const students = await response.json();
+    const numStudents = students.length;
+    const studentNumStats = document.getElementById("stats-total-students");
+    studentNumStats.innerHTML = numStudents;
+    const response2 = await fetch(`/api/instructor/get-pending-assignments/${userId}`);
+    const pendingAssignments = await response2.json();
+    console.log(pendingAssignments);
+    const pendingAssignmentStats = document.getElementById("stats-pending-assignments");
+    pendingAssignmentStats.innerHTML = pendingAssignments.length;
+}
 
 
 //funtion to add course to home page

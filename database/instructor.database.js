@@ -30,35 +30,30 @@ const pool = mysql.createPool({
     database: "lms_info" //name of the database
 }).promise() //use pool whenever accessing the database
 
-let queryString;
-let rows;
-let instructors;
-
-
 
 //Get all instructors
 async function getInstructors() {
-    [instructors] = await pool.query('SELECT * FROM `instructors`');
+    const [instructors] = await pool.query('SELECT * FROM `instructors`');
     return instructors;
     //rows: array of JSON objects containing instructorId, firstName, lastName, emailAddress, password
 }
 
 //Get instructor by email (for login)
 async function getInstructorByEmail(email) {
-    [rows] = await pool.query('SELECT * FROM `instructors` WHERE `emailAddress` = ?', [email]);
+    const [rows] = await pool.query('SELECT * FROM `instructors` WHERE `emailAddress` = ?', [email]);
     return rows;
 }
 
 //Get instructors from id
 async function getInstructorById(id) {
-    [rows] = await pool.query('SELECT * FROM `instructors` WHERE `instructorId` = ?', [id]);
+    const [rows] = await pool.query('SELECT * FROM `instructors` WHERE `instructorId` = ?', [id]);
     return rows;
     //rows: array of JSON objects containing instructorId, firstName, lastName, emailAddress, password
 }
 
 //add an instructor
 async function addInstructor(instructorId, firstName, lastName, emailAddress) {
-    queryString = "INSERT INTO `instructors` (`instructorId`, `firstName`, `lastName`, `emailAddress`, `password`) VALUES (?, ?, ?, ?)";
+    const queryString = "INSERT INTO `instructors` (`instructorId`, `firstName`, `lastName`, `emailAddress`, `password`) VALUES (?, ?, ?, ?)";
     await pool.query(queryString, [instructorId, firstName, lastName, emailAddress]);
     console.log("Instructor added with ID: ", instructorId);
 }
@@ -66,24 +61,19 @@ async function addInstructor(instructorId, firstName, lastName, emailAddress) {
 //Get all students for an instructor
 async function getStudentsOfInstructor(instructorId) {
     //get courseIds of the courses taught by this instructor
-    queryString = "SELECT * FROM `instructor_courses` WHERE `instructorId` = ?";
-    [rows] = await pool.query(queryString, [instructorId]);
-    //rows: array of json objects that contains the instructorId and the courseId
-    //call function that gets the students of a course for each of the courseIds in the rows array
-    const studentPromises = await rows.map( async (value, index, rows) => {
-        getStudentsOfCourse = require("../database/courses.database"); //having at the top of file causes 'circular dependencies...'
-        const student = await getStudentsOfCourse(value.courseId);
-        return student;
-        
-    })
-    const students = await Promise.all(studentPromises);
-    return students.flat(); //1D array of students in json object format
-    //students: array of JSON objects containing studentId, firstName, lastName, emailAddress, password
+    const queryString = `
+        SELECT DISTINCT s.* 
+        FROM students s
+        JOIN student_courses sc ON s.studentId = sc.studentId
+        JOIN instructor_courses ic ON sc.courseId = ic.courseId
+        WHERE ic.instructorId = ?`;
+    const [rows] = await pool.query(queryString, [instructorId]);
+    return rows;
 }
 
 //Add course to instructor in instructor_courses
 async function instructorAddCourse(instructorId, courseId) {
-    queryString = 'INSERT INTO `instructor_courses` (`instructorId`, `courseId`) VALUES (?, ?)';
+    const queryString = 'INSERT INTO `instructor_courses` (`instructorId`, `courseId`) VALUES (?, ?)';
     await pool.query(queryString, [instructorId, courseId]);
     console.log("course added to instructor");
 }
