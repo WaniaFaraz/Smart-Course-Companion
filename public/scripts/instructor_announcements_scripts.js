@@ -59,9 +59,7 @@ async function createCourseAnnouncementCard(course, index) {
                                         <div class="announcement-card-course-title">
                                             <div class="announcement-card-course-title-row">
                                                 <div class="announcement-card-code-section" >${course.code} - ${course.section}</div>
-                                                <div class="announcement-card-button-div"><button class = "create-announcement-button" value = ${course.courseId}>NEW<img
-                                                    src="/black-icons/black-plus-24.png"></button>
-                                            </div>
+                                                
                                         </div>
                                         <div class="announcement-card-course-title-row">
                                             <div class="announcement-course-title">${course.title}</div>
@@ -108,13 +106,13 @@ async function loadCourseAnnouncements(courseId, courseNumber) {
     
 }
 
-const createAnnouncementButtons = document.getElementsByClassName("create-announcement-button");
-for (const createAnnouncementButton of createAnnouncementButtons) {
-    createAnnouncementButton.addEventListener("click", createAnnouncement)
-}
-
+const createAnnouncementButton = document.getElementsByClassName("create-announcement-button");
+createAnnouncementButton.addEventListener("click", createAnnouncement);
+const createAnnouncementModal = document.getElementById("create-announcement-modal");
+createAnnouncementModal.showModal();
 async function createAnnouncement() {
     const createAnnouncementModal = document.getElementById("create-announcement-modal");
+    const courseDropDown = document.getElementById('courses-dropdown')
     createAnnouncementModal.showModal();
 }
 

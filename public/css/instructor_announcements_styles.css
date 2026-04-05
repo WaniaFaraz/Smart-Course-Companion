@@ -155,12 +155,19 @@ a {
 
 }
 
+.announcements-top-line {
+    display: flex;
+    align-items: center;
+}
+
 .announcements-area-title {
     font-family: 'Oswald', sans-serif;
     font-size: 42px;
     margin-bottom: 5px;
     font-weight: 600;
     color: var(--w-dark-purple2);
+    display: flex;
+    flex-grow: 1;
 }
 
 .announcements-of-one-course-card {
@@ -214,12 +221,12 @@ label:has(.toggle-announcement-display:hover) {
     font-size : 14pt;
 }
 
-.announcement-card-button-div {
+.announcement-button-div {
     width : 2cm;
     height : 1cm;
 }
 
-.announcement-card-button-div button {
+.announcement-button-div button {
     width:100%;
     height:100%;
     background-color: var(--w-yellow);
@@ -227,16 +234,16 @@ label:has(.toggle-announcement-display:hover) {
     border-radius:15px;
 }
 
-.announcement-card-button-div button:hover {
+.announcement-button-div button:hover {
     background-color: var(--w-dark-orange);
     
 }
 
-.announcement-card-button-div button:focus {
+.announcement-button-div button:focus {
     outline:none;
 }
 
-.announcement-card-button-div button img {
+.announcement-button-div button img {
     height : 0.3cm;
     width:0.3cm;
     margin-left: 0.2cm;
@@ -267,4 +274,14 @@ label:has(.toggle-announcement-display:hover) {
 .announcement-text-body {
     overflow-wrap: anywhere;
     
+}
+
+#create-announcement-modal {
+    background-color: blue;
+    height:7cm;
+    width:5cm;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

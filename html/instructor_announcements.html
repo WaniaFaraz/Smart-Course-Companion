@@ -22,7 +22,8 @@
                 <li class="left-menu-option"><img src="/white-icons/white-class-96.png"><a href="home"
                         id="left-menu-all-classes">All Classes</a>
                 </li>
-                <li class="left-menu-option"><img src="/white-icons/white-messages-288.png"><a href="announcements">Announcements</a>
+                <li class="left-menu-option"><img src="/white-icons/white-messages-288.png"><a
+                        href="announcements">Announcements</a>
                 </li>
                 <!--
                 <br>
@@ -92,9 +93,9 @@
                         </div>
                         <form id="edit-course-modal-form" method="post">
                             <div class="modal-row">
-                                <div class="ask-title">
-                                    <label class="modal-form-label" for="edit-ask-title">Title</label><input type="text"
-                                        id="edit-ask-title" name="title" class="modal-input"
+                                <div class="">
+                                    <label class="modal-form-label" for="edit-">Title</label><input type="text"
+                                        id="edit-" name="title" class="modal-input"
                                         placeholder="ex: Applied Advanced Calculus" value="null" />
                                 </div>
                             </div>
@@ -170,8 +171,14 @@
         </div>
         <!-- END OF TOP BAR OF THE MAIN PAGE (INCLUDES EDIT AND DELETE COURSE MODAL) -->
         <!-- MAIN PART OF THE MAIN PAGE - ANNOUNCEMENTS AREA -->
-        <div class="announcements-area" id = "announcements-area">
-            <div class="announcements-area-title">ANNOUNCEMENTS</div>
+        <div class="announcements-area" id="announcements-area">
+            <div class="announcements-top-line">
+                <div class="announcements-area-title">ANNOUNCEMENTS</div>
+                <div class="announcement-button-div"> <button class="create-announcement-button"
+                        value=${course.courseId}>NEW<img src="/black-icons/black-plus-24.png"></button>
+                </div>
+            </div>
+
             <!--
             <div class="announcements-of-one-course-card" id = "">
                 <div class="announcement-card-course-title">
@@ -199,7 +206,70 @@
                     
                 </div>
             -->
-            </div>
         </div>
     </div>
+    </div>
+    <!-- CREATE ANNOUNCEMENT MODAL -->
+    <dialog id="create-announcement-modal" class="create-announcement-modal">
+        <div class="modal-top-line">
+            <p class="modal-title" id="create-announcement-modal-title">EDIT COURSE</p><button
+                class="modal-close-button" id="close-create-announcement-modal"><img
+                    src="/black-icons/icons8-close-24.png"></button>
+        </div>
+        <form id="create-announcement-modal-form" method="post">
+            <div class="modal-row">
+                <div class="ask-title">
+                    <label></label>
+                    <input>
+                </div>
+            </div>
+            <div class="modal-row modal-row-2">
+                <div class="ask-code">
+                    <label class="modal-form-label" for="edit-ask-code">Course Code</label><input type="text"
+                        id="edit-ask-code" name="code" class="modal-input" placeholder="ex: ENGR 233" value="null" />
+                </div>
+
+                <div class="ask-section">
+                    <label class="modal-form-label" for="edit-select-section">Section</label>
+                    <select id="edit-select-section" class="modal-input" name="section">
+                        <option value="null">No change</option>
+
+
+                    </select>
+                </div>
+            </div>
+            <label class="bg-modal-form-label">Background</label>
+            <div class="modal-select-background">
+                <input type="radio" name="radioCourseBg" value="null" id="edit-radio-bg-null"><label
+                    class="edit-radio-none" for="edit-radio-bg-null">No change</label>
+                <br>
+                <input type="radio" name="radioCourseBg" value="1" class="modal-radio" id="edit-radio-1"></input><label
+                    for="edit-radio-1"><img class="bg-img-option" src="/course-images/IMG-20260215-WA0009.jpg"></label>
+                <input type="radio" name="radioCourseBg" value="2" class="modal-radio" id="edit-radio-2"></input><label
+                    for="edit-radio-2"><img class="bg-img-option" src="/course-images/IMG-20260215-WA0005.jpg"></label>
+                <input type="radio" name="radioCourseBg" value="3" class="modal-radio" id="edit-radio-3"></input><label
+                    for="edit-radio-3"><img class="bg-img-option" src="/course-images/IMG-20260215-WA0020.jpg"></label>
+                <input type="radio" name="radioCourseBg" value="4" class="modal-radio" id="edit-radio-4"></input><label
+                    for="edit-radio-4"><img class="bg-img-option" src="/course-images/IMG-20260215-WA0006.jpg"></label>
+                <input type="radio" name="radioCourseBg" value="5" class="modal-radio" id="edit-radio-5"></input><label
+                    for="edit-radio-5"><img class="bg-img-option" src="/course-images/IMG-20260215-WA0011.jpg"></label>
+                <input type="radio" name="radioCourseBg" value="6" class="modal-radio" id="edit-radio-6"></input><label
+                    for="edit-radio-6"><img class="bg-img-option" src="/course-images/IMG-20260215-WA0013.jpg"></label>
+                <input type="radio" name="radioCourseBg" value="7" class="modal-radio" id="edit-radio-7"></input><label
+                    for="edit-radio-7"><img class="bg-img-option" src="/course-images/IMG-20260215-WA0023.jpg"></label>
+                <input type="radio" name="radioCourseBg" value="8" class="modal-radio" id="edit-radio-8"></input><label
+                    for="edit-radio-8"><img class="bg-img-option" src="/course-images/IMG-20260215-WA0024.jpg"></label>
+                <input type="radio" name="radioCourseBg" value="9" class="modal-radio" id="edit-radio-9"></input><label
+                    for="edit-radio-9"><img class="bg-img-option" src="/course-images/IMG-20260215-WA0018.jpg"></label>
+
+            </div>
+        </form>
+        <div class="edit-modal-button-row">
+            <button type="submit" id="edit-modal-delete-button" class="modal-delete-button"
+                form="edit-course-modal-form" name="edit-course-delete">DELETE</button>
+            <button type="submit" id="edit-modal-edit-button" class="modal-edit-button" form="edit-course-modal-form"
+                name="edit-course-edit">EDIT</button>
+        </div>
+
+    </dialog>
 </body>
