@@ -87,61 +87,112 @@ a {
 
 /* -- css for add course button and form-- */
 
-.modal-toggle{
-    display:none;
-}
-
-.add-course-container {
+#add-courses-modal-button {
     display: flex;
-    justify-content: flex-end;
-}
-#add-course-toggle:checked ~ .add-course-modal{
-  display:flex !important;
-}
-
-.add-course-modal{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.55);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  backdrop-filter: blur(4px);
-  z-index:9999;
+    background-color: var(--w-yellow);
+    border: none;
+    border-radius: 10px;
+    padding: 0.2cm 3%;
+    align-items: center;
 }
 
-.modal-actions{
-  display: flex;
-  justify-content: space-between;
-  margin-top: 15px;
-}
-.add-course-btn {
-  background: #ffb948;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 8px;
-  font-weight: 700;
-  cursor: pointer;
-
+#add-courses-modal-button:hover {
+    background-color: var(--w-dark-orange);
 }
 
-.btn-primary{
-  background: #ffb948;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 8px;
-  font-weight: 700;
-  cursor: pointer;
+.add-course-container img {
+    height: 12px;
+    width: 12px;
+    margin-right: 5px;
+}
+#add-course-modal {
+    border: 0px;
+    border-radius: 15px;
+    background-color: whitesmoke;
+    height: 7cm;
+    width : 14cm;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    backdrop-filter: blur;
+    overflow: hidden;
+}
+
+#add-course-modal-form {
+    padding:0.4cm 1cm 1cm 1cm;
+    display : flex;
+
+}
+
+.modal-top-line img {
+    height: 0.4cm;
+    width: 0.4cm;
+
+}
+
+.modal-close-button {
+    border: 0;
+    background-color: whitesmoke;
+    position: fixed;
+    right: 1cm;
+    top: 1cm;
+}
+
+.modal-close-button:focus {
+    outline: none;
+}
+
+.modal-title {
+    margin-left: 1cm;
+    margin-top: 1cm;
+    margin-bottom: 0.7cm;
+    font-size: 14pt;
+}
+
+.modal-block {
+    display : block;
+    margin-right : 0.4cm;
+}
+
+.modal-block input, .modal-block label {
+    display:block;
+    font-size: 14pt;
+}
+
+.modal-block input, .modal-block select, .modal-block option {
+    height : 1cm;
+    border:0px;
+    padding:0.2cm;
+    border-radius: 5px;
+        font-size: 14pt;
+
+}
+
+.modal-block input:focus, .modal-block select:focus {
+    outline : 1px solid var(--w-yellow);
+}
+
+.modal-block label {
+    margin-bottom: 0.4cm;
 }
 
 
-.btn-secondary{
-  background: #ddd;
-  padding: 10px 16px;
-  border-radius: 8px;
-  cursor: pointer;
+.modal-add-button {
+    height: 1cm;
+    width: 2cm;
+    font-size: 12pt;
+    background-color: var(--w-purple-grey);
+    border: 0px;
+    border-radius: 5px;
+    position: fixed;
+    right: 1.2cm;
+    bottom: 1cm;
 }
 
+.modal-add-button:hover {
+    background-color : rgb(195, 182, 218);
+}
 
 .filter-by-line {
     display : flex;
