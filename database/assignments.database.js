@@ -10,19 +10,19 @@ const pool = mysql.createPool({
     database: "lms_info"
 }).promise()
 
-let queryString;
-let rows;
+
+
 
 //Get all assignments of an instructor
 async function getAllAssignments() {
-    queryString = "SELECT * FROM `assignments`";
-    [rows] = await pool.query(queryString);
+    const queryString = "SELECT * FROM `assignments`";
+    const [rows] = await pool.query(queryString);
     return rows;
 }
 
 //Get all assignments of a specific course and section
 async function getAllAssignmentsOfStudent(studentId) {
-    queryString = `
+    const queryString = `
         SELECT sa.studentId, sa.assignmentId, sa.courseId, sa.grade, sa.completed,
                a.title, a.description, a.weight, a.dueDate,
                c.code, c.section
@@ -31,52 +31,52 @@ async function getAllAssignmentsOfStudent(studentId) {
         JOIN courses c ON sa.courseId = c.courseId
         WHERE sa.studentId = ?
     `;
-    [rows] = await pool.query(queryString, [studentId]);
+    const [rows] = await pool.query(queryString, [studentId]);
     return rows;
 }
 
 //Get all assignments of a specific student due before a certain date
 async function getAllAssignmentsFromCourseId(courseId) {
-    queryString = "SELECT * FROM `assignments` WHERE `courseId` = ?";
-    [rows] = await pool.query(queryString, [courseId]);
+    const queryString = "SELECT * FROM `assignments` WHERE `courseId` = ?";
+    const [rows] = await pool.query(queryString, [courseId]);
     return rows;
 }
 
 // Get all assignments of an instructor 
 async function getAssignmentsOfInstructor(instructorId) {
-    queryString = "SELECT * FROM `assignments` WHERE `instructorId` = ?";
-    [rows] = await pool.query(queryString, [instructorId]);
+    const queryString = "SELECT * FROM `assignments` WHERE `instructorId` = ?";
+    const [rows] = await pool.query(queryString, [instructorId]);
     return rows;
 }
 
 // Get assignments of a course 
 async function getAssignmentsOfCourse(courseId) {
-    queryString = "SELECT * FROM `assignments` WHERE `courseId` = ?";
-    [rows] = await pool.query(queryString, [courseId]);
+    const queryString = "SELECT * FROM `assignments` WHERE `courseId` = ?";
+    const [rows] = await pool.query(queryString, [courseId]);
     return rows;
 }
 
 // Add an assignment 
 async function addAssignment(instructorId, courseId, title, description, weight, dueDate) {
-    queryString = "INSERT INTO `assignments` (`instructorId`, `courseId`, `title`, `description`, `weight`, `dueDate`) VALUES (?, ?, ?, ?, ?, ?)";
+    const queryString = "INSERT INTO `assignments` (`instructorId`, `courseId`, `title`, `description`, `weight`, `dueDate`) VALUES (?, ?, ?, ?, ?, ?)";
     await pool.query(queryString, [instructorId, courseId, title, description, weight, dueDate]);
 }
 
 // Delete an assignment 
 async function deleteAssignment(assignmentId) {
-    queryString = "DELETE FROM `assignments` WHERE `assignmentId` = ?";
+    const queryString = "DELETE FROM `assignments` WHERE `assignmentId` = ?";
     await pool.query(queryString, [assignmentId]);
 }
 
 // Update an assignment 
 async function updateAssignment(assignmentId, title, description, weight, dueDate) {
-    queryString = "UPDATE `assignments` SET `title` = ?, `description` = ?, `weight` = ?, `dueDate` = ? WHERE `assignmentId` = ?";
+    const queryString = "UPDATE `assignments` SET `title` = ?, `description` = ?, `weight` = ?, `dueDate` = ? WHERE `assignmentId` = ?";
     await pool.query(queryString, [title, description, weight, dueDate, assignmentId]);
 }
 
 // Get completion stats for each assignment in a course - Wiame
 async function getCompletionStatsByCourse(courseId) {
-    queryString = `
+    const queryString = `
         SELECT a.assignmentId, a.title,
                COUNT(*) as total,
                SUM(sa.completed) as completedCount,
@@ -86,13 +86,13 @@ async function getCompletionStatsByCourse(courseId) {
         WHERE a.courseId = ?
         GROUP BY a.assignmentId, a.title
     `;
-    [rows] = await pool.query(queryString, [courseId]);
+    const [rows] = await pool.query(queryString, [courseId]);
     return rows;
 }
 
 // Get assignments of a student for a specific course 
 async function getAssignmentsOfStudentByCourse(studentId, courseId) {
-    queryString = `
+    const queryString = `
         SELECT sa.studentId, sa.assignmentId, sa.courseId, sa.grade, sa.completed,
                a.title, a.description, a.weight, a.dueDate,
                c.code, c.section
@@ -101,7 +101,7 @@ async function getAssignmentsOfStudentByCourse(studentId, courseId) {
         JOIN courses c ON sa.courseId = c.courseId
         WHERE sa.studentId = ? AND sa.courseId = ?
     `;
-    [rows] = await pool.query(queryString, [studentId, courseId]);
+    const [rows] = await pool.query(queryString, [studentId, courseId]);
     return rows;
 }
 

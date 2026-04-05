@@ -1,12 +1,13 @@
 console.log('scripts loaded');
 document.addEventListener('DOMContentLoaded', getSession);
-console.log("reached scripts");
+
 
 
 
 let userId;
 
-let instructorFinalCoursesArray; //array of instructor courses
+let instructorCoursesArray; //array of instructor courses
+
 
 //get instructorId
 async function getSession() {
@@ -36,7 +37,7 @@ async function getSession() {
 }
 //load the home page with the courses of the instructor
 async function loadHomePage() {
-    instructorFinalCoursesArray = [];
+    instructorCoursesArray = [];
     const instructorId = userId;
     const response = await fetch(`/api/instructor/get-courses/${instructorId}`);
     const instructorCourses = await response.json(); //JSON: instructorId and courseId
@@ -46,7 +47,7 @@ async function loadHomePage() {
         const response = await fetch(`/api/instructor/get-course-from-id/${courseId}`);
         const [course] = await response.json();
         //get course info from JSON object
-        instructorFinalCoursesArray.push(course); //add to array of courses
+        instructorCoursesArray.push(course); //add to array of courses
         const title = course.title;
         const code = course.code;
         const section = course.section;
@@ -89,7 +90,7 @@ allClassesMenuOption.addEventListener
 async function generateClassMenuDropDown() {
     const allClassesDropDown = document.getElementById("all-classes-menu-dropdown");
     allClassesDropDown.innerHTML = "";
-    for( const course of instructorFinalCoursesArray) {
+    for( const course of instructorCoursesArray) {
         const code = course.code;
         const section = course.section;
         allClassesDropDown.innerHTML += `<a class = "all-classes-option">${code} - ${section}</a>`;
@@ -182,7 +183,7 @@ async function createEditCourseList() {
     const editCoursesList = document.getElementById("list-of-courses-to-edit");
     editCoursesList.innerHTML = "";
 
-    await Promise.all(instructorFinalCoursesArray.map(async (value, index, array) => {
+    await Promise.all(instructorCoursesArray.map(async (value, index, array) => {
         const code = value.code;
         const section = value.section;
         const courseId = value.courseId;

@@ -23,6 +23,10 @@ router.get("/home", (request, response) => {
 router.get("/course-page", (request, response) => {
     response.sendFile(dir + "/html/instructor_course_page.html");
 })
+//INSTRUCTOR ANNOUNCEMENTS
+router.get("/announcements", (request, response) => {
+    response.sendFile(dir + "/html/instructor_announcements.html");
+})
 //INSTRUCTOR ACCOUNT SETTINGS
 router.get("/account-settings", (request, response) => {
     response.sendFile(dir + "/html/manage_account.html");

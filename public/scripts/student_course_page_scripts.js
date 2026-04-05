@@ -51,8 +51,15 @@ async function loadCalendar() {
     const today = date.getDay();
     const year = date.getFullYear();
     const month = date.getMonth();
-    const calDateToday = document.getElementById("cal-month-year")
-    calDateToday.innerHTML = months[month] + " " + year;
+    const calMonthYear = document.getElementById("cal-month-year")
+    calMonthYear.innerHTML = months[month] + " " + year;
+    //April 4 2026  Saturday(6) --> 4/7 = 0 --> week 1 saturday --> 1-6 == 4
+    //Saturdays: 11, 18, 25, 32
+    //1,8,15,22,29 ... 7n+1 --> (num-1)/7 == 0 --> first day of the month
+    //row = week
+    //colum = day of the week
+    //find week#
+    const dayOfTheMonth = date.getDate();
     
 }
 

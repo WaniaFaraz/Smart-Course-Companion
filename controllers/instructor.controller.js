@@ -43,6 +43,12 @@ const {
 
 const { saveTemplate, getTemplateByCourse } = require("../database/templates.database");
 
+const {
+    getAnnouncementsOfCourse,
+    getAnnouncementFromId,
+    createAnnouncement,
+} = require("../database/announcements.database");
+
 
 //Routes that process data requests from scripts files - send data to html and receive data from html
 //GET ALL INSTRUCTORS
@@ -217,5 +223,31 @@ router.get('/get-template/:courseId', async (req, res) => {
         res.status(500).json({ error: "Server error" });
     }
 });
+
+//GET ALL ANNOUNCEMENTS OF A COURSE
+router.get('/get-announcements-of-course/:courseId', async (request, response) => {
+    const courseId = request.params.courseId;
+    const announcements = await getAnnouncementsOfCourse(courseId);
+    response.json(announcements);
+})
+
+//GET ANNOUNCEMENT FROM ANNOUNCEMENT ID
+router.get('/get-announcement/:announcementId', async (request, response) => {
+    const announcementId = request.params.announcementId;
+    const announcement = await getAnnouncementFromId(announcementId);
+    response.json(announcement);
+})
+
+//CREATE ANNOUNCEMENT
+
+router.post('/create-announcement', async (request, response) => {
+    const instructorId = request.body.instructorId;
+    const courseId = request.body.courseId;
+    const title = request.body.title;
+    const message = request.body.message;
+    await createAnnouncement(instructorId, courseId, title, message);
+
+})
+
 
 module.exports = router;
