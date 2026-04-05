@@ -41,6 +41,7 @@ async function loadAssignments() {
     displayAssignments(assignments);
     loadEnterMarks(assignments);
     loadGradeBreakdown(assignments);
+    loadTasks(); 
 }
 
 //LOAD THE CALENDAR ON THE RIGHT
@@ -129,5 +130,73 @@ function loadGradeBreakdown(assignments) {
     circle.style.background = `conic-gradient(#ffb948 ${avg}%, #e0e0e0 ${avg}%)`;
     document.querySelector('.donut-percent').textContent = avg + '%';
 }
+
+// LOAD TASKS
+async function loadTasks() {
+    const response = await fetch(`/api/student/get-tasks/${courseId}`);
+    const tasks = await response.json();
+    displayTasks(tasks);
+}
+
+// DISPLAY TASKS
+function displayTasks(tasks) {
+    const taskList = document.querySelector('.tasks');
+    taskList.innerHTML = '';
+
+    if (tasks.length === 0) {
+        taskList.innerHTML = '<li>No tasks yet!</li>';
+        return;
+    }
+
+    tasks.forEach(task => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+            <input type="checkbox" ${task.completed ? 'checked' : ''} 
+                onchange="updateTask(${task.taskId}, this.checked)">
+            ${task.description}
+            <button onclick="removeTask(${task.taskId})" style="float:right; background:none; border:none; cursor:pointer; color:red;">✕</button>
+        `;
+        taskList.appendChild(li);
+    });
+}
+
+// ADD A TASK
+async function addNewTask() {
+    const input = document.getElementById('new-task-input');
+    const description = input.value.trim();
+    if (!description) return;
+
+    await fetch('/api/student/add-task', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ courseId, description })
+    });
+
+    input.value = '';
+    loadTasks();
+}
+
+// UPDATE TASK STATUS
+async function updateTask(taskId, completed) {
+    await fetch(`/api/student/update-task/${taskId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ completed })
+    });
+    loadTasks();
+}
+
+// DELETE A TASK
+async function removeTask(taskId) {
+    await fetch(`/api/student/delete-task/${taskId}`, {
+        method: 'DELETE'
+    });
+    loadTasks();
+}
+
+document.getElementById('addTaskBtn').addEventListener('click', () => {
+    const form = document.getElementById('new-task-form');
+    form.style.display = form.style.display === 'none' ? 'block' : 'none';
+});
 
 getSession();

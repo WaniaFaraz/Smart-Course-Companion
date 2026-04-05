@@ -21,8 +21,7 @@
                 <ul>
                     <li class="left-menu-option"><img src="/white-icons/white-4-square-grid-96.png"><a
                             href="home">Dashboard</a></li>
-                    <li class="left-menu-option"><img src="/white-icons/white-class-96.png"><a
-                            href="home">All
+                    <li class="left-menu-option"><img src="/white-icons/white-class-96.png"><a href="home">All
                             Classes</a></li>
                     </li>
                     </li>
@@ -132,19 +131,19 @@
 
                         <!-- this is the grade breakdown section -->
                         <section class="card">
-    <div class="card-header">
-        <h3>Grade Breakdown</h3>
-        <p>Current average for this course</p>
-    </div>
-    <div class="donut-container">
-        <div class="donut-chart">
-            <div class="donut-hole">
-                <span class="donut-percent">0%</span>
-            </div>
-        </div>
-        <p class="donut-label">Course Average</p>
-    </div>
-</section>
+                            <div class="card-header">
+                                <h3>Grade Breakdown</h3>
+                                <p>Current average for this course</p>
+                            </div>
+                            <div class="donut-container">
+                                <div class="donut-chart">
+                                    <div class="donut-hole">
+                                        <span class="donut-percent">0%</span>
+                                    </div>
+                                </div>
+                                <p class="donut-label">Course Average</p>
+                            </div>
+                        </section>
 
                         <section class="card">
                             <div class="card-header">
@@ -165,19 +164,17 @@
                             <h3>Tasks List</h3>
                             <button id="addTaskBtn" class="add-btn">+</button>
                         </div>
-
-                        <ul class="tasks">
-                            <li><input type="checkbox" /> Finish Lab 4</li>
-                            <li><input type="checkbox" /> Study for Quiz 3</li>
-                            <li><input type="checkbox"> Start Assignment 1</li>
-                            <li><input type="checkbox"> Review Week 3 notes</li>
-                        </ul>
+                        <div id="new-task-form" style="display:none; margin-bottom:10px;">
+                            <input type="text" id="new-task-input" placeholder="New task..." style="width:70%">
+                            <button onclick="addNewTask()">Add</button>
+                        </div>
+                        <ul class="tasks"></ul>
                     </section>
 
                     <section class="cal-card">
                         <div class="cal-card-header">
                             <h3> Calendar </h3>
-                            <p class="muted" id = "cal-month-year"></p>
+                            <p class="muted" id="cal-month-year"></p>
                         </div>
                         <div class="calendar">
                             <div class="cal-head">

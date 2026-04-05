@@ -43,6 +43,7 @@ const {
 
 const { getTemplateByCourse } = require("../database/templates.database");
 
+const { getTasksByStudent, addTask, updateTaskStatus, deleteTask } = require("../database/tasks.database");
 
 //ROUTES TO DEAL WITH DATA REQUESTS FROM SCRIPTS FILES - SEND AND RECEIVE DATA TO AND FROM HTML
 //GET ALL STUDENTS - RETURNS AN ARRAY OF STUDENT JSON OBJECTS
@@ -217,6 +218,54 @@ router.get('/get-template/:courseId', async (req, res) => {
     try {
         const template = await getTemplateByCourse(req.params.courseId);
         res.json(template || {});
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Server error" });
+    }
+});
+
+// GET TASKS OF A STUDENT FOR A SPECIFIC COURSE 
+router.get('/get-tasks/:courseId', async (req, res) => {
+    try {
+        const studentId = req.session.userId;
+        const tasks = await getTasksByStudent(studentId, req.params.courseId);
+        res.json(tasks);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Server error" });
+    }
+});
+
+// ADD A TASK 
+router.post('/add-task', async (req, res) => {
+    try {
+        const studentId = req.session.userId;
+        const { courseId, description } = req.body;
+        await addTask(studentId, courseId, description);
+        res.json({ success: true });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Server error" });
+    }
+});
+
+// UPDATE TASK STATUS 
+router.put('/update-task/:taskId', async (req, res) => {
+    try {
+        const { completed } = req.body;
+        await updateTaskStatus(req.params.taskId, completed);
+        res.json({ success: true });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Server error" });
+    }
+});
+
+// DELETE A TASK 
+router.delete('/delete-task/:taskId', async (req, res) => {
+    try {
+        await deleteTask(req.params.taskId);
+        res.json({ success: true });
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: "Server error" });
