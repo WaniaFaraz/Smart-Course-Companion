@@ -74,14 +74,14 @@
                             <p class="modal-title">ADD COURSE</p><button class="modal-close-button"
                                 id="add-courses-close-modal"><img src="/black-icons/icons8-close-24.png"></button>
                         </div>
-                            <form id="add-course-modal-form" action="/api/student/add-course">
+                            <form id="add-course-modal-form" action="/api/student/add-course" method="post">
                                 <div class="modal-block">
                                     <label for="ask-code">Course code</label>
-                                    <input type="text" id="ask-code" placeholder="ex: ENGR 233">
+                                    <input type="text" id="ask-code" placeholder="ex: ENGR 233" name="code">
                                 </div>
                                 <div class="modal-block">
                                     <label for="course-select-section">Section</label>
-                                    <select id="course-select-section">
+                                    <select id="course-select-section" name="section">
                                         <option>Select</option>
                                     </select>
                                 </div>

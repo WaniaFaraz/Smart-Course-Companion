@@ -127,10 +127,15 @@ async function deleteCourse(courseId) {
 }
 
 async function getCourseFromCodeAndSection(courseCode, courseSection) {
-    queryString = "SELECT * FROM `courses` WHERE `code` = ? AND `section` = ?";
-    [rows] = await pool.query(queryString, [courseCode, courseSection]);
+    const queryString = "SELECT * FROM `courses` WHERE `code` = ? AND `section` = ?";
+    const [rows] = await pool.query(queryString, [courseCode, courseSection]);
     return rows;
 
+}
+
+async function addCourseToStudent(studentId, courseSection, courseCode) {
+    const queryString = "INSERT INTO `student_courses` (`studentId`, `courseId`, `courseCode`, `courseSection`) VALUES (?, '', ?, ?);";
+    const [rows] = await pool.query(queryString, [studentId, courseCode, courseSection]);
 }
 
 //Export all functions
@@ -145,5 +150,6 @@ module.exports = {
     createCourse, 
     getCourseFromCodeAndSection,
     updateCourse,
-    deleteCourse
+    deleteCourse,
+    addCourseToStudent
 };
