@@ -20,6 +20,13 @@ async function getAllAssignments() {
     return rows;
 }
 
+//Get assignmnent by id
+async function getAssignmentById(assignmentId) {
+    const queryString = "SELECT * FROM `assignments` WHERE `assignmentId` = ?";
+    const [rows] = await pool.query(queryString, assignmentId);
+    return rows;
+}
+
 //Get all assignments of a specific course and section
 async function getAllAssignmentsOfStudent(studentId) {
     const queryString = `
@@ -105,8 +112,16 @@ async function getAssignmentsOfStudentByCourse(studentId, courseId) {
     return rows;
 }
 
+//Get incompleted assignmnents of a student
+async function getIncompleteAssignmentsOfStudent(studentId) {
+    const queryString = "SELECT * FROM `student_assignments` WHERE `studentId` = ? AND `completed` = ?";
+    const [rows] = await pool.query(queryString, [studentId, 0]);
+    return rows;
+}
+
 module.exports = {
     getAllAssignments,
+    getAssignmentById,
     getAllAssignmentsOfStudent,
     getAllAssignmentsFromCourseId,
     getAssignmentsOfInstructor,
@@ -115,5 +130,6 @@ module.exports = {
     deleteAssignment,
     updateAssignment,
     getCompletionStatsByCourse,
-    getAssignmentsOfStudentByCourse
+    getAssignmentsOfStudentByCourse,
+    getIncompleteAssignmentsOfStudent
 };
