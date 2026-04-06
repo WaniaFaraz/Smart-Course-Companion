@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 05, 2026 at 01:32 AM
+-- Generation Time: Apr 06, 2026 at 04:38 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -40,8 +40,18 @@ CREATE TABLE IF NOT EXISTS `announcements` (
   `dateCreated` date NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`announcementId`),
   KEY `courseId` (`courseId`),
-  KEY `instructorId` (`instructorId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  KEY `instructorId` (`instructorId`,`courseId`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `announcements`
+--
+
+INSERT INTO `announcements` (`announcementId`, `instructorId`, `courseId`, `title`, `message`, `dateCreated`) VALUES
+(1, 2001, 4, 'Assignment 1 released', 'The assignment is now officially posted.\r\nYou can find the full instructions, grading rubric and any other information in the email that has been sent. This assignment is designed to help you apply the concepts we’ve covered regarding inheritance.', '2026-04-04'),
+(2, 2001, 4, 'This is a test announcement', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '2026-04-05'),
+(17, 2001, 36, 'Cancelled class Tuesday', 'There will be no class this Tuesday.', '2026-04-05'),
+(18, 2001, 4, 'Deadline approaching', 'The deadline for Assignment 2 is in 3 days.', '2026-04-05');
 
 -- --------------------------------------------------------
 
@@ -62,14 +72,15 @@ CREATE TABLE IF NOT EXISTS `assignments` (
   PRIMARY KEY (`assignmentId`),
   KEY `professorID` (`instructorId`),
   KEY `courseId` (`courseId`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='All assignments created by all professors';
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='All assignments created by all professors';
 
 --
 -- Dumping data for table `assignments`
 --
 
 INSERT INTO `assignments` (`assignmentId`, `instructorId`, `courseId`, `title`, `description`, `weight`, `dateCreated`, `dueDate`) VALUES
-(3, 2001, 4, 'Assignment 1', 'The assignment instructions have been sent by email.', 20, '2026-04-04 21:23:56', '2026-04-29 00:00:00');
+(3, 2001, 4, 'Assignment 1', 'The assignment instructions have been sent by email.', 20, '2026-04-04 21:23:56', '2026-04-29 00:00:00'),
+(4, 2001, 4, 'Assignment 2', 'This assignment builds on assignment 1. Details in the email.', 10, '2026-04-06 02:32:13', '2026-04-24 00:00:00');
 
 --
 -- Triggers `assignments`
@@ -163,7 +174,7 @@ CREATE TABLE IF NOT EXISTS `courses` (
   `background` int(11) NOT NULL,
   PRIMARY KEY (`courseId`),
   UNIQUE KEY `Code` (`code`,`section`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='List of all course codes available at the institution.';
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='List of all course codes available at the institution.';
 
 --
 -- Dumping data for table `courses`
@@ -188,7 +199,8 @@ INSERT INTO `courses` (`courseId`, `title`, `code`, `section`, `visibility`, `ba
 (19, 'Materials Science', 'MIAE 221', 'X', 1, 5),
 (23, 'Professional Practice and Responsibility', 'ENGR 201', 'T', 1, 6),
 (34, 'Test', 'COMP 249', 'A', 1, 2),
-(36, 'Introduction to Python', 'COMP 336', 'W', 1, 3);
+(36, 'Introduction to Python', 'COMP 336', 'W', 0, 3),
+(39, 'Web Programming', 'SOEN 287', 'R', 1, 8);
 
 --
 -- Triggers `courses`
@@ -232,7 +244,14 @@ CREATE TABLE IF NOT EXISTS `course_templates` (
   PRIMARY KEY (`templateId`),
   UNIQUE KEY `courseId` (`courseId`,`instructorId`),
   KEY `instructor_courses_tenplates` (`instructorId`,`courseId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `course_templates`
+--
+
+INSERT INTO `course_templates` (`templateId`, `courseId`, `instructorId`, `description`, `textbook`, `week1_2`, `week3_4`, `week5_6`, `week7_8`, `week9_10`, `week11_12`) VALUES
+(1, 4, 2001, 'Introduction to programming through Java. Basics of programming such as data types, variables, loops and other control statements, etc. More details in the course outline.', '', 'Introduction to Java', 'Variables and Data Types', 'Control Flow', 'Methods and Functions', 'Arrays', 'Object Oriented Programming');
 
 -- --------------------------------------------------------
 
@@ -282,6 +301,7 @@ CREATE TABLE IF NOT EXISTS `instructor_courses` (
 INSERT INTO `instructor_courses` (`instructorId`, `courseId`) VALUES
 (2001, 4),
 (2001, 36),
+(2001, 39),
 (2002, 1),
 (2002, 2),
 (2003, 14),
@@ -309,13 +329,14 @@ CREATE TABLE IF NOT EXISTS `students` (
 --
 
 INSERT INTO `students` (`studentId`, `firstName`, `lastName`, `emailAddress`, `password`) VALUES
-(1000, 'Jane', 'Doe', 'janedoe@gmail.com', 'j1000'),
+(1000, 'Jane', 'Doe', 'jdoe@gmail.com', 'j1000'),
 (1001, 'Adam', 'Black', 'aBlack@gmail.com', 'a1001'),
 (1002, 'Stephanie', 'Grant', 'sgrant@gmail.com', 's1002'),
 (1003, 'Emily', 'Clarkson', 'eclarkson@gmail.com', 'e1003'),
 (1004, 'Harry', 'Chapman', 'hchapman@gmail.com', 'h1004'),
 (1005, 'Eric', 'Fisher', 'efisher@gmail.com', 'e1005'),
-(1006, 'Jessica', 'Coleman', 'jcoleman@gmail.com', 'j1006');
+(1006, 'Jessica', 'Coleman', 'jcoleman@gmail.com', 'j1006'),
+(1014, 'Lily', 'Smith', 'lilys@gmail.com', 'ls1014');
 
 -- --------------------------------------------------------
 
@@ -339,8 +360,11 @@ CREATE TABLE IF NOT EXISTS `student_assignments` (
 --
 
 INSERT INTO `student_assignments` (`studentId`, `assignmentId`, `courseId`, `grade`, `completed`) VALUES
-(1000, 3, 4, 5, 0),
-(1006, 3, 4, NULL, 0);
+(1000, 3, 4, 90, 0),
+(1006, 3, 4, NULL, 0),
+(1000, 4, 4, NULL, 0),
+(1002, 4, 4, NULL, 0),
+(1006, 4, 4, NULL, 0);
 
 --
 -- Triggers `student_assignments`
@@ -432,6 +456,8 @@ INSERT INTO `student_courses` (`studentId`, `courseId`, `courseCode`, `courseSec
 (1000, 4, 'COMP 248', 'Y'),
 (1000, 15, 'ENGR 213', 'Y'),
 (1001, 16, 'ENGR 201', 'S'),
+(1002, 1, 'COMP 232', 'S'),
+(1002, 4, 'COMP 248', 'Y'),
 (1006, 4, 'COMP 248', 'Y'),
 (1006, 16, 'ENGR 201', 'S'),
 (1006, 10, 'SOEN 228', 'X'),
@@ -493,7 +519,16 @@ CREATE TABLE IF NOT EXISTS `tasks` (
   PRIMARY KEY (`taskId`),
   KEY `courseId` (`courseId`),
   KEY `studentId` (`studentId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tasks`
+--
+
+INSERT INTO `tasks` (`taskId`, `studentId`, `courseId`, `description`, `completed`) VALUES
+(2, 1000, 4, 'Assignment 1', 0),
+(3, 1000, 4, 'Check midterm', 0),
+(4, 1000, 4, 'Revise Lecture 2', 0);
 
 --
 -- Constraints for dumped tables
@@ -503,8 +538,7 @@ CREATE TABLE IF NOT EXISTS `tasks` (
 -- Constraints for table `announcements`
 --
 ALTER TABLE `announcements`
-  ADD CONSTRAINT `announcements_ibfk_1` FOREIGN KEY (`courseId`) REFERENCES `courses` (`courseId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `announcements_ibfk_2` FOREIGN KEY (`instructorId`) REFERENCES `instructors` (`instructorId`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `announcements_ibfk_1` FOREIGN KEY (`instructorId`,`courseId`) REFERENCES `instructor_courses` (`instructorId`, `courseId`);
 
 --
 -- Constraints for table `assignments`
