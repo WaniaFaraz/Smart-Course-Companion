@@ -19,6 +19,6 @@
 - Frontend: HTML and CSS
 - Data persistence: MySQL Database
 
-### Screenshots:
+### Screenshots - for students:
 #### Student home page
 <img src="Screenshots/student-home-page.png" style="height:2.5in">
