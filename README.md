@@ -68,6 +68,16 @@
 
 ### Screenshots - for instructors
 #### The main pages are mostly similar to the student screenshots, with a difference of a few features. As such, only certain photos are shown for instructors.
-### Instructor create course
-
+#### Instructor home page
+#### ``` http://localhost:8080/instructor/home ```
+#### <img alt="instructor-home-page" src="Screenshots/instructor-home-page.gif" style="height:2.5in" />
+#### Instructor create course (modal)
+#### <img alt="instructor-create-course" src="Screenshots/instructor-create-course.png" style="height:2.5in" />
+#### Instructor course page
+#### ``` http://localhost:8080/instructor/course-page?courseId=4 ```
+#### <img alt="instructor-course-page" src="Screenshots/instructor-course-page.png" style="height:2.5in" />
+#### Instructor create announcement (modal)
+#### <img alt="instructor-create-announcements" src="Screenshots/instructor-announcements.png" style="height:2.5in" />
+#### Instructor create assignment (modal)
+#### <img alt="instructor-create-assignments" src="Screenshots/instructor-assignment.png" style="height:2.5in" />
 
