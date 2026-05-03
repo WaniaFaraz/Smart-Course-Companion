@@ -3,6 +3,10 @@
 ### <div align="center"> HTML &bull; CSS &bull; Node.js &bull; MySQL </div>
 ### <div align="center"> RESTful API &bull; Express </div>
 
+### Table of contents
+* <a href="#features">Features</a>
+* <a href="#technologies">Technologies</a>
+* <a href="#screenshots---for-students">Screenshots</a>
 ### Features
 #### Student features:
 - Courses
@@ -51,3 +55,9 @@
 #### Student course page
 #### ``` http://localhost:8080/student/course-page?courseId=4 ```
 #### <img alt="student-course-page" src="Screenshots/student-course-page.gif" style="height:2.5in" />
+#### Student assignments
+#### ``` http://localhost:8080/student/assignments ```
+#### <img alt="student-assignments" src="Screenshots/student-assignments.png" style="height:2.5in" />
+#### Student announcements
+#### ``` http://localhost:8080/student/announcements ```
+#### <img alt="student-announcements" src="Screenshots/student-announcements.png" style="height:2.5in" />
