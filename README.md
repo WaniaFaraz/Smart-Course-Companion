@@ -19,6 +19,10 @@
   * View announcements by course published by instructor
 - Course templates (aka Course outlines)
   * View course templates published by the instructor
+- Tasks
+  * A tasks list (to-do list) is displayed on the course home page
+  * Add/edit/delete a task
+  * Mark task as completed
 #### Instructor features:
 - Courses
   * Create/edit/delete a course
@@ -38,5 +42,10 @@
 - Data persistence: MySQL Database
 
 ### Screenshots - for students:
+#### Student sign-in
+#### ``` http://localhost:8080/student/sign-in ```
+<img alt="student-sign-in" src="Screenshots/student-sign-in.png" style="height:2.5in" />
 #### Student home page
-<img src="Screenshots/student-home-page.png" style="height:2.5in">
+#### ``` http://localhost:8080/student/home ```
+<img alt="student-home-page" src="Screenshots/student-home-page.png" style="height:2.5in" />
+#### ```` 
