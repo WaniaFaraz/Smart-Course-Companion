@@ -7,6 +7,8 @@
 - Add/delete a course
 - Enter grades, view grades of each course
 - View assignments and announcements published by instructors
+- Filter assignments: pending, completed, by course
+- View upcoming deadlines on the home page
 #### Instructor features:
 - Create/edit/delete a course
 - Create/edit/delete assignments and announcements for each course
