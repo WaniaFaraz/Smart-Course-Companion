@@ -1,6 +1,7 @@
 # Smart Course Companion - Academic Project
 ### <div align="center"> This is a web-based Smart Course Companion for students and instructors that stores and displays courses, assignments, grades, and announcements. </div>
-### <div align="center"> HTML &bull; CSS &bull; Node.js &bull; MySQL &bull; RESTful API </div>
+### <div align="center"> HTML &bull; CSS &bull; Node.js &bull; MySQL </div>
+### <div align="center"> RESTful API &bull; Express </div>
 
 ### Features
 #### Student features:
