@@ -204,47 +204,6 @@
                         </div>
                     </div>
                 </div>
-
-                <script>
-                    async function loadAverages() {
-                        const sessionRes = await fetch("/api/student/session");
-                        const session = await sessionRes.json();
-                        if (!session.loggedIn) return;
-                        const studentId = session.userId;
-                        const gradesRes = await fetch(`/api/student/get-grades/${studentId}`);
-                        const grades = await gradesRes.json();
-                        const coursesRes = await fetch(`/api/student/get-courses/${studentId}`);
-                        const studentCourses = await coursesRes.json();
-                        const container = document.getElementById("averages-bars-container");
-                        container.innerHTML = "";
-                        let totalAvg = 0;
-                        let count = 0;
-                        for (const sc of studentCourses) {
-                            const courseGrades = grades.filter(g => g.courseId === sc.courseId);
-                            let avg = 0;
-                            if (courseGrades.length > 0) {
-                                const earned = courseGrades.reduce((sum, g) => sum + parseFloat(g.earnedMarks), 0);
-                                const total = courseGrades.reduce((sum, g) => sum + parseFloat(g.totalMarks), 0);
-                                avg = total > 0 ? Math.round((earned / total) * 100) : 0;
-                            }
-                            totalAvg += avg;
-                            count++;
-                            container.innerHTML += `
-                           <div class="courseRow">
-                              <div class="courseLabel">
-                                  <span>${sc.courseCode}</span>
-                                  <span>${avg}%</span>
-                             </div>
-                             <div class="barBackground">
-                                 <div class="barFill" style="width: ${avg}%"></div>
-                             </div>
-                         </div>`;
-                        }
-                        const overall = count > 0 ? Math.round(totalAvg / count) : 0;
-                        document.getElementById("overall-percent").textContent = overall + "%";
-                    }
-                    loadAverages();
-                </script>
             </div>
         </div>
     </div>

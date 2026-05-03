@@ -16,8 +16,9 @@ async function getSession() {
     loadHomePage();
     loadCalendar();
     loadDeadlines();
+    loadAverages();
 
-   
+
 }
 
 async function loadHomePage() {
@@ -43,10 +44,10 @@ async function loadCourses() {
         const coursebg = course.background;
         studentCoursesArray.push(course);
         //insert data into html elements
-        if(course.visibility) {
+        if (course.visibility) {
             await createCourse(code, section, title, coursebg, courseId);
         }
-        
+
     }))
 
 }
@@ -54,7 +55,7 @@ async function loadCourses() {
 
 //right now the function contains index - change to course backgroung image number
 async function createCourse(code, section, title, coursebg, courseId) {
-    const courseArea =  document.getElementById("course-area");
+    const courseArea = document.getElementById("course-area");
     courseArea.innerHTML += `<div class="course">
                                 <div class="course-image course-img-${coursebg}"></div>
                                 <a class="course-info-text" href='course-page?courseId=${courseId}'>
@@ -95,7 +96,7 @@ async function loadCalendar() {
     console.log("numWeeks:", numWeeks);
     for (let count = 1; count < numWeeks; count++) {
         for (let col = 1; col <= 7; col++) {
-            row = 1+count;
+            row = 1 + count;
             let calDay = document.getElementById(`${row}-${col}`);
             calDay.innerHTML = dayNumber;
             calDay.classList.add("show");
@@ -104,14 +105,14 @@ async function loadCalendar() {
 
     }
     //find the remaining number of days
-    const remainingDays = daysInMonth - dayNumber +1;
+    const remainingDays = daysInMonth - dayNumber + 1;
     row++;
     console.log("remaining days:", remainingDays);
-    for(let col = 1; col <= remainingDays; col++ ) {
-            let calDay = document.getElementById(`${row}-${col}`);
-            calDay.innerHTML = dayNumber;
-            calDay.classList.add("show");
-            dayNumber++;
+    for (let col = 1; col <= remainingDays; col++) {
+        let calDay = document.getElementById(`${row}-${col}`);
+        calDay.innerHTML = dayNumber;
+        calDay.classList.add("show");
+        dayNumber++;
 
     }
 
@@ -123,9 +124,9 @@ async function loadDeadlines() {
     console.log("reached load deadlines");
     const response = await fetch(`/api/student/get-incomplete-assignments/${userId}`);
     incompleteAssignments = await response.json();
-    
+
     const deadlinesList = document.getElementById("deadlines-list");
-    for(const assignment of incompleteAssignments) {
+    for (const assignment of incompleteAssignments) {
         const assignmentId = assignment.assignmentId;
         const response = await fetch(`/api/student/get-assignment-by-id/${assignmentId}`);
         const [fullAssignment] = await response.json();
@@ -139,7 +140,7 @@ async function loadDeadlines() {
                                 class="deadline-item-anchor">${formattedDueDate} - ${title}</a></div>`;
 
     }
-                                
+
 
 }
 
@@ -157,16 +158,16 @@ closeAddCoursesModalButton.addEventListener("click", async () => {
 
 //GENERATE DROPDOWN OPTIONS FOR THE COURSE SECTION IN THE MODAL FOR WHEN A COURSE IS ADDED
 const courseCodeInput = document.getElementById("ask-code");
-courseCodeInput.addEventListener('keyup', async function() {
+courseCodeInput.addEventListener('keyup', async function () {
     console.log("reached event listener");
     console.log(courseCodeInput.value);
-    if(courseCodeInput.value.length == 8) { //a valid course code should have 8 characters: 'AAAA 111'
+    if (courseCodeInput.value.length == 8) { //a valid course code should have 8 characters: 'AAAA 111'
         //fetch the route to get course sections from ids
         //remove spaces from the course code - to avoid errors
-        const courseCode = courseCodeInput.value.slice(0,4) + courseCodeInput.value.slice(5);
+        const courseCode = courseCodeInput.value.slice(0, 4) + courseCodeInput.value.slice(5);
         const response = await fetch(`/api/instructor/get-sections-from-course-code/${courseCode}`);
         const sections = await response.json(response);
-        console.log("possible sections:",sections);
+        console.log("possible sections:", sections);
         const element = document.getElementById("course-select-section");
         generateSectionsDropDown(sections, element);
     }
@@ -175,12 +176,55 @@ courseCodeInput.addEventListener('keyup', async function() {
 async function generateSectionsDropDown(sections, element) {
     //sections is an array of sections
     //element is the html element where the dropdown needs to be inserted
-    if(sections.length == 0) { //invalid course, i.e. has no sections
+    if (sections.length == 0) { //invalid course, i.e. has no sections
         element.innerHTML += `<option >Invalid</option>`;
     }
     sections.forEach((value, index, array) => {
         element.innerHTML += `<option value=${value}>${value}</option>`;
     })
 }
+
+async function loadAverages() {
+    const sessionRes = await fetch("/api/student/session");
+    const session = await sessionRes.json();
+    if (!session.loggedIn) return;
+    const studentId = session.userId;
+    const gradesRes = await fetch(`/api/student/get-grades/${studentId}`);
+    const grades = await gradesRes.json();
+    console.log("grades: ", grades);
+    const coursesRes = await fetch(`/api/student/get-courses/${studentId}`);
+    const studentCourses = await coursesRes.json();
+    const container = document.getElementById("averages-bars-container");
+    container.innerHTML = "";
+    let totalAvg = 0;
+    let count = 0;
+    for (const sc of studentCourses) {
+        const courseGrades = grades.filter(g => g?.courseId == sc.courseId);
+        let avg = 0;
+        if (courseGrades.length > 0) {
+            const validGrades = courseGrades.filter(obj => obj.grade !== null && obj.grade !== undefined);
+            const earned = validGrades.reduce((sum, g) => sum + (parseFloat(g.grade) || 0), 0);
+            const total = validGrades.length;
+            avg = total > 0 ? Math.round((earned / total)) : 0;
+        }
+        totalAvg += avg;
+        count++;
+        container.innerHTML += `
+                           <div class="courseRow">
+                              <div class="courseLabel">
+                                  <span>${sc.courseCode}</span>
+                                  <span>${avg}%</span>
+                             </div>
+                             <div class="barBackground">
+                                 <div class="barFill" style="width: ${avg}%"></div>
+                             </div>
+                         </div>`;
+
+    console.log("course:", sc, "grade: ", avg);
+    }
+    const overall = count > 0 ? Math.round(totalAvg / count) : 0;
+    document.getElementById("overall-percent").textContent = overall + "%";
+}
+
 
 
