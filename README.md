@@ -61,3 +61,13 @@
 #### Student announcements
 #### ``` http://localhost:8080/student/announcements ```
 #### <img alt="student-announcements" src="Screenshots/student-announcements.png" style="height:2.5in" />
+#### Student course templates
+#### ``` http://localhost:8080/student/course-templates?courseId=4 ```
+#### <img alt="student-course-templates" src="Screenshots/student-course-templates.png" style="height:2.5in" />
+
+
+### Screenshots - for instructors
+#### The main pages are mostly similar to the student screenshots, with a difference of a few features. As such, only certain photos are shown for instructors.
+### Instructor create course
+
+
