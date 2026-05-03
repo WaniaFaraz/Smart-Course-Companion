@@ -5,15 +5,32 @@
 
 ### Features
 #### Student features:
-- Add/delete a course
-- Enter grades, view grades of each course
-- View assignments and announcements published by instructors
-- Filter assignments: pending, completed, by course
-- View upcoming deadlines on the home page
+- Courses
+  * Add/delete a course
+  * View all courses
+  * View grades for all courses
+- Assignments
+  * View all assignments published by instructors
+  * Filter assignments by completed/pending/by course
+  * Enter grade for an assignment
+  * Mark assignments as completed
+  * View upcoming deadlines on the home page
+- Announcements
+  * View announcements by course published by instructor
+- Course templates (aka Course outlines)
+  * View course templates published by the instructor
 #### Instructor features:
-- Create/edit/delete a course
-- Create/edit/delete assignments and announcements for each course
-- Add outlines for a course - this includes a breakdown of assignments, exams and their weights, etc.
+- Courses
+  * Create/edit/delete a course
+  * View all courses
+  * Toggle visibility of course - show/hide from students
+- Assignments
+  * Create an assignment
+  * View average student grades for an assignment
+- Announcements
+  * Create announcements
+- Course templates (aka Course outlines)
+  * Create/edit/delete course templates and publish to students
 
 ### Technologies:
 - Backend: Node.js
