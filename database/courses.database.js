@@ -4,16 +4,7 @@
 //Queries the database for data related to courses
 
 
-const mysql = require("mysql2");
-const pool = mysql.createPool({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "lms_info" //name of the database
-}).promise() //use pool.query() whenever accessing the database
-
-
-
+const pool = require("./database.js");
 
 //import certain functions
 const {

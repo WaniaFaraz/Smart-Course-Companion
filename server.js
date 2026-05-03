@@ -12,12 +12,13 @@
 //==============================================================================================================
 
 //imports and variables
+require('.dotenv').config;
 const express = require("express");
 const { createServer } = require("node:http");
 const app = express();
 const dir = __dirname;
 const session = require("express-session");
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 
 // CSP - must be first
 app.use((req, res, next) => {

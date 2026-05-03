@@ -1,10 +1,4 @@
-const mysql = require("mysql2");
-const pool = mysql.createPool({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "lms_info"
-}).promise();
+const pool = require("./database.js");
 
 // Get all tasks of a student for a specific course
 async function getTasksByStudent(studentId, courseId) {

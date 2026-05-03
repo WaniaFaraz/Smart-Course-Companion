@@ -22,14 +22,7 @@
 */
 // After creating a function, make sure to include it in the exports at the very bottom of the file
 
-const mysql = require("mysql2");
-const pool = mysql.createPool({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "lms_info" //name of the database
-}).promise() //use pool whenever accessing the database
-
+const pool = require("./database.js");
 
 //Get all instructors
 async function getInstructors() {

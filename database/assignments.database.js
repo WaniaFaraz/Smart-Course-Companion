@@ -2,16 +2,7 @@
 // INSTRUCTIONS TO GET DATABASE: see student.database.js
 
 //Queries the database for data related to assignments
-const mysql = require("mysql2");
-const pool = mysql.createPool({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "lms_info"
-}).promise()
-
-
-
+const pool = require("./database.js");
 
 //Get all assignments of an instructor
 async function getAllAssignments() {

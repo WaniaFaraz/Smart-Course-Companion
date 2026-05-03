@@ -1,10 +1,4 @@
-const mysql = require("mysql2");
-const pool = mysql.createPool({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "lms_info"
-}).promise();
+const pool = require("./database.js");
 
 // Save a course template 
 async function saveTemplate(courseId, instructorId, description, textbook, week1_2, week3_4, week5_6, week7_8, week9_10, week11_12) {

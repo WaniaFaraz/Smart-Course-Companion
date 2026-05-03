@@ -1,10 +1,4 @@
-const mysql = require("mysql2");
-const pool = mysql.createPool({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "lms_info"
-}).promise();
+const pool = require("./database.js");
 
 async function getGradesOfStudent(studentId) {
     const [rows] = await pool.query(
