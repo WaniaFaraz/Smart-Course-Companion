@@ -19,4 +19,4 @@
 - Frontend: HTML and CSS
 - Data persistence: MySQL Database
 
-  ![Alt text](screenshots/student-home-page.png)
+  ![Alt text](Screenshots/student-home-page.png)
