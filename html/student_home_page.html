@@ -1,0 +1,214 @@
+<!DOCTYPE HTML5>
+<html lang="en">
+
+<head>
+    <title>Smart Course Companion</title>
+    <link rel="stylesheet" href="/../css/HomePage_Styles.css">
+    <link rel="stylesheet" href="/../css/CourseOrganizer_GeneralStyles.css">
+</head>
+
+<body>
+    <div class="left">
+        <div class="left-title sub-title" id="left-title">COURSE COMPANION</div>
+        <nav class="left-menu-top">
+            <ul>
+                <li class="left-menu-option"><img src="/white-icons/white-4-square-grid-96.png"><a
+                        href="home">Dashboard</a></li>
+                
+                <li class="left-menu-option"><img src="/white-icons/white-assignments-96.png"><a
+                        href="assignments">Assignments</a></li>
+                <li class="left-menu-option"><img src="/white-icons/white-messages-288.png"><a
+                        href="announcements">Announcements</a>
+                </li>
+            </ul>
+        </nav>
+        <nav class="left-menu-bottom">
+            <ul>
+                <li class="left-menu-option"><img src="/white-icons/white-sign-out-96.png"><a href="log-out">Log out</a>
+                    </p>
+                <li class="left-menu-option"><img src="/white-icons/white-settings-288.png"><a
+                        href="account-settings">Settings</a></p>
+                <li class="left-menu-option"><img src="/white-icons/white-help-96.png"><a href="">Help</a></p>
+            </ul>
+        </nav>
+    </div>
+    <div class="main">
+        <div class="center-top">
+            <div class="uppermost-center-line">
+                <p class="center-title">MY COURSES</p>
+
+                <div class="left-icons-in-uppermost-center-line">
+                    <div class="search-bar-container">
+                        <div><img class="search-icon" src="/black-icons/black-search-480.png"></div>
+                        <input type="text" class="search-bar-input" placeholder="Search"></input>
+                    </div>
+                    <div class="notifications"><img class="notifications-icon"
+                            src="/black-icons/black_notification-96.png"></div>
+                    <div class="edit-courses-menu">
+                        <div class="hamburger-menu-button">
+                            <span class="hamburger-bar"></span>
+                            <span class="hamburger-bar"></span>
+                            <span class="hamburger-bar"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="top-right">
+                <div class="text-next-to-profile">
+                    <p class="username" id="username">Username</p>
+                    <p class="student-id">Student ID</p>
+                </div>
+                <div><img class="profile-photo" src="/black-icons/black-profile-96.png"></div>
+            </div>
+        </div>
+        <div class="sub-main">
+            <div class="sub-main-left">
+                <div class="course-area">
+                    
+                    <div class="add-course-container">
+                        <button id="add-courses-modal-button" type="button">
+                            <img src="/black-icons/black-plus-24.png">Add New Course</button>
+                        <dialog id="add-course-modal">
+                            <div class="modal-top-line">
+                            <p class="modal-title">ADD COURSE</p><button class="modal-close-button"
+                                id="add-courses-close-modal"><img src="/black-icons/icons8-close-24.png"></button>
+                        </div>
+                            <form id="add-course-modal-form" action="/api/student/add-course" method="post">
+                                <div class="modal-block">
+                                    <label for="ask-code">Course code</label>
+                                    <input type="text" id="ask-code" placeholder="ex: ENGR 233" name="code">
+                                </div>
+                                <div class="modal-block">
+                                    <label for="course-select-section">Section</label>
+                                    <select id="course-select-section" name="section">
+                                        <option>Select</option>
+                                    </select>
+                                </div>
+                            </form>
+
+                            <div>
+                                <button type="submit" class="modal-add-button" form="add-course-modal-form">ADD</button>
+                            </div>
+
+                        </dialog>
+                    </div>
+                    <div class="filter-by-line">
+                        <!--
+                        <p>Filter:</p>
+                        <div class="past-div filter-checkbox-div">
+                            <input type="checkbox" id="past" class="disappear filter-checkbox" />
+                            <label for="past" class="filter-checkbox-label past-label">
+                                <p class="filter-p">Past</p>
+                            </label>
+                        </div>
+                        <div class="present-div filter-checkbox-div">
+                            <input type="checkbox" id="present" class="disappear filter-checkbox" />
+                            <label for="present" class="filter-checkbox-label present-label">
+                                <p class="filter-p">Present</p>
+                            </label>
+                        </div>
+                        <div class="future-div filter-checkbox-div">
+                            <input type="checkbox" id="future" class="disappear filter-checkbox" />
+                            <label for="future" class="filter-checkbox-label future-label">
+                                <p class="filter-p">Future</p>
+                            </label>
+                        </div>
+                    -->
+                    </div>
+                    <!-- All courses of student -->
+                    <script>
+
+                    </script>
+                    <div class="sub-course-area" id="course-area">
+                        <!--
+                        <div class="course">
+                            <div class="course-image course-img-1"></div>
+                            <a class="course-info-text" href="course-page">
+                                <p class="course-code">SOEN 287</p>
+                                <p class="course-name">Web Programming</p>
+                                <p class="course-section">Section Y</p>
+                            </a>
+                        </div>                     
+                        --->
+                    </div>
+                </div>
+                <div class="deadlines-container">
+                    <p class="deadline-title sub-title">Deadlines</p>
+                    <div class="deadlines-list" id="deadlines-list">
+                        <!--
+                        <div class="deadline-item"><a href="ManageAssessments_Page.html"
+                                class="deadline-item-anchor">Assignment 1</a></div>
+                        <div class="deadline-item"><a href="ManageAssessments_Page.html"
+                                class="deadline-item-anchor">Quiz 5</a></div>
+                        <div class="deadline-item"><a href="ManageAssessments_Page.html"
+                                class="deadline-item-anchor">Project SOEN287</a></div>
+                        <div class="deadline-item"><a href="ManageAssessments_Page.html"
+                                class="deadline-item-anchor">Assignment 2</a></div>
+                                -->
+                    </div>
+                </div>
+            </div>
+            <div class="sub-main-right">
+
+                <section class="calend-card">
+                    <div class="cal-card-header">
+                        <h3> Calendar </h3>
+                        <p class="muted" id="cal-month-year"></p>
+                    </div>
+                    <div class="calendar">
+                        <div class="cal-head">
+                            <span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span><span>Su</span>
+                        </div>
+                        <div class="cal-grid">
+
+                            <span class="cal-day dim"></span>
+                            <span class="cal-day" id="1-1"></span><span class="cal-day" id="1-2"></span><span
+                                class="cal-day" id="1-3"></span><span class="cal-day" id="1-4"></span><span id="1-5"
+                                class="cal-day"></span><span class="cal-day" id="1-6"></span>
+                            <span class="cal-day" id="1-7"></span><span class="cal-day" id="2-1"></span><span
+                                class="cal-day" id="2-2"></span><span class="cal-day" id="2-3"></span><span
+                                class="cal-day" id="2-4"></span><span class="cal-day" id="2-5"></span>
+                            <span class="cal-day" id="2-6"></span><span class="cal-day" id="2-7"></span><span
+                                class="cal-day" id="3-1"></span><span class="cal-day" id="3-2"></span><span
+                                class="cal-day" id="3-3"></span><span class="cal-day" id="3-4"></span>
+                            <span class="cal-day" id="3-5"></span><span class="cal-day" id="3-6"></span><span
+                                class="cal-day" id="3-7"></span><span class="cal-day" id="4-1"></span><span
+                                class="cal-day" id="4-2"></span><span class="cal-day" id="4-3"></span>
+                            <span class="cal-day" id="4-4"></span><span class="cal-day" id="4-5"></span><span
+                                class="cal-day" id="4-6"></span><span class="cal-day" id="4-7"></span>
+                            <span class="cal-day" id="5-1"></span><span class="cal-day" id="5-2"></span><span
+                                class="cal-day" id="5-3"></span>
+                            <span class="cal-day" id="5-4"></span><span class="cal-day" id="5-5"></span><span
+                                class="cal-day" id="5-6"></span>
+                            <span class="cal-day" id="5-7"></span>
+                            <span class="cal-day" id="6-1"></span><span class="cal-day" id="6-2"></span><span
+                                class="cal-day" id="6-3"></span>
+                            <span class="cal-day" id="6-4"></span><span class="cal-day" id="6-5"></span><span
+                                class="cal-day" id="6-6"></span>
+                            <span class="cal-day" id="6-7"></span>
+
+                        </div>
+
+                    </div>
+                </section>
+
+
+                <div class="averages-container">
+                    <div class="average-card">
+                        <div class="averages-title">Averages</div>
+                        <div class="averages-bars-container" id="averages-bars-container"></div>
+                        <hr class="divider">
+                        <div class="overall">
+                            Overall Average<br>
+                            <span class="overallNumber" id="overall-percent">0%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script type="text/javascript" src="/scripts/home_page_scripts.js" defer></script>
+
+</html>

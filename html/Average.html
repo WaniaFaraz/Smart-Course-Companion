@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Organizer - Average</title>
+    <link rel="stylesheet" href="/css/Average.css">
+</head>
+<body>
+    <div class="card">
+        <div class="title">Course Averages</div>
+        <div id="courses-container">
+            <p>Loading averages...</p>
+        </div>
+        <hr class="divider">
+        <div class="overall">
+            Overall Average<br>
+            <span class="overallNumber" id="overall-percent">0%</span>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            const sessionRes = await fetch("/api/student/session");
+            const session = await sessionRes.json();
+
+            if (!session.loggedIn) {
+                window.location.href = "/student/sign-in";
+                return;
+            }
+
+            const studentId = session.userId;
+
+            const gradesRes = await fetch(`/api/student/get-grades/${studentId}`);
+            const grades = await gradesRes.json();
+
+            const coursesRes = await fetch(`/api/student/get-courses/${studentId}`);
+            const studentCourses = await coursesRes.json();
+
+            const container = document.getElementById("courses-container");
+            container.innerHTML = "";
+
+            if (studentCourses.length === 0) {
+                container.innerHTML = "<p>No courses found.</p>";
+                return;
+            }
+
+            let totalAverage = 0;
+            let courseCount = 0;
+
+            for (const sc of studentCourses) {
+                const courseId = sc.courseId;
+                const courseCode = sc.courseCode;
+                const courseSection = sc.courseSection;
+
+                const courseGrades = grades.filter(g => g.courseId === courseId);
+
+                let avg = 0;
+                if (courseGrades.length > 0) {
+                    const totalEarned = courseGrades.reduce((sum, g) => sum + parseFloat(g.earnedMarks), 0);
+                    const totalPossible = courseGrades.reduce((sum, g) => sum + parseFloat(g.totalMarks), 0);
+                    avg = totalPossible > 0 ? Math.round((totalEarned / totalPossible) * 100) : 0;
+                }
+
+                totalAverage += avg;
+                courseCount++;
+
+                container.innerHTML += `
+                    <div class="courseRow">
+                        <div class="courseLabel">
+                            <span>${courseCode} - ${courseSection}</span>
+                            <span>${avg}%</span>
+                        </div>
+                        <div class="barBackground">
+                            <div class="barFill" style="width: ${avg}%"></div>
+                        </div>
+                    </div>`;
+            }
+
+            const overall = courseCount > 0 ? Math.round(totalAverage / courseCount) : 0;
+            document.getElementById("overall-percent").textContent = overall + "%";
+        });
+    </script>
+</body>
+</html>

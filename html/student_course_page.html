@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Course Page</title>
+    <link rel="stylesheet" href="/css/coursePage.css">
+    <link rel="stylesheet" href="/css/CourseOrganizer_GeneralStyles.css">
+    <script src="/scripts/student_course_page_scripts.js" defer></script>
+</head>
+
+<body>
+    <div class="app">
+
+        <!-- this is the left side bar -->
+
+        <div class="left">
+            <div class="left-title sub-title" id="left-title">COURSE COMPANION</div>
+            <nav class="left-menu-top">
+                <ul>
+                    <li class="left-menu-option"><img src="/white-icons/white-4-square-grid-96.png"><a
+                            href="home">Dashboard</a></li>
+                    
+                    </li>
+                    <li class="left-menu-option"><img src="/white-icons/white-assignments-96.png"><a
+                            href="assignments">Assignments</a>
+                    </li>
+                    <li class="left-menu-option"><img src="/white-icons/white-messages-288.png"><a
+                        href="announcements">Announcements</a>
+                </li>
+                </ul>
+            </nav>
+            <nav class="left-menu-bottom">
+                <ul>
+                    <li class="left-menu-option"><img src="/white-icons/white-sign-out-96.png"><a href="log-out">Log
+                            out</a></p>
+                    <li class="left-menu-option"><img src="/white-icons/white-settings-288.png"><a
+                            href="account-settings">Settings</a></p>
+                    <li class="left-menu-option"><img src="/white-icons/white-help-96.png"><a href="">Help</a></p>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- this is the main page area -->
+        <main class="page">
+
+            <!--- this is the top bar area -->
+            <header class="topbar">
+                <div class="course-title">
+                    <h2>SOEN 287</h2>
+                    <p>Web Programming - Instructor Name</p>
+                </div>
+
+                <div class="left-icons-in-uppermost-center-line">
+                    <div class="search-bar-container">
+                        <div><img class="search-icon" src="/black-icons/black-search-480.png"></div>
+                        <input type="text" class="search-bar-input" placeholder="Search"></input>
+                    </div>
+                    <div class="notifications"><img class="notifications-icon"
+                            src="/black-icons/black_notification-96.png"></div>
+
+                    
+                </div>
+                <div class="top-right">
+                    <div class="text-next-to-profile">
+                        <p class="username" id="username">Username</p>
+                        <p class="student-id">Instructor ID</p>
+                    </div>
+                    <div><img class="profile-photo" src="/black-icons/black-profile-96.png"></div>
+                </div>
+            </header>
+            <!--- this is the center and right panel -->
+            <section class="content-grid">
+
+                <!-- this is the center-->
+
+                <div class="center">
+
+                    <!-- this is the assessment table card-->
+                    <section class="center-area">
+                        <section class="card">
+                            <div class="card-header">
+                                <h3>Assessments</h3>
+                                
+                            </div>
+
+                            <div class="table-wrap">
+                                <table class="assess-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Type</th>
+                                            <th>Due Date</th>
+                                            <th>Status</th>
+                                            <th>Grade</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+
+                        <!-- this is the enter grade section -->
+                        <section class="card">
+                            <div class="card-header">
+                                <h3>Enter Marks</h3>
+                                <p>Your earned marks per assessment</p>
+                            </div>
+                            <div class="table-wrap">
+                                <table class="assess-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Assessment</th>
+                                            <th>Earned Marks</th>
+                                            <th>Total Marks</th>
+                                            <th>Percentage</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+
+                        <!-- this is the grade breakdown section -->
+                        <section class="card">
+                            <div class="card-header">
+                                <h3>Grade Breakdown</h3>
+                                <p>Current average for this course</p>
+                            </div>
+                            <div class="donut-container">
+                                <div class="donut-chart">
+                                    <div class="donut-hole">
+                                        <span class="donut-percent">0</span>
+                                    </div>
+                                </div>
+                                <p class="donut-label">Course Average</p>
+                            </div>
+                        </section>
+
+                        <section class="card">
+                            <div class="card-header">
+                                <h3>Course Structure</h3>
+                                <p>Published by your instructor</p>
+                            </div>
+                            <a href="course-templates">
+                                <button class="primary-btn">View Course Structure</button>
+                            </a>
+                        </section>
+                    </section>
+                </div>
+                <!-- this is the right side-->
+                <aside class="rightpanel">
+
+                    <section class="card">
+                        <div class="task-header">
+                            <h3>Tasks List</h3>
+                            <button id="addTaskBtn" class="add-btn"><img src="/black-icons/black-plus-24.png"></button>
+                        </div>
+                        <div id="new-task-form" style="display:none; margin-bottom:10px;">
+                            <input type="text" id="new-task-input" placeholder="New task..." style="width:70%">
+                            <button onclick="addNewTask()">Add</button>
+                        </div>
+                        <ul class="tasks"></ul>
+                    </section>
+
+                    <section class="cal-card">
+                        <div class="cal-card-header">
+                            <h3> Calendar </h3>
+                            <p class="muted" id="cal-month-year"></p>
+                        </div>
+                        <div class="calendar">
+                            <div class="cal-head">
+                                <span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span><span>Su</span>
+                            </div>
+                            <div class="cal-grid">
+
+                                <span class="cal-day dim"></span>
+                                <span class="cal-day" id="1-1"></span><span class="cal-day" id="1-2"></span><span class="cal-day" id="1-3"></span><span class="cal-day" id="1-4"></span><span id="1-5"
+                                    class="cal-day"></span><span class="cal-day" id="1-6"></span>
+                                <span class="cal-day" id="1-7"></span><span class="cal-day" id="2-1"></span><span
+                                    class="cal-day" id="2-2"></span><span class="cal-day" id="2-3"></span><span
+                                    class="cal-day" id="2-4"></span><span class="cal-day" id="2-5"></span>
+                                <span class="cal-day" id="2-6"></span><span class="cal-day" id="2-7"></span><span
+                                    class="cal-day" id="3-1"></span><span class="cal-day" id="3-2"></span><span
+                                    class="cal-day" id="3-3"></span><span class="cal-day" id="3-4"></span>
+                                <span class="cal-day" id="3-5"></span><span class="cal-day" id="3-6"></span><span
+                                    class="cal-day" id="3-7"></span><span class="cal-day" id="4-1"></span><span
+                                    class="cal-day" id="4-2"></span><span class="cal-day" id="4-3"></span>
+                                <span class="cal-day" id="4-4"></span><span class="cal-day" id="4-5"></span><span
+                                    class="cal-day" id="4-6"></span><span class="cal-day" id="4-7"></span>
+                                    <span class="cal-day" id="5-1"></span><span class="cal-day" id="5-2"></span><span class="cal-day" id="5-3"></span>
+                                    <span class="cal-day" id="5-4"></span><span class="cal-day" id="5-5"></span><span class="cal-day" id="5-6"></span>
+                                    <span class="cal-day" id="5-7"></span>
+                                    <span class="cal-day" id="6-1"></span><span class="cal-day" id="6-2"></span><span class="cal-day" id="6-3"></span>
+                                    <span class="cal-day" id="6-4"></span><span class="cal-day" id="6-5"></span><span class="cal-day" id="6-6"></span>
+                                    <span class="cal-day" id="6-7"></span>
+
+                            </div>
+
+                            
+                        </div>
+                    </section>
+
+                </aside>
+            </section>
+
+
+            </aside>
+            </section>
+
+
+
+
+        </main>
+    </div>
+</body>
+
+</main>
+</div>
+</body>
+
+</html>

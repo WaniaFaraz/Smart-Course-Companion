@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Organizer - Sign In</title>
+    <link rel="stylesheet" href="/css/SignIn.css">
+</head>
+<body>
+    <div class="page">
+        <div class="card">
+            <div class="leftSide">
+                <div class="pattern1"></div>
+                <div class="pattern2"></div>
+                <h1 class="title">Course <br> Companion</h1>
+                <p class="subtitle">Manage your courses<br> with ease!</p>
+            </div>
+            <div class="rightSide">
+                <h1 class="welcome">Welcome Back!</h1>
+                <h2 class="formTitle">Sign In</h2>
+                <p id="error-message" style="color:red; display:none;"></p>
+                <form class="form" action="/api/student/login" method="post">
+                   <label class="label" for="email">Email</label>
+                   <div class="input-wrapper">
+                       <span class="input-icon">👤</span>
+                       <input class="input" type="email" id="email" name="email" placeholder="Enter your email"/>
+                    </div>
+                   <label class="label" for="password">Password</label>
+                   <div class="input-wrapper">
+                       <span class="input-icon">🔒</span>
+                       <input class="input" type="password" id="password" name="password" placeholder="Enter your password"/>
+                   </div>
+                   <button class="button" type="submit">Sign In</button>
+               </form>
+               <p class="bottomText">
+                 Don't have an account? 
+                <a href="create-account">Create Account</a>
+              </p>
+              <p class="bottomText2">
+                 You're an instructor? 
+                <a href="../instructor/sign-in">Sign In</a>
+              </p>
+           </div>
+      </div>
+   </div>
+</body>
+</html>

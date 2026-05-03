@@ -1,0 +1,152 @@
+<!DOCTYPE HTML5>
+<html lang="en">
+
+<head>
+    <title>Smart Course Companion</title>
+    <link rel="stylesheet" href="/css/instructor_announcements_styles.css">
+    <link rel="stylesheet" href="/css/CourseOrganizer_GeneralStyles.css">
+    <script type="text/javascript" src="/scripts/instructor_announcements_scripts.js" defer></script>
+
+</head>
+
+<!-- LEFT MENU -->
+
+<body>
+    <div class="left">
+        <div class="left-title sub-title" id="left-title">COURSE COMPANION</div>
+        <nav class="left-menu-top">
+            <ul>
+                <li class="left-menu-option"><img src="/white-icons/white-4-square-grid-96.png"><a
+                        href="home">Dashboard</a>
+                </li>
+
+                <li class="left-menu-option"><img src="/white-icons/white-messages-288.png"><a
+                        href="announcements">Announcements</a>
+                </li>
+                <!--
+                <br>
+                    <div class = "all-classes-dropdown" id = "all-classes-menu-dropdown">
+                        
+                    </div>
+                </li>
+                -->
+            </ul>
+        </nav>
+        <nav class="left-menu-bottom">
+            <ul>
+
+                <li class="left-menu-option"><img src="/white-icons/white-sign-out-96.png"><a href="log-out">Log out</a>
+                    </p>
+                <li class="left-menu-option"><img src="/white-icons/white-settings-288.png"><a
+                        href="account-settings">Settings</a></p>
+                <li class="left-menu-option"><img src="/white-icons/white-help-96.png"><a href="">Help</a>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- MAIN RIGHT SIDE OF PAGE -->
+
+    <div class="main">
+        <!-- TOP BAR OF THE MAIN PAGE -->
+        <div class="center-top">
+            <div class="uppermost-center-line">
+                <div class="instructor-welcome-message">
+                    <p class="center-title"></p>
+                    <p class="current-course-count"></p>
+                </div>
+                <div class="left-icons-in-uppermost-center-line">
+                    <div class="search-bar-container">
+                        <div><img class="search-icon" src="/black-icons/black-search-480.png"></div>
+                        <input type="text" class="search-bar-input" placeholder="Search"></input>
+                    </div>
+                    <div class="notifications"><img class="notifications-icon"
+                            src="/black-icons/black_notification-96.png">
+                    </div>
+
+                    
+                    
+                       
+
+
+                </div>
+            </div>
+            <div class="top-right">
+                <div class="text-next-to-profile">
+                    <p class="username" id="username">Username</p>
+                    <p class="instructor-id">Instructor ID</p>
+                </div>
+                <div><img class="profile-photo" src="/black-icons/black-profile-96.png"></div>
+            </div>
+        </div>
+        <!-- END OF TOP BAR OF THE MAIN PAGE (INCLUDES EDIT AND DELETE COURSE MODAL) -->
+        <!-- MAIN PART OF THE MAIN PAGE - ANNOUNCEMENTS AREA -->
+        <div class="announcements-area" id="announcements-area">
+            <div class="announcements-top-line">
+                <div class="announcements-area-title">ANNOUNCEMENTS</div>
+                <div class="announcement-button-div"> <button type = "button" class="create-announcement-button" id="create-announcement-button">NEW<img src="/black-icons/black-plus-24.png"></button>
+                </div>
+            </div>
+            <div id="announcements-sub-area">
+
+            </div>
+
+            <!--
+            <div class="announcements-of-one-course-card" id = "">
+                <div class="announcement-card-course-title">
+                    <div class="announcement-card-course-title-row">
+                        <div class="announcement-card-code-section" ></div>
+                        <div class="announcement-card-button-div"><button>NEW<img
+                                    src="../public/black-icons/black-plus-24.png"></button></div>
+                    </div>
+                    
+                    <div class="announcement-card-course-title-row">
+                        <div class="announcement-course-title">Object Oriented Programming</div>
+                    </div>
+                </div>
+                <div class="announcement-card-body" id = >
+                    <div class="announcement">
+                        <div class="announcement-basic-info-row">
+                            <div class="announcement-basic-info"></div>
+                            <div class="toggle-announcement-display-container"><input type="checkbox"
+                                    class="toggle-announcement-display"><img></div>
+                        </div>
+                        <div class="announcement-text-body">
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+            -->
+        </div>
+    </div>
+    </div>
+    <!-- CREATE ANNOUNCEMENT MODAL -->
+    <dialog id="create-announcement-modal" class="create-announcement-modal">
+        <div class="modal-top-line">
+            <p class="modal-title" id="create-announcement-modal-title">CREATE ANNOUNCEMENT</p><button
+                class="modal-close-button" id="close-create-announcement-modal"><img
+                    src="/black-icons/icons8-close-24.png"></button>
+        </div>
+        <form id="create-announcement-modal-form" method="post" action="/api/instructor/create-announcement">
+            <div class = "modal-row">
+                <label for=""create-announcement-course-dropdown>Create for</label>
+                <select id = "create-announcement-course-dropdown" name="courseId">
+                    <option>Select Course</option>
+                </select>
+            </div>
+            <div class = "modal-block">
+                <label for="create-announcement-ask-title">Title</label>
+                <input type="text" id="create-announcement-ask-title" placeholder="Announcement title" name="title">
+            </div>
+            <div class = "modal-block">
+                <label for="create-announcement-message-body">Message</label>
+                <textarea id="create-announcement-message-body" placeholder="Announcement message body..." name="message"></textarea>
+            </div>            
+        </form>
+        <div class="modal-button-row">
+            <button type="submit" id="create-announcement-submit-button" class="create-announcement-submit-button" form="create-announcement-modal-form">
+                CREATE</button>
+        </div>
+
+    </dialog>
+</body>

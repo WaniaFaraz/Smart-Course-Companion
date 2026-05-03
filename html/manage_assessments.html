@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Manage assessments </title>
+    <link rel="stylesheet" href="/css/ManageAssessments_Page_Styles.css">
+    <link rel="stylesheet" href="/css/CourseOrganizer_GeneralStyles.css">
+    <script src="/scripts/manage_assessments_scripts.js" defer></script>
+</head>
+
+<body>
+    <!-- lEFT MENU-->
+    <div class="left">
+        <div class="left-title sub-title" id="left-title">COURSE COMPANION</div>
+        <nav class="left-menu-top">
+            <ul>
+                <li class="left-menu-option"><img src="/white-icons/white-4-square-grid-96.png"><a
+                        href="home">Dashboard</a></li>
+                
+                <li class="left-menu-option"><img src="/white-icons/white-assignments-96.png"><a
+                        href="assignments">Assignments</a></li>
+                        <li class="left-menu-option"><img src="/white-icons/white-messages-288.png"><a
+                        href="announcements">Announcements</a>
+                </li>
+            </ul>
+        </nav>
+        <nav class="left-menu-bottom">
+            <ul>
+                <li class="left-menu-option"><img src="/white-icons/white-sign-out-96.png"><a href="log-out">Log
+                        out</a></p>
+                <li class="left-menu-option"><img src="/white-icons/white-settings-288.png"><a
+                        href="account-settings">Settings</a></p>
+                <li class="left-menu-option"><img src="/white-icons/white-help-96.png"><a href="">Help</a></p>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="main">
+        <div class="center-top">
+            <div class="uppermost-center-line">
+                <p class="center-title">MY COURSES</p>
+                <div class="left-icons-in-uppermost-center-line">
+                    <div class="search-bar-container">
+                        <div><img class="search-icon" src="/black-icons/black-search-480.png"></div>
+                        <input type="text" class="search-bar-input" placeholder="Search"></input>
+                    </div>
+                    <div class="notifications"><img class="notifications-icon"
+                            src="/black-icons/black_notification-96.png"></div>
+                    <div class="edit-courses-menu">
+                        <div class="hamburger-menu-button">
+                            <span class="hamburger-bar"></span>
+                            <span class="hamburger-bar"></span>
+                            <span class="hamburger-bar"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="top-right">
+                <div class="text-next-to-profile">
+                    <p class="username" id="username">Username</p>
+                    <p class="student-id">Student ID</p>
+                </div>
+                <div><img class="profile-photo" src="/black-icons/black-profile-96.png"></div>
+            </div>
+        </div>
+        <div class="sub-main">
+            <h1>MY ASSESSMENTS</h1>
+            <p class="subtitle"> Track and manage your assessments</p>
+
+            <section class="summary">
+                <div class="card">
+                    <h2>5</h2>
+                    <p>Total</p>
+                </div>
+
+                <div class="card">
+                    <h2>2</h2>
+                    <p>Completed</p>
+                </div>
+
+                <div class="card">
+                    <h2>3</h2>
+                    <p>Pending</p>
+                </div>
+
+            </section>
+
+            <section class="filters">
+                <div class="status-filter">
+                    <button class="filter">All</button>
+                    <button class="filter">Pending</button>
+                    <button class="filter">Completed</button>
+                </div>
+                <div class="course-filter">
+                    <button class="filter">All Courses</button>
+                    <button class="filter">SOEN 287</button>
+                    <button class="filter">ENGR 233</button>
+                    <button class="filter">COMP 249</button>
+                </div>
+
+            </section>
+
+            <section class="assessments">
+                <div class="assessment-card">
+                    <input type="checkbox" id="ass1" class="status">
+                    <label for="ass1">Website Project</label>
+                    <div class="assessment-details">
+                        <h3>Website Projet</h3>
+                        <p>SOEN 287</p>
+                    </div>
+                    <button class="delete-assessment">Delete</button>
+                </div>
+
+                <div class="assessment-card">
+                    <input type="checkbox" id="ass2" class="status">
+                    <label for="ass2">Assignment #1</label>
+                    <div class="assessment-details">
+                        <h3>Assigment #1</h3>
+                        <p>COMP 249</p>
+                    </div>
+                    <button class="delete-assessment">Delete</button>
+                </div>
+
+                <div class="assessment-card">
+                    <input type="checkbox" id="ass3" class="status">
+                    <label for="ass3">Team Project</label>
+                    <div class="assessment-details">
+                        <h3>Team Project</h3>
+                        <p>ENGR 233</p>
+                    </div>
+                    <button class="delete-assessment">Delete</button>
+                </div>
+
+                <div class="assessment-card">
+                    <input type="checkbox" id="ass4" class="status">
+                    <label for="ass4">Assignment #2</label>
+                    <div class="assessment-details">
+                        <h3>Assignment #2</h3>
+                        <p>SOEN 287</p>
+                    </div>
+                    <button class="delete-assessment">Delete</button>
+                </div>
+
+                <div class="assessment-card">
+                    <input type="checkbox" id="ass5" class="status">
+                    <label for="ass5">Online Quiz</label>
+                    <div class="assessment-details">
+                        <h3>Online Quiz</h3>
+                        <p>ENGR 233</p>
+                    </div>
+                    <button class="delete-assessment">Delete</button>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+
+</html>

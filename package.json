@@ -1,0 +1,27 @@
+{
+  "name": "soen287project",
+  "version": "1.0.0",
+  "description": "* This file can be edited without creating a new branch and submitting a pull request so that it can stay up-to-date\r ## Work Distribution\r ### Wiame\r * Mark assessments as completed or pending.\r * Edit or delete their own courses and assessments.\r * View visual summaries such as progress bars or charts (e.g., per-course progress bars, current average per course, or a chart showing performance trends or assessment completion).\r * View anonymized usage statistics. (e.g., percentage of students who have completed assessments, which could be useful for monitoring progress and considering deadline extensions.)\r * Enable or disable courses. \r ### Chaymae\r * Create and manage a personal account. \r * Provide reusable course structures for students.\r * Automatically calculate and display current course averages.\r ### Zahira\r * Add courses they are enrolled in (course code, name, instructor, term)\r * View assessments for each course (assignments, labs, quizzes, exams…).\r * View upcoming assessments across all courses in a single dashboard. \r ### Wania\r * Create and manage courses.\r * Define assessment categories and their weightings for each course.\r * Create home page\r ## Info about project\r ### Color scheme 1:\r * (195,200,140) SAGE\r * (48,37,62) DARK PURPLE\r * (99,136,114) RUSSIAN GREEN\r * (128,185,177) PEWTER BLUE\r * (148,199,180) CAMBRIDGE BLUE\r ### Color scheme 2:\r * B3BAC1 CLOUDY SKIES\r * 4A6781 THUNDER BLUE\r * DFE5EB MISTY\r * F2C94C RAINCOAT\r * 26374D PUDDLE\r ## Unfinished Tasks\r ### Minimum Required Features\r #### Students should be able to:\r * Enter earned marks and total marks for assessments.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WaniaFaraz/SOEN287Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/WaniaFaraz/SOEN287Project/issues"
+  },
+  "homepage": "https://github.com/WaniaFaraz/SOEN287Project#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "mysql2": "^3.20.0"
+  }
+}

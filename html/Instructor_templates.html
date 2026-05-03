@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Course Structure - Instructor</title>
+    <link rel="stylesheet" href="/css/Instructor_templates.css">
+    <link rel="stylesheet" href="/css/CourseOrganizer_GeneralStyles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Raleway:wght@100..900&display=swap"
+        rel="stylesheet">
+    <script src="/scripts/instructor_templates_scripts.js" defer></script>
+</head>
+
+<body>
+    <div class="left">
+        <div class="left-title sub-title" id="left-title">COURSE COMPANION</div>
+        <nav class="left-menu-top">
+            <ul>
+                <li class="left-menu-option"><img src="/white-icons/white-4-square-grid-96.png"><a
+                        href="home">Dashboard</a></li>
+                <li class="left-menu-option"><img src="/white-icons/white-messages-288.png"><a
+                        href="announcements">Announcements</a>
+                </li>
+            </ul>
+        </nav>
+        <nav class="left-menu-bottom">
+            <ul>
+                <li class="left-menu-option"><img src="/white-icons/white-sign-out-96.png"><a href="log-out">Log out</a>
+                </li>
+                <li class="left-menu-option"><img src="/white-icons/white-settings-288.png"><a
+                        href="account-settings">Settings</a></li>
+                <li class="left-menu-option"><img src="/white-icons/white-help-96.png"><a href="">Help</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="right">
+        <div class="center-top">
+            <div class="uppermost-center-line">
+                <div class="instructor-welcome-message">
+                    <p class="center-title">WELCOME PROFESSOR X</p>
+                    <p class="current-course-count">YOU'RE CURRENTLY MANAGING 4 COURSES</p>
+                </div>
+                <div class="left-icons-in-uppermost-center-line">
+                    <div class="search-bar-container">
+                        <div><img class="search-icon" src="/black-icons/black-search-480.png"></div>
+                        <input type="text" class="search-bar-input" placeholder="Search">
+                    </div>
+                    <div class="notifications"><img class="notifications-icon"
+                            src="/black-icons/black_notification-96.png"></div>
+                    <div class="edit-courses-menu">
+                        <div class="hamburger-menu-button">
+                            <span class="hamburger-bar"></span>
+                            <span class="hamburger-bar"></span>
+                            <span class="hamburger-bar"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="top-right">
+                <div class="text-next-to-profile">
+                    <p class="username" id="username">Username</p>
+                    <p class="instructor-id">Instructor ID</p>
+                </div>
+                <div><img class="profile-photo" src="/black-icons/black-profile-96.png"></div>
+            </div>
+        </div>
+        <div class="container">
+            <p class="pageTitle">CREATE COURSE STRUCTURE</p>
+            <p class="pageSubtitle">Fill in the details below and publish for your students</p>
+
+            <div class="card">
+                <p class="sectionTitle">Course Information</p>
+                <hr>
+
+                <p class="label">Course Name</p>
+                <input class="input" id="course-name" type="text" placeholder="e.g. Introduction to Programming">
+
+                <p class="label">Course Code</p>
+                <input class="input" id="course-code" type="text" placeholder="e.g. COMP 248">
+
+                <p class="label">Section</p>
+                <input class="input" id="course-section" type="text" placeholder="e.g. CC">
+
+                <p class="label">Semester</p>
+                <select class="input" id="course-semester">
+                    <option>Winter 2026</option>
+                    <option>Fall 2026</option>
+                    <option>Summer 2026</option>
+                </select>
+
+                <p class="label">Description</p>
+                <textarea class="input" id="course-description"
+                    placeholder="Brief description of the course..."></textarea>
+
+                <br>
+                <p class="sectionTitle">Weekly Topics</p>
+                <hr>
+
+                <p class="label">Week 1-2</p>
+                <input class="input" id="week1_2" type="text" placeholder="e.g. Introduction to Java">
+
+                <p class="label">Week 3-4</p>
+                <input class="input" id="week3_4" type="text" placeholder="e.g. Variables and Data Types">
+
+                <p class="label">Week 5-6</p>
+                <input class="input" id="week5_6" type="text" placeholder="e.g. Control Flow">
+
+                <p class="label">Week 7-8</p>
+                <input class="input" id="week7_8" type="text" placeholder="e.g. Methods and Functions">
+
+                <p class="label">Week 9-10</p>
+                <input class="input" id="week9_10" type="text" placeholder="e.g. Arrays">
+
+                <p class="label">Week 11-12</p>
+                <input class="input" id="week11_12" type="text" placeholder="e.g. Object Oriented Programming">
+
+                <br>
+                <p class="sectionTitle">Evaluations</p>
+                <hr>
+
+                <table class="evalTable">
+                    <tr>
+                        <th>Type</th>
+                        <th>Name</th>
+                        <th>Weight</th>
+                        <th>Due Date</th>
+                    </tr>
+                    <tr>
+                        <td><select class="inputSmall">
+                                <option>Assignment</option>
+                                <option>Quiz</option>
+                                <option>Midterm</option>
+                                <option>Final</option>
+                                <option>Project</option>
+                            </select></td>
+                        <td><input class="inputSmall" type="text" placeholder="Assignment 1"></td>
+                        <td><input class="inputSmall" type="text" placeholder="10%"></td>
+                        <td><input class="inputSmall" type="date"></td>
+                    </tr>
+                    <tr>
+                        <td><select class="inputSmall">
+                                <option>Assignment</option>
+                                <option>Quiz</option>
+                                <option>Midterm</option>
+                                <option>Final</option>
+                                <option>Project</option>
+                            </select></td>
+                        <td><input class="inputSmall" type="text" placeholder="Assignment 2"></td>
+                        <td><input class="inputSmall" type="text" placeholder="10%"></td>
+                        <td><input class="inputSmall" type="date"></td>
+                    </tr>
+                    <tr>
+                        <td><select class="inputSmall">
+                                <option>Quiz</option>
+                                <option>Assignment</option>
+                                <option>Midterm</option>
+                                <option>Final</option>
+                                <option>Project</option>
+                            </select></td>
+                        <td><input class="inputSmall" type="text" placeholder="Quiz 1"></td>
+                        <td><input class="inputSmall" type="text" placeholder="10%"></td>
+                        <td><input class="inputSmall" type="date"></td>
+                    </tr>
+                    <tr>
+                        <td><select class="inputSmall">
+                                <option>Midterm</option>
+                                <option>Assignment</option>
+                                <option>Quiz</option>
+                                <option>Final</option>
+                                <option>Project</option>
+                            </select></td>
+                        <td><input class="inputSmall" type="text" placeholder="Midterm Exam"></td>
+                        <td><input class="inputSmall" type="text" placeholder="30%"></td>
+                        <td><input class="inputSmall" type="date"></td>
+                    </tr>
+                    <tr>
+                        <td><select class="inputSmall">
+                                <option>Final</option>
+                                <option>Assignment</option>
+                                <option>Quiz</option>
+                                <option>Midterm</option>
+                                <option>Project</option>
+                            </select></td>
+                        <td><input class="inputSmall" type="text" placeholder="Final Exam"></td>
+                        <td><input class="inputSmall" type="text" placeholder="40%"></td>
+                        <td><input class="inputSmall" type="date"></td>
+                    </tr>
+                </table>
+
+                <br>
+                <p class="sectionTitle">Resources</p>
+                <hr>
+
+                <p class="label">Textbook</p>
+                <input class="input" id="textbook" type="text"
+                    placeholder="e.g. Introduction to Java Programming - Liang">
+
+                <p class="label">Additional Notes</p>
+                <textarea class="input" id="notes" placeholder="Any extra info for students..."></textarea>
+
+                <br>
+                <button class="btnSave" id="publish-btn">Publish</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

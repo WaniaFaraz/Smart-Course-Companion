@@ -1,0 +1,256 @@
+<!DOCTYPE HTML5>
+<html lang="en">
+
+<head>
+    <title>Smart Course Companion</title>
+    <link rel="stylesheet" href="/css/Instructor_HomePage_Styles.css">
+    <link rel="stylesheet" href="/css/CourseOrganizer_GeneralStyles.css">
+    <script type="text/javascript" src="/scripts/instructor_home_page_scripts.js" defer></script>
+</head>
+
+<body>
+    <div class="left">
+        <div class="left-title sub-title" id="left-title">COURSE COMPANION</div>
+        <nav class="left-menu-top">
+            <ul>
+                <li class="left-menu-option"><img src="/white-icons/white-4-square-grid-96.png">
+                     <a  href="home">Dashboard</a></li>
+                
+                <li class="left-menu-option"><img src="/white-icons/white-messages-288.png"><a href="announcements">Announcements</a>
+                </li>
+            </ul>
+        </nav>
+        <nav class="left-menu-bottom">
+            <ul>
+                <li class="left-menu-option"><img src="/white-icons/white-sign-out-96.png"><a href="log-out">Log out</a></li>
+                <li class="left-menu-option"><img src="/white-icons/white-settings-288.png"><a href="account-settings">Settings</a></li>
+                <li class="left-menu-option"><img src="/white-icons/white-help-96.png"><a href="">Help</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="main">
+        <div class="center-top">
+            <div class="uppermost-center-line">
+                <div class="instructor-welcome-message">
+                    <p class="center-title">WELCOME PROFESSOR X</p>
+                    <p class="current-course-count">YOU'RE CURRENTLY MANAGING 4 COURSES</p>
+                </div>
+                <div class="left-icons-in-uppermost-center-line">
+                    <div class="search-bar-container">
+                        <div><img class="search-icon" src="/black-icons/black-search-480.png"></div>
+                        <input type="text" class="search-bar-input" placeholder="Search"></input>
+                    </div>
+                    <div class="notifications"><img class="notifications-icon"
+                            src="/black-icons/black_notification-96.png"></div>
+
+                    <div class="edit-container">
+                        <a class="edit-courses-icon-anchor" id="edit-courses-icon-anchor">
+                            <div class="edit-courses-menu">
+                                <div class="hamburger-menu-button">
+                                    <span class="hamburger-bar"></span>
+                                    <span class="hamburger-bar"></span>
+                                    <span class="hamburger-bar"></span>
+                                </div>
+                            </div>
+                        </a>
+                        <dialog class="edit-or-delete-pop-up" id="edit-or-delete-pop-up" closedby="any">
+                            <p>EDIT COURSES</p>
+                            <li id="list-of-courses-to-edit"></li>
+                        </dialog>
+                    </div>
+                    <dialog class="edit-course-modal" id="edit-course-modal">
+                        <div class="modal-top-line">
+                            <p class="modal-title" id="edit-modal-title">EDIT COURSE</p>
+                            <button class="modal-close-button" id="close-edit-modal">
+                                <img src="/black-icons/icons8-close-24.png">
+                            </button>
+                        </div>
+                        <form id="edit-course-modal-form" method="post">
+                            <div class="modal-row">
+                                <div class="ask-title">
+                                    <label class="modal-form-label" for="edit-ask-title">Title</label>
+                                    <input type="text" id="edit-ask-title" name="title" class="modal-input"
+                                        placeholder="ex: Applied Advanced Calculus" value="null"/>
+                                </div>
+                            </div>
+                            <div class="modal-row modal-row-2">
+                                <div class="ask-code">
+                                    <label class="modal-form-label" for="edit-ask-code">Course Code</label>
+                                    <input type="text" id="edit-ask-code" name="code" class="modal-input" placeholder="ex: ENGR 233" value="null"/>
+                                </div>
+                                <div class="ask-section">
+                                    <label class="modal-form-label" for="edit-select-section">Section</label>
+                                    <select id="edit-select-section" class="modal-input" name="section">
+                                        <option value="null">No change</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <label class="bg-modal-form-label">Background</label>
+                            <div class="modal-select-background">
+                                <input type="radio" name="radioCourseBg" value="null" id="edit-radio-bg-null">
+                                <label class="edit-radio-none" for="edit-radio-bg-null">No change</label>
+                                <br>
+                                <input type="radio" name="radioCourseBg" value="1" class="modal-radio" id="edit-radio-1">
+                                <label for="edit-radio-1"><img class="bg-img-option" src="/course-images/IMG-20260215-WA0009.jpg"></label>
+                                <input type="radio" name="radioCourseBg" value="2" class="modal-radio" id="edit-radio-2">
+                                <label for="edit-radio-2"><img class="bg-img-option" src="/course-images/IMG-20260215-WA0005.jpg"></label>
+                                <input type="radio" name="radioCourseBg" value="3" class="modal-radio" id="edit-radio-3">
+                                <label for="edit-radio-3"><img class="bg-img-option" src="/course-images/IMG-20260215-WA0020.jpg"></label>
+                                <input type="radio" name="radioCourseBg" value="4" class="modal-radio" id="edit-radio-4">
+                                <label for="edit-radio-4"><img class="bg-img-option" src="/course-images/IMG-20260215-WA0006.jpg"></label>
+                                <input type="radio" name="radioCourseBg" value="5" class="modal-radio" id="edit-radio-5">
+                                <label for="edit-radio-5"><img class="bg-img-option" src="/course-images/IMG-20260215-WA0011.jpg"></label>
+                                <input type="radio" name="radioCourseBg" value="6" class="modal-radio" id="edit-radio-6">
+                                <label for="edit-radio-6"><img class="bg-img-option" src="/course-images/IMG-20260215-WA0013.jpg"></label>
+                                <input type="radio" name="radioCourseBg" value="7" class="modal-radio" id="edit-radio-7">
+                                <label for="edit-radio-7"><img class="bg-img-option" src="/course-images/IMG-20260215-WA0023.jpg"></label>
+                                <input type="radio" name="radioCourseBg" value="8" class="modal-radio" id="edit-radio-8">
+                                <label for="edit-radio-8"><img class="bg-img-option" src="/course-images/IMG-20260215-WA0024.jpg"></label>
+                                <input type="radio" name="radioCourseBg" value="9" class="modal-radio" id="edit-radio-9">
+                                <label for="edit-radio-9"><img class="bg-img-option" src="/course-images/IMG-20260215-WA0018.jpg"></label>
+                            </div>
+                        </form>
+                        <div class="edit-modal-button-row">
+                            <button type="submit" id="edit-modal-delete-button" class="modal-delete-button" form="edit-course-modal-form" name="edit-course-delete">DELETE</button>
+                            <button type="submit" id="edit-modal-edit-button" class="modal-edit-button" form="edit-course-modal-form" name="edit-course-edit">EDIT</button>
+                        </div>
+                    </dialog>
+                </div>
+            </div>
+            <div class="top-right">
+                <div class="text-next-to-profile">
+                    <p class="username" id="username">Username</p>
+                    <p class="instructor-id">Instructor ID</p>
+                </div>
+                <div><img class="profile-photo" src="/black-icons/black-profile-96.png"></div>
+            </div>
+        </div>
+
+        <div class="sub-main">
+            <div class="sub-main-left">
+                <div class="instructor-stats">
+                    <table class="instructor-stats-table">
+                        <tr>
+                            <th>ACTIVE COURSES</th>
+                            <th>TOTAL STUDENTS</th>
+                            <th>PENDING ASSIGNMENTS</th>
+                        </tr>
+                        <tr>
+                            <td id="stats-active-courses">4</td>
+                            <td id="stats-total-students">350</td>
+                            <td id="stats-pending-assignments">13</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="course-area-container" id="course-area-container">
+                    <div class="course-area-title">
+                        <p>Your courses</p>
+                        <button id="add-courses-modal-button" type="button">
+                            <img src="/black-icons/black-plus-24.png">Add New Course
+                        </button>
+                    </div>
+                    <dialog class="add-course-modal" id="add-course-modal">
+                        <div class="modal-top-line">
+                            <p class="modal-title">ADD COURSE</p>
+                            <button class="modal-close-button" id="add-courses-close-modal">
+                                <img src="/black-icons/icons8-close-24.png">
+                            </button>
+                        </div>
+                        <form id="add-course-modal-form" method="post" action="/api/instructor/add-course">
+                            <div class="modal-row">
+                                <div class="ask-title">
+                                    <label class="modal-form-label" for="add-courses-ask-title">Title</label>
+                                    <input type="text" id="add-courses-ask-title" name="title" class="modal-input"
+                                        placeholder="ex: Applied Advanced Calculus"/>
+                                </div>
+                            </div>
+                            <div class="modal-row modal-row-2">
+                                <div class="ask-code">
+                                    <label class="modal-form-label" for="add-courses-ask-code">Course Code</label>
+                                    <input type="text" id="add-courses-ask-code" name="code" class="modal-input" placeholder="ex: ENGR 233"/>
+                                </div>
+                                <div class="ask-section">
+                                    <label class="modal-form-label" for="add-courses-select-section">Section</label>
+                                    <select id="add-courses-select-section" class="modal-input" name="section">
+                                        <option>Section</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <label class="bg-modal-form-label">Background</label>
+                            <div class="modal-select-background">
+                                <input type="radio" name="radioCourseBg" value="1" class="modal-radio" id="add-radio-1">
+                                <label for="add-radio-1"><img class="bg-img-option" src="/course-images/IMG-20260215-WA0009.jpg"></label>
+                                <input type="radio" name="radioCourseBg" value="2" class="modal-radio" id="add-radio-2">
+                                <label for="add-radio-2"><img class="bg-img-option" src="/course-images/IMG-20260215-WA0005.jpg"></label>
+                                <input type="radio" name="radioCourseBg" value="3" class="modal-radio" id="add-radio-3">
+                                <label for="add-radio-3"><img class="bg-img-option" src="/course-images/IMG-20260215-WA0020.jpg"></label>
+                                <input type="radio" name="radioCourseBg" value="4" class="modal-radio" id="add-radio-4">
+                                <label for="add-radio-4"><img class="bg-img-option" src="/course-images/IMG-20260215-WA0006.jpg"></label>
+                                <input type="radio" name="radioCourseBg" value="5" class="modal-radio" id="add-radio-5">
+                                <label for="add-radio-5"><img class="bg-img-option" src="/course-images/IMG-20260215-WA0011.jpg"></label>
+                                <input type="radio" name="radioCourseBg" value="6" class="modal-radio" id="add-radio-6">
+                                <label for="add-radio-6"><img class="bg-img-option" src="/course-images/IMG-20260215-WA0013.jpg"></label>
+                                <input type="radio" name="radioCourseBg" value="7" class="modal-radio" id="add-radio-7">
+                                <label for="add-radio-7"><img class="bg-img-option" src="/course-images/IMG-20260215-WA0023.jpg"></label>
+                                <input type="radio" name="radioCourseBg" value="8" class="modal-radio" id="add-radio-8">
+                                <label for="add-radio-8"><img class="bg-img-option" src="/course-images/IMG-20260215-WA0024.jpg"></label>
+                                <input type="radio" name="radioCourseBg" value="9" class="modal-radio" id="add-radio-9">
+                                <label for="add-radio-9"><img class="bg-img-option" src="/course-images/IMG-20260215-WA0018.jpg"></label>
+                            </div>
+                        </form>
+                        <div>
+                            <button type="submit" class="modal-add-button" form="add-course-modal-form">ADD</button>
+                        </div>
+                    </dialog>
+
+                    <div class="course-area" id="course-area"></div>
+                </div>
+
+                <div class="recent-announcements-container">
+                    <p class="recent-announcements-title sub-title">Recent Announcements</p>
+                    <div class="recent-announcements-list" id="recent-announcements-list"></div>
+                </div>
+            </div>
+
+            <div class="sub-main-right">
+                <div class="class-performance-container">
+                    <div class="performance-card">
+                        <div class="class-performance-title">Class Performance</div>
+                        <div class="classes-performance-bars-container"></div>
+                        <hr class="divider">
+                        <div class="overall">
+                            Overall Performance<br>
+                            <span class="overallNumber" id="overall-percent">0%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <section class="calend-card">
+                    <div class="cal-card-header">
+                        <h3>Calendar</h3>
+                        <p class="muted" id="cal-month-year">FEB 2026</p>
+                    </div>
+                    <div class="calendar">
+                        <div class="cal-head">
+                            <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+                        </div>
+                        <div class="cal-grid">
+                            <span class="cal-day dim"></span>
+                            <span class="cal-day" id="1-1"></span><span class="cal-day" id="1-2"></span><span class="cal-day" id="1-3"></span><span class="cal-day" id="1-4"></span><span class="cal-day" id="1-5"></span><span class="cal-day" id="1-6"></span>
+                            <span class="cal-day" id="1-7"></span><span class="cal-day" id="2-1"></span><span class="cal-day" id="2-2"></span><span class="cal-day" id="2-3"></span><span class="cal-day" id="2-4"></span><span class="cal-day" id="2-5"></span>
+                            <span class="cal-day" id="2-6"></span><span class="cal-day" id="2-7"></span><span class="cal-day" id="3-1"></span><span class="cal-day" id="3-2"></span><span class="cal-day" id="3-3"></span><span class="cal-day" id="3-4"></span>
+                            <span class="cal-day" id="3-5"></span><span class="cal-day" id="3-6"></span><span class="cal-day" id="3-7"></span><span class="cal-day" id="4-1"></span><span class="cal-day" id="4-2"></span><span class="cal-day" id="4-3"></span>
+                            <span class="cal-day" id="4-4"></span><span class="cal-day" id="4-5"></span><span class="cal-day" id="4-6"></span><span class="cal-day" id="4-7"></span>
+                            <span class="cal-day" id="5-1"></span><span class="cal-day" id="5-2"></span><span class="cal-day" id="5-3"></span><span class="cal-day" id="5-4"></span><span class="cal-day" id="5-5"></span><span class="cal-day" id="5-6"></span><span class="cal-day" id="5-7"></span>
+                            <span class="cal-day" id="6-1"></span><span class="cal-day" id="6-2"></span><span class="cal-day" id="6-3"></span><span class="cal-day" id="6-4"></span><span class="cal-day" id="6-5"></span><span class="cal-day" id="6-6"></span><span class="cal-day" id="6-7"></span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

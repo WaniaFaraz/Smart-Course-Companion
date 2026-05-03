@@ -1,0 +1,86 @@
+This file contains all the information on the database: lms_info
+
+=======================================================================================================
+INSTRUCTIONS TO USE DATABASE
+    The database used is a mySQL database
+    (From slides on databases) Install xampp - this has mySQL, apache,...
+    Open the xampp control panel and start apache and mySQL
+    Go to the browser and type: "localhost" - this should lead to the xampp dashboard
+    Click on phpmyadmin
+
+INSTRUCTIONS TO GET DATABASE:
+    I will upload a .sql file to github
+    once you open phpMyAdmin in xampp, create a database and import the .sql file
+    Our databases will not be synced, we will each have a copy of the database and can adddelete data
+    **Do not change the structure of any tables so that our querying functions work correctly**
+========================================================================================================
+
+The database contains 6 tables:
+    * students
+    * instructors
+    * courses
+    * student_courses
+    * instructor_courses
+    * assignments
+    * student_assignments
+
+SOME IMPORTANT NOTES:
+    * constraints - a condition that has been added to the database. Not respecting them will cause the 
+                  database to not save the data you attempt to add.
+    * some data in the table is AUTO-GENERATED (mentioned in the description of each table below)
+        -> make sure to not add data in those columns to avoid errors or issues
+    * When obtaining data from the database, the result is usually a JSON object (shown below)
+        {
+            attribute1 : value1,
+            attribute2 : value2,
+            ...
+        }
+        the description of each table below contains the attributes of the JSON object received in order
+        you can use this to easier understand how to access the required information when using one of the database functions
+
+DESCRIPTION OF EACH TABLE:
+    (1) students:
+    -------------------------------------------------
+        description : list of all students
+        contains - studentId, firstName, lastName, emailAddress, password
+        constraints : the studentId is unique, i.e. you will not be able to add more than one student with the same id
+
+    (2) instructors:
+    -------------------------------------------------
+        description : list of all instructors
+        contains - instructorId, firstName, lastName, emailAddress, password
+        constraints : the instructorId is unique, i.e. you will not be able to add more than one instructor with the same id
+
+    (3) courses:
+    -------------------------------------------------
+        description : list of all courses
+        contains - courseId, title, code, section, visibility, background
+        constraints : the courseId is unique - AUTO-GENERATED, so no need to add
+                      the combination of code and section is unique, i.e. the same course code cannot have the same section twice
+    
+    (4) student_courses:
+    -------------------------------------------------
+        description : maps students to courses (~enrollment)
+        contains - studentId, courseId, courseCode, courseSection
+        constraints : one student cannot enroll in more than one section of the same course
+                      the courseCode has to exist
+                      the courseSection has to exist
+                      the combination of the courseCode and courseSection has to be valid, i.e. in the courses table
+        Note: The appropriate courseId is automatically added based on the courseCode and courseSection
+              Adding the wrong courseId does not do anything; the database will still add the correct one
+
+    (5) instructor_courses:
+    -------------------------------------------------
+        description : maps instructors to courses
+        contains - instructorId, courseId
+        constraints : one courseId cannot have more than one instructor
+                      the instructorId must be valid, i.e. present in the instructors table
+                      the courseId must be valid, i.e. present in the courses table
+
+    (6) assignments:
+    -------------------------------------------------
+        description : contains all assignments created by all professors
+        contains - assignmentId, instructorId, courseId, title, description, weight, dateCreated, dueDate
+        constraints : the instructorId and courseId must be valid, i.e. their combination must exist in the instructor_courses table
+                       ^ the above implies that an instructor teaches the course the assignment belongs to
+                      the assignmentId must be unique - it is AUTO-GENERATED, so no need to add it

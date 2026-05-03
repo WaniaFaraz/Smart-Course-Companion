@@ -1,0 +1,443 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+* {
+    margin : 0;
+    padding : 0;
+    font-family : 'Raleway', 'Gill Sans MT',  Geneva, 'Inter',  'Lucida Sans Unicode', 'Segoe UI';
+}
+
+:root {
+    --z-dark-purple : #3d0066;
+    --z-mid-purple : #82383b;
+    --z-light-purple : #EFD9F7;
+    --z-yellow : #d7ac28;
+    --z-ochre : #c78d17;
+
+    --w-dark-purple1 : #470047;
+    --w-dark-purple2 : #310047;
+    --w-mid-purple : #6f0b5b;
+    --w-magenta : #a02b68;
+    --w-yellow : #ffb948;
+    --w-orange : #ff8f2f;
+    --w-dark-orange : #f97134;
+    --w-purple-grey : rgb(225, 222, 230);
+}
+
+body {
+    display : flex;
+    overflow : auto;
+    font-weight : 12pt;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration : none;
+    color : inherit;
+}
+
+
+
+/* elements in the center area */
+.main {
+    background-color: whitesmoke;
+    flex-grow : 1;
+    display : block;
+    height : auto;
+    overflow : auto;
+
+}
+
+.sub-main {
+    background-color: whitesmoke;
+    display : flex;
+    height : auto;
+    height:85vh;
+    overflow-y: hidden;
+}
+.center-top {
+    display : flex;
+    flex-grow : 1;
+    height : 15vh;
+}
+
+.top-right {
+    width : 25%;
+}
+.sub-main-left {
+    display : block;
+    width : 60%;
+    flex-grow : 1;
+    padding-left : 0.4cm; 
+    overflow-y: auto;
+}
+
+
+.course-area {
+    border-radius : 15px;
+    background-color: rgb(225, 222, 230);
+    /* rgb(204, 201, 210) */
+    padding : 1.2cm 12%;
+}
+
+
+/* -- css for add course button and form-- */
+
+#add-courses-modal-button {
+    display: flex;
+    background-color: var(--w-yellow);
+    border: none;
+    border-radius: 10px;
+    padding: 0.2cm 3%;
+    align-items: center;
+}
+
+#add-courses-modal-button:hover {
+    background-color: var(--w-dark-orange);
+}
+
+.add-course-container img {
+    height: 12px;
+    width: 12px;
+    margin-right: 5px;
+}
+#add-course-modal {
+    border: 0px;
+    border-radius: 15px;
+    background-color: whitesmoke;
+    height: 7cm;
+    width : 14cm;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    backdrop-filter: blur;
+    overflow: hidden;
+}
+
+#add-course-modal-form {
+    padding:0.4cm 1cm 1cm 1cm;
+    display : flex;
+
+}
+
+.modal-top-line img {
+    height: 0.4cm;
+    width: 0.4cm;
+
+}
+
+.modal-close-button {
+    border: 0;
+    background-color: whitesmoke;
+    position: fixed;
+    right: 1cm;
+    top: 1cm;
+}
+
+.modal-close-button:focus {
+    outline: none;
+}
+
+.modal-title {
+    margin-left: 1cm;
+    margin-top: 1cm;
+    margin-bottom: 0.7cm;
+    font-size: 14pt;
+}
+
+.modal-block {
+    display : block;
+    margin-right : 0.4cm;
+}
+
+.modal-block input, .modal-block label {
+    display:block;
+    font-size: 14pt;
+}
+
+.modal-block input, .modal-block select, .modal-block option {
+    height : 1cm;
+    border:0px;
+    padding:0.2cm;
+    border-radius: 5px;
+        font-size: 14pt;
+
+}
+
+.modal-block input:focus, .modal-block select:focus {
+    outline : 1px solid var(--w-yellow);
+}
+
+.modal-block label {
+    margin-bottom: 0.4cm;
+}
+
+
+.modal-add-button {
+    height: 1cm;
+    width: 2cm;
+    font-size: 12pt;
+    background-color: var(--w-purple-grey);
+    border: 0px;
+    border-radius: 5px;
+    position: fixed;
+    right: 1.2cm;
+    bottom: 1cm;
+}
+
+.modal-add-button:hover {
+    background-color : rgb(195, 182, 218);
+}
+
+.filter-by-line {
+    display : flex;
+    padding-top : 1cm;
+    padding-right : 0.5cm;
+    padding-left : 0.5cm;
+    gap : 5%;
+    font-size : 14pt;
+    align-items : center;
+    margin-bottom : 1cm;
+}
+
+.disappear {
+    display : none;
+}
+
+
+.present-div, .future-div, .past-div {
+    display : flex;
+    align-items : center;
+    border-radius : 50px;
+    background-color : grey;
+    display : flex;
+    height : 0.9cm;
+    box-shadow : 5px 5px 10px 0px var(--w-purple-grey);
+}
+
+.filter-p {
+    align-self: center;
+}
+
+
+.filter-checkbox-label {
+    display : flex;
+    border-radius : 50px;
+    padding : 0.05cm 1cm;
+    height : 100%;
+    background-color: var(--w-yellow);
+    
+}
+
+.filter-checkbox-div {
+    background-color : white;
+    display : flex;
+    justify-content : center;
+}
+
+.filter-checkbox:checked ~ .filter-checkbox-label {
+    background-color : var(--w-orange);
+}
+
+.sub-course-area {
+    border-radius : 15px;
+    background-color: rgb(225, 222, 230);
+    display : grid;
+    grid-template-columns : 1fr 1fr;
+    grid-template-rows : auto;
+    grid-auto-flow : row;
+    justify-items : center;
+    align-items : center;
+    row-gap : 1cm;
+    overflow : auto;
+
+}
+
+.course-info-text {
+    margin-top : 0.2cm;
+    margin-bottom : 4%;
+    margin-left: 0.2cm;
+    margin-right: 0.2cm;
+    border : 0px solid black;
+    color : grey;
+}
+
+.course-info-text:hover {
+    color : var(--w-orange);
+}
+
+.course-info-text:hover:hover > .course-name {
+    color : var(--w-orange);
+}
+.course {
+    display : flex;
+    flex-direction : column;
+    background-color: whitesmoke;
+    justify-content : flex-end;
+    border-radius : 15px;
+    height : 2in;
+    width : 2.5in;
+    padding : 0.2cm 0cm;
+    overflow : none;
+
+}
+
+.course-image {
+    border : black solid  0px;
+    display : flex;
+    min-height : 0;
+    flex-grow : 1;
+    margin-right : 0.2cm;
+    margin-left : 0.2cm;
+    border-top-left-radius : 15px;
+    border-top-right-radius : 15px;
+    background-size : cover;
+
+}
+
+.course-name {
+    font-size : 12pt;
+}
+.course-code {
+    font-size : 14pt;
+    color : black;
+}
+
+.course-section {
+    font-size : 12pt;
+}
+
+.deadline-title {
+    font-size : 18pt;
+    margin-left : 0.5cm;
+    margin-bottom : 0.5cm;
+    margin-top : 0.5cm;
+    
+}
+
+.deadlines-container {
+    border-radius: 15px;
+    background-color : rgb(225, 222, 230);
+    margin-top : 0.4cm;
+    padding : 0.2cm 12%;
+}
+
+.deadlines-list {
+    display : flex;
+    gap : 5%;
+    margin-left : 0.5cm;
+}
+
+.deadline-item {
+    border-radius : 20px;
+    background-color: var(--w-yellow);
+    padding : 0.2cm 0.7cm;
+    margin-bottom : 0.5cm;
+}
+
+.deadline-item:has(.deadline-item-anchor:hover)  {
+    background-color: var(--w-orange);
+}
+
+.sub-main-right {
+    display : flex;
+    flex-direction: column;
+    width : 25%;
+    height:85vh;
+    overflow-y: clip;
+    padding-top : 0;
+    padding-left : 0.5cm;
+    padding-right : 0.5cm;
+    border-radius : 15px;
+    margin-right : 0.2cm;
+}
+
+/*Calendar*/
+.calend-card{
+    /*
+  background: var(--w-purple-grey);
+  */
+   background: linear-gradient(301deg, rgba(49,0,71,1) 0%, rgba(49,0,71,1) 25%, rgba(50,0,71,1) 35%,rgba(71,0,71,1) 80%);
+
+  border-radius: var(--radius);
+  padding: 0.5cm 0.6cm;
+  margin: 0;
+  border: 0;
+  flex-grow : 1;
+}
+
+
+/*Averages*/
+.averages-container {
+    display: flex;
+    justify-content: center;
+    margin-top : 0.4cm;
+    margin-bottom : 0;
+    height : 50%;
+   
+}
+
+.averages-bars-container {
+     background: rgba(255,255,255,0.12);
+     border-radius: 15px;
+     padding : 0.3cm 0.4cm 0.1cm 0.4cm;
+
+}
+.average-card {
+    background: linear-gradient(301deg, rgba(49,0,71,1) 0%, rgba(49,0,71,1) 25%, rgba(50,0,71,1) 35%,rgba(71,0,71,1) 80%);
+    border-radius: 15px;
+    padding: 30px;
+    flex-grow: 1;
+
+}
+
+.averages-title {
+    font-size: 14pt;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.courseRow {
+    margin-bottom: 16px;
+}
+
+.courseLabel {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12pt;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.barBackground {
+    background-color: whitesmoke;
+    border-radius: 20px;
+    height: 16px;
+    width: 100%;
+}
+
+.barFill {
+    height: 16px;
+    border-radius: 20px;
+    background-color: var(--w-yellow);
+    transition: width 0.5s ease;
+    min-width: 5%;
+}
+
+
+
+.overall {
+    text-align: center;
+    font-size: 14pt;
+    letter-spacing: 1px;
+}
+
+.overallNumber {
+    font-size: 14pt;
+}
