@@ -67,6 +67,12 @@ ACCESSING THE DATABASE:\
 Other account information is available in the MySQL database. This is also started up when the docker-compose.yml file is built. To view the database, phpmyadmin runs on port 8081 and can be accessed at the following link:\
 http://localhost:8081/
 
+To stop the project:
+* Kill the program: CTRL + C
+* Run the following command:
+  ```
+  docker compose down -v
+  ```
 
 ### Screenshots - for students:
 #### Student sign-in ↓ 
