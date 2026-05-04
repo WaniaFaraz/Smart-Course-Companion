@@ -6,7 +6,8 @@
 -- Generation Time: Apr 06, 2026 at 04:38 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
-
+SET GLOBAL restrict_fk_on_non_standard_key = OFF;
+SET SESSION restrict_fk_on_non_standard_key = OFF;
 SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -37,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `announcements` (
   `courseId` int(11) NOT NULL,
   `title` varchar(70) NOT NULL,
   `message` text NOT NULL,
-  `dateCreated` date NOT NULL DEFAULT current_timestamp(),
+  `dateCreated` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`announcementId`),
   KEY `courseId` (`courseId`),
   KEY `instructorId` (`instructorId`,`courseId`)
