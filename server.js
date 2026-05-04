@@ -12,7 +12,7 @@
 //==============================================================================================================
 
 //imports and variables
-require('.dotenv').config;
+require('dotenv').config();
 const express = require("express");
 const { createServer } = require("node:http");
 const app = express();
