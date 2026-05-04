@@ -26,8 +26,6 @@ app.use((req, res, next) => {
         + "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; " +
             "font-src 'self' https://fonts.gstatic.com;" //so that google fonts works
     );
-
-
     
     next();
 });
