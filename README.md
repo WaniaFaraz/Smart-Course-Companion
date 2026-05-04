@@ -52,6 +52,10 @@
 docker compose up --build
 ```
 #### Note that the docker-compose file takes certain variables from a .env file. The .env.example file contains those variables. Make sure to change the name of that file to .env before running the command. Certain variables in that file can be changed but it is not necessary.
+You can create the file using the following command:
+```
+cp .env.example .env
+```
 #### Accessing the website:
 The Smart Course Companion runs on port 8080. You will have to sign in. The sign in page can be accessed at the following URLs:
 
