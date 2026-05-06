@@ -45,9 +45,39 @@ app.use(session({
 // static files
 app.use(express.static('public'));
 
-//all routes -- leads to routes file
-app.use("/student", require("./routes/student.routes"));
-app.use("/instructor", require("./routes/instructor.routes"));
+//validation for instructors and students
+const isInstructor = (request, response, next) => {
+    if(request.session.userType === "instructor") {
+        next();
+    }
+    else {
+        response.status(403).send("Access Denied.");
+    }
+}
+
+const isStudent = (request, response, next) => {
+    if(request.session.userType === "student") {
+        next();
+    }
+    else {
+        response.status(403).send("Access Denied");
+    }
+}
+
+//INSTRUCTOR SIGN-IN
+app.get("/instructor/sign-in", (request, response) => {
+    response.sendFile(dir + "/html/instructor_sign_in.html");
+})
+//STUDENT SIGN IN
+app.get("/student/sign-in", (request, response) => {
+    response.sendFile(dir + "/html/sign_in.html");
+})
+
+//all other routes -- leads to routes file
+app.use("/student", isStudent, require("./routes/student.routes"));
+app.use("/instructor", isInstructor, require("./routes/instructor.routes"));
+
+
 
 //leads to controller files
 app.use("/api/student", require("./controllers/student.controller"));

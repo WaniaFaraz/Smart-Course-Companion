@@ -7,10 +7,7 @@ const router = express.Router();
 const dir = __dirname.slice(0,-7);
 
 //INSTRUCTOR ROUTES : all urls starting with "/instructor"
-//INSTRUCTOR SIGN-IN
-router.get("/sign-in", (request, response) => {
-    response.sendFile(dir + "/html/instructor_sign_in.html");
-})
+
 //INSTRUCTOR CREATE ACCOUNT
 router.get("/create-account", (request, response) => {
     response.sendFile(dir + "/html/sign_up.html");
