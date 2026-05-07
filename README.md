@@ -47,19 +47,20 @@
 - Data persistence: MySQL Database
 
 ### Running the project
-#### This repository includes a docker-compose.yml file. If docker is already installed on the computer, run docker using the following command:
+#### This repository includes a docker-compose.yml file, which requires Docker to run. If Docker is already installed on the computer, run docker using the following command:
 ```
 run docker
-```
-#### Then, run this command in the terminal at the directory location of the project folder:
-```
-docker compose up --build
 ```
 #### Note that the docker-compose file takes certain variables from a .env file. The .env.example file contains those variables. Make sure to change the name of that file to .env before running the command. Certain variables in that file can be changed but it is not necessary.
 You can create the file using the following command:
 ```
 cp .env.example .env
 ```
+#### Then, run this command in the terminal at the directory location of the project folder:
+```
+docker compose up --build
+```
+Now you can access the website and the database, as well as phpmyadmin (to easily view and/or modify the database. Be careful modifying the database, as it might affect the functionality of the website)
 #### Accessing the website:
 The Smart Course Companion runs on port 8080. You will have to sign in. The sign in page can be accessed at the following URLs:
 
