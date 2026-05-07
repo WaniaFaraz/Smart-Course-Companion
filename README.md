@@ -47,7 +47,11 @@
 - Data persistence: MySQL Database
 
 ### Running the project
-#### This repository includes a docker-compose.yml file. If docker is already installed on the computer, run this command in the terminal at the directory location of the project folder:
+#### This repository includes a docker-compose.yml file. If docker is already installed on the computer, run docker using the following command:
+```
+run docker
+```
+#### Then, run this command in the terminal at the directory location of the project folder:
 ```
 docker compose up --build
 ```
